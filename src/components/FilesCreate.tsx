@@ -24,8 +24,9 @@ const schema = yup.object().shape({
     })
 })
 
-let mongoid = ""
 let checkExist = false
+let mongoid = ""
+let checkSize = false
 
 const FileSaveButton = (props: any) => {
   const [open, setOpen] = React.useState(false);
@@ -40,8 +41,7 @@ const FileSaveButton = (props: any) => {
     return new Promise((resolve, reject) => {
       notify(`Checking file`, { type: 'info' });
       const checkurl = `http://localhost:3000/fileserver/api/files/check`
-      if(!file){
-        
+      if (!file) {
         return
       }
       const checkparams = {
@@ -54,13 +54,16 @@ const FileSaveButton = (props: any) => {
       fetch(checkurl, checkparams)
         .then(response => response.json())
         .then((data) => {
-          if (data.existCheck === true) {
+          checkSize = (data.totalSize + file.rawFile.size > 2 * 1024 * 1024 * 1024)
+          if (checkSize === true){
+            notify(`size over`, { type: 'error' })
+            resolve("")
+          }
+          else if (data.existCheck === true && checkSize === false) {
             mongoid = data.id
-            console.log(mongoid)
             checkExist = data.existCheck
             setOpen(true);
             resolve("")
-            console.log("inCheckExist:" + checkExist)
           } else {
             checkExist = false
             setOpen(false)
@@ -77,8 +80,7 @@ const FileSaveButton = (props: any) => {
         disabled={!(file && !isButton)}
         onClick={() => {
           CheckExist().then(() => {
-            console.log("inOnClick:" + checkExist)
-            if (checkExist === false) {
+            if (checkExist === false && checkSize === false) {
               setButton(true)
               notify(`Uploading file`, { type: 'info' })
               dataProvider.create('files', { "data": { "file": file } }).then(() => {
@@ -87,6 +89,7 @@ const FileSaveButton = (props: any) => {
                 navigate('/files')
               })
             }
+            setButton(false)
           })
         }}
       >upload</Button>
