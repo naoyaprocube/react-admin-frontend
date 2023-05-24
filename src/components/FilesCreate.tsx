@@ -44,6 +44,12 @@ const FileSaveButton = (props: any) => {
       if (!file) {
         return
       }
+      if (file.rawFile.size > 500 * 1024 * 1024){
+        notify(`file size over 500MB`, { type: 'error' })
+        checkSize = true
+        resolve("")
+        return
+      }
       const checkparams = {
         method: "POST",
         headers: {
@@ -56,7 +62,7 @@ const FileSaveButton = (props: any) => {
         .then((data) => {
           checkSize = (data.totalSize + file.rawFile.size > 2 * 1024 * 1024 * 1024)
           if (checkSize === true){
-            notify(`size over`, { type: 'error' })
+            notify(`total size over 2GB`, { type: 'error' })
             resolve("")
           }
           else if (data.existCheck === true && checkSize === false) {
