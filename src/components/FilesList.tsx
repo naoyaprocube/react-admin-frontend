@@ -41,7 +41,7 @@ const DownloadButton = () => {
       .then(function (response) {
         notify(`Downloading file`, { type: 'info' });
         console.log(response)
-        const filename = response.headers.get('Content-Disposition').split('=')[1];
+        const filename = decodeURIComponent(response.headers.get('Content-Disposition').split('=')[1]);
         response.blob().then(blob => download(blob, filename))
       })
   }}></Button>;

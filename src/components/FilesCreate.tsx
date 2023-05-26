@@ -40,16 +40,18 @@ const FileSaveButton = (props: any) => {
   const CheckExist = () => {
     return new Promise((resolve, reject) => {
       notify(`Checking file`, { type: 'info' });
-      const checkurl = `http://localhost:3000/fileserver/api/files/check`
+      
       if (!file) {
         return
       }
-      if (file.rawFile.size > 500 * 1024 * 1024){
-        notify(`file size over 500MB`, { type: 'error' })
+      if (file.rawFile.size > 1024 * 1024 * 1024){
+        notify(`File size over 1GB`, { type: 'error' })
         checkSize = true
         resolve("")
         return
       }
+      
+      const checkurl = `http://localhost:3000/fileserver/api/files/check`
       const checkparams = {
         method: "POST",
         headers: {
@@ -60,9 +62,10 @@ const FileSaveButton = (props: any) => {
       fetch(checkurl, checkparams)
         .then(response => response.json())
         .then((data) => {
+          console.log("storeSize:" + data.totalSize)
           checkSize = (data.totalSize + file.rawFile.size > 2 * 1024 * 1024 * 1024)
           if (checkSize === true){
-            notify(`total size over 2GB`, { type: 'error' })
+            notify(`Total file size over 2GB`, { type: 'error' })
             resolve("")
           }
           else if (data.existCheck === true && checkSize === false) {
