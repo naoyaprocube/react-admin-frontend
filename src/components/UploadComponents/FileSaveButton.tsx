@@ -1,28 +1,13 @@
 import React from 'react';
 import {
-  Create,
-  SimpleForm,
-  SaveButton,
-  FileField,
-  FileInput,
-  Toolbar,
   useNotify,
   Confirm,
   useDataProvider,
 } from 'react-admin';
 import { useWatch } from 'react-hook-form';
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@mui/material/Button';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useNavigate } from "react-router-dom";
-
-const schema = yup.object().shape({
-  file: yup.mixed().required("You need to provide a file")
-    .test("fileSize", "The file is too large", (value: any) => {
-      return value && value.rawFile.size <= 1024 * 1024 * 1024;
-    })
-})
 
 let checkExist = false
 let mongoid = ""
@@ -40,45 +25,34 @@ const FileSaveButton = (props: any) => {
   const CheckExist = () => {
     return new Promise((resolve, reject) => {
       notify(`Checking file`, { type: 'info' });
-      
       if (!file) {
         return
       }
-      if (file.rawFile.size > 1024 * 1024 * 1024){
+      if (file.rawFile.size > 1024 * 1024 * 1024) {
         notify(`File size over 1GB`, { type: 'error' })
         checkSize = true
         resolve("")
         return
       }
-      
-      const checkurl = `http://localhost:3000/fileserver/api/files/check`
-      const checkparams = {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ "filename": file.title })
-      };
-      fetch(checkurl, checkparams)
-        .then(response => response.json())
-        .then((data) => {
-          console.log("storeSize:" + data.totalSize)
-          checkSize = (data.totalSize + file.rawFile.size > 2 * 1024 * 1024 * 1024)
-          if (checkSize === true){
-            notify(`Total file size over 2GB`, { type: 'error' })
-            resolve("")
-          }
-          else if (data.existCheck === true && checkSize === false) {
-            mongoid = data.id
-            checkExist = data.existCheck
-            setOpen(true);
-            resolve("")
-          } else {
-            checkExist = false
-            setOpen(false)
-            resolve("")
-          };
-        })
+      dataProvider.check('files', file).then((response: any) => {
+        return response.json()
+      }).then((data: any) => {
+        checkSize = (data.totalSize + file.rawFile.size > 1024 * 1024 * 1024 * 1024)
+        if (checkSize === true) {
+          notify(`Total file size over 2GB` + `Already filled ` + data.totalSize, { type: 'error' })
+          resolve("")
+        }
+        else if (data.existCheck === true && checkSize === false) {
+          mongoid = data.id
+          checkExist = data.existCheck
+          setOpen(true);
+          resolve("")
+        } else {
+          checkExist = false
+          setOpen(false)
+          resolve("")
+        };
+      })
     })
   };
   return (
@@ -98,7 +72,6 @@ const FileSaveButton = (props: any) => {
                 navigate('/files')
               })
             }
-            setButton(false)
           })
         }}
       >upload</Button>
@@ -110,8 +83,12 @@ const FileSaveButton = (props: any) => {
           setButton(true)
           notify(`Uploading file`, { type: 'info' })
           setOpen(false)
-          dataProvider.delete('files', { "id": mongoid })
-          dataProvider.create('files', { "data": { "file": file } }).then(() => {
+          dataProvider.recreate('files', {
+            "id": mongoid ,
+            "data": { "file": file } 
+          }).then(() => {
+          // dataProvider.delete('files', { "id": mongoid })
+          // dataProvider.create('files', { "data": { "file": file } }).then(() => {
             notify(`Uploaded`, { type: 'success' })
             navigate('/files')
           })
@@ -122,22 +99,5 @@ const FileSaveButton = (props: any) => {
     </>
   );
 };
-const FileToolbar = () => (
-  <Toolbar sx={{ flexDirection: 'row-reverse' }}>
-    <FileSaveButton />
-  </Toolbar>
-);
 
-const FilesCreate = (props: any) => {
-  return (
-    <Create {...props} redirect='/files' title="Upload File">
-      <SimpleForm resolver={yupResolver(schema)} toolbar={<FileToolbar />}>
-        <FileInput source="file">
-          <FileField source="src" title="title" />
-        </FileInput>
-      </SimpleForm>
-    </Create>
-  );
-};
-
-export default FilesCreate;
+export default FileSaveButton;
