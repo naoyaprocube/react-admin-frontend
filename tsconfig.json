@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "allowImportingTsExtensions": true,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "outDir": "./frontend",
+    "rootDir": ".",
+    "composite": true
   },
   "include": [
     "src"

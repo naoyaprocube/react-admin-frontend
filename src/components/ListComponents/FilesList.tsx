@@ -1,4 +1,4 @@
-import React from 'react';
+
 import {
   List,
   Datagrid,
@@ -14,7 +14,6 @@ import {
 import Button from '@mui/material/Button';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import Box from '@mui/material/Box';
-import FileShow from './FileShow';
 
 const DownloadButton = () => {
   const record = useRecordContext();

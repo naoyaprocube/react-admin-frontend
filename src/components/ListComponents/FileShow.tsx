@@ -4,7 +4,6 @@ import {
     Datagrid,
     Show,
     SimpleShowLayout,
-    SingleFieldList,
     TextField,
 } from 'react-admin';
 

@@ -1,7 +1,16 @@
 import { fetchUtils } from 'react-admin';
 import { stringify } from 'query-string';
-const apiUrl = 'http://localhost:3000/fileserver/api';
-const httpClient = fetchUtils.fetchJson;
+const apiUrl = 'http://localhost:4200/fileserver/api';
+// const httpClient = fetchUtils.fetchJson;
+const httpClient = (url:string, options:any = {}) => {
+  if (!options.headers) {
+      options.headers = new Headers({
+        Accept: 'application/json'
+      });
+  }
+  options.credentials = 'include';
+  return fetchUtils.fetchJson(url, options);
+}
 
 const dataProvider = {
   getList: (resource: any, params: any) => {
@@ -109,12 +118,17 @@ const myDataProvider = {
       // fallback to the default implementation
       return dataProvider.create(resource, params);
     }
-
+    function encodeUTF8(str:any) {
+      const encoder = new TextEncoder();
+      return encoder.encode(str);
+    }
+    const filename = encodeUTF8(params.data.file.title).toString()
     let formData = new FormData();
     formData.append('file', params.data.file.rawFile);
     // console.log(formData)
     return httpClient(`${apiUrl}/${resource}`, {
       method: 'POST',
+      headers: new Headers({'content-filename': filename}),
       body: formData,
     }).then(({ json }) => ({
       data: { ...params.data, id: params.data.file.title },
@@ -136,8 +150,14 @@ const myDataProvider = {
       document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
     }
+    function decodeUTF8(buffer:any) {
+      const decoder = new TextDecoder();
+      return decoder.decode(buffer);
+    }
     return fetch(`${apiUrl}/${resource}/${params.id}/download`).then((response) => {
-      const filename = decodeURIComponent(response.headers.get('Content-Disposition').split('=')[1]);
+      const UTF8encodedArray = new Uint8Array(response.headers.get('Content-Filename').split(',').map(x=>Number(x)))
+      const filename = decodeUTF8(UTF8encodedArray);
+      console.log(filename)
       response.blob().then(blob => download(blob, filename))
     })
   },

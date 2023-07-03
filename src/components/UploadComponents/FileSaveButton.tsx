@@ -28,7 +28,7 @@ const FileSaveButton = (props: any) => {
       if (!file) {
         return
       }
-      if (file.rawFile.size > 1024 * 1024 * 1024) {
+      if (file.rawFile.size > 1024 * 1024 * 1024 * 1024) {
         notify(`File size over 1GB`, { type: 'error' })
         checkSize = true
         resolve("")
