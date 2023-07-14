@@ -65,10 +65,10 @@ const FileSaveButton = (props: any) => {
           CheckExist().then(() => {
             if (checkExist === false && checkSize === false) {
               setButton(true)
-              notify(`Uploading file`, { type: 'info' })
+              notify(`Uploading file`, { type: 'info', autoHideDuration: 60000  })
               dataProvider.create('files', { "data": { "file": file } }).then(() => {
                 setOpen(false)
-                notify(`Uploaded`, { type: 'success' })
+                notify(`Uploaded`, { type: 'success'})
                 navigate('/files')
               })
             }

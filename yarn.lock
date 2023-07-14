@@ -1084,6 +1084,13 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@bicstone/ra-language-japanese@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.npmjs.org/@bicstone/ra-language-japanese/-/ra-language-japanese-4.7.1.tgz"
+  integrity sha512-GCHGccLGYnRZX3eyMciZLRFSn1R3pgJwq4aF5vDYa0+jfc+c5kdIa7Vcdkt0Zdn/GZ7HmbF7HUtOBnpbksH19g==
+  dependencies:
+    ra-core ">=4.0.0-alpha.2"
+
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
   resolved "https://registry.npmjs.org/@cspotcode/source-map-support/-/source-map-support-0.8.1.tgz"
@@ -7887,10 +7894,10 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-ra-core@^4.0.0, ra-core@^4.10.5:
-  version "4.10.5"
-  resolved "https://registry.npmjs.org/ra-core/-/ra-core-4.10.5.tgz"
-  integrity sha512-U1nfEks4VbjwJtUpfn2ogrNc/+X1vd3ps3tSuFxrEouV+sAyAKazSwPr5B6dwmSo8zLtfVU/rKJghQmpX2jVhw==
+ra-core@^4.0.0, ra-core@^4.10.5, ra-core@^4.12.1, ra-core@>=4.0.0-alpha.2:
+  version "4.12.1"
+  resolved "https://registry.npmjs.org/ra-core/-/ra-core-4.12.1.tgz"
+  integrity sha512-7REs2xZaZT3puxjEhTTmHVdXispzQfaNrM1M/HSy9iD+ZAM0c6No/yJOZ2UTYGZea/L2IQ5AB6wsNxmNgOd6Ng==
   dependencies:
     clsx "^1.1.1"
     date-fns "^2.19.0"
@@ -7911,12 +7918,12 @@ ra-i18n-polyglot@^4.10.5:
     node-polyglot "^2.2.2"
     ra-core "^4.10.5"
 
-ra-language-english@^4.10.5:
-  version "4.10.5"
-  resolved "https://registry.npmjs.org/ra-language-english/-/ra-language-english-4.10.5.tgz"
-  integrity sha512-+K2KVhb3wYQf+IEA6haOiThpfG2JDm0VCc2vYcHcGo0jI9BzVDxQWBPkdGF4vnD5gyT5JAdZXQb2Q6mkfiN69Q==
+ra-language-english@^4.10.5, ra-language-english@^4.12.1:
+  version "4.12.1"
+  resolved "https://registry.npmjs.org/ra-language-english/-/ra-language-english-4.12.1.tgz"
+  integrity sha512-Xsqt4eL2/SQehBMPw4MNAAL1zOQN0j7xSYxVr+f07PY/9wqHgnkmg8qGd3wGL03/os6om5cShQLmih+fryuK6A==
   dependencies:
-    ra-core "^4.10.5"
+    ra-core "^4.12.1"
 
 ra-ui-materialui@^4.10.5:
   version "4.10.5"
@@ -8055,7 +8062,7 @@ react-error-overlay@^6.0.11:
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.11.tgz"
   integrity sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==
 
-react-hook-form@*, react-hook-form@^7.0.0, react-hook-form@^7.40.0:
+react-hook-form@*, react-hook-form@^7.0.0, react-hook-form@^7.40.0, react-hook-form@^7.43.9:
   version "7.43.9"
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.43.9.tgz"
   integrity sha512-AUDN3Pz2NSeoxQ7Hs6OhQhDr6gtF9YRuutGDwPQqhSUAHJSgGl2VeY3qN19MG0SucpjgDiuMJ4iC5T5uB+eaNQ==

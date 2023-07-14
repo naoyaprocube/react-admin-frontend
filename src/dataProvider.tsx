@@ -1,6 +1,6 @@
 import { fetchUtils } from 'react-admin';
 import { stringify } from 'query-string';
-const apiUrl = 'http://localhost:4200/fileserver/api';
+const apiUrl = 'http://localhost:3000/fileserver/api';
 // const httpClient = fetchUtils.fetchJson;
 const httpClient = (url:string, options:any = {}) => {
   if (!options.headers) {
@@ -11,14 +11,14 @@ const httpClient = (url:string, options:any = {}) => {
   options.credentials = 'include';
   return fetchUtils.fetchJson(url, options);
 }
-
 const dataProvider = {
   getList: (resource: any, params: any) => {
     const { page, perPage } = params.pagination;
     const { field, order } = params.sort;
     const query = {
       sort: JSON.stringify([field, order]),
-      range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
+      page: JSON.stringify(page),
+      perpage: JSON.stringify(perPage),
       filter: JSON.stringify(params.filter),
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
@@ -26,7 +26,7 @@ const dataProvider = {
     return httpClient(url).then(({ headers, json }) => ({
       data: json.map((resource: any) => ({ ...resource, id: resource._id })),
       // total: 10
-      total: Number(headers.get('Content-Range').split('/').pop())
+      total: Number(headers.get('Content-Range'))
     }));
   },
 
@@ -68,7 +68,7 @@ const dataProvider = {
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: 'PUT',
       body: JSON.stringify(params.data),
-    }).then(({ json }) => ({ ...json, id: json._id })),
+    }).then(({ json }) => ({data:{ ...json.data, id: json.data._id }})),
 
   updateMany: (resource: any, params: any) => {
     const query = {
@@ -101,13 +101,14 @@ const dataProvider = {
     })),
 
   deleteMany: (resource: any, params: any) => {
+    console.log(params)
     const query = {
       filter: JSON.stringify({ id: params.ids }),
     };
     return httpClient(`${apiUrl}/${resource}?${stringify(query)}`, {
       method: 'DELETE',
-      body: JSON.stringify(params.data),
-    }).then(({ json }) => ({ data: json }));
+      body: JSON.stringify(params.ids),
+    }).then(({ json }) => json);
   },
 };
 
@@ -154,7 +155,7 @@ const myDataProvider = {
       const decoder = new TextDecoder();
       return decoder.decode(buffer);
     }
-    return fetch(`${apiUrl}/${resource}/${params.id}/download`).then((response) => {
+    return fetch(`${apiUrl}/${resource}/${params.id}/download`, { credentials: 'include' }).then((response) => {
       const UTF8encodedArray = new Uint8Array(response.headers.get('Content-Filename').split(',').map(x=>Number(x)))
       const filename = decodeUTF8(UTF8encodedArray);
       console.log(filename)
@@ -163,14 +164,14 @@ const myDataProvider = {
   },
 
   check: (resource: any, params: any) => {
-    const checkparams = {
+    return fetch(`${apiUrl}/${resource}/check`, {
       method: "POST",
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ "filename": params.title })
-    };
-    return fetch(`${apiUrl}/${resource}/check`, checkparams)
+    })
   },
 
   recreate: (resource: any, params: any) => {
