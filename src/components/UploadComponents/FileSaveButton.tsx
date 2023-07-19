@@ -3,33 +3,52 @@ import {
   useNotify,
   Confirm,
   useDataProvider,
+  useTranslate
 } from 'react-admin';
 import { useWatch } from 'react-hook-form';
 import Button from '@mui/material/Button';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useNavigate } from "react-router-dom";
+import { humanFileSize } from '../utils'
 
 let checkExist = false
 let mongoid = ""
 let checkSize = false
 
+
 const FileSaveButton = (props: any) => {
   const [open, setOpen] = React.useState(false);
   const [isButton, setButton] = React.useState(false);
+  const [isUploading, setUploading] = React.useState(false);
   const handleDialogClose = () => setOpen(false);
   const notify = useNotify();
   const file = useWatch({ name: 'file' });
   const dataProvider = useDataProvider();
   const navigate = useNavigate();
-
+  const translate = useTranslate();
+  React.useEffect(() => {
+    const handler = (event:any) => {
+      event.preventDefault();
+      event.returnValue = '';
+    };
+    if (isUploading) {
+      window.addEventListener('beforeunload', handler);
+      return () => {
+        window.removeEventListener('beforeunload', handler);
+      };
+    }
+    return () => {};
+  }, [isUploading]);
   const CheckExist = () => {
     return new Promise((resolve, reject) => {
-      notify(`Checking file`, { type: 'info' });
+      notify('file.check', { type: 'info' });
+      const sizeLimit = 1024 * 1024 * 1024 * 1024
+      const totalSizeLimit = 1024 * 1024 * 1024 * 1024
       if (!file) {
         return
       }
-      if (file.rawFile.size > 1024 * 1024 * 1024 * 1024) {
-        notify(`File size over 1GB`, { type: 'error' })
+      if (file.rawFile.size > sizeLimit) {
+        notify('file.sizeover', { type: 'error', messageArgs: { fileSize: humanFileSize(file.rawFile.size, false), sizeLimit: humanFileSize(sizeLimit, false) } })
         checkSize = true
         resolve("")
         return
@@ -37,9 +56,9 @@ const FileSaveButton = (props: any) => {
       dataProvider.check('files', file).then((response: any) => {
         return response.json()
       }).then((data: any) => {
-        checkSize = (data.totalSize + file.rawFile.size > 1024 * 1024 * 1024 * 1024)
+        checkSize = (data.totalSize + file.rawFile.size > totalSizeLimit)
         if (checkSize === true) {
-          notify(`Total file size over 2GB` + `Already filled ` + data.totalSize, { type: 'error' })
+          notify('file.totalSizeover', { type: 'error', messageArgs: { totalSize: humanFileSize(data.totalSize, false), totalSizeLimit: humanFileSize(totalSizeLimit, false) } })
           resolve("")
         }
         else if (data.existCheck === true && checkSize === false) {
@@ -65,31 +84,33 @@ const FileSaveButton = (props: any) => {
           CheckExist().then(() => {
             if (checkExist === false && checkSize === false) {
               setButton(true)
-              notify(`Uploading file`, { type: 'info', autoHideDuration: 60000  })
+              setUploading(true)
+              notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
               dataProvider.create('files', { "data": { "file": file } }).then(() => {
                 setOpen(false)
-                notify(`Uploaded`, { type: 'success'})
+                setUploading(false)
+                notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
                 navigate('/files')
               })
             }
           })
         }}
-      >upload</Button>
+      >{translate('ra.action.create')}</Button>
       <Confirm
         isOpen={open}
-        title={`This file already exists`}
-        content="A file with the same name already exists. Are you sure you want to update this file?"
+        title='file.alreadyExist.title'
+        content='file.alreadyExist.content'
         onConfirm={() => {
           setButton(true)
-          notify(`Uploading file`, { type: 'info' })
+          setUploading(true)
+          notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
           setOpen(false)
           dataProvider.recreate('files', {
-            "id": mongoid ,
-            "data": { "file": file } 
+            "id": mongoid,
+            "data": { "file": file }
           }).then(() => {
-          // dataProvider.delete('files', { "id": mongoid })
-          // dataProvider.create('files', { "data": { "file": file } }).then(() => {
-            notify(`Uploaded`, { type: 'success' })
+            setUploading(false)
+            notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
             navigate('/files')
           })
 

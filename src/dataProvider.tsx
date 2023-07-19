@@ -1,15 +1,20 @@
-import { fetchUtils } from 'react-admin';
+import { fetchUtils, HttpError } from 'react-admin';
 import { stringify } from 'query-string';
-const apiUrl = 'http://localhost:3000/fileserver/api';
+const apiUrl = '/fileserver/api';
 // const httpClient = fetchUtils.fetchJson;
-const httpClient = (url:string, options:any = {}) => {
+const httpClient = (url: string, options: any = {}) => {
   if (!options.headers) {
-      options.headers = new Headers({
-        Accept: 'application/json'
-      });
+    options.headers = new Headers({
+      Accept: 'application/json'
+    });
   }
   options.credentials = 'include';
-  return fetchUtils.fetchJson(url, options);
+  return fetchUtils.fetchJson(url, options).then((result:any) => {
+    if (result.status < 200 || result.status >= 300) {
+      return new HttpError( result.json.message ? result.json.message: result.body,result.status,result.body)
+    }
+    return result
+  });
 }
 const dataProvider = {
   getList: (resource: any, params: any) => {
@@ -24,16 +29,17 @@ const dataProvider = {
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
 
     return httpClient(url).then(({ headers, json }) => ({
-      data: json.map((resource: any) => ({ ...resource, id: resource._id })),
+      data: json.map((resource: any) => ({ ...resource, id: resource.filename })),
       // total: 10
       total: Number(headers.get('Content-Range'))
     }));
   },
 
-  getOne: (resource: any, params: any) =>
-    httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
-      data: { ...json, id: json._id }, //!
-    })),
+  getOne: (resource: any, params: any) => {
+    return httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
+      data: { ...json, id: json.filename }, //!
+    }))
+  },
 
   getMany: (resource: any, params: any) => {
     const query = {
@@ -41,7 +47,7 @@ const dataProvider = {
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
     return httpClient(url).then(({ json }) => ({
-      data: json.map((resource: any) => ({ ...resource, id: resource._id })),
+      data: json.map((resource: any) => ({ ...resource, id: resource.filename })),
     }));
   },
 
@@ -59,7 +65,7 @@ const dataProvider = {
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
 
     return httpClient(url).then(({ headers, json }) => ({
-      data: json.map((resource: any) => ({ ...resource, id: resource._id })),
+      data: json.map((resource: any) => ({ ...resource, id: resource.filename })),
       // total: parseInt(headers.get('content-range').split('/').pop(), 10),
     }));
   },
@@ -68,7 +74,7 @@ const dataProvider = {
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: 'PUT',
       body: JSON.stringify(params.data),
-    }).then(({ json }) => ({data:{ ...json.data, id: json.data._id }})),
+    }).then(({ json }) => ({ data: { ...json.data, id: json.data.filename } })),
 
   updateMany: (resource: any, params: any) => {
     const query = {
@@ -85,11 +91,8 @@ const dataProvider = {
       method: 'POST',
       body: JSON.stringify(params.data),
     }).then(({ json }) => ({
-      data: { ...params.data, id: json._id },
-    })).then((x) => {
-      console.log(x);
-      return x
-    }),
+      data: { ...params.data, id: json.filename },
+    })),
 
   delete: (resource: any, params: any) =>
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
@@ -97,11 +100,10 @@ const dataProvider = {
       body: JSON.stringify(params.id),
     }).then(({ json }) => ({
       ...json,
-      id: json._id,
+      id: json.filename,
     })),
 
   deleteMany: (resource: any, params: any) => {
-    console.log(params)
     const query = {
       filter: JSON.stringify({ id: params.ids }),
     };
@@ -112,31 +114,27 @@ const dataProvider = {
   },
 };
 
-const myDataProvider = {
+const FileProvider = {
   ...dataProvider,
   create: (resource: any, params: any) => {
     if (resource !== 'files') {
       // fallback to the default implementation
       return dataProvider.create(resource, params);
     }
-    function encodeUTF8(str:any) {
+    function encodeUTF8(str: any) {
       const encoder = new TextEncoder();
       return encoder.encode(str);
     }
     const filename = encodeUTF8(params.data.file.title).toString()
     let formData = new FormData();
     formData.append('file', params.data.file.rawFile);
-    // console.log(formData)
     return httpClient(`${apiUrl}/${resource}`, {
       method: 'POST',
-      headers: new Headers({'content-filename': filename}),
+      headers: new Headers({ 'content-filename': filename }),
       body: formData,
     }).then(({ json }) => ({
       data: { ...params.data, id: params.data.file.title },
-    })).then((x) => {
-      console.log(x);
-      return x
-    });
+    }));
   },
 
   download: (resource: any, params: any) => {
@@ -151,14 +149,13 @@ const myDataProvider = {
       document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
     }
-    function decodeUTF8(buffer:any) {
+    function decodeUTF8(buffer: any) {
       const decoder = new TextDecoder();
       return decoder.decode(buffer);
     }
     return fetch(`${apiUrl}/${resource}/${params.id}/download`, { credentials: 'include' }).then((response) => {
-      const UTF8encodedArray = new Uint8Array(response.headers.get('Content-Filename').split(',').map(x=>Number(x)))
+      const UTF8encodedArray = new Uint8Array(response.headers.get('Content-Filename').split(',').map(x => Number(x)))
       const filename = decodeUTF8(UTF8encodedArray);
-      console.log(filename)
       response.blob().then(blob => download(blob, filename))
     })
   },
@@ -177,13 +174,12 @@ const myDataProvider = {
   recreate: (resource: any, params: any) => {
     let formData = new FormData();
     formData.append('file', params.data.file.rawFile);
-    // console.log(formData)
     return httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: 'POST',
-      headers: new Headers({'content-disposition': params.id}),
+      headers: new Headers({ 'content-disposition': params.id }),
       body: formData,
     })
   },
 
 }
-export default myDataProvider;
+export default FileProvider;
