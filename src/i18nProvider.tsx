@@ -17,16 +17,20 @@ const english = {
         filename: 'File Name',
         length: 'Size',
         uploadDate: 'Upload Date',
+        metadata:{
+          status: 'Status',
+        },
         Type: 'Type',
         Date: 'Date',
         Protocol: 'Protocol',
-        fromName: 'From Name',
-        toName: 'To Name'
+        Info: 'Info',
+        fileType: 'ファイルタイプ'
       }
     }
   },
   file: {
     downloading: 'Downloading %{filename}',
+    uploadPageTitle: 'Upload File',
     uploading: 'Uploading %{filename}',
     uploading_confirm: 'Do you really want to leave?',
     uploaded: 'Uploaded',
@@ -36,7 +40,9 @@ const english = {
     alreadyExist: {
       title: 'This file already exists.',
       content: 'A file with the same filename already exists. Do you want to overwrite?'
-    }
+    },
+    info: 'Upload File Info',
+    statusCodeError: '%{code}: %{text}'
   }
 }
 
@@ -55,16 +61,20 @@ const japanese = {
         filename: 'ファイル名',
         length: 'サイズ',
         uploadDate: '最終更新日時',
+        metadata:{
+          status: '状態',
+        },
         Type: '更新種別',
         Date: '日時',
         Protocol: 'プロトコル',
-        fromName: '変更前ファイル名',
-        toName: '変更後ファイル名'
+        Info: '詳細',
+        fileType: 'ファイルタイプ'
       }
     }
   },
   file: {
     downloading: '%{filename}をダウンロード中',
+    uploadPageTitle: 'ファイルをアップロード',
     uploading: '%{filename}をアップロード中',
     uploading_confirm: '本当にページを離れますか？',
     uploaded: 'アップロード完了',
@@ -74,7 +84,9 @@ const japanese = {
     alreadyExist: {
       title: 'このファイルはすでに存在しています。',
       content: '同じファイル名のファイルがすでに存在します。上書きしますか？'
-    }
+    },
+    info: '選択したファイルの詳細',
+    statusCodeError: '%{code}: %{text}'
   }
 }
 

@@ -1,7 +1,7 @@
 import {
   useNotify,
   useRecordContext,
-  useDataProvider,
+  useDataProvider
 } from 'react-admin';
 import Button from '@mui/material/Button';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
@@ -13,7 +13,12 @@ const DownloadButton = () => {
   if (!record) return null;
   return <Button color="primary" sx={{ display: 'inline-flex' }} startIcon={< FileDownloadIcon />} onClick={() => {
     notify(`file.downloading`, { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: record.filename } })
-    dataProvider.download('files', { "id": record.id })
+    dataProvider.download('files', { "id": record.id }).then((response:any) => {
+      if (response.status < 200 || response.status >= 300) {
+        notify('file.statusCodeError', { type: 'error' , messageArgs:{code: response.status,text: response.statusText}})
+      }
+      return response
+    })
   }}></Button>;
 };
 const humanFileSize = (bytes: any, si = false, dp = 1) => {
@@ -33,4 +38,12 @@ const humanFileSize = (bytes: any, si = false, dp = 1) => {
   return bytes.toFixed(dp) + ' ' + units[u];
 }
 
-export { DownloadButton, humanFileSize }
+const estimatedUploadTime = (bytes:number, uploadSpeed:number = 32*1024*1024) => {
+  const time = Math.floor(bytes/uploadSpeed)
+  const sec = time % 60
+  const min = Math.floor(time/60) % 60
+  const hour = Math.floor(min/60)
+  return {sec,min,hour}
+}
+
+export { DownloadButton, humanFileSize, estimatedUploadTime }

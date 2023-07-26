@@ -7,7 +7,7 @@ import {
   TextField,
   TextInput,
 } from 'react-admin';
-
+import { blue } from '@mui/material/colors';
 const FileShow = (props: any) => {
   return (
     <Edit actions={false}>
@@ -15,12 +15,13 @@ const FileShow = (props: any) => {
         <TextInput source="filename" />
         <TextInput source="length" disabled />
         <ArrayField source="metadata.accessHistory" >
-          <Datagrid bulkActionButtons={false} sx={{ width: 1 }}>
+          <Datagrid bulkActionButtons={false} sx={{ width: 1, '& .RaDatagrid-headerCell': {
+          backgroundColor: blue[200],
+        },}}>
             <TextField source="Type" sortable={false} />
             <DateField source="Date" showTime locales="jp-JP" sortable={false} />
             <TextField source="Protocol" sortable={false} />
-            <TextField source="fromName" sortable={false} />
-            <TextField source="toName" sortable={false} />
+            <TextField source="Info" sortable={false} />
           </Datagrid>
         </ArrayField>
       </SimpleForm>

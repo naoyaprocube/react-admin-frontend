@@ -27,7 +27,7 @@ const dataProvider = {
       filter: JSON.stringify(params.filter),
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
-
+    
     return httpClient(url).then(({ headers, json }) => ({
       data: json.map((resource: any) => ({ ...resource, id: resource.filename })),
       // total: 10

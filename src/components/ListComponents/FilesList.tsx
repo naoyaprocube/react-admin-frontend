@@ -24,6 +24,7 @@ const FilesList = (props: any) => {
         <TextField source="filename" sortable={false} sx={{ flexGrow: 1 }} />
         <FunctionField source="length" sortable={true} sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />
         <DateField source="uploadDate" showTime locales="jp-JP" />
+        <TextField source="metadata.status" sortable={false} />
         <Box className="ActionButtons" sx={{ display: 'flex', alignSelf: 'flex-end' }}>
           <DownloadButton />
           <ShowButton label="" icon={<InfoOutlinedIcon />} />

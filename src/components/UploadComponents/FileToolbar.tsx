@@ -3,10 +3,11 @@ import {
   useNotify,
   Confirm,
   useDataProvider,
-  useTranslate
+  useTranslate,
+  Toolbar,
 } from 'react-admin';
 import { useWatch } from 'react-hook-form';
-import Button from '@mui/material/Button';
+import {Button, CircularProgress } from '@mui/material';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useNavigate } from "react-router-dom";
 import { humanFileSize } from '../utils'
@@ -16,7 +17,7 @@ let mongoid = ""
 let checkSize = false
 
 
-const FileSaveButton = (props: any) => {
+const FileToolbar = () => {
   const [open, setOpen] = React.useState(false);
   const [isButton, setButton] = React.useState(false);
   const [isUploading, setUploading] = React.useState(false);
@@ -54,6 +55,9 @@ const FileSaveButton = (props: any) => {
         return
       }
       dataProvider.check('files', file).then((response: any) => {
+        if (response.status < 200 || response.status >= 300) {
+          notify('file.statusCodeError', { type: 'error' , messageArgs:{code: response.status,text: response.statusText}})
+        }
         return response.json()
       }).then((data: any) => {
         checkSize = (data.totalSize + file.rawFile.size > totalSizeLimit)
@@ -75,9 +79,9 @@ const FileSaveButton = (props: any) => {
     })
   };
   return (
-    <>
+    <Toolbar sx={{ flexDirection: 'row-reverse' }}>
       <Button
-        startIcon={< FileUploadIcon />}
+        startIcon={!isUploading && < FileUploadIcon />}
         variant="contained"
         disabled={!(file && !isButton)}
         onClick={() => {
@@ -85,8 +89,11 @@ const FileSaveButton = (props: any) => {
             if (checkExist === false && checkSize === false) {
               setButton(true)
               setUploading(true)
-              notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
-              dataProvider.create('files', { "data": { "file": file } }).then(() => {
+              notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title }})
+              dataProvider.create('files', { "data": { "file": file } }).then((response:any) => {
+                if (response.status < 200 || response.status >= 300) {
+                  notify('file.statusCodeError', { type: 'error' , messageArgs:{code: response.status,text: response.statusText}})
+                }
                 setOpen(false)
                 setUploading(false)
                 notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
@@ -95,7 +102,7 @@ const FileSaveButton = (props: any) => {
             }
           })
         }}
-      >{translate('ra.action.create')}</Button>
+      >{translate('ra.action.create')}{isUploading && <CircularProgress size={20} color="inherit" sx={{ ml: 2 }}/>}</Button>
       <Confirm
         isOpen={open}
         title='file.alreadyExist.title'
@@ -108,7 +115,10 @@ const FileSaveButton = (props: any) => {
           dataProvider.recreate('files', {
             "id": mongoid,
             "data": { "file": file }
-          }).then(() => {
+          }).then((response:any) => {
+            if (response.status < 200 || response.status >= 300) {
+              notify('file.statusCodeError', { type: 'error' , messageArgs:{code: response.status,text: response.statusText}})
+            }
             setUploading(false)
             notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
             navigate('/files')
@@ -117,8 +127,8 @@ const FileSaveButton = (props: any) => {
         }}
         onClose={handleDialogClose}
       />
-    </>
+    </Toolbar>
   );
 };
 
-export default FileSaveButton;
+export default FileToolbar;
