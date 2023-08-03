@@ -1,6 +1,6 @@
 import { fetchUtils, HttpError } from 'react-admin';
 import { stringify } from 'query-string';
-const apiUrl = '/fileserver/api';
+const apiUrl = '/api';
 // const httpClient = fetchUtils.fetchJson;
 const httpClient = (url: string, options: any = {}) => {
   if (!options.headers) {
@@ -119,7 +119,7 @@ const dataProvider = {
 const FileProvider = {
   ...dataProvider,
   create: (resource: any, params: any) => {
-    if (resource !== 'files') {
+    if (resource !== 'root') {
       // fallback to the default implementation
       return dataProvider.create(resource, params);
     }

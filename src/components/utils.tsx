@@ -13,7 +13,7 @@ const DownloadButton = () => {
   if (!record) return null;
   return <Button color="primary" sx={{ display: 'inline-flex' }} startIcon={< FileDownloadIcon />} onClick={() => {
     notify(`file.downloading`, { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: record.filename } })
-    dataProvider.download('files', { "id": record.id }).then((response: any) => {
+    dataProvider.download('root', { "id": record.id }).then((response: any) => {
       console.log(response)
       if (response.status < 200 || response.status >= 300) {
         notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })

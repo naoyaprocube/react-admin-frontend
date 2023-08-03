@@ -10,7 +10,7 @@ en.ra.message.delete_content = 'Please do note that this is an irreversible acti
 const english = {
   ...en,
   resources: {
-    files: {
+    root: {
       name: 'File Server',
       fields: {
         file: 'File',
@@ -66,7 +66,7 @@ japaneseMessages.ra.message.delete_content = 'この操作を元に戻すこと�
 const japanese = {
   ...japaneseMessages,
   resources: {
-    files: {
+    root: {
       name: 'ファイルサーバー',
       fields: {
         file: 'ファイル',
