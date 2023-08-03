@@ -13,9 +13,10 @@ const DownloadButton = () => {
   if (!record) return null;
   return <Button color="primary" sx={{ display: 'inline-flex' }} startIcon={< FileDownloadIcon />} onClick={() => {
     notify(`file.downloading`, { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: record.filename } })
-    dataProvider.download('files', { "id": record.id }).then((response:any) => {
+    dataProvider.download('files', { "id": record.id }).then((response: any) => {
+      console.log(response)
       if (response.status < 200 || response.status >= 300) {
-        notify('file.statusCodeError', { type: 'error' , messageArgs:{code: response.status,text: response.statusText}})
+        notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
       }
       return response
     })
@@ -38,12 +39,32 @@ const humanFileSize = (bytes: any, si = false, dp = 1) => {
   return bytes.toFixed(dp) + ' ' + units[u];
 }
 
-const estimatedUploadTime = (bytes:number, uploadSpeed:number = 32*1024*1024) => {
-  const time = Math.floor(bytes/uploadSpeed)
+const estimatedUploadTime = (bytes: number,limit: number = 1024 * 1024 * 1024 * 1024, speed: number = 32 * 1024 * 1024) => {
+  let check = true
+  if(bytes > limit) check = false
+  const time = Math.floor(bytes / speed)
   const sec = time % 60
-  const min = Math.floor(time/60) % 60
-  const hour = Math.floor(min/60)
-  return {sec,min,hour}
+  const min = Math.floor(time / 60) % 60
+  const hour = Math.floor(time / (60*60))
+  let label = 'file.sec'
+  let est = 0
+  if (sec === 0 && min === 0 && hour === 0) {
+    label = 'file.sec'
+    est = 1
+  }
+  else if (min === 0 && hour === 0) {
+    label = 'file.sec'
+    est = sec
+  }
+  else if (min > 0 && hour === 0) {
+    label = 'file.min'
+    est = min
+  }
+  else if (hour > 0) {
+    label = 'file.hour'
+    est = hour
+  }
+  return { check, sec, min, hour, label, est }
 }
 
 export { DownloadButton, humanFileSize, estimatedUploadTime }

@@ -9,7 +9,7 @@ import {
 import FileToolbar from './FileToolbar'
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useWatch } from 'react-hook-form';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import { blue } from '@mui/material/colors';
 import { estimatedUploadTime } from '../utils'
 
@@ -25,22 +25,33 @@ const FilePreview = () => {
   const file = useWatch({ name: 'file' });
   const translate = useTranslate()
   if (file) {
-    console.log(file)
-    const time = estimatedUploadTime(file.rawFile.size)
+    const uploadLimit = process.env.REACT_APP_UPLOAD_LIMIT ? Number(process.env.REACT_APP_UPLOAD_LIMIT) : 1099511627776
+    const uploadSpeed = process.env.REACT_APP_UPLOAD_SPEED ? Number(process.env.REACT_APP_UPLOAD_SPEED) : 33554432
+    const uploadTime = estimatedUploadTime(file.rawFile.size, uploadLimit, uploadSpeed)
+    let result = translate('file.info_sizeover')
+    if(uploadTime.check) result = String(uploadTime.est) + translate(uploadTime.label)
+    const scanLimit = process.env.REACT_APP_SCAN_LIMIT ? Number(process.env.REACT_APP_SCAN_LIMIT) : 4294967296
+    const scanSpeed = process.env.REACT_APP_SCAN_SPEED ? Number(process.env.REACT_APP_SCAN_SPEED) : 429916
+    const scanTime = estimatedUploadTime(file.rawFile.size, scanLimit, scanSpeed)
+    let scan_result = translate('file.info_scan_sizeover')
+    if(scanTime.check) scan_result = String(scanTime.est) + translate(scanTime.label)
     return (
-      <Box sx={{ border: 1, color: 'text.primary', bgcolor: blue[200] , width:1,p:2,  borderRadius: '16px'  }}>
+      <Box sx={{ border: 1, color: '#ffffff', bgcolor: blue[400], width:1, p:2,  borderRadius: '16px',boxShadow: 3  }}>
         {translate('file.info')}
-        <Box sx={{ p: 1, color: 'text.secondary'}}>
-          {translate('resources.files.fields.filename')}:{file.title}
+        <Box sx={{ p: 1, color: '#ffffff'}}>
+          {translate('resources.files.fields.filename')}: {file.title}
         </Box>
-        <Box sx={{ p: 1, color: 'text.secondary'}}>
-          {translate('resources.files.fields.length')}:{file.rawFile.size}
+        <Box sx={{ p: 1, color: '#ffffff'}}>
+          {translate('resources.files.fields.length')}: {file.rawFile.size}
         </Box>
-        <Box sx={{ p: 1, color: 'text.secondary' }}>
-          {translate('resources.files.fields.fileType')}:{file.rawFile.type}
+        <Box sx={{ p: 1, color: '#ffffff' }}>
+          {translate('resources.files.fields.fileType')}: {file.rawFile.type}
         </Box>
-        <Box sx={{ p: 1, color: 'text.secondary' }}>
-          {translate('file.uploadTime')}:{time.hour}:{time.min}:{time.sec}
+        <Box sx={{ p: 1, color: '#ffffff' }}>
+          {translate('resources.files.fields.uploadTime')}: {result}
+        </Box>
+        <Box sx={{ p: 1, color: '#ffffff' }}>
+          {translate('resources.files.fields.scanTime')}: {scan_result}
         </Box>
       </Box>
     )
@@ -49,8 +60,9 @@ const FilePreview = () => {
 }
 
 const FilesCreate = (props: any) => {
+  const translate = useTranslate()
   return (
-    <Create {...props} redirect='/files' title="Upload File">
+    <Create {...props} redirect='/files' title={translate('file.uploadPageTitle')}>
       <SimpleForm toolbar={<FileToolbar />}>
         <FileInput
           source="file"

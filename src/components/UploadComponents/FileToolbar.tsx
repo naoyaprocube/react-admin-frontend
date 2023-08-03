@@ -7,10 +7,33 @@ import {
   Toolbar,
 } from 'react-admin';
 import { useWatch } from 'react-hook-form';
-import {Button, CircularProgress } from '@mui/material';
+import {
+  Button,
+  CircularProgress,
+  LinearProgress,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions
+} from '@mui/material';
+import dayjs from 'dayjs';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useNavigate } from "react-router-dom";
 import { humanFileSize } from '../utils'
+import Paper, { PaperProps } from '@mui/material/Paper';
+import Draggable from 'react-draggable';
+
+function PaperComponent(props: PaperProps) {
+  return (
+    <Draggable
+      handle="#draggable-dialog-title"
+      cancel={'[class*="MuiDialogContent-root"]'}
+    >
+      <Paper {...props} />
+    </Draggable>
+  );
+}
 
 let checkExist = false
 let mongoid = ""
@@ -21,14 +44,40 @@ const FileToolbar = () => {
   const [open, setOpen] = React.useState(false);
   const [isButton, setButton] = React.useState(false);
   const [isUploading, setUploading] = React.useState(false);
+  const [timestamp, setTimestamp] = React.useState('');
+  const [elapsedTime, setElapsedTime] = React.useState('');
   const handleDialogClose = () => setOpen(false);
   const notify = useNotify();
   const file = useWatch({ name: 'file' });
   const dataProvider = useDataProvider();
   const navigate = useNavigate();
   const translate = useTranslate();
+
+  const increment = () => {
+    const time = dayjs().format('YYYY-MM-DDTHH:mm:ss');
+    setTimestamp(time);
+  };
+
   React.useEffect(() => {
-    const handler = (event:any) => {
+    if (timestamp !== '') {
+      const interval = setInterval(() => {
+        const now = dayjs().format('YYYY-MM-DDTHH:mm:ss');
+        const diffHour = (String(dayjs(now).diff(dayjs(timestamp), 'hour')).length > 1) ?
+          String(dayjs(now).diff(dayjs(timestamp), 'hour')) :
+          "0" + String(dayjs(now).diff(dayjs(timestamp), 'hour'));
+        const diffMin = "0" + String(dayjs(now).diff(dayjs(timestamp), 'minute') % 60);
+        const diffSec = "0" + String(dayjs(now).diff(dayjs(timestamp), 'second') % 60);
+        setElapsedTime(diffHour + ":" + diffMin.slice(-2) + ":" + diffSec.slice(-2));
+      }, 1000);
+      return () => {
+        clearInterval(interval);
+      };
+    }
+    else setElapsedTime("00:00:00");
+  }, [timestamp]);
+
+  React.useEffect(() => {
+    const handler = (event: any) => {
       event.preventDefault();
       event.returnValue = '';
     };
@@ -38,31 +87,29 @@ const FileToolbar = () => {
         window.removeEventListener('beforeunload', handler);
       };
     }
-    return () => {};
+    return () => { };
   }, [isUploading]);
+
   const CheckExist = () => {
     return new Promise((resolve, reject) => {
       notify('file.check', { type: 'info' });
-      const sizeLimit = 1024 * 1024 * 1024 * 1024
-      const totalSizeLimit = 1024 * 1024 * 1024 * 1024
       if (!file) {
-        return
-      }
-      if (file.rawFile.size > sizeLimit) {
-        notify('file.sizeover', { type: 'error', messageArgs: { fileSize: humanFileSize(file.rawFile.size, false), sizeLimit: humanFileSize(sizeLimit, false) } })
-        checkSize = true
-        resolve("")
         return
       }
       dataProvider.check('files', file).then((response: any) => {
         if (response.status < 200 || response.status >= 300) {
-          notify('file.statusCodeError', { type: 'error' , messageArgs:{code: response.status,text: response.statusText}})
+          notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
         }
         return response.json()
       }).then((data: any) => {
-        checkSize = (data.totalSize + file.rawFile.size > totalSizeLimit)
-        if (checkSize === true) {
-          notify('file.totalSizeover', { type: 'error', messageArgs: { totalSize: humanFileSize(data.totalSize, false), totalSizeLimit: humanFileSize(totalSizeLimit, false) } })
+        if (file.rawFile.size > data.sizeLimit) {
+          notify('file.sizeover', { type: 'error', messageArgs: { fileSize: humanFileSize(file.rawFile.size, false), sizeLimit: humanFileSize(data.sizeLimit, false) } })
+          checkSize = true
+          resolve("")
+        }
+        else if (data.totalSize + file.rawFile.size > data.totalSizeLimit) {
+          notify('file.totalSizeover', { type: 'error', messageArgs: { totalSize: humanFileSize(data.totalSize, false), totalSizeLimit: humanFileSize(data.totalSizeLimit, false) } })
+          checkSize = true
           resolve("")
         }
         else if (data.existCheck === true && checkSize === false) {
@@ -70,7 +117,8 @@ const FileToolbar = () => {
           checkExist = data.existCheck
           setOpen(true);
           resolve("")
-        } else {
+        } 
+        else {
           checkExist = false
           setOpen(false)
           resolve("")
@@ -89,20 +137,34 @@ const FileToolbar = () => {
             if (checkExist === false && checkSize === false) {
               setButton(true)
               setUploading(true)
-              notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title }})
-              dataProvider.create('files', { "data": { "file": file } }).then((response:any) => {
-                if (response.status < 200 || response.status >= 300) {
-                  notify('file.statusCodeError', { type: 'error' , messageArgs:{code: response.status,text: response.statusText}})
+              increment()
+              // notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
+              dataProvider.create('files', { "data": { "file": file } }).then((response: any) => {
+                console.log(response)
+                if (response.data.res) {
+                  const res = response.data.res
+                  if (res.status < 200 || res.status >= 300) {
+                    notify('file.statusCodeError', { type: 'error', messageArgs: { code: res.status, text: res.statusText } })
+                    navigate('/files')
+                  }
+                  else if (res.status !== 202) {
+                    setOpen(false)
+                    setUploading(false)
+                    notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
+                    navigate('/files')
+                  }
                 }
-                setOpen(false)
-                setUploading(false)
-                notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-                navigate('/files')
+                else {
+                  setOpen(false)
+                  setUploading(false)
+                  notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
+                  navigate('/files')
+                }
               })
             }
           })
         }}
-      >{translate('ra.action.create')}{isUploading && <CircularProgress size={20} color="inherit" sx={{ ml: 2 }}/>}</Button>
+      >{translate('ra.action.create')}{isUploading && <CircularProgress size={20} color="inherit" sx={{ ml: 2 }} />}</Button>
       <Confirm
         isOpen={open}
         title='file.alreadyExist.title'
@@ -110,23 +172,70 @@ const FileToolbar = () => {
         onConfirm={() => {
           setButton(true)
           setUploading(true)
-          notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
+          increment()
+          // notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
           setOpen(false)
           dataProvider.recreate('files', {
             "id": mongoid,
             "data": { "file": file }
-          }).then((response:any) => {
+          }).then((response: any) => {
             if (response.status < 200 || response.status >= 300) {
-              notify('file.statusCodeError', { type: 'error' , messageArgs:{code: response.status,text: response.statusText}})
+              console.log(response)
+              notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
             }
-            setUploading(false)
-            notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-            navigate('/files')
+            else if (response.status !== 202) {
+              setUploading(false)
+              notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
+              navigate('/files')
+            }
           })
-
         }}
         onClose={handleDialogClose}
       />
+      <Dialog
+        open={isUploading}
+        PaperComponent={PaperComponent}
+        sx={{
+          '& .MuiBackdrop-root': {
+            backgroundColor: 'rgba(0, 0, 0, 0.25)'
+          },
+          '& .MuiPaper-root': {
+            border: 0.5,
+            mt: 30
+          },
+        }}
+      >
+
+        <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
+          {translate('file.uploading', { filename: file ? file.title : null })}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            {translate('file.uploading_time')} : {elapsedTime}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={() => {
+              dataProvider.cancel('files', { filename: file ? file.title : null }).then((response: any) => {
+                if (response.status < 200 || response.status >= 300) {
+                  notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+                }
+                else if (response.status === 200) {
+                  notify('file.uploading_cancel', { type: 'info' });
+                  setUploading(false)
+                  navigate('/files')
+                }
+                else if (response.status === 202) {
+                  notify('file.uploading_cancel_denied', { type: 'info' });
+                }
+              })
+            }}>
+            {translate('ra.action.cancel')}
+          </Button>
+        </DialogActions>
+        <LinearProgress />
+      </Dialog>
     </Toolbar>
   );
 };

@@ -19,20 +19,27 @@ const english = {
         uploadDate: 'Upload Date',
         metadata:{
           status: 'Status',
+          accessHistory: 'Access History'
         },
         Type: 'Type',
         Date: 'Date',
         Protocol: 'Protocol',
         Info: 'Info',
-        fileType: 'ファイルタイプ'
+        SourceIP: 'Source IP',
+        fileType: 'File Type',
+        uploadTime: 'Estimated upload time',
+        scanTime: 'Estimated scan time'
       }
     }
   },
   file: {
     downloading: 'Downloading %{filename}',
     uploadPageTitle: 'Upload File',
-    uploading: 'Uploading %{filename}',
+    uploading: 'Uploading %{filename} ...',
     uploading_confirm: 'Do you really want to leave?',
+    uploading_cancel: 'Canceled uploading file',
+    uploading_cancel_denied: 'Cannot cancel uploading file',
+    uploading_time: 'Elapsed time',
     uploaded: 'Uploaded',
     check: 'Checking file',
     sizeover: 'File larger than %{sizeLimit} cannot be uploaded.',
@@ -42,7 +49,12 @@ const english = {
       content: 'A file with the same filename already exists. Do you want to overwrite?'
     },
     info: 'Upload File Info',
-    statusCodeError: '%{code}: %{text}'
+    info_sizeover: 'Upload size limit over',
+    info_scan_sizeover: 'Scan size limit over',
+    statusCodeError: '%{code}: %{text}',
+    sec: ' seconds',
+    min: ' minutes',
+    hour: ' hours'
   }
 }
 
@@ -63,20 +75,27 @@ const japanese = {
         uploadDate: '最終更新日時',
         metadata:{
           status: '状態',
+          accessHistory: '更新履歴'
         },
         Type: '更新種別',
         Date: '日時',
         Protocol: 'プロトコル',
         Info: '詳細',
-        fileType: 'ファイルタイプ'
+        SourceIP: '送信元IP',
+        fileType: 'ファイルタイプ',
+        uploadTime: '推定アップロード時間',
+        scanTime: '推定ウイルススキャン時間'
       }
     }
   },
   file: {
     downloading: '%{filename}をダウンロード中',
     uploadPageTitle: 'ファイルをアップロード',
-    uploading: '%{filename}をアップロード中',
+    uploading: '%{filename}をアップロード中...',
     uploading_confirm: '本当にページを離れますか？',
+    uploading_cancel: 'アップロードをキャンセルしました。',
+    uploading_cancel_denied: 'アップロードをキャンセルできませんでした。',
+    uploading_time: '経過時間',
     uploaded: 'アップロード完了',
     check: 'ファイルを検証中',
     sizeover: '%{sizeLimit}以上のファイルはアップロードできません。',
@@ -86,7 +105,12 @@ const japanese = {
       content: '同じファイル名のファイルがすでに存在します。上書きしますか？'
     },
     info: '選択したファイルの詳細',
-    statusCodeError: '%{code}: %{text}'
+    info_sizeover: 'アップロードサイズ制限超過',
+    info_scan_sizeover: 'スキャンサイズ制限超過',
+    statusCodeError: '%{code}: %{text}',
+    sec: '秒',
+    min: '分',
+    hour: '時間'
   }
 }
 

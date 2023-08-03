@@ -9,12 +9,7 @@ const httpClient = (url: string, options: any = {}) => {
     });
   }
   options.credentials = 'include';
-  return fetchUtils.fetchJson(url, options).then((result:any) => {
-    if (result.status < 200 || result.status >= 300) {
-      return new HttpError( result.json.message ? result.json.message: result.body,result.status,result.body)
-    }
-    return result
-  });
+  return fetchUtils.fetchJson(url, options);
 }
 const dataProvider = {
   getList: (resource: any, params: any) => {
@@ -27,17 +22,16 @@ const dataProvider = {
       filter: JSON.stringify(params.filter),
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
-    
+
     return httpClient(url).then(({ headers, json }) => ({
-      data: json.map((resource: any) => ({ ...resource, id: resource.filename })),
-      // total: 10
+      data: json.map((resource: any) => ({ ...resource, id: resource._id })),
       total: Number(headers.get('Content-Range'))
     }));
   },
 
   getOne: (resource: any, params: any) => {
     return httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
-      data: { ...json, id: json.filename }, //!
+      data: { ...json, id: json._id }, //!
     }))
   },
 
@@ -47,7 +41,7 @@ const dataProvider = {
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
     return httpClient(url).then(({ json }) => ({
-      data: json.map((resource: any) => ({ ...resource, id: resource.filename })),
+      data: json.map((resource: any) => ({ ...resource, id: resource._id })),
     }));
   },
 
@@ -65,7 +59,7 @@ const dataProvider = {
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
 
     return httpClient(url).then(({ headers, json }) => ({
-      data: json.map((resource: any) => ({ ...resource, id: resource.filename })),
+      data: json.map((resource: any) => ({ ...resource, id: resource._id })),
       // total: parseInt(headers.get('content-range').split('/').pop(), 10),
     }));
   },
@@ -90,18 +84,26 @@ const dataProvider = {
     httpClient(`${apiUrl}/${resource}`, {
       method: 'POST',
       body: JSON.stringify(params.data),
-    }).then(({ json }) => ({
-      data: { ...params.data, id: json.filename },
+    }).then((response) => ({
+      data: { ...params.data, id: response.json._id, }
     })),
 
-  delete: (resource: any, params: any) =>
-    httpClient(`${apiUrl}/${resource}/${params.id}`, {
+  delete: (resource: any, params: any) => {
+    function encodeUTF8(str: any) {
+      const encoder = new TextEncoder();
+      return encoder.encode(str);
+    }
+    const filename = encodeUTF8(params.id).toString()
+
+    return httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: 'DELETE',
+      headers: new Headers({ 'content-filename': filename }),
       body: JSON.stringify(params.id),
     }).then(({ json }) => ({
       ...json,
-      id: json.filename,
-    })),
+      id: json._id,
+    }))
+  },
 
   deleteMany: (resource: any, params: any) => {
     const query = {
@@ -128,13 +130,31 @@ const FileProvider = {
     const filename = encodeUTF8(params.data.file.title).toString()
     let formData = new FormData();
     formData.append('file', params.data.file.rawFile);
+    console.log("post")
     return httpClient(`${apiUrl}/${resource}`, {
       method: 'POST',
       headers: new Headers({ 'content-filename': filename }),
       body: formData,
-    }).then(({ json }) => ({
-      data: { ...params.data, id: params.data.file.title },
-    }));
+    }).then((response) => {
+      if (response.status < 200 || response.status >= 300) {
+        return { data: { res: response, id: "error" } }
+      }
+      if (response.status === 202) {
+        return { data: { res: response, id: "cancel" } }
+      }
+      return { data: { ...params.data, id: params.data.file.title } }
+    })
+      .catch((error) => {
+        return {
+          data: {
+            res: {
+              status: error.status,
+              statusText: error.message
+            },
+            id: "error"
+          }
+        }
+      });
   },
 
   download: (resource: any, params: any) => {
@@ -154,9 +174,13 @@ const FileProvider = {
       return decoder.decode(buffer);
     }
     return fetch(`${apiUrl}/${resource}/${params.id}/download`, { credentials: 'include' }).then((response) => {
-      const UTF8encodedArray = new Uint8Array(response.headers.get('Content-Filename').split(',').map(x => Number(x)))
-      const filename = decodeUTF8(UTF8encodedArray);
-      response.blob().then(blob => download(blob, filename))
+      console.log(response)
+      if (response.status === 200) {
+        const UTF8encodedArray = new Uint8Array(response.headers.get('Content-Filename').split(',').map(x => Number(x)))
+        const filename = decodeUTF8(UTF8encodedArray);
+        response.blob().then(blob => download(blob, filename))
+      }
+      return response
     })
   },
 
@@ -181,5 +205,11 @@ const FileProvider = {
     })
   },
 
+  cancel: (resource: any, params: any) => {
+    return httpClient(`${apiUrl}/${resource}/cancel`, {
+      method: 'POST',
+      body: JSON.stringify(params)
+    })
+  },
 }
 export default FileProvider;

@@ -6,13 +6,18 @@ import {
   DeleteWithConfirmButton,
   ShowButton,
   FunctionField,
-  DateField
+  DateField,
+  useRecordContext
 } from 'react-admin';
 import Box from '@mui/material/Box';
 import { blue } from '@mui/material/colors';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { DownloadButton, humanFileSize } from '../utils'
 
+const DeleteButton = () => {
+  const record = useRecordContext()
+  return (<DeleteWithConfirmButton label="" translateOptions={{id: record.filename}}/>)
+}
 const FilesList = (props: any) => {
   return (
     <List {...props} exporter={false}>
@@ -28,7 +33,7 @@ const FilesList = (props: any) => {
         <Box className="ActionButtons" sx={{ display: 'flex', alignSelf: 'flex-end' }}>
           <DownloadButton />
           <ShowButton label="" icon={<InfoOutlinedIcon />} />
-          <DeleteWithConfirmButton label="" />
+          <DeleteButton/>
         </Box>
       </Datagrid>
     </List>
