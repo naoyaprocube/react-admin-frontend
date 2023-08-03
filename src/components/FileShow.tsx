@@ -37,7 +37,7 @@ const FileShow = (props: any) => {
   return (
     <Edit actions={false} title={<EditTitle />}>
       <SimpleForm >
-        <TextInput source="filename" sx={{mb:-1}}/>
+        <TextInput source="filename" variant="standard" sx={{mb:-1}}/>
         <FileInfo />
         <Box>
           {translate('resources.root.fields.metadata.accessHistory')}

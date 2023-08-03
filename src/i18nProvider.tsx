@@ -2,7 +2,6 @@ import polyglotI18nProvider from 'ra-i18n-polyglot';
 import en from 'ra-language-english';
 import japaneseMessages from '@bicstone/ra-language-japanese';
 
-en.ra.action.create = "Upload"
 en.ra.page.empty = "Any file does not exist on the file server."
 en.ra.page.invite = "Do you want to upload?"
 en.ra.message.delete_title = 'Delete %{id}?'
@@ -34,6 +33,7 @@ const english = {
   },
   file: {
     downloading: 'Downloading %{filename}',
+    upload: 'Upload',
     uploadPageTitle: 'Upload File',
     uploading: 'Uploading %{filename} ...',
     uploading_confirm: 'Do you really want to leave?',
@@ -55,10 +55,18 @@ const english = {
     sec: ' seconds',
     min: ' minutes',
     hour: ' hours'
+  },
+  dir: {
+    dirname: 'Directory Name',
+    mkdir: {
+      title: 'Create Directory',
+      context: 'Input directory name.',
+      create: 'Create Directory'
+    },
+    create: 'Create'
   }
 }
 
-japaneseMessages.ra.action.create = "アップロード"
 japaneseMessages.ra.page.empty = "ファイルは存在しません。"
 japaneseMessages.ra.page.invite = "アップロードしますか？"
 japaneseMessages.ra.message.delete_title = '%{id}を削除しますか？'
@@ -90,6 +98,7 @@ const japanese = {
   },
   file: {
     downloading: '%{filename}をダウンロード中',
+    upload: 'アップロード',
     uploadPageTitle: 'ファイルをアップロード',
     uploading: '%{filename}をアップロード中...',
     uploading_confirm: '本当にページを離れますか？',
@@ -111,6 +120,15 @@ const japanese = {
     sec: '秒',
     min: '分',
     hour: '時間'
+  },
+  dir: {
+    dirname: 'ディレクトリ名',
+    mkdir: {
+      title: 'ディレクトリを作成',
+      context: 'ディレクトリ名を入力してください。',
+      create: 'ディレクトリを作成'
+    },
+    create: '作成'
   }
 }
 

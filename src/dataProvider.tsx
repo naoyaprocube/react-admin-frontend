@@ -211,5 +211,12 @@ const FileProvider = {
       body: JSON.stringify(params)
     })
   },
+
+  mkdir: (resource: any, params: any) => {
+    return httpClient(`${apiUrl}/${resource}/mkdir`, {
+      method: 'POST',
+      body: JSON.stringify(params)
+    })
+  },
 }
 export default FileProvider;

@@ -7,20 +7,24 @@ import {
   ShowButton,
   FunctionField,
   DateField,
-  useRecordContext
+  useRecordContext,
+  TopToolbar,
+  CreateButton,
 } from 'react-admin';
 import Box from '@mui/material/Box';
 import { blue } from '@mui/material/colors';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { DownloadButton, humanFileSize } from './utils'
+import FilesListActions from './FilesListActions'
 
 const DeleteButton = () => {
   const record = useRecordContext()
-  return (<DeleteWithConfirmButton label="" translateOptions={{id: record.filename}}/>)
+  return (<DeleteWithConfirmButton label="" translateOptions={{ id: record.filename }} />)
 }
+
 const FilesList = (props: any) => {
   return (
-    <List {...props} exporter={false}>
+    <List {...props} exporter={false} actions={<FilesListActions />}>
       <Datagrid sx={{
         '& .RaDatagrid-headerCell': {
           backgroundColor: blue[200],
@@ -33,7 +37,7 @@ const FilesList = (props: any) => {
         <Box className="ActionButtons" sx={{ display: 'flex', alignSelf: 'flex-end' }}>
           <DownloadButton />
           <ShowButton label="" icon={<InfoOutlinedIcon />} />
-          <DeleteButton/>
+          <DeleteButton />
         </Box>
       </Datagrid>
     </List>

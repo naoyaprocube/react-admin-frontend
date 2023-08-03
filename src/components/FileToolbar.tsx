@@ -117,7 +117,7 @@ const FileToolbar = () => {
           checkExist = data.existCheck
           setOpen(true);
           resolve("")
-        } 
+        }
         else {
           checkExist = false
           setOpen(false)
@@ -126,70 +126,72 @@ const FileToolbar = () => {
       })
     })
   };
+
+  const onClick = () => CheckExist().then(() => {
+    if (checkExist === false && checkSize === false) {
+      setButton(true)
+      setUploading(true)
+      increment()
+      // notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
+      dataProvider.create('root', { "data": { "file": file } }).then((response: any) => {
+        console.log(response)
+        if (response.data.res) {
+          const res = response.data.res
+          if (res.status < 200 || res.status >= 300) {
+            notify('file.statusCodeError', { type: 'error', messageArgs: { code: res.status, text: res.statusText } })
+            navigate('/root')
+          }
+          else if (res.status !== 202) {
+            setOpen(false)
+            setUploading(false)
+            notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
+            navigate('/root')
+          }
+        }
+        else {
+          setOpen(false)
+          setUploading(false)
+          notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
+          navigate('/root')
+        }
+      })
+    }
+  })
+
+  const onConfirm = () => {
+    setButton(true)
+    setUploading(true)
+    increment()
+    // notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
+    setOpen(false)
+    dataProvider.recreate('root', {
+      "id": mongoid,
+      "data": { "file": file }
+    }).then((response: any) => {
+      if (response.status < 200 || response.status >= 300) {
+        console.log(response)
+        notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+      }
+      else if (response.status !== 202) {
+        setUploading(false)
+        notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
+        navigate('/root')
+      }
+    })
+  }
   return (
     <Toolbar sx={{ flexDirection: 'row-reverse' }}>
       <Button
         startIcon={!isUploading && < FileUploadIcon />}
         variant="contained"
         disabled={!(file && !isButton)}
-        onClick={() => {
-          CheckExist().then(() => {
-            if (checkExist === false && checkSize === false) {
-              setButton(true)
-              setUploading(true)
-              increment()
-              // notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
-              dataProvider.create('root', { "data": { "file": file } }).then((response: any) => {
-                console.log(response)
-                if (response.data.res) {
-                  const res = response.data.res
-                  if (res.status < 200 || res.status >= 300) {
-                    notify('file.statusCodeError', { type: 'error', messageArgs: { code: res.status, text: res.statusText } })
-                    navigate('/root')
-                  }
-                  else if (res.status !== 202) {
-                    setOpen(false)
-                    setUploading(false)
-                    notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-                    navigate('/root')
-                  }
-                }
-                else {
-                  setOpen(false)
-                  setUploading(false)
-                  notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-                  navigate('/root')
-                }
-              })
-            }
-          })
-        }}
-      >{translate('ra.action.create')}{isUploading && <CircularProgress size={20} color="inherit" sx={{ ml: 2 }} />}</Button>
+        onClick={onClick}
+      >{translate('file.upload')}{isUploading && <CircularProgress size={20} color="inherit" sx={{ ml: 2 }} />}</Button>
       <Confirm
         isOpen={open}
         title='file.alreadyExist.title'
         content='file.alreadyExist.content'
-        onConfirm={() => {
-          setButton(true)
-          setUploading(true)
-          increment()
-          // notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
-          setOpen(false)
-          dataProvider.recreate('root', {
-            "id": mongoid,
-            "data": { "file": file }
-          }).then((response: any) => {
-            if (response.status < 200 || response.status >= 300) {
-              console.log(response)
-              notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
-            }
-            else if (response.status !== 202) {
-              setUploading(false)
-              notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-              navigate('/root')
-            }
-          })
-        }}
+        onConfirm={onConfirm}
         onClose={handleDialogClose}
       />
       <Dialog
@@ -205,7 +207,6 @@ const FileToolbar = () => {
           },
         }}
       >
-
         <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
           {translate('file.uploading', { filename: file ? file.title : null })}
         </DialogTitle>

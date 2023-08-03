@@ -5,7 +5,9 @@ import FileShow from './components/FileShow';
 import FilesCreate from './components/FilesCreate';
 import { i18nProvider } from './i18nProvider';
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
-const FileLayout = (props: any) => <Layout {...props} />;
+import { MyMenu } from './components/Dirmenu';
+
+const FileLayout = (props: any) => <Layout {...props} menu={MyMenu}/>;
 
 
 function App() {

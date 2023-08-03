@@ -20,7 +20,7 @@ const DownloadButton = () => {
       }
       return response
     })
-  }}></Button>;
+  }}/>;
 };
 const humanFileSize = (bytes: any, si = false, dp = 1) => {
   const thresh = si ? 1000 : 1024;
