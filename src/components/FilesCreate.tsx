@@ -12,6 +12,7 @@ import { useWatch } from 'react-hook-form';
 import { Box } from '@mui/material';
 import { blue } from '@mui/material/colors';
 import { estimatedUploadTime } from './utils'
+import {useParams} from "react-router-dom";
 
 const DropzoneDisplay = () => {
   const file = useWatch({ name: 'file' });
@@ -39,19 +40,19 @@ const FilePreview = () => {
       <Box sx={{ border: 1, color: '#ffffff', bgcolor: blue[400], width:1, p:2,  borderRadius: '16px',boxShadow: 3  }}>
         {translate('file.info')}
         <Box sx={{ p: 1, color: '#ffffff'}}>
-          {translate('resources.root.fields.filename')}: {file.title}
+          {translate('file.fields.filename')}: {file.title}
         </Box>
         <Box sx={{ p: 1, color: '#ffffff'}}>
-          {translate('resources.root.fields.length')}: {file.rawFile.size}
+          {translate('file.fields.length')}: {file.rawFile.size}
         </Box>
         <Box sx={{ p: 1, color: '#ffffff' }}>
-          {translate('resources.root.fields.fileType')}: {file.rawFile.type}
+          {translate('file.fields.fileType')}: {file.rawFile.type}
         </Box>
         <Box sx={{ p: 1, color: '#ffffff' }}>
-          {translate('resources.root.fields.uploadTime')}: {result}
+          {translate('file.fields.uploadTime')}: {result}
         </Box>
         <Box sx={{ p: 1, color: '#ffffff' }}>
-          {translate('resources.root.fields.scanTime')}: {scan_result}
+          {translate('file.fields.scanTime')}: {scan_result}
         </Box>
       </Box>
     )
@@ -61,9 +62,10 @@ const FilePreview = () => {
 
 const FilesCreate = (props: any) => {
   const translate = useTranslate()
+  const {id} = useParams()
   return (
-    <Create {...props} redirect='/root' title={translate('file.uploadPageTitle')}>
-      <SimpleForm toolbar={<FileToolbar />}>
+    <Create {...props} resource={id} redirect={"/" + id} title={translate('file.uploadPageTitle')}>
+      <SimpleForm toolbar={<FileToolbar dirId={id}/>}>
         <FileInput
           source="file"
           removeIcon={DeleteIcon}

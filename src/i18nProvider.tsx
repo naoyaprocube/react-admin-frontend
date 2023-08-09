@@ -8,30 +8,25 @@ en.ra.message.delete_title = 'Delete %{id}?'
 en.ra.message.delete_content = 'Please do note that this is an irreversible action.'
 const english = {
   ...en,
-  resources: {
-    root: {
-      name: 'File Server',
-      fields: {
-        file: 'File',
-        filename: 'File Name',
-        length: 'Size',
-        uploadDate: 'Upload Date',
-        metadata:{
-          status: 'Status',
-          accessHistory: 'Access History'
-        },
-        Type: 'Type',
-        Date: 'Date',
-        Protocol: 'Protocol',
-        Info: 'Info',
-        SourceIP: 'Source IP',
-        fileType: 'File Type',
-        uploadTime: 'Estimated upload time',
-        scanTime: 'Estimated scan time'
-      }
-    }
-  },
   file: {
+    fields: {
+      file: 'File',
+      filename: 'File Name',
+      length: 'Size',
+      uploadDate: 'Upload Date',
+      metadata:{
+        status: 'Status',
+        accessHistory: 'Access History'
+      },
+      Type: 'Type',
+      Date: 'Date',
+      Protocol: 'Protocol',
+      Info: 'Info',
+      SourceIP: 'Source IP',
+      fileType: 'File Type',
+      uploadTime: 'Estimated upload time',
+      scanTime: 'Estimated scan time'
+    },
     downloading: 'Downloading %{filename}',
     upload: 'Upload',
     uploadPageTitle: 'Upload File',
@@ -73,30 +68,25 @@ japaneseMessages.ra.message.delete_title = '%{id}を削除しますか？'
 japaneseMessages.ra.message.delete_content = 'この操作を元に戻すことはできません。'
 const japanese = {
   ...japaneseMessages,
-  resources: {
-    root: {
-      name: 'ファイルサーバー',
-      fields: {
-        file: 'ファイル',
-        filename: 'ファイル名',
-        length: 'サイズ',
-        uploadDate: '最終更新日時',
-        metadata:{
-          status: '状態',
-          accessHistory: '更新履歴'
-        },
-        Type: '更新種別',
-        Date: '日時',
-        Protocol: 'プロトコル',
-        Info: '詳細',
-        SourceIP: '送信元IP',
-        fileType: 'ファイルタイプ',
-        uploadTime: '推定アップロード時間',
-        scanTime: '推定ウイルススキャン時間'
-      }
-    }
-  },
   file: {
+    fields: {
+      file: 'ファイル',
+      filename: 'ファイル名',
+      length: 'サイズ',
+      uploadDate: '最終更新日時',
+      metadata:{
+        status: '状態',
+        accessHistory: '更新履歴'
+      },
+      Type: '更新種別',
+      Date: '日時',
+      Protocol: 'プロトコル',
+      Info: '詳細',
+      SourceIP: '送信元IP',
+      fileType: 'ファイルタイプ',
+      uploadTime: '推定アップロード時間',
+      scanTime: '推定ウイルススキャン時間'
+    },
     downloading: '%{filename}をダウンロード中',
     upload: 'アップロード',
     uploadPageTitle: 'ファイルをアップロード',
@@ -125,7 +115,7 @@ const japanese = {
     dirname: 'ディレクトリ名',
     mkdir: {
       title: 'ディレクトリを作成',
-      context: 'ディレクトリ名を入力してください。',
+      context: '%{name}の配下にディレクトリを作成します。ディレクトリ名を入力してください。',
       create: 'ディレクトリを作成'
     },
     create: '作成'

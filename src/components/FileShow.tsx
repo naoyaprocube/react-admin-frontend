@@ -12,6 +12,7 @@ import {
 import { useWatch } from 'react-hook-form';
 import { Box } from '@mui/material';
 import { blue } from '@mui/material/colors';
+import {useParams} from "react-router-dom";
 
 const FileInfo = () => {
   const filename = useWatch({ name: 'filename' });
@@ -20,10 +21,10 @@ const FileInfo = () => {
   const translate = useTranslate()
   return filename ? (<Box sx={{ mb:2, bgcolor: blue[200], width: 1, p: 2, borderRadius: '16px', boxShadow: 1 }}>
     <Box>
-      {translate('resources.root.fields.length')}: {length}
+      {translate('file.fields.length')}: {length}
     </Box>
     <Box>
-      {translate('resources.root.fields.metadata.status')}: {status}
+      {translate('file.fields.metadata.status')}: {status}
     </Box>
   </Box>
   ) : null
@@ -34,26 +35,27 @@ const EditTitle = () => {
 };
 const FileShow = (props: any) => {
   const translate = useTranslate()
+  const {id,fileId} = useParams()
   return (
-    <Edit actions={false} title={<EditTitle />}>
+    <Edit resource={id} id={fileId} actions={false} title={<EditTitle />}>
       <SimpleForm >
-        <TextInput source="filename" variant="standard" sx={{mb:-1}}/>
+        <TextInput source="filename" label="file.fields.filename" variant="standard" sx={{mb:-1}}/>
         <FileInfo />
         <Box>
-          {translate('resources.root.fields.metadata.accessHistory')}
+          {translate('file.fields.metadata.accessHistory')}
         </Box>
-        <ArrayField source="metadata.accessHistory">
+        <ArrayField source="metadata.accessHistory" label="file.fields.metadata.accessHistory">
           <Datagrid bulkActionButtons={false} sx={{
             width: 1, 
             '& .RaDatagrid-headerCell': {
               backgroundColor: blue[200],
             },
           }}>
-            <TextField source="Type" sortable={false} />
-            <DateField source="Date" showTime locales="jp-JP" sortable={false} />
-            <TextField source="Protocol" sortable={false} />
-            <TextField source="SourceIP" sortable={false} />
-            <TextField source="Info" sortable={false} />
+            <TextField source="Type" label="file.fields.Type" sortable={false} />
+            <DateField source="Date" label="file.fields.Date" showTime locales="jp-JP" sortable={false} />
+            <TextField source="Protocol" label="file.fields.Protocol" sortable={false} />
+            <TextField source="SourceIP" label="file.fields.SourceIP" sortable={false} />
+            <TextField source="Info" label="file.fields.Info" sortable={false} />
           </Datagrid>
         </ArrayField>
       </SimpleForm>

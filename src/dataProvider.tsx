@@ -119,7 +119,7 @@ const dataProvider = {
 const FileProvider = {
   ...dataProvider,
   create: (resource: any, params: any) => {
-    if (resource !== 'root') {
+    if (resource === 'settings') {
       // fallback to the default implementation
       return dataProvider.create(resource, params);
     }
@@ -129,8 +129,7 @@ const FileProvider = {
     }
     const filename = encodeUTF8(params.data.file.title).toString()
     let formData = new FormData();
-    formData.append('file', params.data.file.rawFile);
-    console.log("post")
+    formData.append('file', params.data.file.rawFile,params.data.file.title);
     return httpClient(`${apiUrl}/${resource}`, {
       method: 'POST',
       headers: new Headers({ 'content-filename': filename }),
@@ -174,7 +173,6 @@ const FileProvider = {
       return decoder.decode(buffer);
     }
     return fetch(`${apiUrl}/${resource}/${params.id}/download`, { credentials: 'include' }).then((response) => {
-      console.log(response)
       if (response.status === 200) {
         const UTF8encodedArray = new Uint8Array(response.headers.get('Content-Filename').split(',').map(x => Number(x)))
         const filename = decodeUTF8(UTF8encodedArray);
@@ -216,6 +214,18 @@ const FileProvider = {
     return httpClient(`${apiUrl}/${resource}/mkdir`, {
       method: 'POST',
       body: JSON.stringify(params)
+    })
+  },
+
+  getdirs: () => {
+    return httpClient(`${apiUrl}/getdirs`, {
+      method: 'GET'
+    })
+  },
+
+  rmdir: (params: any) => {
+    return fetch(`${apiUrl}/rmdir/${params.id}`, {
+      method: 'DELETE'
     })
   },
 }

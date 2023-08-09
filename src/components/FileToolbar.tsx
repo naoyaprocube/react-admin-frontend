@@ -40,7 +40,8 @@ let mongoid = ""
 let checkSize = false
 
 
-const FileToolbar = () => {
+const FileToolbar = (props:any) => {
+  const {dirId} = props
   const [open, setOpen] = React.useState(false);
   const [isButton, setButton] = React.useState(false);
   const [isUploading, setUploading] = React.useState(false);
@@ -96,7 +97,7 @@ const FileToolbar = () => {
       if (!file) {
         return
       }
-      dataProvider.check('root', file).then((response: any) => {
+      dataProvider.check(dirId, file).then((response: any) => {
         if (response.status < 200 || response.status >= 300) {
           notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
         }
@@ -133,26 +134,26 @@ const FileToolbar = () => {
       setUploading(true)
       increment()
       // notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
-      dataProvider.create('root', { "data": { "file": file } }).then((response: any) => {
+      dataProvider.create(dirId, { "data": { "file": file } }).then((response: any) => {
         console.log(response)
         if (response.data.res) {
           const res = response.data.res
           if (res.status < 200 || res.status >= 300) {
             notify('file.statusCodeError', { type: 'error', messageArgs: { code: res.status, text: res.statusText } })
-            navigate('/root')
+            navigate("/dirs/" + dirId)
           }
           else if (res.status !== 202) {
             setOpen(false)
             setUploading(false)
             notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-            navigate('/root')
+            navigate("/dirs/" + dirId)
           }
         }
         else {
           setOpen(false)
           setUploading(false)
           notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-          navigate('/root')
+          navigate("/dirs/" + dirId)
         }
       })
     }
@@ -164,7 +165,7 @@ const FileToolbar = () => {
     increment()
     // notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
     setOpen(false)
-    dataProvider.recreate('root', {
+    dataProvider.recreate(dirId, {
       "id": mongoid,
       "data": { "file": file }
     }).then((response: any) => {
@@ -175,7 +176,7 @@ const FileToolbar = () => {
       else if (response.status !== 202) {
         setUploading(false)
         notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-        navigate('/root')
+        navigate("/dirs/" + dirId)
       }
     })
   }
@@ -218,14 +219,14 @@ const FileToolbar = () => {
         <DialogActions>
           <Button
             onClick={() => {
-              dataProvider.cancel('root', { filename: file ? file.title : null }).then((response: any) => {
+              dataProvider.cancel(dirId, { filename: file ? file.title : null }).then((response: any) => {
                 if (response.status < 200 || response.status >= 300) {
                   notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
                 }
                 else if (response.status === 200) {
                   notify('file.uploading_cancel', { type: 'info' });
                   setUploading(false)
-                  navigate('/root')
+                  navigate("/dirs/" + dirId)
                 }
                 else if (response.status === 202) {
                   notify('file.uploading_cancel_denied', { type: 'info' });
