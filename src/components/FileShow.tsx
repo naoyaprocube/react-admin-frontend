@@ -12,21 +12,22 @@ import {
 import { useWatch } from 'react-hook-form';
 import { Box } from '@mui/material';
 import { blue } from '@mui/material/colors';
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const FileInfo = () => {
   const filename = useWatch({ name: 'filename' });
   const length = useWatch({ name: 'length' });
   const status = useWatch({ name: 'metadata.status' });
   const translate = useTranslate()
-  return filename ? (<Box sx={{ mb:2, bgcolor: blue[200], width: 1, p: 2, borderRadius: '16px', boxShadow: 1 }}>
-    <Box>
-      {translate('file.fields.length')}: {length}
+  return filename ? (
+    <Box sx={{ mb: 2, bgcolor: blue[100], width: 1, p: 2, borderRadius: '16px', boxShadow: 1 }}>
+      <Box>
+        {translate('file.fields.length')}: {length}
+      </Box>
+      <Box>
+        {translate('file.fields.metadata.status')}: {status}
+      </Box>
     </Box>
-    <Box>
-      {translate('file.fields.metadata.status')}: {status}
-    </Box>
-  </Box>
   ) : null
 };
 const EditTitle = () => {
@@ -35,20 +36,20 @@ const EditTitle = () => {
 };
 const FileShow = (props: any) => {
   const translate = useTranslate()
-  const {id,fileId} = useParams()
+  const { id, fileId } = useParams()
   return (
     <Edit resource={id} id={fileId} actions={false} title={<EditTitle />}>
       <SimpleForm >
-        <TextInput source="filename" label="file.fields.filename" variant="standard" sx={{mb:-1}}/>
+        <TextInput source="filename" label="file.fields.filename" variant="standard" sx={{ mb: -1 }} />
         <FileInfo />
         <Box>
           {translate('file.fields.metadata.accessHistory')}
         </Box>
         <ArrayField source="metadata.accessHistory" label="file.fields.metadata.accessHistory">
           <Datagrid bulkActionButtons={false} sx={{
-            width: 1, 
+            width: 1,
             '& .RaDatagrid-headerCell': {
-              backgroundColor: blue[200],
+              backgroundColor: blue[100],
             },
           }}>
             <TextField source="Type" label="file.fields.Type" sortable={false} />

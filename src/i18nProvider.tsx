@@ -76,9 +76,9 @@ const japanese = {
       uploadDate: '最終更新日時',
       metadata:{
         status: '状態',
-        accessHistory: '更新履歴'
+        accessHistory: 'アクセス履歴'
       },
-      Type: '更新種別',
+      Type: '種別',
       Date: '日時',
       Protocol: 'プロトコル',
       Info: '詳細',

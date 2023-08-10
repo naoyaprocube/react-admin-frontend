@@ -223,6 +223,12 @@ const FileProvider = {
     })
   },
 
+  getdir: (params:any) => {
+    return httpClient(`${apiUrl}/getdir/${params.id}`, {
+      method: 'GET'
+    })
+  },
+
   rmdir: (params: any) => {
     return fetch(`${apiUrl}/rmdir/${params.id}`, {
       method: 'DELETE'

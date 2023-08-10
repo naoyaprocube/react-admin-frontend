@@ -97,8 +97,9 @@ const MKDirButton = (props: MKDProps) => {
         sx={{
           '& .MuiBackdrop-root': {
             backgroundColor: 'rgba(0, 0, 0, 0.25)'
-          }
+          },
         }}
+        maxWidth={"xs"}
       >
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <DialogTitle>
