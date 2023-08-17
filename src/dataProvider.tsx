@@ -138,10 +138,10 @@ const FileProvider = {
       if (response.status < 200 || response.status >= 300) {
         return { data: { res: response, id: "error" } }
       }
-      if (response.status === 202) {
+      else if (response.status === 202) {
         return { data: { res: response, id: "cancel" } }
       }
-      return { data: { ...params.data, id: params.data.file.title } }
+      else return { data: { ...params.data, id: params.data.file.title } }
     })
       .catch((error) => {
         return {
@@ -225,6 +225,12 @@ const FileProvider = {
 
   getdir: (params:any) => {
     return httpClient(`${apiUrl}/getdir/${params.id}`, {
+      method: 'GET'
+    })
+  },
+
+  getenv: (params:any) => {
+    return httpClient(`${apiUrl}/getenv`, {
       method: 'GET'
     })
   },

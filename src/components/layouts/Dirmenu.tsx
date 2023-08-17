@@ -13,14 +13,15 @@ import {
   Menu,
   useDataProvider,
 } from 'react-admin';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FolderIcon from '@mui/icons-material/Folder';
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 import { useTranslate, useSidebarState } from 'react-admin';
-import { MKDirButton, RemoveDirButton } from './utils'
+import { MKDirButton } from '../buttons/MKDirButton'
+import { RMDirButton } from '../buttons/RMDirButton'
 interface Props {
   dense: boolean;
   handleToggle: () => void;
@@ -55,8 +56,8 @@ const DirMenu = () => {
   const [state, setState] = React.useState([{ _id: "root", dirname: "root", children: [], fullpath: [] }]);
   const [openState, dispatch] = React.useReducer(reducerFunc, initialState)
   const [activeDir, setActiveDir] = React.useState({
-    dirname: "root",
-    dirId: "root"
+    dirname: "",
+    dirId: ""
   })
   const dataProvider = useDataProvider()
   const navigate = useNavigate()
@@ -130,7 +131,7 @@ const DirMenu = () => {
         </MenuItem>
         {isActive ? <>
           <MKDirButton dirId={id} sidebarIsOpen={false} dirName={name} />
-          <RemoveDirButton mongoid={id} isRoot={id !== "root"} />
+          <RMDirButton mongoid={id} isRoot={id !== "root"} />
         </> : null}
       </ButtonGroup>
     )

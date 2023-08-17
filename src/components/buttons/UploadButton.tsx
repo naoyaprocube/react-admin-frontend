@@ -4,7 +4,6 @@ import {
   Confirm,
   useDataProvider,
   useTranslate,
-  Toolbar,
 } from 'react-admin';
 import { useWatch } from 'react-hook-form';
 import {
@@ -20,7 +19,7 @@ import {
 import dayjs from 'dayjs';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useNavigate } from "react-router-dom";
-import { humanFileSize } from './utils'
+import { humanFileSize } from '../utils'
 import Paper, { PaperProps } from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 
@@ -40,7 +39,7 @@ let mongoid = ""
 let checkSize = false
 
 
-const FileToolbar = (props:any) => {
+const UploadButton = (props:any) => {
   const {dirId} = props
   const [open, setOpen] = React.useState(false);
   const [isButton, setButton] = React.useState(false);
@@ -181,7 +180,7 @@ const FileToolbar = (props:any) => {
     })
   }
   return (
-    <Toolbar sx={{ flexDirection: 'row-reverse' }}>
+    <>
       <Button
         startIcon={!isUploading && < FileUploadIcon />}
         variant="contained"
@@ -238,8 +237,8 @@ const FileToolbar = (props:any) => {
         </DialogActions>
         <LinearProgress />
       </Dialog>
-    </Toolbar>
+    </>
   );
 };
 
-export default FileToolbar;
+export default UploadButton;

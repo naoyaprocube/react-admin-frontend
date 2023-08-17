@@ -15,19 +15,22 @@ import {
   useDataProvider,
   Title,
 } from 'react-admin';
-import {Box, Button} from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { blue } from '@mui/material/colors';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import { DownloadButton, humanFileSize } from './utils'
+import { humanFileSize } from '../utils'
+import DownloadButton from '../buttons/DownloadButton'
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { useParams } from "react-router-dom";
+import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 
 const FilesList = (props: any) => {
   const { id } = useParams()
   const dataProvider = useDataProvider()
-  const [dir, setDir] = React.useState({dirname:"root",_id:"root",fullpath:[]});
+  const translate = useTranslate()
+  const [dir, setDir] = React.useState({ dirname: "root", _id: "root", fullpath: [] });
   React.useEffect(() => {
-    dataProvider.getdir({id:id}).then((result: any) => {
+    dataProvider.getdir({ id: id }).then((result: any) => {
       const json = JSON.parse(result.body)
       setDir(json)
     })
@@ -38,18 +41,52 @@ const FilesList = (props: any) => {
     return (<DeleteWithConfirmButton label="" redirect={"/dirs/" + id} translateOptions={{ id: record.filename }} />)
   }
   const FilesListActions = (props: any) => {
-    const translate = useTranslate()
+
     return (
       <TopToolbar>
-        <CreateButton 
-        icon={<NoteAddIcon/>}
-        label={translate('file.upload')}
+        <CreateButton
+          icon={<NoteAddIcon />}
+          label={translate('file.upload')}
         />
       </TopToolbar>
     )
   }
+  const Empty = () => (
+    <Box sx={{ mt: 5 }} width={1}>
+      <Box width={1} sx={{
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        mt: 1
+      }}>
+        <FolderOpenIcon sx={{
+          width: '9em',
+          height: '9em',
+          color: 'text.secondary',
+        }} />
+      </Box>
+
+      <Typography variant="h4" align="center" sx={{ color: 'text.secondary' }}>
+        {translate('ra.page.empty')}
+      </Typography>
+      <Typography variant="body1" align="center" sx={{ mt: 3, color: 'text.secondary' }}>
+        {translate('ra.page.invite')}
+      </Typography>
+      <Box width={1} sx={{
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        mt: 1
+      }}>
+        <CreateButton
+          icon={<NoteAddIcon />}
+          label={translate('file.upload')}
+          size="large"
+        />
+      </Box>
+
+    </Box>
+  );
   return (
-    <List {...props} title={dir.dirname} hasCreate resource={id} exporter={false} actions={<FilesListActions />}>
+    <List {...props} title={dir.dirname} empty={<Empty />} resource={id} exporter={false} actions={<FilesListActions />}>
       <Datagrid sx={{
         '& .RaDatagrid-headerCell': {
           backgroundColor: blue[100],
