@@ -23,6 +23,7 @@ const FileInfo = () => {
   const filename = useWatch({ name: 'filename' });
   const length = useWatch({ name: 'length' });
   const status = useWatch({ name: 'metadata.status' });
+  const unique = useWatch({ name: 'metadata.unique' });
   const translate = useTranslate()
   return filename ? (
     <Box sx={{ mb: 2, bgcolor: blue[100], width: 1, p: 2, borderRadius: '16px', boxShadow: 1 }}>
@@ -31,6 +32,9 @@ const FileInfo = () => {
       </Box>
       <Box>
         {translate('file.fields.metadata.status')}: {status}
+      </Box>
+      <Box>
+        {translate('file.fields.metadata.unique')}: {"/" + unique}
       </Box>
     </Box>
   ) : null
@@ -53,9 +57,9 @@ const FileShow = (props: any) => {
   return (
     <Edit resource={id} id={fileId} redirect={"/dirs/" + id} actions={<EditToolbar />} title={<EditTitle />}>
       <SimpleForm toolbar={false}>
-        <Box>
-          <TextInput source="filename" label="file.fields.filename" variant="standard" sx={{ mb: -1 }} />
-          <SaveButton sx={{ ml: 2, mt: 2 }} />
+        <Box sx={{width:1, mb:2}}>
+          <TextInput source="filename" label="file.fields.filename" variant="standard" sx={{ mb: -1, width:0.5, }} style={{maxWidth:600}} />
+          <SaveButton size="small" sx={{ p:1, ml: 2, mt:2}} />
         </Box>
         <FileInfo />
         <Box>
@@ -72,7 +76,7 @@ const FileShow = (props: any) => {
             <DateField source="Date" label="file.fields.Date" showTime locales="jp-JP" sortable={false} />
             <TextField source="Protocol" label="file.fields.Protocol" sortable={false} />
             <TextField source="SourceIP" label="file.fields.SourceIP" sortable={false} />
-            <TextField source="Info" label="file.fields.Info" sortable={false} />
+            <TextField source="Info" label="file.fields.Info" sortable={false} component="pre"/>
           </Datagrid>
         </ArrayField>
       </SimpleForm>

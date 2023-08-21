@@ -92,6 +92,7 @@ const FilesCreate = (props: any) => {
         <FileInput
           source="file"
           removeIcon={DeleteIcon}
+          label={""}
           sx={{
             '& .RaFileInput-dropZone': {
               display: DropzoneDisplay

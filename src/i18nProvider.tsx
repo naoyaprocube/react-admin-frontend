@@ -16,7 +16,8 @@ const english = {
       uploadDate: 'Upload Date',
       metadata:{
         status: 'Status',
-        accessHistory: 'Access History'
+        accessHistory: 'Access History',
+        unique: "Fullpath"
       },
       Type: 'Type',
       Date: 'Date',
@@ -85,7 +86,8 @@ const japanese = {
       uploadDate: '最終更新日時',
       metadata:{
         status: '状態',
-        accessHistory: 'アクセス履歴'
+        accessHistory: 'アクセス履歴',
+        unique: "フルパス"
       },
       Type: '種別',
       Date: '日時',

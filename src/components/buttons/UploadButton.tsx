@@ -34,25 +34,23 @@ function PaperComponent(props: PaperProps) {
   );
 }
 
-let checkExist = false
-let mongoid = ""
-let checkSize = false
-
-
 export const UploadButton = (props: any) => {
   const { dirId } = props
   const [open, setOpen] = React.useState(false);
+  const [mongoid, setMongoId] = React.useState("");
   const [isButton, setButton] = React.useState(false);
   const [isUploading, setUploading] = React.useState(false);
   const [timestamp, setTimestamp] = React.useState('');
   const [elapsedTime, setElapsedTime] = React.useState('');
-  const handleDialogClose = () => setOpen(false);
+  
   const notify = useNotify();
   const file = useWatch({ name: 'file' });
   const dataProvider = useDataProvider();
   const navigate = useNavigate();
   const translate = useTranslate();
 
+  const handleDialogClose = () => setOpen(false);
+  
   const increment = () => {
     const time = dayjs().format('YYYY-MM-DDTHH:mm:ss');
     setTimestamp(time);
@@ -90,8 +88,7 @@ export const UploadButton = (props: any) => {
     return () => { };
   }, [isUploading]);
 
-  const CheckExist = () => {
-    return new Promise((resolve, reject) => {
+  const CheckExist = () => new Promise((resolve, reject) => {
       notify('file.check', { type: 'info' });
       if (!file) {
         return
@@ -102,33 +99,24 @@ export const UploadButton = (props: any) => {
         }
         return response.json()
       }).then((data: any) => {
-        if (file.rawFile.size > data.sizeLimit) {
-          notify('file.sizeover', { type: 'error', messageArgs: { fileSize: humanFileSize(file.rawFile.size, false), sizeLimit: humanFileSize(data.sizeLimit, false) } })
-          checkSize = true
-          resolve("")
+        const ret = {
+          checkSize: (file.rawFile.size > data.uploadLimit),
+          checkTotalSize: (data.totalSize + file.rawFile.size > data.totalSizeLimit),
+          checkExist: data.existCheck,
+          mongoId: data.id,
         }
-        else if (data.totalSize + file.rawFile.size > data.totalSizeLimit) {
-          notify('file.totalSizeover', { type: 'error', messageArgs: { totalSize: humanFileSize(data.totalSize, false), totalSizeLimit: humanFileSize(data.totalSizeLimit, false) } })
-          checkSize = true
-          resolve("")
+        if(ret.checkSize) notify('file.sizeover', { type: 'error', messageArgs: { fileSize: humanFileSize(file.rawFile.size, false), sizeLimit: humanFileSize(data.sizeLimit, false) } })
+        else if(ret.checkTotalSize) notify('file.totalSizeover', { type: 'error', messageArgs: { totalSize: humanFileSize(data.totalSize, false), totalSizeLimit: humanFileSize(data.totalSizeLimit, false) } })
+        else if(ret.checkExist) {
+          setMongoId(ret.mongoId)
+          setOpen(true)
         }
-        else if (data.existCheck === true && checkSize === false) {
-          mongoid = data.id
-          checkExist = data.existCheck
-          setOpen(true);
-          resolve("")
-        }
-        else {
-          checkExist = false
-          setOpen(false)
-          resolve("")
-        };
+        resolve(ret)
       })
     })
-  };
 
-  const onClick = () => CheckExist().then(() => {
-    if (checkExist === false && checkSize === false) {
+  const onClick = () => CheckExist().then((ret: any) => {
+    if (ret.checkExist === false && ret.checkSize === false && ret.checkTotalSize === false) {
       setButton(true)
       setUploading(true)
       increment()
@@ -197,7 +185,7 @@ export const UploadButton = (props: any) => {
           '& .MuiDialogActions-root': {
             display: 'flex',
             flexDirection: 'row-reverse',
-            justifyContent: 'space-evenly' 
+            justifyContent: 'space-evenly'
           },
         }}
       />

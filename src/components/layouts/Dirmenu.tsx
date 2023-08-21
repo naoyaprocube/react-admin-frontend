@@ -4,6 +4,7 @@ import {
   List,
   MenuItem,
   colors,
+  Box,
   Collapse,
   Tooltip,
   IconButton,
@@ -104,12 +105,15 @@ const DirMenu = () => {
       <ButtonGroup
         fullWidth
         variant={isActive ? "contained" : "text"}
-        sx={{ borderRadius: 5, bgcolor: isActive ? colors.blue[50] : null }}
+        sx={{ 
+          borderRadius: 5, 
+          bgcolor: isActive ? colors.blue[50] : null,
+        }}
       >
         <ItemIcon />
         <MenuItem
           dense={dense}
-          sx={{ ml: -1.2, width: 1, borderRadius: 5 }}
+          sx={{ ml: -1.2, width:1,overflow:'auto', borderRadius: 5 }}
           onClick={() => {
             dataProvider.getdir({ id: id })
               .then((result: any) => JSON.parse(result.body))
@@ -129,10 +133,10 @@ const DirMenu = () => {
             </> : <ArrowForwardIosIcon color="primary" />
           }
         </MenuItem>
-        {isActive ? <>
+        {(isActive && sidebarIsOpen) ? <Box className="actions" sx={{ display: "flex"}}>
           <MKDirButton dirId={id} sidebarIsOpen={false} dirName={name} />
           <RMDirButton mongoid={id} isRoot={id !== "root"} dirName={name}/>
-        </> : null}
+        </Box> : null}
       </ButtonGroup>
     )
     return (
