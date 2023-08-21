@@ -1,3 +1,20 @@
+function download(blob: Blob, filename: string) {
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.style.display = 'none';
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  window.URL.revokeObjectURL(url);
+}
+
+function decodeUTF8(buffer: any) {
+  const decoder = new TextDecoder();
+  return decoder.decode(buffer);
+}
+
 const humanFileSize = (bytes: any, si = false, dp = 1) => {
   const thresh = si ? 1000 : 1024;
   if (Math.abs(bytes) < thresh) {
@@ -43,4 +60,4 @@ const estimatedUploadTime = (bytes: number, limit: number = 1024 * 1024 * 1024 *
   return { check, sec, min, hour, label, est }
 }
 
-export {humanFileSize, estimatedUploadTime }
+export {download, decodeUTF8, humanFileSize, estimatedUploadTime }

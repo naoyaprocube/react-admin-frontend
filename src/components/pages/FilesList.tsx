@@ -13,12 +13,12 @@ import {
   CreateButton,
   useTranslate,
   useDataProvider,
-  Title,
 } from 'react-admin';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Tooltip, Typography } from '@mui/material';
 import { blue } from '@mui/material/colors';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { humanFileSize } from '../utils'
+import { DirRoute } from '../layouts/DirRoute'
 import DownloadButton from '../buttons/DownloadButton'
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { useParams } from "react-router-dom";
@@ -38,12 +38,23 @@ const FilesList = (props: any) => {
   const DeleteButton = () => {
     const record = useRecordContext()
     const { id } = useParams()
-    return (<DeleteWithConfirmButton label="" redirect={"/dirs/" + id} translateOptions={{ id: record.filename }} />)
+    return <Tooltip title={translate('ra.action.delete')} placement="top-start">
+      <Box>
+        <DeleteWithConfirmButton label="" redirect={"/dirs/" + id} translateOptions={{ id: record.filename }} />
+      </Box>
+    </Tooltip>
   }
+  const FileShowButton = () => (
+    <Tooltip title={translate('file.infoIcon')} placement="top-start">
+      <Box>
+        <ShowButton label="" icon={<InfoOutlinedIcon />} />
+      </Box>
+    </Tooltip>
+  )
   const FilesListActions = (props: any) => {
-
     return (
-      <TopToolbar>
+      <TopToolbar sx={{width: 1}}>
+        <DirRoute dir={dir}/>
         <CreateButton
           icon={<NoteAddIcon />}
           label={translate('file.upload')}
@@ -98,7 +109,7 @@ const FilesList = (props: any) => {
         <TextField source="metadata.status" label="file.fields.metadata.status" sortable={false} />
         <Box className="ActionButtons" sx={{ display: 'flex', alignSelf: 'flex-end' }}>
           <DownloadButton />
-          <ShowButton label="" icon={<InfoOutlinedIcon />} />
+          <FileShowButton />
           <DeleteButton />
         </Box>
       </Datagrid>

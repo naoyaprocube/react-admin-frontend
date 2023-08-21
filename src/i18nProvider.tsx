@@ -28,6 +28,7 @@ const english = {
       scanTime: 'Estimated scan time'
     },
     downloading: 'Downloading %{filename}',
+    download: 'Download',
     upload: 'Upload',
     uploadPageTitle: 'Upload File',
     uploading: 'Uploading %{filename} ...',
@@ -43,7 +44,12 @@ const english = {
       title: 'This file already exists.',
       content: 'A file with the same filename already exists. Do you want to overwrite?'
     },
+    rmdir: {
+      title: 'Delete %{dirName}',
+      content: 'All files uploaded under this directory will be deleted. Are you really sure?'
+    },
     info: 'Upload File Info',
+    infoIcon: 'Info',
     info_sizeover: 'Upload size limit over',
     info_scan_sizeover: 'Scan size limit over',
     statusCodeError: '%{code}: %{text}',
@@ -59,6 +65,9 @@ const english = {
       create: 'Create Directory'
     },
     create: 'Create'
+  },
+  error: {
+    dirAlreadyExist: '%{code}: Cannot make directory that has already exist name'
   }
 }
 
@@ -88,6 +97,7 @@ const japanese = {
       scanTime: '推定ウイルススキャン時間'
     },
     downloading: '%{filename}をダウンロード中',
+    download: 'ダウンロード',
     upload: 'アップロード',
     uploadPageTitle: 'ファイルをアップロード',
     uploading: '%{filename}をアップロード中...',
@@ -103,7 +113,12 @@ const japanese = {
       title: 'このファイルはすでに存在しています。',
       content: '同じファイル名のファイルがすでに存在します。上書きしますか？'
     },
+    rmdir: {
+      title: '%{dirName}を削除します。',
+      content: '配下にアップロードされたファイルは全て削除されます。本当によろしいですか？'
+    },
     info: '選択したファイルの詳細',
+    infoIcon: '詳細',
     info_sizeover: 'アップロードサイズ制限超過',
     info_scan_sizeover: 'スキャンサイズ制限超過',
     statusCodeError: '%{code}: %{text}',
@@ -119,6 +134,9 @@ const japanese = {
       create: 'ディレクトリを作成'
     },
     create: '作成'
+  },
+  error: {
+    dirAlreadyExist: '%{code}: 同じ名前のディレクトリが存在します。'
   }
 }
 

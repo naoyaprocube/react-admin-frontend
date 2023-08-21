@@ -131,7 +131,7 @@ const DirMenu = () => {
         </MenuItem>
         {isActive ? <>
           <MKDirButton dirId={id} sidebarIsOpen={false} dirName={name} />
-          <RMDirButton mongoid={id} isRoot={id !== "root"} />
+          <RMDirButton mongoid={id} isRoot={id !== "root"} dirName={name}/>
         </> : null}
       </ButtonGroup>
     )

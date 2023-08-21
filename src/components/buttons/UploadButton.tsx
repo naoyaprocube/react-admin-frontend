@@ -39,8 +39,8 @@ let mongoid = ""
 let checkSize = false
 
 
-const UploadButton = (props:any) => {
-  const {dirId} = props
+export const UploadButton = (props: any) => {
+  const { dirId } = props
   const [open, setOpen] = React.useState(false);
   const [isButton, setButton] = React.useState(false);
   const [isUploading, setUploading] = React.useState(false);
@@ -193,6 +193,13 @@ const UploadButton = (props:any) => {
         content='file.alreadyExist.content'
         onConfirm={onConfirm}
         onClose={handleDialogClose}
+        sx={{
+          '& .MuiDialogActions-root': {
+            display: 'flex',
+            flexDirection: 'row-reverse',
+            justifyContent: 'space-evenly' 
+          },
+        }}
       />
       <Dialog
         open={isUploading}
@@ -240,5 +247,3 @@ const UploadButton = (props:any) => {
     </>
   );
 };
-
-export default UploadButton;

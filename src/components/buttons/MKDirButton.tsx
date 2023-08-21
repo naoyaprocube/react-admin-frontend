@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   useDataProvider,
   useTranslate,
+  useNotify
 } from 'react-admin';
 import {
   Button,
@@ -13,6 +14,7 @@ import {
   DialogContentText,
   DialogActions,
 } from '@mui/material';
+import { useWatch } from 'react-hook-form';
 import { Controller, useForm } from 'react-hook-form';
 import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
 import { FireContext } from '../layouts/Dirmenu'
@@ -24,7 +26,6 @@ interface MKDProps {
 }
 
 const NameInputField = ({ control }: any) => {
-  const translate = useTranslate()
   return (
     <div>
       <Controller
@@ -55,11 +56,20 @@ export const MKDirButton = (props: MKDProps) => {
   });
   const [open, setOpen] = React.useState(false);
   const { fire, setFire } = React.useContext(FireContext);
+  const notify = useNotify()
   const dataProvider = useDataProvider()
   const translate = useTranslate()
+  const name = useWatch({ name:"NameInputField" , control: control });
+  const isSet = name ? true : false
   const onCancel = () => setOpen(false)
   const onSubmit = (data: any) => {
-    dataProvider.mkdir(dirId, { dirname: data.NameInputField }).then(() => {
+    dataProvider.mkdir(dirId, { dirname: data.NameInputField }).then((response: Response) => {
+      if (response.status === 400) {
+        notify('error.dirAlreadyExist', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+      }
+      else if (response.status < 200 || response.status >= 300) {
+        notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+      }
       setFire(fire => !fire)
     })
   }
@@ -96,6 +106,7 @@ export const MKDirButton = (props: MKDProps) => {
               onClick={() => {
                 setOpen(false);
               }}
+              disabled={!isSet}
             >
               {translate('dir.create')}
             </Button>

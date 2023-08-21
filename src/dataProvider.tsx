@@ -119,7 +119,7 @@ const dataProvider = {
 const FileProvider = {
   ...dataProvider,
   create: (resource: any, params: any) => {
-    if (resource === 'settings') {
+    if (resource === "") {
       // fallback to the default implementation
       return dataProvider.create(resource, params);
     }
@@ -129,7 +129,7 @@ const FileProvider = {
     }
     const filename = encodeUTF8(params.data.file.title).toString()
     let formData = new FormData();
-    formData.append('file', params.data.file.rawFile,params.data.file.title);
+    formData.append('file', params.data.file.rawFile, params.data.file.title);
     return httpClient(`${apiUrl}/${resource}`, {
       method: 'POST',
       headers: new Headers({ 'content-filename': filename }),
@@ -157,29 +157,7 @@ const FileProvider = {
   },
 
   download: (resource: any, params: any) => {
-    function download(blob: any, filename: any) {
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.style.display = 'none';
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
-    }
-    function decodeUTF8(buffer: any) {
-      const decoder = new TextDecoder();
-      return decoder.decode(buffer);
-    }
-    return fetch(`${apiUrl}/${resource}/${params.id}/download`, { credentials: 'include' }).then((response) => {
-      if (response.status === 200) {
-        const UTF8encodedArray = new Uint8Array(response.headers.get('Content-Filename').split(',').map(x => Number(x)))
-        const filename = decodeUTF8(UTF8encodedArray);
-        response.blob().then(blob => download(blob, filename))
-      }
-      return response
-    })
+    return fetch(`${apiUrl}/${resource}/${params.id}/download`, { credentials: 'include' })
   },
 
   check: (resource: any, params: any) => {
@@ -214,7 +192,9 @@ const FileProvider = {
     return httpClient(`${apiUrl}/${resource}/mkdir`, {
       method: 'POST',
       body: JSON.stringify(params)
-    })
+    }).catch((error) => {
+      return error
+    });
   },
 
   getdirs: () => {
@@ -223,13 +203,13 @@ const FileProvider = {
     })
   },
 
-  getdir: (params:any) => {
+  getdir: (params: any) => {
     return httpClient(`${apiUrl}/getdir/${params.id}`, {
       method: 'GET'
     })
   },
 
-  getenv: (params:any) => {
+  getenv: (params: any) => {
     return httpClient(`${apiUrl}/getenv`, {
       method: 'GET'
     })

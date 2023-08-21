@@ -13,11 +13,11 @@ import {
   Toolbar,
 } from 'react-admin';
 import { useWatch } from 'react-hook-form';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { blue } from '@mui/material/colors';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { BackButton } from '../buttons/BackButton'
 
 const FileInfo = () => {
   const filename = useWatch({ name: 'filename' });
@@ -42,50 +42,41 @@ const EditTitle = () => {
 
 const FileShow = (props: any) => {
   const translate = useTranslate()
-  const navigate = useNavigate()
   const { id, fileId } = useParams()
-  const BackButton = () => {
-    return (<Button
-      startIcon={<ArrowBackIcon />}
-      children={translate('ra.action.back')}
-      size="small"
-      onClick={() => navigate("/dirs/" + id)}
-      color="inherit"
-    />)
-  }
+  
   const EditToolbar = () => {
-    return (<Toolbar sx={{display: "flex", justifyContent: 'space-between' }}>
-      <BackButton />
+    return (<Toolbar sx={{ display: "flex", justifyContent: 'space-between' }}>
+      <BackButton dirId={id}/>
       <DeleteButton redirect={"/dirs/" + id} />
     </Toolbar >)
   }
-return (
-  <Edit resource={id} id={fileId} redirect={"/dirs/" + id} actions={<EditToolbar />} title={<EditTitle />}>
-    <SimpleForm toolbar={false}>
-      <Box>
-        <TextInput source="filename" label="file.fields.filename" variant="standard" sx={{ mb: -1 }} />
-        <SaveButton sx={{ ml: 2, mt: 2 }} />
-      </Box>
-      <FileInfo />
-      <Box>
-        {translate('file.fields.metadata.accessHistory')}
-      </Box>
-      <ArrayField source="metadata.accessHistory" label="file.fields.metadata.accessHistory">
-        <Datagrid bulkActionButtons={false} sx={{
-          width: 1,
-          '& .RaDatagrid-headerCell': {
-            backgroundColor: blue[100],
-          },
-        }}>
-          <TextField source="Type" label="file.fields.Type" sortable={false} />
-          <DateField source="Date" label="file.fields.Date" showTime locales="jp-JP" sortable={false} />
-          <TextField source="Protocol" label="file.fields.Protocol" sortable={false} />
-          <TextField source="SourceIP" label="file.fields.SourceIP" sortable={false} />
-          <TextField source="Info" label="file.fields.Info" sortable={false} />
-        </Datagrid>
-      </ArrayField>
-    </SimpleForm>
-  </Edit>
-)
+  return (
+    <Edit resource={id} id={fileId} redirect={"/dirs/" + id} actions={<EditToolbar />} title={<EditTitle />}>
+      <SimpleForm toolbar={false}>
+        <Box>
+          <TextInput source="filename" label="file.fields.filename" variant="standard" sx={{ mb: -1 }} />
+          <SaveButton sx={{ ml: 2, mt: 2 }} />
+        </Box>
+        <FileInfo />
+        <Box>
+          {translate('file.fields.metadata.accessHistory')}
+        </Box>
+        <ArrayField source="metadata.accessHistory" label="file.fields.metadata.accessHistory">
+          <Datagrid bulkActionButtons={false} sx={{
+            width: 1,
+            '& .RaDatagrid-headerCell': {
+              backgroundColor: blue[100],
+            },
+          }}>
+            <TextField source="Type" label="file.fields.Type" sortable={false} />
+            <DateField source="Date" label="file.fields.Date" showTime locales="jp-JP" sortable={false} />
+            <TextField source="Protocol" label="file.fields.Protocol" sortable={false} />
+            <TextField source="SourceIP" label="file.fields.SourceIP" sortable={false} />
+            <TextField source="Info" label="file.fields.Info" sortable={false} />
+          </Datagrid>
+        </ArrayField>
+      </SimpleForm>
+    </Edit>
+  )
 }
 export default FileShow;

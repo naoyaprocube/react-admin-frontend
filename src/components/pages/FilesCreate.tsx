@@ -8,7 +8,8 @@ import {
   useDataProvider,
   Toolbar,
 } from 'react-admin';
-import UploadButton from '../buttons/UploadButton'
+import { UploadButton } from '../buttons/UploadButton'
+import { BackButton } from '../buttons/BackButton'
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useWatch } from 'react-hook-form';
 import { Box } from '@mui/material';
@@ -80,8 +81,13 @@ const FilesCreate = (props: any) => {
       <UploadButton dirId={id} />
     </Toolbar>
   )
+  const TopToolbar = () => {
+    return (<Toolbar sx={{ display: "flex"}}>
+      <BackButton dirId={id}/>
+    </Toolbar >)
+  }
   return (
-    <Create {...props} resource={id} redirect={"/dirs/" + id} title={translate('file.uploadPageTitle')}>
+    <Create {...props} actions={<TopToolbar/>}resource={id} redirect={"/dirs/" + id} title={translate('file.uploadPageTitle')}>
       <SimpleForm toolbar={<FileToolbar />}>
         <FileInput
           source="file"
