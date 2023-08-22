@@ -23,7 +23,7 @@ const DownloadButton = (props: any) => {
   const [total, setTotal] = React.useState(-1)
   const handler = (response: Response) => {
     setState(true)
-    const UTF8encodedArray = new Uint8Array(response.headers.get('Content-Filename').split(',').map((x: any) => Number(x)))
+    const UTF8encodedArray = new Uint8Array(response.headers.get('Content-Filename').split(',').map((x: string) => Number(x)))
     const filename = decodeUTF8(UTF8encodedArray);
     const contentLength = response.headers.get('content-length');
     setTotal(parseInt(contentLength, 10))

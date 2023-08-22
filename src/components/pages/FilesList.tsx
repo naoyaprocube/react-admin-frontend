@@ -115,7 +115,7 @@ const FilesList = (props: any) => {
         <TableCell style={{ width: "5%" }} padding="none">
           {selectable && (
             <Checkbox
-              sx={{ display: "flex", justifyContent: 'center' }}
+              sx={{ display: "inline-flex", justifyContent: 'row', ml:1}}
               checked={selected}
               onClick={event => onToggleItem(id, event)}
             />
@@ -138,8 +138,8 @@ const FilesList = (props: any) => {
   const CustomDatagrid = (props: any) => <Datagrid {...props} body={<CustomDatagridBody />} />;
   return (
     <List {...props} title={dir.dirname} empty={<Empty />} resource={id} exporter={false} actions={<FilesListActions />}>
-      <CustomDatagrid style={{ tableLayout: "-moz-initial" }}>
-        <TextField width="55%" source="filename" label="file.fields.filename" sortable={false} className={"filename"} sx={{ width: 1, }} />
+      <CustomDatagrid style={{ tableLayout: "initial" }}>
+        <TextField width="50%" source="filename" label="file.fields.filename" sortable={false} className={"filename"} sx={{ width: 1, }} />
         <FunctionField width="10%" source="length" label="file.fields.length" sortable={true} sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />
         <DateField width="10%" source="uploadDate" label="file.fields.uploadDate" showTime locales="jp-JP" />
         <TextField width="10%" source="metadata.status" label="file.fields.metadata.status" sortable={false} />
