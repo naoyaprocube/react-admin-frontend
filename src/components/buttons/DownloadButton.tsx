@@ -19,8 +19,8 @@ const DownloadButton = (props: any) => {
   const translate = useTranslate()
   const dataProvider = useDataProvider();
   const [state, setState] = React.useState(false)
-  const [progress, setProgress] = React.useState(-1)
-  const [total, setTotal] = React.useState(-1)
+  const [progress, setProgress] = React.useState(0)
+  const [total, setTotal] = React.useState(1)
   const handler = (response: Response) => {
     setState(true)
     const UTF8encodedArray = new Uint8Array(response.headers.get('Content-Filename').split(',').map((x: string) => Number(x)))
