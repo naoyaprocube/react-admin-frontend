@@ -42,7 +42,7 @@ export const UploadButton = (props: any) => {
   const [isUploading, setUploading] = React.useState(false);
   const [timestamp, setTimestamp] = React.useState('');
   const [elapsedTime, setElapsedTime] = React.useState('');
-  
+
   const notify = useNotify();
   const file = useWatch({ name: 'file' });
   const dataProvider = useDataProvider();
@@ -50,7 +50,7 @@ export const UploadButton = (props: any) => {
   const translate = useTranslate();
 
   const handleDialogClose = () => setOpen(false);
-  
+
   const increment = () => {
     const time = dayjs().format('YYYY-MM-DDTHH:mm:ss');
     setTimestamp(time);
@@ -89,73 +89,38 @@ export const UploadButton = (props: any) => {
   }, [isUploading]);
 
   const CheckExist = () => new Promise((resolve, reject) => {
-      notify('file.check', { type: 'info' });
-      if (!file) {
-        return
-      }
-      dataProvider.check(dirId, file).then((response: any) => {
-        if (response.status < 200 || response.status >= 300) {
-          notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
-        }
-        return response.json()
-      }).then((data: any) => {
-        const ret = {
-          checkSize: (file.rawFile.size > data.uploadLimit),
-          checkTotalSize: (data.totalSize + file.rawFile.size > data.totalSizeLimit),
-          checkExist: data.existCheck,
-          mongoId: data.id,
-        }
-        if(ret.checkSize) notify('file.sizeover', { type: 'error', messageArgs: { fileSize: humanFileSize(file.rawFile.size, false), sizeLimit: humanFileSize(data.sizeLimit, false) } })
-        else if(ret.checkTotalSize) notify('file.totalSizeover', { type: 'error', messageArgs: { totalSize: humanFileSize(data.totalSize, false), totalSizeLimit: humanFileSize(data.totalSizeLimit, false) } })
-        else if(ret.checkExist) {
-          setMongoId(ret.mongoId)
-          setOpen(true)
-        }
-        resolve(ret)
-      })
-    })
-
-  const onClick = () => CheckExist().then((ret: any) => {
-    if (ret.checkExist === false && ret.checkSize === false && ret.checkTotalSize === false) {
-      setButton(true)
-      setUploading(true)
-      increment()
-      // notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
-      dataProvider.create(dirId, { "data": { "file": file } }).then((response: any) => {
-        console.log(response)
-        if (response.data.res) {
-          const res = response.data.res
-          if (res.status < 200 || res.status >= 300) {
-            notify('file.statusCodeError', { type: 'error', messageArgs: { code: res.status, text: res.statusText } })
-            navigate("/dirs/" + dirId)
-          }
-          else if (res.status !== 202) {
-            setOpen(false)
-            setUploading(false)
-            notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-            navigate("/dirs/" + dirId)
-          }
-        }
-        else {
-          setOpen(false)
-          setUploading(false)
-          notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-          navigate("/dirs/" + dirId)
-        }
-      })
+    notify('file.check', { type: 'info' });
+    if (!file) {
+      return
     }
+    dataProvider.check(dirId, file).then((response: any) => {
+      if (response.status < 200 || response.status >= 300) {
+        notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+      }
+      return response.json()
+    }).then((data: any) => {
+      const ret = {
+        checkSize: (file.rawFile.size > data.uploadLimit),
+        checkTotalSize: (data.totalSize + file.rawFile.size > data.totalSizeLimit),
+        checkExist: data.existCheck,
+        mongoId: data.id,
+      }
+      if (ret.checkSize) notify('file.sizeover', { type: 'error', messageArgs: { fileSize: humanFileSize(file.rawFile.size, false), sizeLimit: humanFileSize(data.sizeLimit, false) } })
+      else if (ret.checkTotalSize) notify('file.totalSizeover', { type: 'error', messageArgs: { totalSize: humanFileSize(data.totalSize, false), totalSizeLimit: humanFileSize(data.totalSizeLimit, false) } })
+      else if (ret.checkExist) {
+        setMongoId(ret.mongoId)
+        setOpen(true)
+      }
+      resolve(ret)
+    })
   })
 
-  const onConfirm = () => {
+  const uploadFile = (id: string, isOverwrite: boolean) => {
     setButton(true)
     setUploading(true)
     increment()
-    // notify('file.uploading', { type: 'info', autoHideDuration: 24 * 60 * 60 * 1000, messageArgs: { filename: file.title } })
-    setOpen(false)
-    dataProvider.recreate(dirId, {
-      "id": mongoid,
-      "data": { "file": file }
-    }).then((response: any) => {
+    if (isOverwrite) setOpen(false)
+    dataProvider.upload(dirId, { "id": id, "data": { "file": file } }).then((response: any) => {
       if (response.status < 200 || response.status >= 300) {
         console.log(response)
         notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
@@ -167,6 +132,16 @@ export const UploadButton = (props: any) => {
       }
     })
   }
+  const onClick = () => CheckExist().then((ret: any) => {
+    if (!ret.checkExist && !ret.checkSize && !ret.checkTotalSize) {
+      uploadFile("new", false)
+    }
+  })
+
+  const onConfirm = () => {
+    uploadFile(mongoid, true)
+  }
+
   return (
     <>
       <Button

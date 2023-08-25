@@ -118,43 +118,6 @@ const dataProvider = {
 
 const FileProvider = {
   ...dataProvider,
-  create: (resource: any, params: any) => {
-    if (resource === "") {
-      // fallback to the default implementation
-      return dataProvider.create(resource, params);
-    }
-    function encodeUTF8(str: any) {
-      const encoder = new TextEncoder();
-      return encoder.encode(str);
-    }
-    const filename = encodeUTF8(params.data.file.title).toString()
-    let formData = new FormData();
-    formData.append('file', params.data.file.rawFile, params.data.file.title);
-    return httpClient(`${apiUrl}/${resource}`, {
-      method: 'POST',
-      headers: new Headers({ 'content-filename': filename }),
-      body: formData,
-    }).then((response) => {
-      if (response.status < 200 || response.status >= 300) {
-        return { data: { res: response, id: "error" } }
-      }
-      else if (response.status === 202) {
-        return { data: { res: response, id: "cancel" } }
-      }
-      else return { data: { ...params.data, id: params.data.file.title } }
-    })
-      .catch((error) => {
-        return {
-          data: {
-            res: {
-              status: error.status,
-              statusText: error.message
-            },
-            id: "error"
-          }
-        }
-      });
-  },
 
   download: (resource: any, params: any) => {
     return fetch(`${apiUrl}/${resource}/${params.id}/download`, { credentials: 'include' })
@@ -171,12 +134,20 @@ const FileProvider = {
     })
   },
 
-  recreate: (resource: any, params: any) => {
+  upload: (resource: any, params: any) => {
     let formData = new FormData();
     formData.append('file', params.data.file.rawFile);
+    function encodeUTF8(str: any) {
+      const encoder = new TextEncoder();
+      return encoder.encode(str);
+    }
+    const filename = encodeUTF8(params.data.file.title).toString()
     return httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: 'POST',
-      headers: new Headers({ 'content-disposition': params.id }),
+      headers: new Headers({
+        'content-length': params.data.file.size,
+        'content-filename': filename
+      }),
       body: formData,
     })
   },

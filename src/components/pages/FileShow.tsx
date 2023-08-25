@@ -34,7 +34,7 @@ const FileInfo = () => {
         {translate('file.fields.metadata.status')}: {status}
       </Box>
       <Box>
-        {translate('file.fields.metadata.unique')}: {"/" + unique}
+        {translate('file.fields.metadata.unique')}: {unique}
       </Box>
     </Box>
   ) : null

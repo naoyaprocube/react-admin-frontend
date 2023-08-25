@@ -92,7 +92,11 @@ const DirMenu = () => {
     const isActive = (activeDir.dirId === id)
     const ItemIcon = () => {
       const buttonIcon = <>
-        {isOpen ? <><KeyboardArrowDownIcon /><FolderOpenIcon /></> : <><KeyboardArrowRightIcon /><FolderIcon /></>}
+        {isParent ?
+          isOpen ? <><KeyboardArrowDownIcon fontSize="small"/><FolderOpenIcon /></>
+            : <><KeyboardArrowRightIcon fontSize="small"/><FolderIcon /></>
+          : <><KeyboardArrowDownIcon fontSize="small"/><FolderOpenIcon /></>
+        }
       </>
       return <IconButton
         children={buttonIcon}
@@ -105,15 +109,15 @@ const DirMenu = () => {
       <ButtonGroup
         fullWidth
         variant={isActive ? "contained" : "text"}
-        sx={{ 
-          borderRadius: 5, 
+        sx={{
+          borderRadius: 5,
           bgcolor: isActive ? colors.blue[50] : null,
         }}
       >
         <ItemIcon />
         <MenuItem
           dense={dense}
-          sx={{ ml: -1.2, width:1,overflow:'auto', borderRadius: 5 }}
+          sx={{ ml: -1.2, width: 1, overflow: 'auto', borderRadius: 5 }}
           onClick={() => {
             dataProvider.getdir({ id: id })
               .then((result: any) => JSON.parse(result.body))
@@ -130,12 +134,12 @@ const DirMenu = () => {
           {
             sidebarIsOpen ? <>
               {name}
-            </> : <ArrowForwardIosIcon color="primary" />
+            </> : <ArrowForwardIosIcon color="primary" fontSize="small" />
           }
         </MenuItem>
-        {(isActive && sidebarIsOpen) ? <Box className="actions" sx={{ display: "flex"}}>
+        {(isActive && sidebarIsOpen) ? <Box className="actions" sx={{ display: "flex" }}>
           <MKDirButton dirId={id} sidebarIsOpen={false} dirName={name} />
-          <RMDirButton mongoid={id} isRoot={id !== "root"} dirName={name}/>
+          <RMDirButton mongoid={id} isRoot={id !== "root"} dirName={name} />
         </Box> : null}
       </ButtonGroup>
     )
@@ -161,7 +165,7 @@ const DirMenu = () => {
         </Collapse>
       </div>
     );
-  },[activeDir,sidebarIsOpen]);
+  }, [activeDir, sidebarIsOpen]);
 
   const dirMenuItems = React.useCallback((menuItems: Array<Object>) => {
     return menuItems.map((menuItemData: any) => {
