@@ -15,6 +15,7 @@ import {
   useDataProvider,
   DatagridBody,
   RecordContextProvider,
+  useNotify,
 } from 'react-admin';
 import {
   Box,
@@ -39,11 +40,14 @@ const FilesList = (props: any) => {
   const { id } = useParams()
   const dataProvider = useDataProvider()
   const translate = useTranslate()
+  const notify = useNotify()
   const [dir, setDir] = React.useState({ dirname: "root", _id: "root", fullpath: [] });
   React.useEffect(() => {
     dataProvider.getdir({ id: id }).then((result: any) => {
       const json = JSON.parse(result.body)
       setDir(json)
+    }).catch((response: any) => {
+      notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
   }, [id])
 

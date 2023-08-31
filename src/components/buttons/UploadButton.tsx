@@ -95,7 +95,8 @@ export const UploadButton = (props: any) => {
     }
     dataProvider.check(dirId, file).then((response: any) => {
       if (response.status < 200 || response.status >= 300) {
-        notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+        if(response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+        else notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: "Error" } })
       }
       return response.json()
     }).then((data: any) => {
@@ -112,6 +113,8 @@ export const UploadButton = (props: any) => {
         setOpen(true)
       }
       resolve(ret)
+    }).catch((response: any) => {
+      notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
   })
 
@@ -122,14 +125,23 @@ export const UploadButton = (props: any) => {
     if (isOverwrite) setOpen(false)
     dataProvider.upload(dirId, { "id": id, "data": { "file": file } }).then((response: any) => {
       if (response.status < 200 || response.status >= 300) {
-        console.log(response)
-        notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+        notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
+      }
+      else if (response.status === 200) {
+        setUploading(false)
+        navigate("/dirs/" + dirId)
+        notify('file.statusCodeError', { type: 'warning', messageArgs: { code: response.status, text: response.body } })
       }
       else if (response.status !== 202) {
         setUploading(false)
         notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
         navigate("/dirs/" + dirId)
       }
+    })
+    .catch((response: any) => {
+      setUploading(false)
+      navigate("/dirs/" + dirId)
+      notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
   }
   const onClick = () => CheckExist().then((ret: any) => {
@@ -156,13 +168,6 @@ export const UploadButton = (props: any) => {
         content='file.alreadyExist.content'
         onConfirm={onConfirm}
         onClose={handleDialogClose}
-        sx={{
-          '& .MuiDialogActions-root': {
-            display: 'flex',
-            flexDirection: 'row-reverse',
-            justifyContent: 'space-evenly'
-          },
-        }}
       />
       <Dialog
         open={isUploading}
@@ -190,7 +195,7 @@ export const UploadButton = (props: any) => {
             onClick={() => {
               dataProvider.cancel(dirId, { filename: file ? file.title : null }).then((response: any) => {
                 if (response.status < 200 || response.status >= 300) {
-                  notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+                  notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
                 }
                 else if (response.status === 200) {
                   notify('file.uploading_cancel', { type: 'info' });
@@ -200,6 +205,8 @@ export const UploadButton = (props: any) => {
                 else if (response.status === 202) {
                   notify('file.uploading_cancel_denied', { type: 'info' });
                 }
+              }).catch((response: any) => {
+                notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
               })
             }}>
             {translate('ra.action.cancel')}

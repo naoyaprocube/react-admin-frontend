@@ -45,10 +45,7 @@ const english = {
       title: 'This file already exists.',
       content: 'A file with the same filename already exists. Do you want to overwrite?'
     },
-    rmdir: {
-      title: 'Delete %{dirName}',
-      content: 'All files uploaded under this directory will be deleted. Are you really sure?'
-    },
+    
     info: 'Upload File Info',
     infoIcon: 'Info',
     info_sizeover: 'Upload size limit over',
@@ -62,10 +59,21 @@ const english = {
     dirname: 'Directory Name',
     mkdir: {
       title: 'Create Directory',
-      context: 'Input directory name.',
+      content: 'Can make directory under the %{name}. Input directory name.',
       create: 'Create Directory'
     },
-    create: 'Create'
+    rmdir: {
+      title: 'Delete %{dirName}',
+      content: 'All files and directories uploaded under this directory will be deleted. Are you really sure?',
+      delete: 'Delete'
+    },
+    rndir: {
+      title: 'Rename %{dirName}',
+      content: 'Input directory name.',
+      rename: 'Rename'
+    },
+    create: 'Create',
+    rename: 'Rename'
   },
   error: {
     dirAlreadyExist: '%{code}: Cannot make directory that has already exist name'
@@ -115,10 +123,7 @@ const japanese = {
       title: 'このファイルはすでに存在しています。',
       content: '同じファイル名のファイルがすでに存在します。上書きしますか？'
     },
-    rmdir: {
-      title: '%{dirName}を削除します。',
-      content: '配下にアップロードされたファイルは全て削除されます。本当によろしいですか？'
-    },
+    
     info: '選択したファイルの詳細',
     infoIcon: '詳細',
     info_sizeover: 'アップロードサイズ制限超過',
@@ -132,10 +137,21 @@ const japanese = {
     dirname: 'ディレクトリ名',
     mkdir: {
       title: 'ディレクトリを作成',
-      context: '%{name}の配下にディレクトリを作成します。ディレクトリ名を入力してください。',
+      content: '%{name}の配下にディレクトリを作成します。ディレクトリ名を入力してください。',
       create: 'ディレクトリを作成'
     },
-    create: '作成'
+    rmdir: {
+      title: '%{dirName}を削除',
+      content: '配下にアップロードされたファイルとディレクトリは全て削除されます。本当によろしいですか？',
+      delete: '削除'
+    },
+    rndir: {
+      title: '%{dirName}の名前を変更',
+      content: 'ディレクトリ名を入力してください。',
+      rename: '名前を変更'
+    },
+    create: '作成',
+    rename: '変更'
   },
   error: {
     dirAlreadyExist: '%{code}: 同じ名前のディレクトリが存在します。'

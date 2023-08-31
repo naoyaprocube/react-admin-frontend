@@ -12,8 +12,8 @@ const App = () => {
   const theme = {
     ...defaultTheme,
     sidebar: {
-      width: 250, // The default value is 240
-      closedWidth: 110, // The default value is 55
+      width: 270, // The default value is 240
+      closedWidth: 0, // The default value is 55
     },
   };
   const FileLayout = (props: any) => {

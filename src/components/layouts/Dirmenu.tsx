@@ -13,6 +13,9 @@ import {
 import {
   Menu,
   useDataProvider,
+  useTranslate,
+  useNotify,
+  useSidebarState
 } from 'react-admin';
 import { useNavigate } from "react-router-dom";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -20,9 +23,9 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FolderIcon from '@mui/icons-material/Folder';
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
-import { useTranslate, useSidebarState } from 'react-admin';
 import { MKDirButton } from '../buttons/MKDirButton'
 import { RMDirButton } from '../buttons/RMDirButton'
+import { DirmenuActions } from './DirmenuActions'
 interface Props {
   dense: boolean;
   handleToggle: () => void;
@@ -63,7 +66,7 @@ const DirMenu = () => {
   const dataProvider = useDataProvider()
   const navigate = useNavigate()
   const [sidebarIsOpen] = useSidebarState();
-
+  const notify = useNotify()
   const [fire, setFire] = React.useState<boolean>(false);
   const [getdirFire, setGetdirFire] = React.useState<boolean>(false);
 
@@ -84,6 +87,8 @@ const DirMenu = () => {
       })
       const menu = JSON.parse(result.body)
       setState(menu)
+    }).catch((response: any) => {
+      notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
   }, [getdirFire])
 
@@ -93,9 +98,9 @@ const DirMenu = () => {
     const ItemIcon = () => {
       const buttonIcon = <>
         {isParent ?
-          isOpen ? <><KeyboardArrowDownIcon fontSize="small"/><FolderOpenIcon /></>
-            : <><KeyboardArrowRightIcon fontSize="small"/><FolderIcon /></>
-          : <><KeyboardArrowDownIcon fontSize="small"/><FolderOpenIcon /></>
+          isOpen ? <><KeyboardArrowDownIcon fontSize="small" /><FolderOpenIcon /></>
+            : <><KeyboardArrowRightIcon fontSize="small" /><FolderIcon /></>
+          : <><KeyboardArrowDownIcon fontSize="small" /><FolderOpenIcon /></>
         }
       </>
       return <IconButton
@@ -128,6 +133,9 @@ const DirMenu = () => {
                 })
                 navigate("/dirs/" + id)
               })
+              .catch((response: any) => {
+                notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
+              })
           }}
           disableRipple
         >
@@ -137,10 +145,7 @@ const DirMenu = () => {
             </> : <ArrowForwardIosIcon color="primary" fontSize="small" />
           }
         </MenuItem>
-        {(isActive && sidebarIsOpen) ? <Box className="actions" sx={{ display: "flex" }}>
-          <MKDirButton dirId={id} sidebarIsOpen={false} dirName={name} />
-          <RMDirButton mongoid={id} isRoot={id !== "root"} dirName={name} />
-        </Box> : null}
+        {(isActive && sidebarIsOpen) ? <DirmenuActions mongoid={id} dirName={name} /> : null}
       </ButtonGroup>
     )
     return (

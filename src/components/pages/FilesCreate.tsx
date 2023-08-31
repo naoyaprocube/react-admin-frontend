@@ -7,6 +7,7 @@ import {
   useTranslate,
   useDataProvider,
   Toolbar,
+  useNotify,
 } from 'react-admin';
 import { UploadButton } from '../buttons/UploadButton'
 import { BackButton } from '../buttons/BackButton'
@@ -28,6 +29,7 @@ const DropzoneDisplay = () => {
 const FilePreview = () => {
   const file = useWatch({ name: 'file' });
   const translate = useTranslate()
+  const notify = useNotify()
   const dataProvider = useDataProvider()
   const [envs, setEnvs] = React.useState({
     isScan: false,
@@ -40,6 +42,8 @@ const FilePreview = () => {
   React.useEffect(() => {
     dataProvider.getenv().then((result: any) => {
       setEnvs(result.json)
+    }).catch((response: any) => {
+      notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
   }, [])
   if (file) {

@@ -168,6 +168,15 @@ const FileProvider = {
     });
   },
 
+  rndir: (resource: any, params: any) => {
+    return httpClient(`${apiUrl}/${resource}/rndir`, {
+      method: 'PUT',
+      body: JSON.stringify(params)
+    }).catch((error) => {
+      return error
+    });
+  },
+
   getdirs: () => {
     return httpClient(`${apiUrl}/getdirs`, {
       method: 'GET'

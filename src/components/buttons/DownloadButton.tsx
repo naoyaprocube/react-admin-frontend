@@ -60,9 +60,12 @@ const DownloadButton = (props: any) => {
             notify(`file.downloading`, { type: 'info', messageArgs: { filename: record.filename } })
             dataProvider.download('root', { "id": record.id }).then((response: Response) => {
               if (response.status < 200 || response.status >= 300) {
-                notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+                if (response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+                else notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: "Error" } })
               }
               else handler(response)
+            }).catch((response: any) => {
+              notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
             })
           }}
         />
