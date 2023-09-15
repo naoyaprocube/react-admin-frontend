@@ -91,7 +91,7 @@ const FilesCreate = (props: any) => {
     </Toolbar >)
   }
   return (
-    <Create {...props} actions={<TopToolbar/>}resource={id} redirect={"/dirs/" + id} title={translate('file.uploadPageTitle')}>
+    <Create {...props} actions={<TopToolbar/>}resource={id} redirect={"/files/" + id} title={translate('file.uploadPageTitle')}>
       <SimpleForm toolbar={<FileToolbar />}>
         <FileInput
           source="file"

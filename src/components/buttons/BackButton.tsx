@@ -11,7 +11,7 @@ export const BackButton = (props:any) => {
     startIcon={<ArrowBackIcon />}
     children={translate('ra.action.back')}
     size="small"
-    onClick={() => navigate("/dirs/" + dirId)}
+    onClick={() => navigate("/files/" + dirId)}
     color="inherit"
   />)
 }

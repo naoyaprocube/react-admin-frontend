@@ -129,18 +129,18 @@ export const UploadButton = (props: any) => {
       }
       else if (response.status === 200) {
         setUploading(false)
-        navigate("/dirs/" + dirId)
+        navigate("/files/" + dirId)
         notify('file.statusCodeError', { type: 'warning', messageArgs: { code: response.status, text: response.body } })
       }
       else if (response.status !== 202) {
         setUploading(false)
         notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-        navigate("/dirs/" + dirId)
+        navigate("/files/" + dirId)
       }
     })
     .catch((response: any) => {
       setUploading(false)
-      navigate("/dirs/" + dirId)
+      navigate("/files/" + dirId)
       notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
   }
@@ -200,7 +200,7 @@ export const UploadButton = (props: any) => {
                 else if (response.status === 200) {
                   notify('file.uploading_cancel', { type: 'info' });
                   setUploading(false)
-                  navigate("/dirs/" + dirId)
+                  navigate("/files/" + dirId)
                 }
                 else if (response.status === 202) {
                   notify('file.uploading_cancel_denied', { type: 'info' });

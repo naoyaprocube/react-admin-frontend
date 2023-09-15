@@ -6,28 +6,29 @@ import FilesList from './components/pages/FilesList';
 import FileShow from './components/pages/FileShow';
 import FilesCreate from './components/pages/FilesCreate';
 import { i18nProvider } from './i18nProvider';
-import DirMenu from './components/layouts/Dirmenu';
+import { GuacMenu } from './guacamole-components/layouts/GuacMenu';
 import { Route, } from 'react-router-dom';
 const App = () => {
   const theme = {
     ...defaultTheme,
     sidebar: {
-      width: 270, // The default value is 240
+      width: 240, // The default value is 240
       closedWidth: 0, // The default value is 55
     },
   };
   const FileLayout = (props: any) => {
     return (<>
-      <Layout {...props} menu={DirMenu} />
+      <Layout {...props} menu={GuacMenu} />
     </>)
   }
-  
+
   return (
     <Admin dataProvider={FileProvider} i18nProvider={i18nProvider} layout={FileLayout} theme={theme} title="File Server">
       <Resource
-        name={"dirs"}
+        name={"files"}
         children={<>
-          <Route path="/:id" element={<FilesList />} />
+          <Route path="/" element={<FilesList />} />
+          <Route path="/:dirId" element={<FilesList />} />
         </>}
       />
       <CustomRoutes>

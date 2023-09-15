@@ -34,10 +34,12 @@ import DownloadButton from '../buttons/DownloadButton'
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { useParams } from "react-router-dom";
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
-
+import DirMenu from '../layouts/Dirmenu';
 
 const FilesList = (props: any) => {
-  const { id } = useParams()
+  const { dirId } = useParams()
+  const id = dirId ? dirId : "root"
+  console.log(id)
   const dataProvider = useDataProvider()
   const translate = useTranslate()
   const notify = useNotify()
@@ -56,7 +58,7 @@ const FilesList = (props: any) => {
     const { id } = useParams()
     return <Tooltip title={translate('ra.action.delete')} placement="top-start">
       <Box>
-        <DeleteWithConfirmButton label="" redirect={"/dirs/" + id} translateOptions={{ id: record.filename }} />
+        <DeleteWithConfirmButton label="" redirect={"/files/" + dirId} translateOptions={{ id: record.filename }} />
       </Box>
     </Tooltip>
   }
@@ -79,15 +81,15 @@ const FilesList = (props: any) => {
     )
   }
   const Empty = () => (
-    <Box sx={{ mt: 5 }} width={1}>
+    <Box sx={{ mt: 5, ml:15}}>
       <Box width={1} sx={{
         display: 'flex',
         justifyContent: 'space-evenly',
         mt: 1
       }}>
         <FolderOpenIcon sx={{
-          width: '9em',
-          height: '9em',
+          width: '6em',
+          height: '6em',
           color: 'text.secondary',
         }} />
       </Box>
@@ -141,7 +143,7 @@ const FilesList = (props: any) => {
   const CustomDatagridBody = (props: any) => <DatagridBody {...props} row={<CustomDatagridRow />} />;
   const CustomDatagrid = (props: any) => <Datagrid {...props} body={<CustomDatagridBody />} />;
   return (
-    <List {...props} title={dir.dirname} empty={<Empty />} resource={id} exporter={false} actions={<FilesListActions />}>
+    <List {...props} aside={<DirMenu />}title={dir.dirname} empty={<Empty />} resource={id} exporter={false} actions={<FilesListActions />}>
       <CustomDatagrid style={{ tableLayout: "initial" }}>
         <TextField width="50%" source="filename" label="file.fields.filename" sortable={false} className={"filename"} sx={{ width: 1, }} />
         <FunctionField width="10%" source="length" label="file.fields.length" sortable={true} sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />

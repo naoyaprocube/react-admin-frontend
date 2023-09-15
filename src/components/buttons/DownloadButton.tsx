@@ -7,11 +7,43 @@ import {
 } from 'react-admin';
 import {
   Button,
+  Box,
+  Typography,
   Tooltip,
 } from '@mui/material';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { download, decodeUTF8 } from '../utils'
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress, {
+  CircularProgressProps,
+} from '@mui/material/CircularProgress';
+
+function CircularProgressWithLabel(
+  props: CircularProgressProps & { value: number },
+) {
+  return (
+    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+      <CircularProgress variant="determinate" {...props} />
+      <Box
+        sx={{
+          top: 30,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: 'absolute',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Typography
+          variant="caption"
+          component="div"
+          color="text.secondary"
+        >{`${Math.round(props.value)}%`}</Typography>
+      </Box>
+    </Box>
+  );
+}
 
 const DownloadButton = (props: any) => {
   const record = useRecordContext();
@@ -33,8 +65,9 @@ const DownloadButton = (props: any) => {
         while (true) {
           const { done, value } = await reader.read();
           if (done) {
-            setInterval(() => {
+            setTimeout(() => {
               setState(false)
+              setProgress(0)
             }, 1500);
             break
           }
@@ -50,7 +83,7 @@ const DownloadButton = (props: any) => {
     if (state) {
       const percent = Math.floor((progress / total) * 100)
       return <Button size="small" disabled>
-        <CircularProgress size={20} variant="determinate" value={percent} sx={{ mr: 1 }} />
+        <CircularProgressWithLabel size={20} value={percent} sx={{ mr: 1 }} />
       </Button>
     }
     else {

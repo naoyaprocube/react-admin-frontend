@@ -8,14 +8,15 @@ import {
   Collapse,
   Tooltip,
   IconButton,
-  ButtonGroup
+  ButtonGroup,
+  Card,
+  CardContent,
 } from '@mui/material';
 import {
   Menu,
   useDataProvider,
   useTranslate,
   useNotify,
-  useSidebarState
 } from 'react-admin';
 import { useNavigate } from "react-router-dom";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -23,9 +24,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FolderIcon from '@mui/icons-material/Folder';
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
-import { MKDirButton } from '../buttons/MKDirButton'
-import { RMDirButton } from '../buttons/RMDirButton'
-import { DirmenuActions } from './DirmenuActions'
+import { DirmenuActions } from './DirmenuActions';
 interface Props {
   dense: boolean;
   handleToggle: () => void;
@@ -65,7 +64,7 @@ const DirMenu = () => {
   })
   const dataProvider = useDataProvider()
   const navigate = useNavigate()
-  const [sidebarIsOpen] = useSidebarState();
+  // const [sidebarIsOpen] = useSidebarState();
   const notify = useNotify()
   const [fire, setFire] = React.useState<boolean>(false);
   const [getdirFire, setGetdirFire] = React.useState<boolean>(false);
@@ -131,7 +130,7 @@ const DirMenu = () => {
                   dirname: json.dirname,
                   dirId: json._id
                 })
-                navigate("/dirs/" + id)
+                navigate("/files/" + id)
               })
               .catch((response: any) => {
                 notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
@@ -139,38 +138,30 @@ const DirMenu = () => {
           }}
           disableRipple
         >
-          {
-            sidebarIsOpen ? <>
-              {name}
-            </> : <ArrowForwardIosIcon color="primary" fontSize="small" />
-          }
+          {name}
         </MenuItem>
-        {(isActive && sidebarIsOpen) ? <DirmenuActions mongoid={id} dirName={name} /> : null}
+        {(isActive) ? <DirmenuActions mongoid={id} dirName={name} /> : null}
       </ButtonGroup>
     )
     return (
       <div>
-        {sidebarIsOpen ? (
+        {
           header
-        ) : (
-          <Tooltip title={name} placement="right">
-            {header}
-          </Tooltip>
-        )}
+        }
         <Collapse in={isOpen} timeout="auto" >
           <List
             dense={dense}
             component="div"
             disablePadding
             sx={{
-              ml: sidebarIsOpen ? 1.5 : 0.2
+              ml: 1.5
             }}
             children={children}
           />
         </Collapse>
       </div>
     );
-  }, [activeDir, sidebarIsOpen]);
+  }, [activeDir]);
 
   const dirMenuItems = React.useCallback((menuItems: Array<Object>) => {
     return menuItems.map((menuItemData: any) => {
@@ -191,12 +182,14 @@ const DirMenu = () => {
         />
       );
     });
-  }, [state, fire, activeDir, sidebarIsOpen])
+  }, [state, fire, activeDir])
   return (
     <FireContext.Provider value={{ fire: getdirFire, setFire: setGetdirFire }}>
-      <Menu>
-        {dirMenuItems(state)}
-      </Menu>
+      <Card sx={{ order: -1, mt: 5, mr: 2, width: 300, height: '100%' }}>
+        <CardContent>
+          {dirMenuItems(state)}
+        </CardContent>
+      </Card>
     </FireContext.Provider>
   )
 }
