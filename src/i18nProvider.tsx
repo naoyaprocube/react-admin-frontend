@@ -135,6 +135,7 @@ const japanese = {
   },
   dir: {
     dirname: 'ディレクトリ名',
+    dirs: 'ディレクトリ選択欄',
     mkdir: {
       title: 'ディレクトリを作成',
       content: '%{name}の配下にディレクトリを作成します。ディレクトリ名を入力してください。',

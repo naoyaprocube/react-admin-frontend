@@ -33,9 +33,12 @@ function PaperComponent(props: PaperProps) {
     </Draggable>
   );
 }
-
-export const UploadButton = (props: any) => {
-  const { dirId } = props
+interface UploadButtonProps {
+  workId: string,
+  dirId: string,
+}
+export const UploadButton = (props: UploadButtonProps) => {
+  const { workId, dirId } = props
   const [open, setOpen] = React.useState(false);
   const [mongoid, setMongoId] = React.useState("");
   const [isButton, setButton] = React.useState(false);
@@ -93,12 +96,13 @@ export const UploadButton = (props: any) => {
     if (!file) {
       return
     }
-    dataProvider.check(dirId, file).then((response: any) => {
+    dataProvider.check("files/" + dirId, file).then((response: any) => {
+      const { json } = response
       if (response.status < 200 || response.status >= 300) {
-        if(response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+        if (response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
         else notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: "Error" } })
       }
-      return response.json()
+      return json
     }).then((data: any) => {
       const ret = {
         checkSize: (file.rawFile.size > data.uploadLimit),
@@ -123,28 +127,29 @@ export const UploadButton = (props: any) => {
     setUploading(true)
     increment()
     if (isOverwrite) setOpen(false)
-    dataProvider.upload(dirId, { "id": id, "data": { "file": file } }).then((response: any) => {
+    dataProvider.upload("files/" + dirId, { "id": id, "data": { "file": file } }).then((response: any) => {
       if (response.status < 200 || response.status >= 300) {
         notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
       }
       else if (response.status === 200) {
         setUploading(false)
-        navigate("/files/" + dirId)
+        navigate("/files/" + workId + "/" + dirId)
         notify('file.statusCodeError', { type: 'warning', messageArgs: { code: response.status, text: response.body } })
       }
       else if (response.status !== 202) {
         setUploading(false)
         notify('file.uploaded', { type: 'success', messageArgs: { filename: file.title } })
-        navigate("/files/" + dirId)
+        navigate("/files/" + workId + "/" + dirId)
       }
     })
-    .catch((response: any) => {
-      setUploading(false)
-      navigate("/files/" + dirId)
-      notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
-    })
+      .catch((response: any) => {
+        setUploading(false)
+        navigate("/files/" + workId + "/" + dirId)
+        notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
+      })
   }
   const onClick = () => CheckExist().then((ret: any) => {
+    console.log(ret)
     if (!ret.checkExist && !ret.checkSize && !ret.checkTotalSize) {
       uploadFile("new", false)
     }
@@ -193,14 +198,15 @@ export const UploadButton = (props: any) => {
         <DialogActions>
           <Button
             onClick={() => {
-              dataProvider.cancel(dirId, { filename: file ? file.title : null }).then((response: any) => {
+              dataProvider.cancel("files/" + dirId, { filename: file ? file.title : null }).then((response: any) => {
+                console.log(response)
                 if (response.status < 200 || response.status >= 300) {
                   notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
                 }
-                else if (response.status === 200) {
+                else if (response.status === 201) {
                   notify('file.uploading_cancel', { type: 'info' });
                   setUploading(false)
-                  navigate("/files/" + dirId)
+                  navigate("/files/" + workId + "/" + dirId)
                 }
                 else if (response.status === 202) {
                   notify('file.uploading_cancel_denied', { type: 'info' });

@@ -26,7 +26,6 @@ import {
   Checkbox,
   ButtonGroup
 } from '@mui/material';
-import { blue } from '@mui/material/colors';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { humanFileSize } from '../utils'
 import { DirRoute } from '../layouts/DirRoute'
@@ -35,17 +34,18 @@ import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { useParams } from "react-router-dom";
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 import DirMenu from '../layouts/Dirmenu';
+import { CustomDatagrid } from '../layouts/CustomDatagrid'
+import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 
 const FilesList = (props: any) => {
-  const { dirId } = useParams()
+  const { workId, dirId } = useParams()
   const id = dirId ? dirId : "root"
-  console.log(id)
   const dataProvider = useDataProvider()
   const translate = useTranslate()
   const notify = useNotify()
   const [dir, setDir] = React.useState({ dirname: "root", _id: "root", fullpath: [] });
   React.useEffect(() => {
-    dataProvider.getdir({ id: id }).then((result: any) => {
+    dataProvider.getdir("files", { id: id }).then((result: any) => {
       const json = JSON.parse(result.body)
       setDir(json)
     }).catch((response: any) => {
@@ -55,17 +55,19 @@ const FilesList = (props: any) => {
 
   const DeleteButton = () => {
     const record = useRecordContext()
-    const { id } = useParams()
     return <Tooltip title={translate('ra.action.delete')} placement="top-start">
       <Box>
-        <DeleteWithConfirmButton label="" redirect={"/files/" + dirId} translateOptions={{ id: record.filename }} />
+        <DeleteWithConfirmButton label="" redirect={"/files/" + id} translateOptions={{ id: record.filename }} />
       </Box>
     </Tooltip>
   }
   const FileShowButton = () => (
     <Tooltip title={translate('file.infoIcon')} placement="top-start">
       <Box>
-        <ShowButton label="" icon={<InfoOutlinedIcon />} />
+        <ShowButton
+          resource={"files/" + workId + "/" + id}
+          label=""
+          icon={<InfoOutlinedIcon />} />
       </Box>
     </Tooltip>
   )
@@ -74,6 +76,7 @@ const FilesList = (props: any) => {
       <TopToolbar sx={{ width: 1 }}>
         <DirRoute dir={dir} />
         <CreateButton
+          resource={"files/" + workId + "/" + id}
           icon={<NoteAddIcon />}
           label={translate('file.upload')}
         />
@@ -81,7 +84,7 @@ const FilesList = (props: any) => {
     )
   }
   const Empty = () => (
-    <Box sx={{ mt: 5, ml:15}}>
+    <Box sx={{ mt: 5, ml: 15 }}>
       <Box width={1} sx={{
         display: 'flex',
         justifyContent: 'space-evenly',
@@ -90,61 +93,32 @@ const FilesList = (props: any) => {
         <FolderOpenIcon sx={{
           width: '6em',
           height: '6em',
-          color: 'text.secondary',
+          color: 'primary.main',
         }} />
       </Box>
-
-      <Typography variant="h4" align="center" sx={{ color: 'text.secondary' }}>
-        {translate('ra.page.empty')}
-      </Typography>
-      <Typography variant="body1" align="center" sx={{ mt: 3, color: 'text.secondary' }}>
-        {translate('ra.page.invite')}
-      </Typography>
       <Box width={1} sx={{
         display: 'flex',
         justifyContent: 'space-evenly',
         mt: 1
       }}>
         <CreateButton
+          resource={"files/" + workId + "/" + id}
           icon={<NoteAddIcon />}
           label={translate('file.upload')}
           size="large"
         />
       </Box>
+      <Typography variant="h4" align="center" sx={{ color: 'text.secondary' }}>
+        {translate('ra.page.empty')}
+      </Typography>
+
 
     </Box>
   );
 
-  const CustomDatagridRow = ({ record, resource, id, onToggleItem, children, selected, basePath, selectable }: any) => (
-    <RecordContextProvider value={record}>
-      <TableRow key={id}>
-        <TableCell style={{ width: "5%" }} padding="none">
-          {selectable && (
-            <Checkbox
-              sx={{ display: "inline-flex", justifyContent: 'row', ml:1}}
-              checked={selected}
-              onClick={event => onToggleItem(id, event)}
-            />
-          )}
-        </TableCell>
-        {React.Children.map(children, field => (
-          <TableCell sx={{ overflow: "auto" }} style={{ width: field.props.width, maxWidth: 300 }} key={`${id}-${field.props.source}`}>
-            {React.cloneElement(field, {
-              record,
-              basePath,
-              resource,
-            })}
-          </TableCell>
-        ))}
-
-      </TableRow>
-    </RecordContextProvider>
-  );
-  const CustomDatagridBody = (props: any) => <DatagridBody {...props} row={<CustomDatagridRow />} />;
-  const CustomDatagrid = (props: any) => <Datagrid {...props} body={<CustomDatagridBody />} />;
   return (
-    <List {...props} aside={<DirMenu />}title={dir.dirname} empty={<Empty />} resource={id} exporter={false} actions={<FilesListActions />}>
-      <CustomDatagrid style={{ tableLayout: "initial" }}>
+    <List {...props} aside={<DirMenu workId={"root"} />} title={dir.dirname} empty={<Empty />} resource={"files/" + id} exporter={false} actions={<FilesListActions />}>
+      <CustomDatagrid>
         <TextField width="50%" source="filename" label="file.fields.filename" sortable={false} className={"filename"} sx={{ width: 1, }} />
         <FunctionField width="10%" source="length" label="file.fields.length" sortable={true} sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />
         <DateField width="10%" source="uploadDate" label="file.fields.uploadDate" showTime locales="jp-JP" />

@@ -12,9 +12,10 @@ const ITEM_HEIGHT = 48;
 interface DMAProps {
   mongoid: string;
   dirName: string;
+  isRoot: boolean;
 }
 export const DirmenuActions = (props: DMAProps) => {
-  const { mongoid, dirName } = props
+  const { mongoid, dirName, isRoot } = props
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -52,8 +53,8 @@ export const DirmenuActions = (props: DMAProps) => {
         }}
       >
         <MKDirButton dirId={mongoid} sidebarIsOpen={false} dirName={dirName} />
-        <RNDirButton dirId={mongoid} isRoot={mongoid !== "root"} dirName={dirName} />
-        <RMDirButton mongoid={mongoid} isRoot={mongoid !== "root"} dirName={dirName} />
+        <RNDirButton dirId={mongoid} isRoot={isRoot} dirName={dirName} />
+        <RMDirButton mongoid={mongoid} isRoot={isRoot} dirName={dirName} />
       </Menu>
     </div>
   );

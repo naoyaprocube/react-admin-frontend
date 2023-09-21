@@ -65,7 +65,7 @@ export const RNDirButton = (props: RNDProps) => {
   const isSet = (name && name !== dirName) ? true : false
   
   const onSubmit = (data: any) => {
-    dataProvider.rndir(dirId, { dirname: data.NameInputField }).then((response: Response) => {
+    dataProvider.rndir("files/" + dirId, { dirname: data.NameInputField }).then((response: Response) => {
       if (response.status < 200 || response.status >= 300) {
         if(response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
         else notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: "Error" } })

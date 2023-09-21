@@ -1,17 +1,20 @@
 import { fetchUtils, HttpError } from 'react-admin';
 import { stringify } from 'query-string';
 const apiUrl = '/api';
+const guacUrl = '/guacamole'
 // const httpClient = fetchUtils.fetchJson;
 const httpClient = (url: string, options: any = {}) => {
   if (!options.headers) {
     options.headers = new Headers({
-      Accept: 'application/json'
+      Accept: 'application/json',
+      "Guacamole-Token": url.startsWith(guacUrl) ? localStorage.getItem('token') : null
     });
   }
   options.credentials = 'include';
-  return fetchUtils.fetchJson(url, options);
+  return fetchUtils.fetchJson(url, options)
 }
-const dataProvider = {
+
+export const dataProvider = {
   getList: (resource: any, params: any) => {
     const { page, perPage } = params.pagination;
     const { field, order } = params.sort;
@@ -23,14 +26,14 @@ const dataProvider = {
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
 
-    return httpClient(url).then(({ headers, json }) => ({
+    return httpClient(url).then(({ headers, json }: any) => ({
       data: json.map((resource: any) => ({ ...resource, id: resource._id })),
       total: Number(headers.get('Content-Range'))
     }));
   },
 
   getOne: (resource: any, params: any) => {
-    return httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
+    return httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }: any) => ({
       data: { ...json, id: json._id }, //!
     }))
   },
@@ -40,7 +43,7 @@ const dataProvider = {
       filter: JSON.stringify({ id: params.ids }),
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
-    return httpClient(url).then(({ json }) => ({
+    return httpClient(url).then(({ json }: any) => ({
       data: json.map((resource: any) => ({ ...resource, id: resource._id })),
     }));
   },
@@ -58,7 +61,7 @@ const dataProvider = {
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
 
-    return httpClient(url).then(({ headers, json }) => ({
+    return httpClient(url).then(({ headers, json }: any) => ({
       data: json.map((resource: any) => ({ ...resource, id: resource._id })),
       // total: parseInt(headers.get('content-range').split('/').pop(), 10),
     }));
@@ -68,7 +71,7 @@ const dataProvider = {
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: 'PUT',
       body: JSON.stringify(params.data),
-    }).then(({ json }) => ({ data: { ...json.data, id: json.data._id } })),
+    }).then(({ json }: any) => ({ data: { ...json.data, id: json.data._id } })),
 
   updateMany: (resource: any, params: any) => {
     const query = {
@@ -77,15 +80,15 @@ const dataProvider = {
     return httpClient(`${apiUrl}/${resource}?${stringify(query)}`, {
       method: 'PUT',
       body: JSON.stringify(params.data),
-    }).then(({ json }) => ({ data: json }));
+    }).then(({ json }: any) => ({ data: json }));
   },
 
   create: (resource: any, params: any) =>
     httpClient(`${apiUrl}/${resource}`, {
       method: 'POST',
       body: JSON.stringify(params.data),
-    }).then((response) => ({
-      data: { ...params.data, id: response.json._id, }
+    }).then(({ json }: any) => ({
+      data: { ...params.data, id: json._id, }
     })),
 
   delete: (resource: any, params: any) => {
@@ -99,7 +102,7 @@ const dataProvider = {
       method: 'DELETE',
       headers: new Headers({ 'content-filename': filename }),
       body: JSON.stringify(params.id),
-    }).then(({ json }) => ({
+    }).then(({ json }: any) => ({
       ...json,
       id: json._id,
     }))
@@ -112,24 +115,26 @@ const dataProvider = {
     return httpClient(`${apiUrl}/${resource}?${stringify(query)}`, {
       method: 'DELETE',
       body: JSON.stringify(params.ids),
-    }).then(({ json }) => json);
+    }).then(({ json }: any) => json);
   },
 };
 
-const FileProvider = {
+export const FileProvider = {
   ...dataProvider,
 
   download: (resource: any, params: any) => {
-    return fetch(`${apiUrl}/${resource}/${params.id}/download`, { credentials: 'include' })
+    return fetch(`${apiUrl}/${resource}/${params.id}/download`, {
+      method: "GET",
+      credentials: 'include',
+      headers: new Headers({
+        "Guacamole-Token": localStorage.getItem('token')
+      })
+    })
   },
 
   check: (resource: any, params: any) => {
-    return fetch(`${apiUrl}/${resource}/check`, {
+    return httpClient(`${apiUrl}/${resource}/check`, {
       method: "POST",
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json'
-      },
       body: JSON.stringify({ "filename": params.title })
     })
   },
@@ -172,33 +177,52 @@ const FileProvider = {
     return httpClient(`${apiUrl}/${resource}/rndir`, {
       method: 'PUT',
       body: JSON.stringify(params)
-    }).catch((error) => {
-      return error
     });
   },
 
-  getdirs: () => {
-    return httpClient(`${apiUrl}/getdirs`, {
+  getdirs: (resource: any) => {
+    return httpClient(`${apiUrl}/${resource}/getdirs`, {
       method: 'GET'
     })
   },
 
-  getdir: (params: any) => {
-    return httpClient(`${apiUrl}/getdir/${params.id}`, {
+  getdir: (resource: any, params: any) => {
+    return httpClient(`${apiUrl}/${resource}/${params.id}/getdir`, {
       method: 'GET'
     })
   },
 
-  getenv: (params: any) => {
-    return httpClient(`${apiUrl}/getenv`, {
+  getenv: (resource: any, params: any) => {
+    return httpClient(`${apiUrl}/${resource}/getenv`, {
       method: 'GET'
     })
   },
 
-  rmdir: (params: any) => {
-    return fetch(`${apiUrl}/rmdir/${params.id}`, {
-      method: 'DELETE'
+  rmdir: (resource: any, params: any) => {
+    return httpClient(`${apiUrl}/${resource}/${params.id}/rmdir`, {
+      method: 'DELETE',
+      body: JSON.stringify(params.id),
     })
   },
 }
-export default FileProvider;
+
+export const GuacProvider = {
+  ...dataProvider,
+
+  getList: (resource: any, params: any) => {
+    const { page, perPage } = params.pagination;
+    const { field, order } = params.sort;
+    const { q, protocol } = params.filter
+
+    const url = `${guacUrl}/api/session/data/postgresql/connectionGroups/ROOT/tree`;
+    return httpClient(url).then(({ headers, json }: any) => {
+      let connections = json.childConnections
+      if (q) connections = connections.filter((v: any) => v.name.includes(String(q)))
+      if (protocol) connections = connections.filter((v: any) => v.protocol === protocol)
+      return {
+        data: connections.map((resource: any) => ({ ...resource, id: resource.identifier })),
+        total: connections.length
+      }
+    })
+  },
+}

@@ -17,7 +17,6 @@ import {
   Box,
   Typography,
 } from '@mui/material';
-import { blue } from '@mui/material/colors';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BackButton } from '../buttons/BackButton'
@@ -29,7 +28,7 @@ const FileInfo = () => {
   const unique = useWatch({ name: 'metadata.unique' });
   const translate = useTranslate()
   return filename ? (
-    <Box sx={{ mb: 2, bgcolor: blue[100], p: 2, borderRadius: '16px', boxShadow: 1 }}>
+    <Box sx={{ mb: 2, bgcolor: "primary.light", color: "primary.contrastText", p: 2, borderRadius: '16px', boxShadow: 1 }}>
       <Typography variant="body2">
         {translate('file.fields.length')}: {length}
       </Typography>
@@ -49,15 +48,15 @@ const EditTitle = () => {
 
 const FileShow = (props: any) => {
   const translate = useTranslate()
-  const { id, fileId } = useParams()
+  const { workId, dirId, fileId } = useParams()
   const EditToolbar = () => {
     return (<Toolbar sx={{ display: "flex", justifyContent: 'space-between' }}>
-      <BackButton dirId={id} />
-      <DeleteButton redirect={"/files/" + id} />
+      <BackButton id={workId + "/" + dirId} />
+      <DeleteButton redirect={"/files/" + workId + "/" + dirId} />
     </Toolbar >)
   }
   return (
-    <Edit resource={id} id={fileId} redirect={"/files/" + id} actions={<EditToolbar />} title={<EditTitle />}>
+    <Edit resource={"files/" + dirId} id={fileId} redirect={"/files/" + dirId} actions={<EditToolbar />} title={<EditTitle />}>
       <SimpleForm toolbar={false}>
         <Box sx={{ width: 1, mb: 1 }}>
           <TextInput source="filename" label="file.fields.filename" variant="standard" sx={{ mb: -1, width: 0.5, }} style={{ maxWidth: 600 }} />
@@ -71,7 +70,8 @@ const FileShow = (props: any) => {
           <Datagrid bulkActionButtons={false} sx={{
             width: 1,
             '& .RaDatagrid-headerCell': {
-              backgroundColor: blue[100],
+              backgroundColor: "primary.light",
+              color: "primary.contrastText"
             },
           }}>
             <TextField source="Type" label="file.fields.Type" sortable={false} />

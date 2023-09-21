@@ -14,7 +14,6 @@ import { BackButton } from '../buttons/BackButton'
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useWatch } from 'react-hook-form';
 import { Box } from '@mui/material';
-import { blue } from '@mui/material/colors';
 import { estimatedUploadTime } from '../utils'
 import { useParams } from "react-router-dom";
 
@@ -40,7 +39,7 @@ const FilePreview = () => {
     uploadSpeed: 33554432,
   });
   React.useEffect(() => {
-    dataProvider.getenv().then((result: any) => {
+    dataProvider.getenv("files").then((result: any) => {
       setEnvs(result.json)
     }).catch((response: any) => {
       notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
@@ -54,7 +53,7 @@ const FilePreview = () => {
     let scan_result = translate('file.info_scan_sizeover')
     if (scanTime.check) scan_result = String(scanTime.est) + translate(scanTime.label)
     return (
-      <Box sx={{ border: 1, color: '#ffffff', bgcolor: blue[400], width: 1, p: 2, borderRadius: '16px', boxShadow: 3 }}>
+      <Box sx={{ border: 1, color: "primary.contrastText", bgcolor: "primary.dark", width: 1, p: 2, borderRadius: '16px', boxShadow: 3 }}>
         {translate('file.info')}
         <Box sx={{ p: 1, color: '#ffffff' }}>
           {translate('file.fields.filename')}: {file.title}
@@ -79,19 +78,19 @@ const FilePreview = () => {
 
 const FilesCreate = (props: any) => {
   const translate = useTranslate()
-  const { id } = useParams()
+  const { workId, dirId } = useParams()
   const FileToolbar = () => (
     <Toolbar sx={{ flexDirection: 'row-reverse' }}>
-      <UploadButton dirId={id} />
+      <UploadButton workId={workId} dirId={dirId} />
     </Toolbar>
   )
   const TopToolbar = () => {
-    return (<Toolbar sx={{ display: "flex"}}>
-      <BackButton dirId={id}/>
+    return (<Toolbar sx={{ display: "flex" }}>
+      <BackButton id={workId + "/" + dirId} />
     </Toolbar >)
   }
   return (
-    <Create {...props} actions={<TopToolbar/>}resource={id} redirect={"/files/" + id} title={translate('file.uploadPageTitle')}>
+    <Create {...props} actions={<TopToolbar />} resource={workId + "." + dirId} redirect={"/files/" + dirId} title={translate('file.uploadPageTitle')}>
       <SimpleForm toolbar={<FileToolbar />}>
         <FileInput
           source="file"

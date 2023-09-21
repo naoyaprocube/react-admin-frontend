@@ -91,7 +91,7 @@ const DownloadButton = (props: any) => {
         <Button color="primary" sx={{ display: 'inline-flex' }} startIcon={< FileDownloadIcon />} size={"small"}
           onClick={() => {
             notify(`file.downloading`, { type: 'info', messageArgs: { filename: record.filename } })
-            dataProvider.download('root', { "id": record.id }).then((response: Response) => {
+            dataProvider.download('files', { "id": record.id }).then((response: Response) => {
               if (response.status < 200 || response.status >= 300) {
                 if (response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
                 else notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: "Error" } })

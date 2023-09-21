@@ -28,7 +28,7 @@ export const RMDirButton = (props: RMDProps) => {
   const dataProvider = useDataProvider();
   const translate = useTranslate()
   if (!isRoot) return null
-  const removeHandle = () => dataProvider.rmdir({ id: mongoid }).then((result: any) => {
+  const removeHandle = () => dataProvider.rmdir("files",{ id: mongoid }).then((result: any) => {
     setOpen(false)
     setFire(fire => !fire)
   }).catch((response: any) => {

@@ -64,7 +64,7 @@ export const MKDirButton = (props: MKDProps) => {
   const name = useWatch({ name: "NameInputField", control: control });
   const isSet = name ? true : false
   const onSubmit = (data: any) => {
-    dataProvider.mkdir(dirId, { dirname: data.NameInputField }).then((response: Response) => {
+    dataProvider.mkdir("files/" + dirId, { dirname: data.NameInputField }).then((response: Response) => {
       if (response.status < 200 || response.status >= 300) {
         if(response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
         else notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: "Error" } })
