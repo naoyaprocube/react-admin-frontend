@@ -22,7 +22,6 @@ export const DirmenuActions = (props: DMAProps) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    console.log("handleClose")
     setAnchorEl(null);
   };
 

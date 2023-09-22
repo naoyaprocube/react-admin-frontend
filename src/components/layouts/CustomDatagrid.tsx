@@ -16,7 +16,7 @@ const CustomDatagridRow = ({ record, resource, id, onToggleItem, children, selec
       <TableCell style={{ width: "5%" }} padding="none">
         {selectable && (
           <Checkbox
-            sx={{ display: "inline-flex", justifyContent: 'row', ml:1}}
+            sx={{ display: "inline-flex", justifyContent: 'row', ml: 1 }}
             checked={selected}
             onClick={event => onToggleItem(id, event)}
           />

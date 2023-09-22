@@ -21,6 +21,8 @@ import {
   Box,
   Tooltip,
   Typography,
+  Breadcrumbs,
+  Link,
   TableRow,
   TableCell,
   Checkbox,
@@ -39,19 +41,34 @@ import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 
 const FilesList = (props: any) => {
   const { workId, dirId } = useParams()
-  const id = dirId ? dirId : "root"
+  const [id, setId] = React.useState(dirId ? dirId : null);
   const dataProvider = useDataProvider()
   const translate = useTranslate()
   const notify = useNotify()
-  const [dir, setDir] = React.useState({ dirname: "root", _id: "root", fullpath: [] });
+  const [dir, setDir] = React.useState({});
   React.useEffect(() => {
-    dataProvider.getdir("files", { id: id }).then((result: any) => {
+    if (!dirId) {
+      dataProvider.getdir("files", { id: "workDir-" + workId }).then((result: any) => {
+        if (result === null) {
+          notify('file.statusCodeError', { type: 'error', messageArgs: { code: 500, text: result.message } })
+        }
+        else {
+          const json = JSON.parse(result.body)
+          setId(json._id)
+          setDir(json)
+        }
+      }).catch((response: any) => {
+        notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
+      })
+    }
+    else dataProvider.getdir("files", { id: dirId }).then((result: any) => {
       const json = JSON.parse(result.body)
       setDir(json)
+      setId(json._id)
     }).catch((response: any) => {
       notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
-  }, [id])
+  }, [workId, dirId])
 
   const DeleteButton = () => {
     const record = useRecordContext()
@@ -74,7 +91,7 @@ const FilesList = (props: any) => {
   const FilesListActions = (props: any) => {
     return (
       <TopToolbar sx={{ width: 1 }}>
-        <DirRoute dir={dir} />
+        {Object.keys(dir).length !== 0 ? <DirRoute dir={dir} /> : null}
         <CreateButton
           resource={"files/" + workId + "/" + id}
           icon={<NoteAddIcon />}
@@ -116,21 +133,33 @@ const FilesList = (props: any) => {
     </Box>
   );
 
-  return (
-    <List {...props} aside={<DirMenu workId={"root"} />} title={dir.dirname} empty={<Empty />} resource={"files/" + id} exporter={false} actions={<FilesListActions />}>
-      <CustomDatagrid>
-        <TextField width="50%" source="filename" label="file.fields.filename" sortable={false} className={"filename"} sx={{ width: 1, }} />
-        <FunctionField width="10%" source="length" label="file.fields.length" sortable={true} sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />
-        <DateField width="10%" source="uploadDate" label="file.fields.uploadDate" showTime locales="jp-JP" />
-        <TextField width="10%" source="metadata.status" label="file.fields.metadata.status" sortable={false} />
-        <ButtonGroup variant="text" className="ActionButtons" sx={{ display: 'inline-flex' }}>
-          <DownloadButton />
-          <FileShowButton />
-          <DeleteButton />
-        </ButtonGroup>
-      </CustomDatagrid>
-    </List>
-  );
+  return (<Box>
+    <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
+      <Link
+        underline="hover"
+        color="inherit"
+        href="/material-ui/getting-started/installation/"
+      >
+        従事作業選択
+      </Link>
+      <Typography color="text.primary">ファイル一覧</Typography>
+    </Breadcrumbs>
+    {id ?
+      <List {...props} aside={<DirMenu workId={workId} />} title={"Files"} empty={<Empty />} resource={"files/" + id} exporter={false} actions={<FilesListActions />}>
+        <CustomDatagrid>
+          <TextField width="50%" source="filename" label="file.fields.filename" sortable={false} className={"filename"} sx={{ width: 1, }} />
+          <FunctionField width="10%" source="length" label="file.fields.length" sortable={true} sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />
+          <DateField width="10%" source="uploadDate" label="file.fields.uploadDate" showTime locales="jp-JP" />
+          <TextField width="10%" source="metadata.status" label="file.fields.metadata.status" sortable={false} />
+          <ButtonGroup variant="text" className="ActionButtons" sx={{ display: 'inline-flex' }}>
+            <DownloadButton />
+            <FileShowButton />
+            <DeleteButton />
+          </ButtonGroup>
+        </CustomDatagrid>
+      </List>
+      : null}
+  </Box>)
 };
 
 export default FilesList;

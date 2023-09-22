@@ -206,14 +206,11 @@ export const FileProvider = {
   },
 }
 
-export const GuacProvider = {
+export const ConnectProvider = {
   ...dataProvider,
 
   getList: (resource: any, params: any) => {
-    const { page, perPage } = params.pagination;
-    const { field, order } = params.sort;
-    const { q, protocol } = params.filter
-
+    const { q, protocol } = params.sort
     const url = `${guacUrl}/api/session/data/postgresql/connectionGroups/ROOT/tree`;
     return httpClient(url).then(({ headers, json }: any) => {
       let connections = json.childConnections
@@ -225,4 +222,28 @@ export const GuacProvider = {
       }
     })
   },
+
+}
+
+export const HistoryProvider = {
+  ...dataProvider,
+
+  getList: (resource: any, params: any) => {
+    const { field, order } = params.sort
+    const { page, perPage } = params.pagination;
+    const { q, duration } = params.filter
+    const url = `${guacUrl}/api/session/data/postgresql/history/connections`;
+    return httpClient(url).then(({ headers, json }: any) => {
+      let history = json
+      if (q) history = history.filter((v: any) => v.username.includes(String(q)))
+      if (duration) history = history.filter((v: any) => v.endDate - v.startDate >= duration)
+      const length = history.length
+      if (page && perPage) history = history.slice((page - 1) * perPage, page * perPage + 1)
+      return {
+        data: history.map((resource: any) => ({ ...resource, id: resource.identifier })),
+        total: length
+      }
+    })
+  },
+
 }

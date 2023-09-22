@@ -60,12 +60,9 @@ export const FireContext = React.createContext({} as FFireContext);
 
 const DirMenu = (props: MenuProps) => {
   const { workId } = props
-  const [state, setState] = React.useState([{ _id: "root", dirname: "root", children: [], fullpath: [] }]);
+  const [state, setState] = React.useState([]);
   const [openState, dispatch] = React.useReducer(reducerFunc, initialState)
-  const [activeDir, setActiveDir] = React.useState({
-    dirname: "",
-    dirId: ""
-  })
+  const [activeDir, setActiveDir] = React.useState("")
   const dataProvider = useDataProvider()
   const navigate = useNavigate()
   const translate = useTranslate()
@@ -93,11 +90,11 @@ const DirMenu = (props: MenuProps) => {
     }).catch((response: any) => {
       notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
-  }, [getdirFire])
+  }, [getdirFire, workId])
 
   const DirMenuItem = React.useCallback((props: Props) => {
     const { handleToggle, isOpen, name, id, isParent, children, dense } = props;
-    const isActive = (activeDir.dirId === id)
+    const isActive = (activeDir === id)
     const ItemIcon = () => {
       const buttonIcon = <>
         {isParent ?
@@ -116,11 +113,10 @@ const DirMenu = (props: MenuProps) => {
     const header = (
       <ButtonGroup
         fullWidth
-        variant={isActive ? "contained" : "text"}
         sx={{
           borderRadius: 5,
-          bgcolor: isActive ? "primary.light" : null,
-          color: isActive ? "primary.contrastText" : null,
+          bgcolor: isActive ? "primary.50" : null,
+          // color: isActive ? "primary.contrastText" : null,
         }}
       >
         <ItemIcon />
@@ -131,10 +127,7 @@ const DirMenu = (props: MenuProps) => {
             dataProvider.getdir("files", { id: id })
               .then((result: any) => JSON.parse(result.body))
               .then((json: any) => {
-                setActiveDir({
-                  dirname: json.dirname,
-                  dirId: json._id
-                })
+                setActiveDir(json._id)
                 navigate("/files/" + workId + "/" + id)
               })
               .catch((response: any) => {
@@ -145,7 +138,7 @@ const DirMenu = (props: MenuProps) => {
         >
           {name}
         </MenuItem>
-        {(isActive) ? <DirmenuActions mongoid={id} dirName={name} isRoot={id !== workId}/> : null}
+        {(isActive) ? <DirmenuActions mongoid={id} dirName={name} isRoot={id !== state[0]._id} /> : null}
       </ButtonGroup>
     )
     return (
@@ -166,7 +159,7 @@ const DirMenu = (props: MenuProps) => {
         </Collapse>
       </div>
     );
-  }, [activeDir]);
+  }, [state, workId, activeDir]);
 
   const dirMenuItems = React.useCallback((menuItems: Array<Object>) => {
     return menuItems.map((menuItemData: any) => {
@@ -187,14 +180,14 @@ const DirMenu = (props: MenuProps) => {
         />
       );
     });
-  }, [state, fire, activeDir])
+  }, [fire, activeDir, workId])
   return (
     <FireContext.Provider value={{ fire: getdirFire, setFire: setGetdirFire }}>
-      <Card sx={{ order: -1, mt: 4, mr: 2, width: 300, height: '100%' }}>
+      <Card sx={{ order: -1, mt: 1, mr: 2, width: 300, height: '100%' }}>
         <CardContent>
           <Box sx={{ ml: 2, display: "flex" }}>
             <FolderSharedIcon color="secondary" />
-            <Typography variant="body2" sx={{ ml: 1,}}>
+            <Typography variant="body2" sx={{ ml: 1, }}>
               {translate('dir.dirs')}
             </Typography>
           </Box>
