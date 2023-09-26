@@ -9,10 +9,11 @@ import {
   combineDataProviders,
 } from 'react-admin';
 import {
-  dataProvider,
   FileProvider,
   ConnectProvider,
   HistoryProvider,
+  WorkProvider,
+  AnnounceProvider,
 } from './dataProvider';
 import authProvider from './authProvider';
 import { colors } from '@mui/material';
@@ -21,6 +22,7 @@ import FileShow from './components/pages/FileShow';
 import FilesCreate from './components/pages/FilesCreate';
 import ConnectionsList from './components/pages/ConnectionsList';
 import HistoryList from './components/pages/HistoryList';
+import Dashboard from './components/pages/Dashboard';
 import { i18nProvider } from './i18nProvider';
 import { GuacMenu } from './components/layouts/Sidebar';
 import { Route, } from 'react-router-dom';
@@ -49,7 +51,9 @@ const App = () => {
     if (resource.startsWith("files")) return FileProvider;
     else if (resource.startsWith("connections")) return ConnectProvider;
     else if (resource.startsWith("history")) return HistoryProvider;
-    else return dataProvider
+    else if (resource.startsWith("works")) return WorkProvider;
+    else if (resource.startsWith("announce")) return AnnounceProvider;
+    else return null
   });
   return (
     <Admin
@@ -57,6 +61,7 @@ const App = () => {
       authProvider={authProvider}
       i18nProvider={i18nProvider}
       layout={layout}
+      dashboard={Dashboard}
       theme={theme}
       title="File Server"
     >

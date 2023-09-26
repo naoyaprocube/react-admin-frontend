@@ -3,14 +3,7 @@ import {
   Box,
   Typography,
   Breadcrumbs,
-  Link,
 } from '@mui/material';
-import {
-  useTranslate,
-  useDataProvider,
-  useNotify,
-} from 'react-admin';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export const DirRoute = (props: any) => {
   const { dir } = props

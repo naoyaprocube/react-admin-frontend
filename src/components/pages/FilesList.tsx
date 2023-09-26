@@ -13,8 +13,6 @@ import {
   CreateButton,
   useTranslate,
   useDataProvider,
-  DatagridBody,
-  RecordContextProvider,
   useNotify,
 } from 'react-admin';
 import {
@@ -23,9 +21,6 @@ import {
   Typography,
   Breadcrumbs,
   Link,
-  TableRow,
-  TableCell,
-  Checkbox,
   ButtonGroup
 } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
@@ -37,7 +32,6 @@ import { useParams } from "react-router-dom";
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 import DirMenu from '../layouts/Dirmenu';
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 
 const FilesList = (props: any) => {
   const { workId, dirId } = useParams()
@@ -138,7 +132,7 @@ const FilesList = (props: any) => {
       <Link
         underline="hover"
         color="inherit"
-        href="/material-ui/getting-started/installation/"
+        href="/"
       >
         従事作業選択
       </Link>
@@ -150,7 +144,7 @@ const FilesList = (props: any) => {
           <TextField width="50%" source="filename" label="file.fields.filename" sortable={false} className={"filename"} sx={{ width: 1, }} />
           <FunctionField width="10%" source="length" label="file.fields.length" sortable={true} sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />
           <DateField width="10%" source="uploadDate" label="file.fields.uploadDate" showTime locales="jp-JP" />
-          <TextField width="10%" source="metadata.status" label="file.fields.metadata.status" sortable={false} />
+          <TextField width="10%" source="metadata.status" label="file.fields.metadata.status" className="status" sortable={false} />
           <ButtonGroup variant="text" className="ActionButtons" sx={{ display: 'inline-flex' }}>
             <DownloadButton />
             <FileShowButton />

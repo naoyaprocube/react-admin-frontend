@@ -2,21 +2,15 @@ import * as React from 'react';
 import {
   Menu,
   useDataProvider,
-  useTranslate,
   useNotify,
+  Confirm,
 } from 'react-admin';
 import {
   List,
   MenuItem,
   Typography,
-  colors,
   Box,
   Collapse,
-  Tooltip,
-  IconButton,
-  ButtonGroup,
-  Card,
-  CardContent,
 } from '@mui/material';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
@@ -43,14 +37,30 @@ const reducerFunc = (openState: Array<any>, obj: any) => {
   return state
 }
 export const GuacMenu = () => {
-  const works = [
-    { name: "WorkA" },
-    { name: "WorkB" },
-    { name: "WorkC" },
-  ]
+  const [works, setWorks] = React.useState([]);
   const [openState, dispatch] = React.useReducer(reducerFunc, initialState)
   const [activeItem, setActiveItem] = React.useState("")
   const [fire, setFire] = React.useState<boolean>(false);
+  const dataProvider = useDataProvider()
+  const [open, setOpen] = React.useState(false);
+  const notify = useNotify()
+  const handleClick = () => setOpen(true);
+  const handleDialogClose = () => setOpen(false);
+  const handleConfirm = () => {
+    setOpen(false);
+  };
+  const getListParams = {
+    pagination: { page: 1, perPage: 1000 },
+    sort: { field: "", order: 'ASC' },
+    filter: ""
+  }
+  React.useEffect(() => {
+    dataProvider.getList("works", getListParams).then((result: any) => {
+      setWorks(result.data)
+    }).catch((response: any) => {
+      notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
+    })
+  }, [])
   interface Props {
     dense: boolean;
     handleToggle: () => void;
@@ -100,7 +110,7 @@ export const GuacMenu = () => {
             component="div"
             disablePadding
             sx={{
-              ml: 1.5
+              ml: 2
             }}
             children={children}
           />
@@ -124,9 +134,9 @@ export const GuacMenu = () => {
           id={menuItemData.name}
           dense={false}
           children={<Box>
-            <Menu.Item to={"/connections/" + menuItemData.name} primaryText="接続先選択" sx={{borderRadius: 5,}} leftIcon={<CableIcon />} />
-            <Menu.Item to={"/files/" + menuItemData.name} primaryText="作業ファイル" sx={{borderRadius: 5,}} leftIcon={<InsertDriveFileIcon />} />
-            <Menu.Item to={"/history/" + menuItemData.name} primaryText="接続履歴" sx={{borderRadius: 5,}} leftIcon={<HistoryIcon />} />
+            <Menu.Item to={"/connections/" + menuItemData.name} primaryText="接続先選択" sx={{ borderRadius: 5, }} leftIcon={<CableIcon />} />
+            <Menu.Item to={"/files/" + menuItemData.name} primaryText="作業ファイル" sx={{ borderRadius: 5, }} leftIcon={<InsertDriveFileIcon />} />
+            <Menu.Item to={"/history/" + menuItemData.name} primaryText="接続履歴" sx={{ borderRadius: 5, }} leftIcon={<HistoryIcon />} />
           </Box>}
         />
       );
@@ -134,8 +144,20 @@ export const GuacMenu = () => {
   }, [fire, activeItem])
   return (
     <Menu>
-      <Menu.Item to="/files/" primaryText="ホームページ" leftIcon={<HomeIcon />} />
-      <Menu.Item to="/files/" primaryText="ワークフロー申請" leftIcon={<OpenInNewIcon />} />
+      <Confirm
+        isOpen={open}
+        title={"move"}
+        content="move workflow"
+        onConfirm={handleConfirm}
+        onClose={handleDialogClose}
+      />
+      <Menu.Item to="/" primaryText="ホームページ" leftIcon={<HomeIcon />} />
+      <MenuItem onClick={() => setOpen(true)}>
+        <OpenInNewIcon sx={{ color: "text.secondary" }} />
+        <Typography sx={{ ml: 2, color: "text.secondary" }} >
+          {"ワークフロー申請"}
+        </Typography>
+      </MenuItem>
       <Menu.Item to="/files/public" primaryText="public" leftIcon={<CloudUploadIcon />} />
       <Typography variant="body2" sx={{ ml: 1, mt: 1 }}>
         {"作業一覧"}

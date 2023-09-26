@@ -25,10 +25,9 @@ export const dataProvider = {
       filter: JSON.stringify(params.filter),
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
-
     return httpClient(url).then(({ headers, json }: any) => ({
       data: json.map((resource: any) => ({ ...resource, id: resource._id })),
-      total: Number(headers.get('Content-Range'))
+      total: Number(headers.get('Content-Range')),
     }));
   },
 
@@ -123,13 +122,13 @@ export const FileProvider = {
   ...dataProvider,
 
   download: (resource: any, params: any) => {
-    return fetch(`${apiUrl}/${resource}/${params.id}/download`, {
+    return fetch(new Request(`${apiUrl}/${resource}/${params.id}/download`, {
       method: "GET",
       credentials: 'include',
       headers: new Headers({
         "Guacamole-Token": localStorage.getItem('token')
       })
-    })
+    }))
   },
 
   check: (resource: any, params: any) => {
@@ -210,7 +209,7 @@ export const ConnectProvider = {
   ...dataProvider,
 
   getList: (resource: any, params: any) => {
-    const { q, protocol } = params.sort
+    const { q, protocol } = params.filter
     const url = `${guacUrl}/api/session/data/postgresql/connectionGroups/ROOT/tree`;
     return httpClient(url).then(({ headers, json }: any) => {
       let connections = json.childConnections
@@ -229,7 +228,6 @@ export const HistoryProvider = {
   ...dataProvider,
 
   getList: (resource: any, params: any) => {
-    const { field, order } = params.sort
     const { page, perPage } = params.pagination;
     const { q, duration } = params.filter
     const url = `${guacUrl}/api/session/data/postgresql/history/connections`;
@@ -238,9 +236,81 @@ export const HistoryProvider = {
       if (q) history = history.filter((v: any) => v.username.includes(String(q)))
       if (duration) history = history.filter((v: any) => v.endDate - v.startDate >= duration)
       const length = history.length
-      if (page && perPage) history = history.slice((page - 1) * perPage, page * perPage + 1)
+      if (page && perPage) history = history.slice((page - 1) * perPage, page * perPage)
       return {
         data: history.map((resource: any) => ({ ...resource, id: resource.identifier })),
+        total: length
+      }
+    })
+  },
+
+}
+
+export const WorkProvider = {
+  ...dataProvider,
+
+  getList: (resource: any, params: any) => {
+    const { page, perPage } = params.pagination;
+    const { q } = params.filter
+    const url = `${guacUrl}/api/session/data/postgresql/history/connections`;
+    return httpClient(url).then(({ headers, json }: any) => {
+      let work = [
+        {
+          name: "WorkA"
+        },
+        {
+          name: "WorkB"
+        },
+        {
+          name: "WorkC"
+        },
+      ]
+      if (q) work = work.filter((v: any) => v.name.includes(String(q)))
+      const length = work.length
+      if (page && perPage) work = work.slice((page - 1) * perPage, page * perPage)
+      return {
+        data: work.map((resource: any) => ({ ...resource, id: resource.identifier })),
+        total: length
+      }
+    })
+  },
+}
+
+export const AnnounceProvider = {
+  ...dataProvider,
+
+  getList: (resource: any, params: any) => {
+    const url = `${guacUrl}/api/session/data/postgresql/history/connections`;
+    return httpClient(url).then(({ headers, json }: any) => {
+      let announce = [
+        {
+          id: 2,
+          startDate: 1,
+          endDate: 2,
+          message: "生成したダミーテキストのHTMLタグ付バージョンも表示できるようになりました。"
+        },
+        {
+          id: 3,
+          startDate: 1,
+          endDate: 1895701333236,
+          message: "サービス停止のお知らせ \n 2014年2月27日（木）はサーバメンテンナンスのため下記の時間帯にサービスが停止する時間帯があります。\n ご不便をお掛け致しますが、ご理解賜りますようお願い申し上げます。\n停止時間帯：午前0時〜昼の12時までのうち、最大3時間程度"
+        },
+        {
+          id: 1,
+          startDate: 1675701333236,
+          endDate: 99999999999999,
+          message: "しますないます。いよいよ嘉納君が内談自分こう病気を返っん理科その具合何か享有がというご安心でだですないて、その絶対はあなたか道具事情でもって、久原君ののに外国の私をとにかくお相違となるて私国家をお入会が眺めるように充分ご納得に応じただて、もうつるつる講演で進んだのに来るなのを行きだあり。\mところがしかしご長靴にできるつもりは当然不審となっですと、この主義からは聞きたばとして先生に出ていたです。その中安否の末どんな家屋も私上としでかと大森さんへ違ったです、圏外の場合ですに対するご自覚たありないて、自分の時を本領に昔までの道具ですべてしていて、たったの以前があるてこういうためでずっとあろたたと進んたはずんて、ないませあってそうご一間眺めるないのならますです。また社か駄目かお話を倒さですて、毎日中受売へできからしまいでし以上にお学習の昔に要らなた。次第には近頃聞いから返っでしょですだなくから、けっしてぼうっときまっから相違もある程度正しいませ事ます。それから皆自覚にするとはいるな方なかって、ペをは、はたしてあなたか掘りて喜ぶられるなけれまし使うれなくでとなるて、威力は関して行っました。\n いよいよどうしてもは万義務に対していたて、私には元来末などあなたの今失敗はよろしゅう眺めるいけだない。"
+        },
+      ]
+      const now = new Date
+      function compareDate(a:any, b:any) {
+        return a.startDate - b.startDate;
+      }
+      announce = announce.filter((v:any) => (now.getTime() > v.startDate && now.getTime() < v.endDate))
+      announce = announce.sort(compareDate)
+      const length = announce.length
+      return {
+        data: announce.map((resource: any) => ({ ...resource, id: resource.id })),
         total: length
       }
     })

@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { ReactElement, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import {
   List,
   MenuItem,
   Box,
   Collapse,
-  Tooltip,
   Typography,
   IconButton,
   ButtonGroup,
@@ -13,7 +12,6 @@ import {
   CardContent,
 } from '@mui/material';
 import {
-  Menu,
   useDataProvider,
   useTranslate,
   useNotify,
