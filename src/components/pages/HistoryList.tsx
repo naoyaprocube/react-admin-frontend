@@ -27,6 +27,7 @@ import dayjs, { extend } from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
+import { useNavigate } from "react-router-dom";
 
 extend(duration);
 extend(relativeTime);
@@ -36,66 +37,26 @@ const HistoryList = (props: any) => {
   const dataProvider = useDataProvider()
   const translate = useTranslate()
   const notify = useNotify()
-  const Empty = () => (
-    <Box sx={{ mt: 5, ml: 15 }}>
-      <Box width={1} sx={{
-        display: 'flex',
-        justifyContent: 'space-evenly',
-        mt: 1
-      }}>
-        <FolderOpenIcon sx={{
-          width: '6em',
-          height: '6em',
-          color: 'text.secondary',
-        }} />
-      </Box>
-
-      <Typography variant="h4" align="center" sx={{ color: 'text.secondary' }}>
-        {translate('ra.page.empty')}
-      </Typography>
-      <Typography variant="body1" align="center" sx={{ mt: 3, color: 'text.secondary' }}>
-        {translate('ra.page.invite')}
-      </Typography>
-      <Box width={1} sx={{
-        display: 'flex',
-        justifyContent: 'space-evenly',
-        mt: 1
-      }}>
-        <CreateButton
-          resource="files"
-          icon={<NoteAddIcon />}
-          label={translate('file.upload')}
-          size="large"
-        />
-      </Box>
-
-    </Box>
-  );
-  const DeleteButton = () => {
-    const record = useRecordContext()
-    return <Tooltip title={translate('ra.action.delete')} placement="top-start">
-      <Box>
-        <DeleteWithConfirmButton label="" />
-      </Box>
-    </Tooltip>
-  }
+  const navigate = useNavigate()
   return (<Box>
     <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
       <Link
         underline="hover"
         color="inherit"
-        href="/"
+        onClick={() => navigate('/')}
       >
-        従事作業選択
+        {translate('pages.workSelect')}
       </Link>
-      <Typography color="text.primary">接続履歴</Typography>
+      <Typography color="text.primary">
+        {translate('pages.connectionHistory')}
+      </Typography>
     </Breadcrumbs>
-    <List {...props} aside={<HistoryFilterMenu />} title={"connect"} empty={<Empty />} resource={"history/" + work} exporter={false}>
+    <List {...props} title={translate('pages.connectionHistory')} aside={<HistoryFilterMenu />} resource={"history/" + work} exporter={false}>
       <CustomDatagrid bulkActionButtons={false}>
         <TextField source="username" />
         <TextField source="remoteHost" />
         <DateField source="startDate" showTime locales="jp-JP" />
-        <FunctionField label="Duration" render={(record:any) => {
+        <FunctionField label="Duration" render={(record: any) => {
           const duration = dayjs.duration(record.endDate - record.startDate)
           return duration.humanize();
         }} />

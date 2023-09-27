@@ -57,6 +57,7 @@ const english = {
   },
   dir: {
     dirname: 'Directory Name',
+    dirs: 'Directories',
     mkdir: {
       title: 'Create Directory',
       content: 'Can make directory under the %{name}. Input directory name.',
@@ -156,6 +157,47 @@ const japanese = {
   },
   error: {
     dirAlreadyExist: '%{code}: 同じ名前のディレクトリが存在します。'
+  },
+  pages: {
+    homepage: 'ホームページ',
+    workSelect: '従事作業選択',
+    workflow: 'ワークフロー申請',
+    publicFileManager: '公開領域ファイルマネージャ',
+    connectionSelect: '接続先一覧',
+    fileManager: '作業領域ファイルマネージャ',
+    connectionHistory: '接続履歴'
+  },
+  guacamole: {
+    announcement: 'お知らせ',
+    noAnnouncement: 'お知らせはありません。',
+    connect: '接続',
+    period: '作業期間',
+    workStart: '作業開始',
+    works: "担当作業一覧",
+    moveWorkflowTitle: 'ワークフロー申請画面に移動します',
+    moveWorkflowContent: '新しいタブで開きます。',
+    workerMode: '作業者モード',
+    adminMode: '管理者モード',
+    filter: {
+      protocol: {
+        name: 'プロトコル',
+        vnc: 'VNC',
+        rdp: 'RDP',
+        ssh: 'SSH',
+      },
+      duration: {
+        name: '接続時間',
+        "30s": '30 秒以上',
+        "5m": '5 分以上',
+        "1h": '1 時間以上',
+      },
+      work: {
+        name: '作業状態',
+        before: '開始前',
+        now: '現在進行中',
+        out: '作業時間外',
+      },
+    }
   }
 }
 

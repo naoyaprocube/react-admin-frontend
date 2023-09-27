@@ -32,12 +32,14 @@ import { useParams } from "react-router-dom";
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 import DirMenu from '../layouts/Dirmenu';
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
+import { useNavigate } from "react-router-dom";
 
 const FilesList = (props: any) => {
   const { workId, dirId } = useParams()
   const [id, setId] = React.useState(dirId ? dirId : null);
   const dataProvider = useDataProvider()
   const translate = useTranslate()
+  const navigate = useNavigate()
   const notify = useNotify()
   const [dir, setDir] = React.useState({});
   React.useEffect(() => {
@@ -68,7 +70,7 @@ const FilesList = (props: any) => {
     const record = useRecordContext()
     return <Tooltip title={translate('ra.action.delete')} placement="top-start">
       <Box>
-        <DeleteWithConfirmButton label="" redirect={"/files/" + id} translateOptions={{ id: record.filename }} />
+        <DeleteWithConfirmButton label="" redirect={"/files/" + workId + "/" + id} translateOptions={{ id: record.filename }} />
       </Box>
     </Tooltip>
   }
@@ -128,18 +130,28 @@ const FilesList = (props: any) => {
   );
 
   return (<Box>
-    <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
-      <Link
-        underline="hover"
-        color="inherit"
-        href="/"
-      >
-        従事作業選択
-      </Link>
-      <Typography color="text.primary">ファイル一覧</Typography>
-    </Breadcrumbs>
+    {workId === "public" ?
+      <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
+        <Typography color="text.primary">
+          {translate('pages.publicFileManager')}
+        </Typography>
+      </Breadcrumbs>
+      :
+      <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
+        <Link
+          underline="hover"
+          color="inherit"
+          onClick={() => navigate('/')}
+        >
+          {translate('pages.workSelect')}
+        </Link>
+        <Typography color="text.primary">
+          {translate('pages.fileManager')}
+        </Typography>
+      </Breadcrumbs>}
+
     {id ?
-      <List {...props} aside={<DirMenu workId={workId} />} title={"Files"} empty={<Empty />} resource={"files/" + id} exporter={false} actions={<FilesListActions />}>
+      <List {...props} title={workId === "public" ? translate('pages.publicFileManager') : translate('pages.fileManager')}aside={<DirMenu workId={workId} />} empty={<Empty />} resource={"files/" + id} exporter={false} actions={<FilesListActions />}>
         <CustomDatagrid>
           <TextField width="50%" source="filename" label="file.fields.filename" sortable={false} className={"filename"} sx={{ width: 1, }} />
           <FunctionField width="10%" source="length" label="file.fields.length" sortable={true} sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />

@@ -1,5 +1,4 @@
 import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK, AUTH_GET_PERMISSIONS } from 'react-admin';
-import decodeJwt from 'jwt-decode';
 
 export default (type: any, params: any) => {
   if (type === AUTH_LOGIN) {

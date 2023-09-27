@@ -1,4 +1,4 @@
-function download(blob: Blob, filename: string) {
+export function download(blob: Blob, filename: string) {
   const url = window.URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.style.display = 'none';
@@ -10,12 +10,12 @@ function download(blob: Blob, filename: string) {
   window.URL.revokeObjectURL(url);
 }
 
-function decodeUTF8(buffer: any) {
+export function decodeUTF8(buffer: any) {
   const decoder = new TextDecoder();
   return decoder.decode(buffer);
 }
 
-const humanFileSize = (bytes: any, si = false, dp = 1) => {
+export const humanFileSize = (bytes: any, si = false, dp = 1) => {
   const thresh = si ? 1000 : 1024;
   if (Math.abs(bytes) < thresh) {
     return bytes + ' B';
@@ -32,7 +32,7 @@ const humanFileSize = (bytes: any, si = false, dp = 1) => {
   return bytes.toFixed(dp) + ' ' + units[u];
 }
 
-const estimatedUploadTime = (bytes: number, limit: number = 1024 * 1024 * 1024 * 1024, speed: number = 32 * 1024 * 1024) => {
+export const estimatedUploadTime = (bytes: number, limit: number = 1024 * 1024 * 1024 * 1024, speed: number = 32 * 1024 * 1024) => {
   let check = true
   if (bytes > limit) check = false
   const time = Math.floor(bytes / speed)
@@ -60,4 +60,47 @@ const estimatedUploadTime = (bytes: number, limit: number = 1024 * 1024 * 1024 *
   return { check, sec, min, hour, label, est }
 }
 
-export {download, decodeUTF8, humanFileSize, estimatedUploadTime }
+export const convertPeriod = (period: {
+  startTime: string,
+  endTime: string,
+  validFrom: string,
+  validUntil: string,
+}) => {
+  const ret: Array<Array<number>> = []
+  const validFrom = period.validFrom.replaceAll("/", "-")
+  const validUntil = period.validUntil.replaceAll("/", "-")
+  const GMT = "T00:00:00.000+09:00"
+  let day = Date.parse(validFrom + GMT)
+  const dayMS = 24 * 60 * 60 * 1000
+  const startTimeMS = Date.parse(validFrom + "T" + period.startTime + ".000+09:00") - Date.parse(validFrom + GMT)
+  const endTimeMS = Date.parse(validFrom + "T" + period.endTime + ".000+09:00") - Date.parse(validFrom + GMT)
+  while (day < Date.parse(validUntil + GMT) + dayMS) {
+    ret.push([day + startTimeMS, day + endTimeMS])
+    day += dayMS
+  }
+  return ret
+}
+
+export const stringToColor = (str:string) => {
+  const colorArray = [
+    "#ef9a9a", //"red"
+    "#f48fb1", //"pink"
+    "#ce93d8", //"purple"
+    "#b39ddb", //"deepPurple"
+    "#9fa8da", //"indigo"
+    "#90caf9", //"blue"
+    "#81d4fa", //"lightBlue"
+    "#80deea", //"cyan"
+    "#80cbc4", //"teal"
+    "#a5d6a7", //"green"
+    "#c5e1a5", //"lightGreen"
+    "#e6ee9c", //"lime"
+    "#fff59d", //"yellow"
+    "#ffe082", //"amber"
+    "#ffcc80", //"orange"
+    "#ffab91", //"deepOrange"
+  ]
+  const number = Array.from(str).map(ch => ch.charCodeAt(0)).reduce((a, b) => a+b)
+  const index = number % 16
+  return colorArray[index]
+};

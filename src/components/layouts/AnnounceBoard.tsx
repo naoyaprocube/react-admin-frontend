@@ -20,11 +20,11 @@ const AnnounceBoard = (props: any) => {
   const translate = useTranslate()
   const notify = useNotify()
   const Empty = () => (
-    <Box sx={{ mt: 1 }}>
-      <Box width={1} sx={{
+    <Box sx={{ mt: 1,}}>
+      <Box sx={{
         display: 'flex',
         justifyContent: 'space-evenly',
-        mt: 1
+        mt: 4
       }}>
         <TipsAndUpdatesIcon sx={{
           width: '3em',
@@ -33,13 +33,13 @@ const AnnounceBoard = (props: any) => {
         }} />
       </Box>
       <Typography variant="h4" align="center" sx={{ color: 'text.secondary' }}>
-        {translate("お知らせはありません")}
+        {translate("guacamole.noAnnouncement")}
       </Typography>
     </Box>
   )
   const Datagrid = () => {
     const { data, isLoading } = useListContext();
-    if (data.length === 0) return (<Empty />)
+    if (data && data.length === 0) return (<Empty />)
     return (<CustomDatagrid
       bulkActionButtons={false}
       sx={{
@@ -48,21 +48,21 @@ const AnnounceBoard = (props: any) => {
       }}
     >
       <DateField source="startDate" width="5%" />
-      <Box sx={{ maxWitdh: 1 }}>
+      <Box sx={{ width: 1 }}>
         <TextField source="message" style={{ whiteSpace: 'pre-wrap' }} />
       </Box>
     </CustomDatagrid>)
   }
   return (<Box sx={{
-    height: 200,
+    height: 180,
     width: 1,
     overflow: 'auto',
     border:1,
     borderRadius: 2,
   }}>
     <InfiniteList
-      title={"connect"}
       resource={"announce"}
+      title={" "}
       empty={<Empty />}
       sx={{
         '& .MuiToolbar-root': { display: "none" },

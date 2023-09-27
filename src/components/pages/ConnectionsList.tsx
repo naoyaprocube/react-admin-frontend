@@ -21,12 +21,14 @@ import { useParams } from "react-router-dom";
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
 import { ConnectionFilterMenu } from '../layouts/FilterMenu'
+import { useNavigate } from "react-router-dom";
 
 const ConnectionsList = (props: any) => {
   const { work } = useParams()
   const dataProvider = useDataProvider()
   const translate = useTranslate()
   const notify = useNotify()
+  const navigate = useNavigate()
   const Empty = () => (
     <Box sx={{ mt: 5, ml: 15 }}>
       <Box width={1} sx={{
@@ -67,19 +69,21 @@ const ConnectionsList = (props: any) => {
       <Link
         underline="hover"
         color="inherit"
-        href="/"
+        onClick={() => navigate('/')}
       >
-        従事作業選択
+        {translate('pages.workSelect')}
       </Link>
-      <Typography color="text.primary">接続先選択</Typography>
+      <Typography color="text.primary">
+        {translate('pages.connectionSelect')}
+      </Typography>
     </Breadcrumbs>
-    <InfiniteList {...props} aside={<ConnectionFilterMenu />} title={"connect"} empty={<Empty />} resource={"connections/" + work} exporter={false}>
+    <InfiniteList {...props} title={translate('pages.connectionSelect')} aside={<ConnectionFilterMenu />} empty={<Empty />} resource={"connections/" + work} exporter={false}>
       <CustomDatagrid bulkActionButtons={false} >
-        <TextField source="name" width="50%" className="connectionName"/>
+        <TextField source="name" width="50%" className="connectionName" />
         <TextField source="protocol" />
         <DateField source="lastActive" />
         <Button variant="contained">
-          接続
+          {translate('guacamole.connect')}
         </Button>
       </CustomDatagrid>
     </InfiniteList>

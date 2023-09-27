@@ -3,6 +3,7 @@ import {
   Menu,
   useDataProvider,
   useNotify,
+  useTranslate,
   Confirm,
 } from 'react-admin';
 import {
@@ -42,8 +43,9 @@ export const GuacMenu = () => {
   const [activeItem, setActiveItem] = React.useState("")
   const [fire, setFire] = React.useState<boolean>(false);
   const dataProvider = useDataProvider()
-  const [open, setOpen] = React.useState(false);
+  const translate = useTranslate()
   const notify = useNotify()
+  const [open, setOpen] = React.useState(false);
   const handleClick = () => setOpen(true);
   const handleDialogClose = () => setOpen(false);
   const handleConfirm = () => {
@@ -110,7 +112,7 @@ export const GuacMenu = () => {
             component="div"
             disablePadding
             sx={{
-              ml: 2
+              ml: 1.5
             }}
             children={children}
           />
@@ -134,9 +136,36 @@ export const GuacMenu = () => {
           id={menuItemData.name}
           dense={false}
           children={<Box>
-            <Menu.Item to={"/connections/" + menuItemData.name} primaryText="接続先選択" sx={{ borderRadius: 5, }} leftIcon={<CableIcon />} />
-            <Menu.Item to={"/files/" + menuItemData.name} primaryText="作業ファイル" sx={{ borderRadius: 5, }} leftIcon={<InsertDriveFileIcon />} />
-            <Menu.Item to={"/history/" + menuItemData.name} primaryText="接続履歴" sx={{ borderRadius: 5, }} leftIcon={<HistoryIcon />} />
+            <Menu.Item
+              to={"/connections/" + menuItemData.name}
+              primaryText={
+                <Typography variant="body2">
+                  {translate('pages.connectionSelect')}
+                </Typography>
+              }
+              sx={{ borderRadius: 5, }}
+              leftIcon={<CableIcon />}
+            />
+            <Menu.Item
+              to={"/history/" + menuItemData.name}
+              primaryText={
+                <Typography variant="body2">
+                  {translate('pages.connectionHistory')}
+                </Typography>
+              }
+              sx={{ borderRadius: 5, }}
+              leftIcon={<HistoryIcon />}
+            />
+            <Menu.Item
+              to={"/files/" + menuItemData.name}
+              primaryText={
+                <Typography variant="body2">
+                  {translate('pages.fileManager')}
+                </Typography>
+              }
+              sx={{ borderRadius: 5, }}
+              leftIcon={<InsertDriveFileIcon />}
+            />
           </Box>}
         />
       );
@@ -146,21 +175,37 @@ export const GuacMenu = () => {
     <Menu>
       <Confirm
         isOpen={open}
-        title={"move"}
-        content="move workflow"
+        title={translate('guacamole.moveWorkflowTitle')}
+        content={translate('guacamole.moveWorkflowContent')}
         onConfirm={handleConfirm}
         onClose={handleDialogClose}
       />
-      <Menu.Item to="/" primaryText="ホームページ" leftIcon={<HomeIcon />} />
-      <MenuItem onClick={() => setOpen(true)}>
+      <Menu.Item
+        to="/"
+        primaryText={
+          <Typography variant="body2">
+            {translate('pages.homepage')}
+          </Typography>
+        }
+        leftIcon={<HomeIcon />}
+      />
+      <MenuItem onClick={handleClick}>
         <OpenInNewIcon sx={{ color: "text.secondary" }} />
-        <Typography sx={{ ml: 2, color: "text.secondary" }} >
-          {"ワークフロー申請"}
+        <Typography variant="body2" sx={{ ml: 2, color: "text.secondary" }} >
+          {translate('pages.workflow')}
         </Typography>
       </MenuItem>
-      <Menu.Item to="/files/public" primaryText="public" leftIcon={<CloudUploadIcon />} />
+      <Menu.Item
+        to="/files/public"
+        primaryText={
+          <Typography variant="body2">
+            {translate('pages.publicFileManager')}
+          </Typography>
+        }
+        leftIcon={<CloudUploadIcon />}
+      />
       <Typography variant="body2" sx={{ ml: 1, mt: 1 }}>
-        {"作業一覧"}
+        {translate('guacamole.works')}
       </Typography>
       {MenuWorkItems(works)}
     </Menu>

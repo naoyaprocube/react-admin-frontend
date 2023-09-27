@@ -9,10 +9,10 @@ export const ConnectionFilterMenu = () => (
         <CardContent>
             <SavedQueriesList />
             <FilterLiveSearch />
-            <FilterList label="Protocol" icon={<SettingsInputComponentIcon />}>
-                <FilterListItem label="VNC" value={{ protocol: 'vnc' }} />
-                <FilterListItem label="SSH" value={{ protocol: 'ssh' }} />
-                <FilterListItem label="RDP" value={{ protocol: 'rdp' }} />
+            <FilterList label="guacamole.filter.protocol.name" icon={<SettingsInputComponentIcon />}>
+                <FilterListItem label="guacamole.filter.protocol.vnc" value={{ protocol: 'vnc' }} />
+                <FilterListItem label="guacamole.filter.protocol.ssh" value={{ protocol: 'ssh' }} />
+                <FilterListItem label="guacamole.filter.protocol.rdp" value={{ protocol: 'rdp' }} />
             </FilterList>
         </CardContent>
     </Card>
@@ -23,10 +23,10 @@ export const HistoryFilterMenu = () => (
         <CardContent>
             <SavedQueriesList />
             <FilterLiveSearch />
-            <FilterList label="Duration" icon={<TimelapseIcon />}>
-                <FilterListItem label="30 seconds" value={{ duration: 1000 * 30 }} />
-                <FilterListItem label="5 minutes" value={{ duration: 1000 * 60 * 5 }} />
-                <FilterListItem label="1 hours" value={{ duration: 1000 * 60 * 60 }} />
+            <FilterList label="guacamole.filter.duration.name" icon={<TimelapseIcon />}>
+                <FilterListItem label="guacamole.filter.duration.30s" value={{ duration: 1000 * 30 }} />
+                <FilterListItem label="guacamole.filter.duration.5m" value={{ duration: 1000 * 60 * 5 }} />
+                <FilterListItem label="guacamole.filter.duration.1h" value={{ duration: 1000 * 60 * 60 }} />
             </FilterList>
         </CardContent>
     </Card>
@@ -37,10 +37,10 @@ export const WorkFilterMenu = () => (
         <CardContent>
             <SavedQueriesList />
             <FilterLiveSearch />
-            <FilterList label="作業状態" icon={<AccessTimeIcon />}>
-                <FilterListItem label="開始前" value={{ duration: 1000 * 30 }} />
-                <FilterListItem label="現在進行中" value={{ duration: 1000 * 60 * 5 }} />
-                <FilterListItem label="作業時間外" value={{ duration: 1000 * 60 * 60 }} />
+            <FilterList label="guacamole.filter.work.name" icon={<AccessTimeIcon />}>
+                <FilterListItem label="guacamole.filter.work.before" value={{ workStatus:"before" }} />
+                <FilterListItem label="guacamole.filter.work.now" value={{ workStatus: "now" }} />
+                <FilterListItem label="guacamole.filter.work.out" value={{ workStatus: "out" }} />
             </FilterList>
         </CardContent>
     </Card>

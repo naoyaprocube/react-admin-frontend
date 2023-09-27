@@ -4,8 +4,6 @@ import {
   Resource,
   Layout,
   defaultTheme,
-  AppBar,
-  ToggleThemeButton,
   combineDataProviders,
 } from 'react-admin';
 import {
@@ -25,24 +23,49 @@ import HistoryList from './components/pages/HistoryList';
 import Dashboard from './components/pages/Dashboard';
 import { i18nProvider } from './i18nProvider';
 import { GuacMenu } from './components/layouts/Sidebar';
+import { AGAppbar } from './components/layouts/Appbar';
 import { Route, } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+
+type TThemeContext = {
+  theme: any,
+  setTheme: React.Dispatch<React.SetStateAction<any>>
+}
+export const ThemeContext = React.createContext({} as TThemeContext);
+
+export const adminTheme = {
+  ...defaultTheme,
+  palette: {
+    primary: colors.teal,
+    secondary: colors.teal
+  },
+  sidebar: {
+    width: 270, // The default value is 240
+    closedWidth: 0, // The default value is 55
+  },
+};
+export const workerTheme = {
+  ...defaultTheme,
+  palette: {
+    primary: colors.blue,
+    secondary: colors.blue
+  },
+  sidebar: {
+    width: 270, // The default value is 240
+    closedWidth: 0, // The default value is 55
+  },
+};
 
 const App = () => {
-  const theme = {
-    ...defaultTheme,
-    palette: {
-      primary: colors.orange,
-      secondary: colors.purple,
-    },
-    sidebar: {
-      width: 240, // The default value is 240
-      closedWidth: 0, // The default value is 55
-    },
-  };
+  const [cookies, setCookies] = useCookies(["theme"]);
+  if(!cookies.theme) setCookies("theme", "worker")
+  const initialTheme = cookies.theme === "admin" ? adminTheme : workerTheme
+  const [theme, setTheme] = React.useState(initialTheme)
   const layout = (props: any) => {
     return (<>
       <Layout {...props}
         menu={GuacMenu}
+        appBar={AGAppbar}
       />
     </>)
   }
@@ -56,37 +79,39 @@ const App = () => {
     else return null
   });
   return (
-    <Admin
-      dataProvider={dataProviders}
-      authProvider={authProvider}
-      i18nProvider={i18nProvider}
-      layout={layout}
-      dashboard={Dashboard}
-      theme={theme}
-      title="File Server"
-    >
-      <Resource
-        name={"files"}
-        children={<>
-          <Route path="/:workId" element={<FilesList />} />
-          <Route path="/:workId/:dirId" element={<FilesList />} />
-          <Route path="/:workId/:dirId/:fileId/show" element={<FileShow />} />
-          <Route path="/:workId/:dirId/create" element={<FilesCreate />} />
-        </>}
-      />
-      <Resource
-        name={"connections"}
-        children={<>
-          <Route path="/:workId" element={<ConnectionsList />} />
-        </>}
-      />
-      <Resource
-        name={"history"}
-        children={<>
-          <Route path="/:workId" element={<HistoryList />} />
-        </>}
-      />
-    </Admin>
+    <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
+      <Admin
+        dataProvider={dataProviders}
+        authProvider={authProvider}
+        i18nProvider={i18nProvider}
+        layout={layout}
+        theme={theme}
+        dashboard={Dashboard}
+        title="File Server"
+      >
+        <Resource
+          name={"files"}
+          children={<>
+            <Route path="/:workId" element={<FilesList />} />
+            <Route path="/:workId/:dirId" element={<FilesList />} />
+            <Route path="/:workId/:dirId/:fileId/show" element={<FileShow />} />
+            <Route path="/:workId/:dirId/create" element={<FilesCreate />} />
+          </>}
+        />
+        <Resource
+          name={"connections"}
+          children={<>
+            <Route path="/:workId" element={<ConnectionsList />} />
+          </>}
+        />
+        <Resource
+          name={"history"}
+          children={<>
+            <Route path="/:workId" element={<HistoryList />} />
+          </>}
+        />
+      </Admin>
+    </ThemeContext.Provider>
   );
 }
 

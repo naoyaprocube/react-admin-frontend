@@ -1,7 +1,9 @@
 import { fetchUtils, HttpError } from 'react-admin';
 import { stringify } from 'query-string';
+import { convertPeriod } from './components/utils'
 const apiUrl = '/api';
 const guacUrl = '/guacamole'
+
 // const httpClient = fetchUtils.fetchJson;
 const httpClient = (url: string, options: any = {}) => {
   if (!options.headers) {
@@ -251,25 +253,108 @@ export const WorkProvider = {
 
   getList: (resource: any, params: any) => {
     const { page, perPage } = params.pagination;
-    const { q } = params.filter
+    const { q, workStatus } = params.filter
     const url = `${guacUrl}/api/session/data/postgresql/history/connections`;
     return httpClient(url).then(({ headers, json }: any) => {
       let work = [
         {
-          name: "WorkA"
+          name: '統合管理ネットワーク VLAN 2345 追加作業', // 作業名
+          identifier: 1, // Guacamole の管理ID
+          idmIdentifier: 'XU78S', // 作業ID
+          attributes: {}, // 無視していいです
+          periods: [
+            {
+              startTime: "09:00:00", // 作業開始時間（フォーマット変わる可能性あり）
+              endTime: "18:00:00", //作業終了時間（フォーマット変わる可能性あり）
+              validFrom: "2023/09/27", // 作業期間開始日（フォーマット変わる可能性あり）
+              validUntil: "2023/10/31" // 作業期間終了日（フォーマット変わる可能性あり）
+            },
+            {
+              startTime: "09:00:00", // 作業開始時間（フォーマット変わる可能性あり）
+              endTime: "18:00:00", //作業終了時間（フォーマット変わる可能性あり）
+              validFrom: "2024/01/10", // 作業期間開始日（フォーマット変わる可能性あり）
+              validUntil: "2024/02/28" // 作業期間終了日（フォーマット変わる可能性あり）
+            }
+          ],
+          connections: [1, 3], // 接続先IDのリスト
+          users: [2, 5] // 作業者のリスト
         },
         {
-          name: "WorkB"
+          name: "WorkA",
+          identifier: 2,
+          idmIdentifier: 'IP931',
+          attributes: {}, // 無視していいです
+          periods: [
+            {
+              startTime: "09:00:00", // 作業開始時間（フォーマット変わる可能性あり）
+              endTime: "18:00:00", //作業終了時間（フォーマット変わる可能性あり）
+              validFrom: "2023/09/27", // 作業期間開始日（フォーマット変わる可能性あり）
+              validUntil: "2023/10/31" // 作業期間終了日（フォーマット変わる可能性あり）
+            },
+            {
+              startTime: "09:00:00", // 作業開始時間（フォーマット変わる可能性あり）
+              endTime: "18:00:00", //作業終了時間（フォーマット変わる可能性あり）
+              validFrom: "2024/01/10", // 作業期間開始日（フォーマット変わる可能性あり）
+              validUntil: "2024/02/28" // 作業期間終了日（フォーマット変わる可能性あり）
+            }
+          ],
+          connections: [1, 3], // 接続先IDのリスト
+          users: [2, 5] // 作業者のリスト
         },
         {
-          name: "WorkC"
+          name: "WorkB",
+          identifier: 3,
+          idmIdentifier: 'P1KMN',
+          attributes: {}, // 無視していいです
+          periods: [
+            {
+              startTime: "09:00:00", // 作業開始時間（フォーマット変わる可能性あり）
+              endTime: "23:00:00", //作業終了時間（フォーマット変わる可能性あり）
+              validFrom: "2023/09/27", // 作業期間開始日（フォーマット変わる可能性あり）
+              validUntil: "2023/10/31" // 作業期間終了日（フォーマット変わる可能性あり）
+            },
+            {
+              startTime: "09:00:00", // 作業開始時間（フォーマット変わる可能性あり）
+              endTime: "23:00:00", //作業終了時間（フォーマット変わる可能性あり）
+              validFrom: "2024/01/10", // 作業期間開始日（フォーマット変わる可能性あり）
+              validUntil: "2024/02/28" // 作業期間終了日（フォーマット変わる可能性あり）
+            }
+          ],
+          connections: [1, 3], // 接続先IDのリスト
+          users: [2, 5] // 作業者のリスト
+        },
+        {
+          name: "W0RKC",
+          identifier: 4,
+          idmIdentifier: 'WorkC',
+          attributes: {}, // 無視していいです
+          periods: [
+            {
+              startTime: "09:00:00", // 作業開始時間（フォーマット変わる可能性あり）
+              endTime: "10:00:00", //作業終了時間（フォーマット変わる可能性あり）
+              validFrom: "2023/09/27", // 作業期間開始日（フォーマット変わる可能性あり）
+              validUntil: "2023/10/31" // 作業期間終了日（フォーマット変わる可能性あり）
+            },
+          ],
+          connections: [1, 3], // 接続先IDのリスト
+          users: [2, 5] // 作業者のリスト
         },
       ]
       if (q) work = work.filter((v: any) => v.name.includes(String(q)))
+      if (workStatus) {
+        const now = new Date
+        if (workStatus === "now") work = work.filter((v: any) =>
+          v.periods.filter((period: any) =>
+            convertPeriod(period).filter((time: Array<number>) =>
+              (now.getTime() > time[0] && now.getTime() < time[1])
+            ).length > 0
+          ).length > 0
+        )
+      }
       const length = work.length
       if (page && perPage) work = work.slice((page - 1) * perPage, page * perPage)
       return {
-        data: work.map((resource: any) => ({ ...resource, id: resource.identifier })),
+        data: work.map((resource: any) => ({ ...resource, id: resource.name })),
         total: length
       }
     })
@@ -303,10 +388,11 @@ export const AnnounceProvider = {
         },
       ]
       const now = new Date
-      function compareDate(a:any, b:any) {
+      function compareDate(a: any, b: any) {
         return a.startDate - b.startDate;
       }
-      announce = announce.filter((v:any) => (now.getTime() > v.startDate && now.getTime() < v.endDate))
+      announce=[]
+      announce = announce.filter((v: any) => (now.getTime() > v.startDate && now.getTime() < v.endDate))
       announce = announce.sort(compareDate)
       const length = announce.length
       return {
