@@ -81,7 +81,7 @@ export const convertPeriod = (period: {
   return ret
 }
 
-export const stringToColor = (str:string) => {
+export const stringToColor = (str: string) => {
   const colorArray = [
     "#ef9a9a", //"red"
     "#f48fb1", //"pink"
@@ -100,7 +100,24 @@ export const stringToColor = (str:string) => {
     "#ffcc80", //"orange"
     "#ffab91", //"deepOrange"
   ]
-  const number = Array.from(str).map(ch => ch.charCodeAt(0)).reduce((a, b) => a+b)
+  const number = Array.from(str).map(ch => ch.charCodeAt(0)).reduce((a, b) => a + b)
   const index = number % 16
   return colorArray[index]
+};
+
+export const getClientIdentifier = (id: number, type: string) => {
+  const base64urlEncode = function base64urlEncode(value: any) {
+    return btoa(value).replace(/[+/=]/g,
+      (str) => ({
+        '+': '-',
+        '/': '_',
+        '=': ''
+      })[str]
+    );
+  };
+  return base64urlEncode([
+    id,
+    type,
+    "postgresql"
+  ].join('\0'))
 };

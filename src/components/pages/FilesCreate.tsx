@@ -9,13 +9,22 @@ import {
   Toolbar,
   useNotify,
 } from 'react-admin';
+import {
+  Box,
+  Tooltip,
+  Typography,
+  Breadcrumbs,
+  Link,
+  Button,
+  ButtonGroup
+} from '@mui/material';
 import { UploadButton } from '../buttons/UploadButton'
 import { BackButton } from '../buttons/BackButton'
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useWatch } from 'react-hook-form';
-import { Box } from '@mui/material';
 import { estimatedUploadTime } from '../utils'
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const DropzoneDisplay = () => {
   const file = useWatch({ name: 'file' });
@@ -79,6 +88,7 @@ const FilePreview = () => {
 const FilesCreate = (props: any) => {
   const translate = useTranslate()
   const { workId, dirId } = useParams()
+  const navigate = useNavigate()
   const FileToolbar = () => (
     <Toolbar sx={{ flexDirection: 'row-reverse' }}>
       <UploadButton workId={workId} dirId={dirId} />
@@ -89,13 +99,44 @@ const FilesCreate = (props: any) => {
       <BackButton id={workId + "/" + dirId} />
     </Toolbar >)
   }
-  return (
-    <Create {...props} actions={<TopToolbar />} resource={workId + "." + dirId} redirect={"/files/" + dirId} title={translate('file.uploadPageTitle')}>
+  return (<>
+    <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
+      <Link
+        underline="hover"
+        color="inherit"
+        style={{ cursor: 'pointer' }}
+        onClick={() => navigate('/')}
+      >
+        {translate('pages.workSelect')}
+      </Link>
+      {workId === "public" ?
+        <Link
+          underline="hover"
+          color="inherit"
+          style={{ cursor: 'pointer' }}
+          onClick={() => navigate('/files/public' + "/" + dirId)}
+        >
+          {translate('pages.publicFileManager')}
+        </Link>
+        : <Link
+          underline="hover"
+          color="inherit"
+          style={{ cursor: 'pointer' }}
+          onClick={() => navigate('/files/' + workId + "/" + dirId)}
+        >
+          {translate('pages.fileManager')}
+        </Link>
+      }
+      <Typography color="text.primary">
+        {translate('pages.fileUpload')}
+      </Typography>
+    </Breadcrumbs>
+    <Create {...props} resource={workId + "." + dirId} redirect={"/files/" + dirId} title={translate('file.uploadPageTitle')}>
       <SimpleForm toolbar={<FileToolbar />}>
         <FileInput
           source="file"
           removeIcon={DeleteIcon}
-          label={""}
+          label={"file.upload"}
           sx={{
             '& .RaFileInput-dropZone': {
               display: DropzoneDisplay
@@ -113,6 +154,8 @@ const FilesCreate = (props: any) => {
         <FilePreview />
       </SimpleForm>
     </Create>
+  </>
+
   );
 };
 

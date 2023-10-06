@@ -165,25 +165,52 @@ const japanese = {
     publicFileManager: '公開領域ファイルマネージャ',
     connectionSelect: '接続先一覧',
     fileManager: '作業領域ファイルマネージャ',
-    connectionHistory: '接続履歴'
+    fileUpload: 'アップロード',
+    fileInfo: 'ファイル詳細',
+    connectionHistory: '接続履歴',
+    allConnectionHistory: '全体接続履歴'
   },
   guacamole: {
     announcement: 'お知らせ',
     noAnnouncement: 'お知らせはありません。',
+    activeSession: 'アクティブなセッション',
+    noActiveSession: '現在アクティブなセッションはありません。',
     connect: '接続',
+    disconnect: '強制切断',
     period: '作業期間',
+    deviceConnection: '接続機器',
     workStart: '作業開始',
     works: "担当作業一覧",
     moveWorkflowTitle: 'ワークフロー申請画面に移動します',
     moveWorkflowContent: '新しいタブで開きます。',
     workerMode: '作業者モード',
     adminMode: '管理者モード',
+    changeWorker: '作業者モードに切り替える',
+    notWorkerInfo: '管理者モードでアクセスできないページです。',
+    changeAdmin: '管理者モードに切り替える',
+    notAdminInfo: '作業者モードでアクセスできないページです。',
+    field: {
+      id: 'ID',
+      usename: 'ユーザー',
+      connectId: '接続先ID',
+      connectName: '接続先',
+      protocol: 'プロトコル',
+      parent: '機器種別',
+      lastActive: '最終アクティブ日時',
+      remoteHost: '接続元IP',
+      startDate: '開始日時',
+      duration: '接続時間'
+    },
+
     filter: {
       protocol: {
         name: 'プロトコル',
         vnc: 'VNC',
         rdp: 'RDP',
         ssh: 'SSH',
+      },
+      parent: {
+        name: '機器種別',
       },
       duration: {
         name: '接続時間',
@@ -196,6 +223,7 @@ const japanese = {
         before: '開始前',
         now: '現在進行中',
         out: '作業時間外',
+        after: '終了済',
       },
     }
   }

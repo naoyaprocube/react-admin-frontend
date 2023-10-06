@@ -21,6 +21,7 @@ import {
   Typography,
   Breadcrumbs,
   Link,
+  Button,
   ButtonGroup
 } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
@@ -97,11 +98,11 @@ const FilesList = (props: any) => {
     )
   }
   const Empty = () => (
-    <Box sx={{ mt: 5, ml: 15 }}>
-      <Box width={1} sx={{
+    <Box sx={{ width: 1, display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{
         display: 'flex',
-        justifyContent: 'space-evenly',
-        mt: 1
+        justifyContent: 'center',
+        mt: 1,
       }}>
         <FolderOpenIcon sx={{
           width: '6em',
@@ -111,8 +112,8 @@ const FilesList = (props: any) => {
       </Box>
       <Box width={1} sx={{
         display: 'flex',
-        justifyContent: 'space-evenly',
-        mt: 1
+        justifyContent: 'center',
+        mt: -2
       }}>
         <CreateButton
           resource={"files/" + workId + "/" + id}
@@ -124,44 +125,50 @@ const FilesList = (props: any) => {
       <Typography variant="h4" align="center" sx={{ color: 'text.secondary' }}>
         {translate('ra.page.empty')}
       </Typography>
-
-
     </Box>
   );
-
+  const FileActionButtons = (props: any) => (
+    <ButtonGroup variant="text" className="ActionButtons" sx={{ display: 'inline-flex' }}>
+      <DownloadButton />
+      <FileShowButton />
+      <DeleteButton />
+    </ButtonGroup>
+  )
   return (<Box>
-    {workId === "public" ?
-      <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
+    <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
+      <Link
+        underline="hover"
+        color="inherit"
+        style={{ cursor: 'pointer' }}
+        onClick={() => navigate('/')}
+      >
+        {translate('pages.workSelect')}
+      </Link>
+      {workId === "public" ?
         <Typography color="text.primary">
           {translate('pages.publicFileManager')}
         </Typography>
-      </Breadcrumbs>
-      :
-      <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
-        <Link
-          underline="hover"
-          color="inherit"
-          onClick={() => navigate('/')}
-        >
-          {translate('pages.workSelect')}
-        </Link>
-        <Typography color="text.primary">
+        : <Typography color="text.primary">
           {translate('pages.fileManager')}
         </Typography>
-      </Breadcrumbs>}
-
+      }
+    </Breadcrumbs>
     {id ?
-      <List {...props} title={workId === "public" ? translate('pages.publicFileManager') : translate('pages.fileManager')}aside={<DirMenu workId={workId} />} empty={<Empty />} resource={"files/" + id} exporter={false} actions={<FilesListActions />}>
+      <List
+        {...props}
+        title={workId === "public" ? translate('pages.publicFileManager') : translate('pages.fileManager')}
+        aside={<DirMenu workId={workId} />}
+        empty={<Empty />}
+        resource={"files/" + id}
+        exporter={false}
+        actions={<FilesListActions />}
+      >
         <CustomDatagrid>
-          <TextField width="50%" source="filename" label="file.fields.filename" sortable={false} className={"filename"} sx={{ width: 1, }} />
-          <FunctionField width="10%" source="length" label="file.fields.length" sortable={true} sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />
-          <DateField width="10%" source="uploadDate" label="file.fields.uploadDate" showTime locales="jp-JP" />
-          <TextField width="10%" source="metadata.status" label="file.fields.metadata.status" className="status" sortable={false} />
-          <ButtonGroup variant="text" className="ActionButtons" sx={{ display: 'inline-flex' }}>
-            <DownloadButton />
-            <FileShowButton />
-            <DeleteButton />
-          </ButtonGroup>
+          <TextField width="30%" source="filename" label="file.fields.filename" sortable={false} className={"filename"} sx={{ width: 1, }} />
+          <FunctionField width="20%" source="length" label="file.fields.length" sortable={true} sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />
+          <DateField width="20%" source="uploadDate" label="file.fields.uploadDate" showTime locales="jp-JP" />
+          <TextField width="20%" source="metadata.status" label="file.fields.metadata.status" className="status" sortable={false} />
+          <FileActionButtons width="0%" />
         </CustomDatagrid>
       </List>
       : null}

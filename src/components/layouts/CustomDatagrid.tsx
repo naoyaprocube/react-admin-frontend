@@ -14,10 +14,10 @@ import WorkspacesIcon from '@mui/icons-material/Workspaces';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const fieldIcon = (field: any, record: any) => {
-  if (field.props.className === "filename") return <InsertDriveFileOutlinedIcon fontSize="small" sx={{mr: 0.5}}/>
-  if (field.props.className === "connectionName") return <TerminalIcon fontSize="small" sx={{mr: 0.5}}/>
-  if (field.props.className === "workName") return <WorkspacesIcon fontSize="small" sx={{mr: 0.5}}/>
-  if (field.props.className === "status" && record.metadata && record.metadata.status === "COMPLETE") return <CheckCircleIcon color="success" fontSize="small" sx={{mr: 0.5}}/>
+  if (field.props.className === "filename") return <InsertDriveFileOutlinedIcon fontSize="small" sx={{ mr: 0.5 }} />
+  if (field.props.className === "connectionName") return <TerminalIcon fontSize="small" sx={{ mr: 0.5 }} />
+  if (field.props.className === "workName") return <WorkspacesIcon fontSize="small" sx={{ mr: 0.5 }} />
+  if (field.props.className === "status" && record.metadata && record.metadata.status === "COMPLETE") return <CheckCircleIcon color="success" fontSize="small" sx={{ mr: 0.5 }} />
   else return null
 }
 const MyDatagridRow = ({
@@ -53,11 +53,17 @@ const MyDatagridRow = ({
           <TableCell
             sx={{
               overflow: "auto",
+              verticalAlign: (
+                field.props.className === "ConnectionField"
+                || field.props.className === "DurationField"
+              ) ? 'top' : 'center'
             }}
-            style={{ width: field.props.width }}
+            style={{
+              width: field.props.width,
+            }}
             key={`${id}-${field.props.source}`}
           >
-            <Box sx={{display:"flex"}}>
+            <Box sx={{ display: "flex" }}>
               {fieldIcon(field, record)}
               {field}
             </Box>

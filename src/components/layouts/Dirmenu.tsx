@@ -16,7 +16,7 @@ import {
   useTranslate,
   useNotify,
 } from 'react-admin';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import FolderSharedIcon from '@mui/icons-material/FolderShared';
@@ -181,7 +181,7 @@ const DirMenu = (props: MenuProps) => {
   }, [fire, activeDir, workId])
   return (
     <FireContext.Provider value={{ fire: getdirFire, setFire: setGetdirFire }}>
-      <Card sx={{ order: -1, mt: 1, mr: 2, width: 300, height: '100%' }}>
+      <Card sx={{ order: -1, mt: 1, mr: 2, minWidth: 300, height: '100%' }}>
         <CardContent>
           <Box sx={{ ml: 2, display: "flex" }}>
             <FolderSharedIcon color="secondary" />

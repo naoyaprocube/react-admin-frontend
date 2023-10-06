@@ -2,9 +2,11 @@
 import * as React from 'react';
 import {
   InfiniteList,
+  useInfinitePaginationContext,
   TextField,
   DateField,
   CreateButton,
+  useRecordContext,
   useTranslate,
   useDataProvider,
   useNotify,
@@ -16,59 +18,67 @@ import {
   Link,
   Button,
 } from '@mui/material';
+import { ConnectButton } from '../buttons/ConnectButton'
+import { ThemeContext, workerTheme, adminTheme } from '../../App'
+import { ActiveConnectionPanel } from '../layouts/ActiveConnectionPanel'
+import { useCookies } from 'react-cookie';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { useParams } from "react-router-dom";
-import FolderOpenIcon from '@mui/icons-material/FolderOpen';
+import PersonOffIcon from '@mui/icons-material/PersonOff';
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
 import { ConnectionFilterMenu } from '../layouts/FilterMenu'
 import { useNavigate } from "react-router-dom";
-
+type FFireContext = {
+  fire: boolean,
+  setFire: React.Dispatch<React.SetStateAction<boolean>>
+}
+export const FireContext = React.createContext({} as FFireContext);
 const ConnectionsList = (props: any) => {
-  const { work } = useParams()
+  const { workId } = useParams()
   const dataProvider = useDataProvider()
+  const { theme, setTheme } = React.useContext(ThemeContext);
+  const [cookies, setCookie, removeCookie] = useCookies(["theme"]);
+  const [activeFire, setActiveFire] = React.useState(false)
   const translate = useTranslate()
   const notify = useNotify()
   const navigate = useNavigate()
-  const Empty = () => (
-    <Box sx={{ mt: 5, ml: 15 }}>
-      <Box width={1} sx={{
+  const AdminAccess = () => (
+    <Box sx={{ width: 1, display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{
         display: 'flex',
-        justifyContent: 'space-evenly',
-        mt: 1
+        justifyContent: 'center',
+        mt: 1,
       }}>
-        <FolderOpenIcon sx={{
+        <PersonOffIcon sx={{
           width: '6em',
           height: '6em',
-          color: 'text.secondary',
+          color: 'primary.main',
         }} />
       </Box>
-
       <Typography variant="h4" align="center" sx={{ color: 'text.secondary' }}>
-        {translate('ra.page.empty')}
-      </Typography>
-      <Typography variant="body1" align="center" sx={{ mt: 3, color: 'text.secondary' }}>
-        {translate('ra.page.invite')}
+        {translate('guacamole.notWorkerInfo')}
       </Typography>
       <Box width={1} sx={{
         display: 'flex',
-        justifyContent: 'space-evenly',
-        mt: 1
+        justifyContent: 'center',
       }}>
-        <CreateButton
-          resource="files"
-          icon={<NoteAddIcon />}
-          label={translate('file.upload')}
-          size="large"
-        />
+        <Button onClick={() => {
+          setTheme(workerTheme)
+          setCookie("theme", "worker")
+        }}>
+          {translate('guacamole.changeWorker')}
+        </Button>
       </Box>
 
     </Box>
   );
-  return (<Box>
+  if (cookies.theme === "admin") return <AdminAccess />
+  return (<FireContext.Provider value={{ fire: activeFire, setFire: setActiveFire }}>
     <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
       <Link
         underline="hover"
         color="inherit"
+        style={{ cursor: 'pointer' }}
         onClick={() => navigate('/')}
       >
         {translate('pages.workSelect')}
@@ -77,17 +87,26 @@ const ConnectionsList = (props: any) => {
         {translate('pages.connectionSelect')}
       </Typography>
     </Breadcrumbs>
-    <InfiniteList {...props} title={translate('pages.connectionSelect')} aside={<ConnectionFilterMenu />} empty={<Empty />} resource={"connections/" + work} exporter={false}>
+    <InfiniteList {...props}
+      title={translate('pages.connectionSelect')}
+      actions={<ActiveConnectionPanel />}
+      aside={<ConnectionFilterMenu workId={workId} />}
+      resource={"connections/" + workId}
+      exporter={false}
+    >
       <CustomDatagrid bulkActionButtons={false} >
-        <TextField source="name" width="50%" className="connectionName" />
-        <TextField source="protocol" />
-        <DateField source="lastActive" />
-        <Button variant="contained">
-          {translate('guacamole.connect')}
-        </Button>
+        <TextField label="guacamole.field.id" source="identifier" width="0%" />
+        <TextField label="guacamole.field.connectName" source="name" width="50%" />
+        <TextField label="guacamole.field.protocol" source="protocol" className="protocol" />
+        <TextField label="guacamole.field.parent" source="parentIdentifier" />
+        <DateField label="guacamole.field.lastActive" source="lastActive" showTime />
+        <Box width="0%">
+          <ConnectButton type="c" />
+        </Box>
+
       </CustomDatagrid>
     </InfiniteList>
-  </Box >
+  </FireContext.Provider>
   );
 };
 

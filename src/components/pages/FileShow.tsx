@@ -16,6 +16,8 @@ import { useWatch } from 'react-hook-form';
 import {
   Box,
   Typography,
+  Breadcrumbs,
+  Link,
 } from '@mui/material';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -49,14 +51,46 @@ const EditTitle = () => {
 const FileShow = (props: any) => {
   const translate = useTranslate()
   const { workId, dirId, fileId } = useParams()
+  const navigate = useNavigate()
   const EditToolbar = () => {
     return (<Toolbar sx={{ display: "flex", justifyContent: 'space-between' }}>
       <BackButton id={workId + "/" + dirId} />
       <DeleteButton redirect={"/files/" + workId + "/" + dirId} />
     </Toolbar >)
   }
-  return (
-    <Edit resource={"files/" + dirId} id={fileId} redirect={"/files/" + dirId} actions={<EditToolbar />} title={<EditTitle />}>
+  return (<>
+  <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
+      <Link
+        underline="hover"
+        color="inherit"
+        style={{ cursor: 'pointer' }}
+        onClick={() => navigate('/')}
+      >
+        {translate('pages.workSelect')}
+      </Link>
+      {workId === "public" ?
+        <Link
+          underline="hover"
+          color="inherit"
+          style={{ cursor: 'pointer' }}
+          onClick={() => navigate('/files/public')}
+        >
+          {translate('pages.publicFileManager')}
+        </Link>
+        : <Link
+          underline="hover"
+          color="inherit"
+          style={{ cursor: 'pointer' }}
+          onClick={() => navigate('/files/' + workId)}
+        >
+          {translate('pages.fileManager')}
+        </Link>
+      }
+      <Typography color="text.primary">
+        {translate('pages.fileInfo')}
+      </Typography>
+    </Breadcrumbs>
+    <Edit resource={"files/" + dirId} id={fileId} redirect={"/files/" + dirId} title={<EditTitle />}>
       <SimpleForm toolbar={false}>
         <Box sx={{ width: 1, mb: 1 }}>
           <TextInput source="filename" label="file.fields.filename" variant="standard" sx={{ mb: -1, width: 0.5, }} style={{ maxWidth: 600 }} />
@@ -83,6 +117,8 @@ const FileShow = (props: any) => {
         </ArrayField>
       </SimpleForm>
     </Edit>
+  </>
+    
   )
 }
 export default FileShow;

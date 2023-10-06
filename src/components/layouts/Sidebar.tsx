@@ -13,6 +13,7 @@ import {
   Box,
   Collapse,
 } from '@mui/material';
+import { useCookies } from 'react-cookie';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import HomeIcon from '@mui/icons-material/Home';
@@ -22,6 +23,8 @@ import HistoryIcon from '@mui/icons-material/History';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { stringToColor } from "../utils"
+
 const initialState = [{}]
 const reducerFunc = (openState: Array<any>, obj: any) => {
   const state = openState
@@ -45,19 +48,20 @@ export const GuacMenu = () => {
   const dataProvider = useDataProvider()
   const translate = useTranslate()
   const notify = useNotify()
+  const [cookies] = useCookies()
   const [open, setOpen] = React.useState(false);
   const handleClick = () => setOpen(true);
   const handleDialogClose = () => setOpen(false);
   const handleConfirm = () => {
-    setOpen(false);
+    dataProvider.getenv("files", {}).then((res: any) => {
+      setOpen(false);
+      return res
+    }).then(({ json }: any) => {
+      window.open(json.idmUrl, "_blank", "noreferrer")
+    })
   };
-  const getListParams = {
-    pagination: { page: 1, perPage: 1000 },
-    sort: { field: "", order: 'ASC' },
-    filter: ""
-  }
   React.useEffect(() => {
-    dataProvider.getList("works", getListParams).then((result: any) => {
+    dataProvider.getListAll("works").then((result: any) => {
       setWorks(result.data)
     }).catch((response: any) => {
       notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
@@ -75,11 +79,12 @@ export const GuacMenu = () => {
   const MenuWorkItem = React.useCallback((props: Props) => {
     const { handleToggle, isOpen, name, id, isParent, children, dense } = props;
     const isActive = (activeItem === id)
+    const color = stringToColor(id)
     const ItemIcon = () => (<>
       {isParent ?
-        isOpen ? <><KeyboardArrowDownIcon sx={{ color: "text.secondary" }} fontSize="small" /><WorkspacesIcon sx={{ color: "text.secondary" }} /></>
-          : <><KeyboardArrowRightIcon sx={{ color: "text.secondary" }} fontSize="small" /><WorkspacesIcon sx={{ color: "text.secondary" }} /></>
-        : <><KeyboardArrowDownIcon sx={{ color: "text.secondary" }} fontSize="small" /><WorkspacesIcon sx={{ color: "text.secondary" }} /></>
+        isOpen ? <><KeyboardArrowDownIcon sx={{ color: "text.secondary" }} fontSize="small" /><WorkspacesIcon sx={{ color: color, stroke: "#000000", strokeWidth: 1 }} /></>
+          : <><KeyboardArrowRightIcon sx={{ color: "text.secondary" }} fontSize="small" /><WorkspacesIcon sx={{ color: color, stroke: "#000000", strokeWidth: 1 }} /></>
+        : <><KeyboardArrowDownIcon sx={{ color: "text.secondary" }} fontSize="small" /><WorkspacesIcon sx={{ color: color, stroke: "#000000", strokeWidth: 1 }} /></>
       }
     </>
     )
@@ -122,32 +127,36 @@ export const GuacMenu = () => {
   }, []);
   const MenuWorkItems = React.useCallback((menuItems: Array<Object>) => {
     return menuItems.map((menuItemData: any) => {
-      const index = openState.map((v: any) => v.id).indexOf(menuItemData.name)
+      const index = openState.map((v: any) => v.id).indexOf(menuItemData.identifier)
       const isOpen = (index !== -1 && openState[index]) ? openState[index].isOpen : false
       return (
         <MenuWorkItem
           handleToggle={() => {
-            dispatch({ id: menuItemData.name, isOpen: !isOpen, index: index })
+            dispatch({ id: menuItemData.identifier, isOpen: !isOpen, index: index })
             setFire(fire => !fire)
           }}
           isOpen={isOpen}
           isParent={true}
           name={menuItemData.name}
-          id={menuItemData.name}
+          id={menuItemData.idmIdentifier}
           dense={false}
           children={<Box>
+            {cookies.theme === "worker" ?
+              <Menu.Item
+                to={"/connections/" + menuItemData.idmIdentifier}
+                primaryText={
+                  <Typography variant="body2">
+                    {translate('pages.connectionSelect')}
+                  </Typography>
+                }
+                sx={{ borderRadius: 5, }}
+                leftIcon={<CableIcon />}
+                key={menuItemData.idmIdentifier + "-connection"}
+              /> : null
+            }
+
             <Menu.Item
-              to={"/connections/" + menuItemData.name}
-              primaryText={
-                <Typography variant="body2">
-                  {translate('pages.connectionSelect')}
-                </Typography>
-              }
-              sx={{ borderRadius: 5, }}
-              leftIcon={<CableIcon />}
-            />
-            <Menu.Item
-              to={"/history/" + menuItemData.name}
+              to={"/history/" + menuItemData.idmIdentifier}
               primaryText={
                 <Typography variant="body2">
                   {translate('pages.connectionHistory')}
@@ -155,9 +164,10 @@ export const GuacMenu = () => {
               }
               sx={{ borderRadius: 5, }}
               leftIcon={<HistoryIcon />}
+              key={menuItemData.idmIdentifier + "-history"}
             />
             <Menu.Item
-              to={"/files/" + menuItemData.name}
+              to={"/files/" + menuItemData.idmIdentifier}
               primaryText={
                 <Typography variant="body2">
                   {translate('pages.fileManager')}
@@ -165,6 +175,7 @@ export const GuacMenu = () => {
               }
               sx={{ borderRadius: 5, }}
               leftIcon={<InsertDriveFileIcon />}
+              key={menuItemData.idmIdentifier + "-files"}
             />
           </Box>}
         />
@@ -179,6 +190,7 @@ export const GuacMenu = () => {
         content={translate('guacamole.moveWorkflowContent')}
         onConfirm={handleConfirm}
         onClose={handleDialogClose}
+        key="confirm"
       />
       <Menu.Item
         to="/"
@@ -188,8 +200,9 @@ export const GuacMenu = () => {
           </Typography>
         }
         leftIcon={<HomeIcon />}
+        key="homepage"
       />
-      <MenuItem onClick={handleClick}>
+      <MenuItem onClick={handleClick} key="workflow">
         <OpenInNewIcon sx={{ color: "text.secondary" }} />
         <Typography variant="body2" sx={{ ml: 2, color: "text.secondary" }} >
           {translate('pages.workflow')}
@@ -203,8 +216,22 @@ export const GuacMenu = () => {
           </Typography>
         }
         leftIcon={<CloudUploadIcon />}
+        key="public"
       />
-      <Typography variant="body2" sx={{ ml: 1, mt: 1 }}>
+      {cookies.theme === "worker" ? null :
+        <Menu.Item
+          to="/history/all"
+          primaryText={
+            <Typography variant="body2">
+              {translate('pages.allConnectionHistory')}
+            </Typography>
+          }
+          leftIcon={<HistoryIcon />}
+          key="historyAll"
+        />
+      }
+
+      <Typography variant="body2" sx={{ ml: 1, mt: 1 }} key="textWorks">
         {translate('guacamole.works')}
       </Typography>
       {MenuWorkItems(works)}

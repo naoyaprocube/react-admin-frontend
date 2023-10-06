@@ -14,14 +14,16 @@ import {
 } from 'react-admin';
 import {
   Box,
-  Tooltip,
+  Button,
   Typography,
   Breadcrumbs,
   Link,
 } from '@mui/material';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
+import { useCookies } from 'react-cookie';
+import { ThemeContext, workerTheme, adminTheme } from '../../App'
 import { useParams } from "react-router-dom";
-import FolderOpenIcon from '@mui/icons-material/FolderOpen';
+import PersonOffIcon from '@mui/icons-material/PersonOff';
 import { HistoryFilterMenu } from '../layouts/FilterMenu'
 import dayjs, { extend } from 'dayjs';
 import duration from 'dayjs/plugin/duration';
@@ -33,30 +35,72 @@ extend(duration);
 extend(relativeTime);
 
 const HistoryList = (props: any) => {
-  const { work } = useParams()
+  const { workId } = useParams()
   const dataProvider = useDataProvider()
   const translate = useTranslate()
   const notify = useNotify()
   const navigate = useNavigate()
+  const { theme, setTheme } = React.useContext(ThemeContext);
+  const [cookies, setCookie, removeCookie] = useCookies(["theme"]);
+  const WorkerAccess = () => (
+    <Box sx={{ width: 1, display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        mt: 1,
+      }}>
+        <PersonOffIcon sx={{
+          width: '6em',
+          height: '6em',
+          color: 'primary.main',
+        }} />
+      </Box>
+      <Typography variant="h4" align="center" sx={{ color: 'text.secondary' }}>
+        {translate('guacamole.notAdminInfo')}
+      </Typography>
+      <Box width={1} sx={{
+        display: 'flex',
+        justifyContent: 'center',
+      }}>
+        <Button onClick={() => {
+          setTheme(adminTheme)
+          setCookie("theme", "admin")
+        }}>
+          {translate('guacamole.changeAdmin')}
+        </Button>
+      </Box>
+
+    </Box>
+  );
+  if(workId ==="all" && cookies.theme === "worker") return <WorkerAccess />
   return (<Box>
     <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
       <Link
         underline="hover"
         color="inherit"
+        style={{ cursor: 'pointer' }}
         onClick={() => navigate('/')}
       >
         {translate('pages.workSelect')}
       </Link>
-      <Typography color="text.primary">
-        {translate('pages.connectionHistory')}
-      </Typography>
+      {workId === "all" ?
+        <Typography color="text.primary">
+          {translate('pages.allConnectionHistory')}
+        </Typography>
+        :
+        <Typography color="text.primary">
+          {translate('pages.connectionHistory')}
+        </Typography>
+      }
     </Breadcrumbs>
-    <List {...props} title={translate('pages.connectionHistory')} aside={<HistoryFilterMenu />} resource={"history/" + work} exporter={false}>
+    <List {...props} title={translate('pages.connectionHistory')} aside={<HistoryFilterMenu />} resource={"history/" + workId} exporter={false}>
       <CustomDatagrid bulkActionButtons={false}>
-        <TextField source="username" />
-        <TextField source="remoteHost" />
-        <DateField source="startDate" showTime locales="jp-JP" />
-        <FunctionField label="Duration" render={(record: any) => {
+        <DateField label="guacamole.field.startDate" source="startDate" showTime locales="jp-JP" />
+        <TextField label="guacamole.field.usename" source="username" />
+        <TextField label="guacamole.field.connectName" source="connectionName" />
+        <TextField label="guacamole.field.remoteHost" source="remoteHost" />
+        <FunctionField label="guacamole.field.duration" sortBy="duration" render={(record: any) => {
+          if (record.endDate === null) return "-"
           const duration = dayjs.duration(record.endDate - record.startDate)
           return duration.humanize();
         }} />
