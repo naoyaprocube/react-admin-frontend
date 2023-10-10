@@ -78,6 +78,75 @@ const english = {
   },
   error: {
     dirAlreadyExist: '%{code}: Cannot make directory that has already exist name'
+  },
+  pages: {
+    homepage: 'Homepage',
+    workSelect: 'Work Select',
+    workflow: 'Application Workflow',
+    publicFileManager: 'Public File Manager',
+    connectionSelect: 'Connection Select',
+    fileManager: 'Work File Manager',
+    fileUpload: 'File Upload',
+    fileInfo: 'File Info',
+    connectionHistory: 'Connection History',
+    allConnectionHistory: 'All Connection History'
+  },
+  guacamole: {
+    announcement: 'Announcement',
+    noAnnouncement: 'There is no notification.',
+    activeSession: 'Active Session',
+    noActiveSession: 'There are currently no active sessions.',
+    connect: 'Connect',
+    disconnect: 'Disconnect',
+    period: 'Work Period',
+    deviceConnection: 'Connection Device',
+    workStart: 'Start Work',
+    works: 'Responsible work list',
+    moveWorkflowTitle: 'Move to the workflow application page',
+    moveWorkflowContent: 'Opens in new tab.',
+    workerMode: 'Worker Mode',
+    adminMode: 'Admin Mode',
+    changeWorker: 'Change Worker Mode',
+    notWorkerInfo: 'This page cannot be accessed in Admin Mode.',
+    changeAdmin: 'Change Admin Mode',
+    notAdminInfo: 'This page cannot be accessed in Worker Mode.',
+    field: {
+      id: 'ID',
+      usename: 'Username',
+      connectId: 'Connection ID',
+      connectName: 'Connection Name',
+      protocol: 'Protocol',
+      parent: 'Connection Group',
+      lastActive: 'Last Active Date',
+      remoteHost: 'Remote Host',
+      startDate: 'Start Date',
+      duration: 'Duration'
+    },
+
+    filter: {
+      protocol: {
+        name: 'Protocol',
+        vnc: 'VNC',
+        rdp: 'RDP',
+        ssh: 'SSH',
+      },
+      parent: {
+        name: 'Connection Group',
+      },
+      duration: {
+        name: 'Duration',
+        "30s": '30 seconds or more',
+        "5m": '5 minutes or more',
+        "1h": '1 hours or more',
+      },
+      work: {
+        name: 'Status',
+        before: 'before-start',
+        now: 'in-progress',
+        out: 'off-hours',
+        after: 'finished',
+      },
+    }
   }
 }
 

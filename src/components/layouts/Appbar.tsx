@@ -3,7 +3,6 @@ import {
   AppBar,
   TitlePortal,
   LocalesMenuButton,
-  Logout,
   useDataProvider,
   UserMenu,
   useUserMenu,
@@ -16,9 +15,7 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
-  colors
 } from '@mui/material';
-import SettingsIcon from '@mui/icons-material/Settings';
 import { useCookies } from 'react-cookie';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
@@ -27,8 +24,8 @@ import { stringToColor } from "../utils"
 
 export const AGAppbar = () => {
 
-  const { theme, setTheme } = React.useContext(ThemeContext);
-  const [cookies, setCookie, removeCookie] = useCookies(["theme"]);
+  const { setTheme } = React.useContext(ThemeContext);
+  const [cookies, setCookie] = useCookies(["theme"]);
   const translate = useTranslate()
   const pathname = useLocation().pathname
   const workId = pathname.split("/")[2]
@@ -117,6 +114,20 @@ export const AGAppbar = () => {
         </UserMenu>
       }
     >
+      <Box
+        component="img"
+        sx={{
+          height: 30,
+          width: 75,
+          p: 0.5,
+          m: 0.5,
+          border: 1,
+          borderRadius: 1,
+          bgcolor: "#ffffff"
+        }}
+        alt="The house from the offer."
+        src="https://optage.co.jp/common/img/common/header/logo-optage.png"
+      />
       <TitlePortal />
       <WorkField />
     </AppBar >

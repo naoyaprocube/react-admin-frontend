@@ -11,18 +11,14 @@ import {
 } from 'react-admin';
 import {
   Box,
-  Tooltip,
   Typography,
   Breadcrumbs,
   Link,
-  Button,
-  ButtonGroup
 } from '@mui/material';
 import { UploadButton } from '../buttons/UploadButton'
-import { BackButton } from '../buttons/BackButton'
+import { estimatedUploadTime } from '../utils'
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useWatch } from 'react-hook-form';
-import { estimatedUploadTime } from '../utils'
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -94,11 +90,6 @@ const FilesCreate = (props: any) => {
       <UploadButton workId={workId} dirId={dirId} />
     </Toolbar>
   )
-  const TopToolbar = () => {
-    return (<Toolbar sx={{ display: "flex" }}>
-      <BackButton id={workId + "/" + dirId} />
-    </Toolbar >)
-  }
   return (<>
     <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
       <Link

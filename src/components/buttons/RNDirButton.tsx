@@ -57,7 +57,7 @@ export const RNDirButton = (props: RNDProps) => {
     mode: "onChange"
   });
   const [open, setOpen] = React.useState(false);
-  const { fire, setFire } = React.useContext(FireContext);
+  const { setFire } = React.useContext(FireContext);
   const notify = useNotify()
   const dataProvider = useDataProvider()
   const translate = useTranslate()

@@ -105,7 +105,7 @@ export const stringToColor = (str: string) => {
   return colorArray[index]
 };
 
-export const getClientIdentifier = (id: number, type: string) => {
+export const getClientIdentifier = (id: number, type: string, workId: string) => {
   const base64urlEncode = function base64urlEncode(value: any) {
     return btoa(value).replace(/[+/=]/g,
       (str) => ({
@@ -118,6 +118,7 @@ export const getClientIdentifier = (id: number, type: string) => {
   return base64urlEncode([
     id,
     type,
-    "postgresql"
+    "postgresql",
+    workId,
   ].join('\0'))
 };

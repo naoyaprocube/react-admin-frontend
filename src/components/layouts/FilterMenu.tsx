@@ -5,15 +5,10 @@ import {
   FilterList,
   FilterListItem,
   useDataProvider,
-  useRecordContext,
-  useListContext,
 } from 'react-admin';
 import {
   Card,
   CardContent,
-  Chip,
-  Button,
-  MenuItem,
 } from '@mui/material';
 import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputComponent';
 import TimelapseIcon from '@mui/icons-material/Timelapse';
@@ -36,13 +31,8 @@ export const ConnectionFilterMenu = (params: any) => {
       setParentList(response)
     })
   }, [])
-  const ParentFilter = (props: any) => {
-    return parentList.map((parent: any) => (
-      <FilterListItem {...props} label={parent} value={{ protocol: parent }} />
-    ))
-  }
   return (
-    <Card sx={{ order: -1, mt: 1, mr: 2, width: 300, height: '100%' }}>
+    <Card sx={{ order: -1, mt: 1, mr: 2, minWidth: 300, height: '100%' }}>
       <CardContent>
         <SavedQueriesList />
         <FilterLiveSearch />
@@ -62,7 +52,7 @@ export const ConnectionFilterMenu = (params: any) => {
 };
 
 export const HistoryFilterMenu = () => (
-  <Card sx={{ order: -1, mt: 1, mr: 2, width: 300, height: '100%' }}>
+  <Card sx={{ order: -1, mt: 1, mr: 2, minWidth: 300, height: '100%' }}>
     <CardContent>
       <SavedQueriesList />
       <FilterLiveSearch />
@@ -76,7 +66,7 @@ export const HistoryFilterMenu = () => (
 );
 
 export const WorkFilterMenu = () => (
-  <Card sx={{ order: -1, mt: 1, mr: 2, width: 300, height: '100%' }}>
+  <Card sx={{ order: -1, mt: 1, mr: 2, minWidth: 300, height: '100%' }}>
     <CardContent>
       <SavedQueriesList />
       <FilterLiveSearch />

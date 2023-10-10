@@ -6,6 +6,9 @@ import {
   defaultTheme,
   combineDataProviders,
 } from 'react-admin';
+import { colors } from '@mui/material';
+import { Route, } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 import {
   FileProvider,
   ConnectProvider,
@@ -14,7 +17,6 @@ import {
   AnnounceProvider,
 } from './dataProvider';
 import authProvider from './authProvider';
-import { colors } from '@mui/material';
 import FilesList from './components/pages/FilesList';
 import FileShow from './components/pages/FileShow';
 import FilesCreate from './components/pages/FilesCreate';
@@ -24,8 +26,6 @@ import Dashboard from './components/pages/Dashboard';
 import { i18nProvider } from './i18nProvider';
 import { GuacMenu } from './components/layouts/Sidebar';
 import { AGAppbar } from './components/layouts/Appbar';
-import { Route, } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
 
 type TThemeContext = {
   theme: any,

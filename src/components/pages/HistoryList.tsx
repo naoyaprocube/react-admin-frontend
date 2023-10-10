@@ -3,11 +3,8 @@ import * as React from 'react';
 import {
   List,
   TextField,
-  DeleteWithConfirmButton,
   FunctionField,
   DateField,
-  useRecordContext,
-  CreateButton,
   useTranslate,
   useDataProvider,
   useNotify,
@@ -19,9 +16,8 @@ import {
   Breadcrumbs,
   Link,
 } from '@mui/material';
-import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { useCookies } from 'react-cookie';
-import { ThemeContext, workerTheme, adminTheme } from '../../App'
+import { ThemeContext, adminTheme } from '../../App'
 import { useParams } from "react-router-dom";
 import PersonOffIcon from '@mui/icons-material/PersonOff';
 import { HistoryFilterMenu } from '../layouts/FilterMenu'
@@ -36,9 +32,7 @@ extend(relativeTime);
 
 const HistoryList = (props: any) => {
   const { workId } = useParams()
-  const dataProvider = useDataProvider()
   const translate = useTranslate()
-  const notify = useNotify()
   const navigate = useNavigate()
   const { theme, setTheme } = React.useContext(ThemeContext);
   const [cookies, setCookie, removeCookie] = useCookies(["theme"]);

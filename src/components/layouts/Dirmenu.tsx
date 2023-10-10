@@ -16,7 +16,7 @@ import {
   useTranslate,
   useNotify,
 } from 'react-admin';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import FolderSharedIcon from '@mui/icons-material/FolderShared';
@@ -157,7 +157,7 @@ const DirMenu = (props: MenuProps) => {
         </Collapse>
       </div>
     );
-  }, [state, workId, activeDir]);
+  }, [workId, activeDir]);
 
   const dirMenuItems = React.useCallback((menuItems: Array<Object>) => {
     return menuItems.map((menuItemData: any) => {
@@ -184,7 +184,7 @@ const DirMenu = (props: MenuProps) => {
       <Card sx={{ order: -1, mt: 1, mr: 2, minWidth: 300, height: '100%' }}>
         <CardContent>
           <Box sx={{ ml: 2, display: "flex" }}>
-            <FolderSharedIcon color="secondary" />
+            <FolderSharedIcon />
             <Typography variant="body2" sx={{ ml: 1, }}>
               {translate('dir.dirs')}
             </Typography>

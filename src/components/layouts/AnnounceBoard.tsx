@@ -5,9 +5,7 @@ import {
   TextField,
   DateField,
   useTranslate,
-  useDataProvider,
   useListContext,
-  useNotify,
 } from 'react-admin';
 import {
   Box,
@@ -18,9 +16,8 @@ import { CustomDatagrid } from '../layouts/CustomDatagrid'
 
 const AnnounceBoard = (props: any) => {
   const translate = useTranslate()
-  const notify = useNotify()
   const Empty = () => (
-    <Box sx={{ mt: 1,}}>
+    <Box sx={{ mt: 1, }}>
       <Box sx={{
         display: 'flex',
         justifyContent: 'space-evenly',
@@ -38,8 +35,8 @@ const AnnounceBoard = (props: any) => {
     </Box>
   )
   const Datagrid = () => {
-    const { data, isLoading } = useListContext();
-    if (data && data.length === 0) return (<Empty />)
+    const { total } = useListContext();
+    if (!total) return (<Empty />)
     return (<CustomDatagrid
       bulkActionButtons={false}
       sx={{
@@ -57,7 +54,7 @@ const AnnounceBoard = (props: any) => {
     height: 180,
     width: 1,
     overflow: 'auto',
-    border:1,
+    border: 1,
     borderRadius: 2,
   }}>
     <InfiniteList

@@ -37,10 +37,6 @@ export default (type: any, params: any) => {
       body: "username=" + username + "&password=" + password,
       headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }),
     })
-    const userRequest = new Request('/guacamole/api/session/data/postgresql/self', {
-      method: 'GET',
-      headers: new Headers({ "Guacamole-Token": localStorage.getItem('token') }),
-    })
     return fetch(tokenRequest)
       .then(response => {
         if (response.status < 200 || response.status >= 300) {

@@ -2,14 +2,10 @@
 import * as React from 'react';
 import {
   InfiniteList,
-  List,
-  Datagrid,
-  TextField,
   Confirm,
   useRecordContext,
   useTranslate,
   useDataProvider,
-  useNotify,
 } from 'react-admin';
 import {
   Box,
@@ -24,9 +20,9 @@ import {
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
 import { WorkFilterMenu } from '../layouts/FilterMenu'
 import AnnounceBoard from '../layouts/AnnounceBoard'
+import { stringToColor } from "../utils"
 import { useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie';
-import { stringToColor } from "../utils"
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import CableIcon from '@mui/icons-material/Cable';
@@ -40,7 +36,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 const Dashboard = (props: any) => {
   const dataProvider = useDataProvider()
   const translate = useTranslate()
-  const notify = useNotify()
   const navigate = useNavigate()
   const [cookies] = useCookies()
   const [open, setOpen] = React.useState(false);
@@ -58,7 +53,7 @@ const Dashboard = (props: any) => {
     const record = useRecordContext();
     const color = stringToColor(record.idmIdentifier)
     return (
-      <Box sx={{ display: 'inline-flex' }}>
+      <Box sx={{ display: 'inline-flex', width: 1 }}>
         <Box>
           <Box sx={{
             display: 'inline-flex',
@@ -84,7 +79,7 @@ const Dashboard = (props: any) => {
     const [open, setOpen] = React.useState(false);
     const [parentList, setParentList] = React.useState([]);
     return (
-      <Box >
+      <Box sx={{ width: 1 }}>
         <Box sx={{ width: 1, display: 'inline-flex', flexDirection: 'row', borderBottom: 0.6, p: 0.5 }}>
           <ConnectedTvIcon fontSize="small" sx={{ ml: -0.5 }} />
           <Typography variant="body1" component="pre" sx={{ ml: 1 }}>
@@ -95,7 +90,7 @@ const Dashboard = (props: any) => {
           {parentList.map((parent: any, index: number) => {
             return (
               <Card sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
-                <Typography variant="body2" component="pre">
+                <Typography variant="body2">
                   {parent}
                 </Typography>
               </Card>)
@@ -122,7 +117,7 @@ const Dashboard = (props: any) => {
     const record = useRecordContext();
     const [open, setOpen] = React.useState(false);
     return (
-      <Box >
+      <Box sx={{ width: 1 }}>
         <Box sx={{ width: 1, display: 'inline-flex', flexDirection: 'row', borderBottom: 0.6, p: 0.5 }}>
           <TimelapseIcon fontSize="small" sx={{ ml: -0.5 }} />
           <Typography variant="body1" component="pre" sx={{ ml: 1 }}>
@@ -227,8 +222,8 @@ const Dashboard = (props: any) => {
         <AnnounceBoard />
       </Box>
     </Box>
-    <Box sx={{ borderBottom: 1, width: 200, ml: 2 }}>
-      <Typography variant="h5" sx={{ ml: 2, }} color="text.primary">
+    <Box sx={{ borderBottom: 1, width: 280, ml: 2 }}>
+      <Typography variant="h5" component="pre" sx={{ ml: 2, }} color="text.primary">
         {translate('guacamole.works')}
       </Typography>
     </Box>
@@ -249,7 +244,7 @@ const Dashboard = (props: any) => {
           '& .RaDatagrid-headerRow': { display: 'none' }
         }}
       >
-        <NameField width="40%" />
+        <NameField width="30%" />
         <ConnectionField className="ConnectionField" />
         <DurationField className="DurationField" />
         <WorkLinkButtons width="0%" />

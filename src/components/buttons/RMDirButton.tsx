@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useDataProvider, useTranslate, useNotify } from 'react-admin';
 import {
-  IconButton,
   Button,
   Box,
   MenuItem,
@@ -23,7 +22,7 @@ interface RMDProps {
 export const RMDirButton = (props: RMDProps) => {
   const { mongoid, isRoot, dirName } = props;
   const [open, setOpen] = React.useState(false);
-  const { fire, setFire } = React.useContext(FireContext);
+  const { setFire } = React.useContext(FireContext);
   const notify = useNotify()
   const dataProvider = useDataProvider();
   const translate = useTranslate()

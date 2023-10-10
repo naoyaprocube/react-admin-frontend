@@ -149,7 +149,6 @@ export const UploadButton = (props: UploadButtonProps) => {
       })
   }
   const onClick = () => CheckExist().then((ret: any) => {
-    console.log(ret)
     if (!ret.checkExist && !ret.checkSize && !ret.checkTotalSize) {
       uploadFile("new", false)
     }

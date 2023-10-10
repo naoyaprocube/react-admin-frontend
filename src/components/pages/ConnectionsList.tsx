@@ -2,14 +2,9 @@
 import * as React from 'react';
 import {
   InfiniteList,
-  useInfinitePaginationContext,
   TextField,
   DateField,
-  CreateButton,
-  useRecordContext,
   useTranslate,
-  useDataProvider,
-  useNotify,
 } from 'react-admin';
 import {
   Box,
@@ -19,10 +14,9 @@ import {
   Button,
 } from '@mui/material';
 import { ConnectButton } from '../buttons/ConnectButton'
-import { ThemeContext, workerTheme, adminTheme } from '../../App'
+import { ThemeContext, workerTheme } from '../../App'
 import { ActiveConnectionPanel } from '../layouts/ActiveConnectionPanel'
 import { useCookies } from 'react-cookie';
-import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { useParams } from "react-router-dom";
 import PersonOffIcon from '@mui/icons-material/PersonOff';
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
@@ -35,12 +29,10 @@ type FFireContext = {
 export const FireContext = React.createContext({} as FFireContext);
 const ConnectionsList = (props: any) => {
   const { workId } = useParams()
-  const dataProvider = useDataProvider()
-  const { theme, setTheme } = React.useContext(ThemeContext);
-  const [cookies, setCookie, removeCookie] = useCookies(["theme"]);
+  const { setTheme } = React.useContext(ThemeContext);
+  const [cookies, setCookie] = useCookies(["theme"]);
   const [activeFire, setActiveFire] = React.useState(false)
   const translate = useTranslate()
-  const notify = useNotify()
   const navigate = useNavigate()
   const AdminAccess = () => (
     <Box sx={{ width: 1, display: 'flex', flexDirection: 'column' }}>
@@ -101,7 +93,10 @@ const ConnectionsList = (props: any) => {
         <TextField label="guacamole.field.parent" source="parentIdentifier" />
         <DateField label="guacamole.field.lastActive" source="lastActive" showTime />
         <Box width="0%">
-          <ConnectButton type="c" />
+          <ConnectButton
+            type="c"
+            workId={workId}
+          />
         </Box>
 
       </CustomDatagrid>

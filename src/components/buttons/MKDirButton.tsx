@@ -52,12 +52,12 @@ const NameInputField = ({ control }: any) => {
 };
 
 export const MKDirButton = (props: MKDProps) => {
-  const { sidebarIsOpen, dirId, dirName } = props;
+  const { dirId, dirName } = props;
   const { control, handleSubmit } = useForm({
     mode: "onChange"
   });
   const [open, setOpen] = React.useState(false);
-  const { fire, setFire } = React.useContext(FireContext);
+  const { setFire } = React.useContext(FireContext);
   const notify = useNotify()
   const dataProvider = useDataProvider()
   const translate = useTranslate()
@@ -66,18 +66,18 @@ export const MKDirButton = (props: MKDProps) => {
   const onSubmit = (data: any) => {
     dataProvider.mkdir("files/" + dirId, { dirname: data.NameInputField }).then((response: Response) => {
       if (response.status < 200 || response.status >= 300) {
-        if(response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+        if (response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
         else notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: "Error" } })
       }
-      if(response.status === 200) {
+      if (response.status === 200) {
         notify('file.statusCodeError', { type: 'warning', messageArgs: { code: response.status, text: response.body } })
       }
       setFire(fire => !fire)
       setOpen(false)
     })
-    .catch((response: any) => {
-      notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
-    })
+      .catch((response: any) => {
+        notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
+      })
   }
   return React.useMemo(() => (
     <MenuItem disabled={open} onClick={() => { if (!open) setOpen(true) }}>
@@ -95,8 +95,8 @@ export const MKDirButton = (props: MKDProps) => {
         maxWidth={"xs"}
       >
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
-          <DialogTitle sx={{display: "flex"}}>
-            <CreateNewFolderIcon color="primary" fontSize="large" sx={{ mr: 1}} />
+          <DialogTitle sx={{ display: "flex" }}>
+            <CreateNewFolderIcon color="primary" fontSize="large" sx={{ mr: 1 }} />
             <Box>
               {translate('dir.mkdir.title')}
             </Box>

@@ -11,6 +11,7 @@ import {
   Collapse,
   Grow,
 } from '@mui/material';
+import { useParams } from "react-router-dom";
 import { ConnectButton } from '../buttons/ConnectButton'
 import { RMConnectionButton } from '../buttons/RMConnectionButton'
 import { FireContext } from '../pages/ConnectionsList'
@@ -22,6 +23,7 @@ export const ActiveConnectionPanel = () => {
   const dataProvider = useDataProvider()
   const [actives, setActives]: any = React.useState([])
   const [open, setOpen]: any = React.useState(false)
+  const { workId } = useParams()
   const { fire, setFire } = React.useContext(FireContext);
   const translate = useTranslate()
   React.useEffect(() => {
@@ -80,6 +82,7 @@ export const ActiveConnectionPanel = () => {
                 <ConnectButton
                   id={connection.identifier}
                   type="a"
+                  workId={workId}
                 />
                 <RMConnectionButton
                   id={connection.identifier}

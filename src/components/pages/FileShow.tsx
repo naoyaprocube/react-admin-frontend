@@ -52,12 +52,6 @@ const FileShow = (props: any) => {
   const translate = useTranslate()
   const { workId, dirId, fileId } = useParams()
   const navigate = useNavigate()
-  const EditToolbar = () => {
-    return (<Toolbar sx={{ display: "flex", justifyContent: 'space-between' }}>
-      <BackButton id={workId + "/" + dirId} />
-      <DeleteButton redirect={"/files/" + workId + "/" + dirId} />
-    </Toolbar >)
-  }
   return (<>
   <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
       <Link
