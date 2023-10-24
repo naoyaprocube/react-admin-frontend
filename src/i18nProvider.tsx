@@ -2,7 +2,7 @@ import polyglotI18nProvider from 'ra-i18n-polyglot';
 import en from 'ra-language-english';
 import japaneseMessages from '@bicstone/ra-language-japanese';
 
-en.ra.page.empty = "Any file does not exist on the file server."
+en.ra.page.empty = "Any data does not exist."
 en.ra.page.invite = "Do you want to upload?"
 en.ra.message.delete_title = 'Delete %{id}?'
 en.ra.message.delete_content = 'Please do note that this is an irreversible action.'
@@ -28,6 +28,7 @@ const english = {
       uploadTime: 'Estimated upload time',
       scanTime: 'Estimated scan time'
     },
+    empty: 'Any file does not exist on the file server.',
     downloading: 'Downloading %{filename}',
     download: 'Download',
     upload: 'Upload',
@@ -80,7 +81,7 @@ const english = {
     dirAlreadyExist: '%{code}: Cannot make directory that has already exist name'
   },
   pages: {
-    homepage: 'Homepage',
+    homepage: 'Admin Gate',
     workSelect: 'Work Select',
     workflow: 'Application Workflow',
     publicFileManager: 'Public File Manager',
@@ -99,7 +100,7 @@ const english = {
     connect: 'Connect',
     disconnect: 'Disconnect',
     period: 'Work Period',
-    deviceConnection: 'Connection Device',
+    deviceConnection: 'Connected Devices',
     workStart: 'Start Work',
     works: 'Responsible work list',
     moveWorkflowTitle: 'Move to the workflow application page',
@@ -110,10 +111,13 @@ const english = {
     notWorkerInfo: 'This page cannot be accessed in Admin Mode.',
     changeAdmin: 'Change Admin Mode',
     notAdminInfo: 'This page cannot be accessed in Worker Mode.',
+    play: 'Play',
+    textlog: 'Text',
     field: {
       id: 'ID',
       usename: 'Username',
       connectId: 'Connection ID',
+      connectionIdentifier: 'Connection ID',
       connectName: 'Connection Name',
       protocol: 'Protocol',
       parent: 'Connection Group',
@@ -126,7 +130,8 @@ const english = {
     filter: {
       protocol: {
         name: 'Protocol',
-        vnc: 'VNC',
+        vnc: 'Browser',
+        telnet: 'Telnet',
         rdp: 'RDP',
         ssh: 'SSH',
       },
@@ -141,16 +146,17 @@ const english = {
       },
       work: {
         name: 'Status',
-        before: 'before-start',
-        now: 'in-progress',
-        out: 'off-hours',
-        after: 'finished',
+        none: 'All',
+        before: 'Before-start',
+        now: 'In-progress',
+        out: 'Off-hours',
+        after: 'Finished',
       },
     }
   }
 }
 
-japaneseMessages.ra.page.empty = "ファイルは存在しません。"
+japaneseMessages.ra.page.empty = "データが登録されていません。"
 japaneseMessages.ra.page.invite = "アップロードしますか？"
 japaneseMessages.ra.message.delete_title = '%{id}を削除しますか？'
 japaneseMessages.ra.message.delete_content = 'この操作を元に戻すことはできません。'
@@ -176,6 +182,7 @@ const japanese = {
       uploadTime: '推定アップロード時間',
       scanTime: '推定ウイルススキャン時間'
     },
+    empty: 'ファイルが存在しません',
     downloading: '%{filename}をダウンロード中',
     download: 'ダウンロード',
     upload: 'アップロード',
@@ -228,7 +235,7 @@ const japanese = {
     dirAlreadyExist: '%{code}: 同じ名前のディレクトリが存在します。'
   },
   pages: {
-    homepage: 'ホームページ',
+    homepage: 'Admin Gate',
     workSelect: '従事作業選択',
     workflow: 'ワークフロー申請',
     publicFileManager: '公開領域ファイルマネージャ',
@@ -258,11 +265,14 @@ const japanese = {
     notWorkerInfo: '管理者モードでアクセスできないページです。',
     changeAdmin: '管理者モードに切り替える',
     notAdminInfo: '作業者モードでアクセスできないページです。',
+    play: '再生',
+    textlog: 'テキスト',
     field: {
       id: 'ID',
       usename: 'ユーザー',
       connectId: '接続先ID',
-      connectName: '接続先',
+      connectionIdentifier: '接続先ID',
+      connectName: '接続先名',
       protocol: 'プロトコル',
       parent: '機器種別',
       lastActive: '最終アクティブ日時',
@@ -274,7 +284,8 @@ const japanese = {
     filter: {
       protocol: {
         name: 'プロトコル',
-        vnc: 'VNC',
+        vnc: 'ブラウザ',
+        telnet: 'Telnet',
         rdp: 'RDP',
         ssh: 'SSH',
       },
@@ -289,6 +300,7 @@ const japanese = {
       },
       work: {
         name: '作業状態',
+        none: 'すべて',
         before: '開始前',
         now: '現在進行中',
         out: '作業時間外',

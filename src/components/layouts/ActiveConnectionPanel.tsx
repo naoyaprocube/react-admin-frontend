@@ -80,8 +80,8 @@ export const ActiveConnectionPanel = () => {
                   {translate('guacamole.field.startDate')}:{new Date(connection.startDate).toLocaleString("ja-JP")}
                 </Typography>
                 <ConnectButton
-                  id={connection.identifier}
-                  type="a"
+                  id={connection.connectionIdentifier}
+                  type="c"
                   workId={workId}
                 />
                 <RMConnectionButton

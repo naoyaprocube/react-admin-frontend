@@ -20,9 +20,8 @@ import {
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
 import { WorkFilterMenu } from '../layouts/FilterMenu'
 import AnnounceBoard from '../layouts/AnnounceBoard'
-import { stringToColor } from "../utils"
+import { statusToColor } from "../utils"
 import { useNavigate } from "react-router-dom";
-import { useCookies } from 'react-cookie';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import CableIcon from '@mui/icons-material/Cable';
@@ -37,7 +36,6 @@ const Dashboard = (props: any) => {
   const dataProvider = useDataProvider()
   const translate = useTranslate()
   const navigate = useNavigate()
-  const [cookies] = useCookies()
   const [open, setOpen] = React.useState(false);
   const handleClick = () => setOpen(true);
   const handleDialogClose = () => setOpen(false);
@@ -46,12 +44,12 @@ const Dashboard = (props: any) => {
       setOpen(false);
       return res
     }).then(({ json }: any) => {
-      window.open(json.idmUrl, "_blank", "noreferrer")
+      window.open(json.idmUrl, "admingate_idmurl")
     })
   };
   const NameField = (props: any) => {
     const record = useRecordContext();
-    const color = stringToColor(record.idmIdentifier)
+    const color = statusToColor(record)
     return (
       <Box sx={{ display: 'inline-flex', width: 1 }}>
         <Box>
@@ -162,20 +160,20 @@ const Dashboard = (props: any) => {
     const record = useRecordContext();
     return (
       <Box className="links" sx={{ display: "flex", flexDirection: 'column', justifyContent: "space-around", align: "right" }}>
-        {cookies.theme === "worker" ?
-          <Button variant="contained" startIcon={<CableIcon />} onClick={() => navigate('/connections/' + record.id)} sx={{ ml: 1, width: 250, height: 30 }}>
-            <Typography variant="body2" color="primary.contrastText">
+        {localStorage.getItem('theme') === "worker" ?
+          <Button variant="contained" disabled={!record.isNow} startIcon={<CableIcon />} onClick={() => navigate('/connections/' + record.id)} sx={{ ml: 1, width: 250, height: 30 }}>
+            <Typography variant="body2">
               {translate('guacamole.workStart')}
             </Typography>
           </Button> : null
         }
         <Button variant="contained" startIcon={<HistoryIcon />} onClick={() => navigate('/history/' + record.id)} sx={{ mt: 0.5, ml: 1, width: 250, height: 30 }}>
-          <Typography variant="body2" color="primary.contrastText">
+          <Typography variant="body2">
             {translate('pages.connectionHistory')}
           </Typography>
         </Button>
         <Button variant="contained" startIcon={<InsertDriveFileIcon />} onClick={() => navigate('/files/' + record.id)} sx={{ mt: 0.5, ml: 1, width: 250, height: 30 }}>
-          <Typography variant="body2" color="primary.contrastText">
+          <Typography variant="body2">
             {translate('pages.fileManager')}
           </Typography>
         </Button>
@@ -207,7 +205,7 @@ const Dashboard = (props: any) => {
             {translate('pages.publicFileManager')}
           </Typography>
         </Button>
-        {cookies.theme === "admin" ?
+        {localStorage.getItem('theme') === "admin" ?
           <Button variant="contained" startIcon={<HistoryIcon />} onClick={() => navigate('/history/all')} sx={{ mt: 2, ml: 1, width: 250, height: 30, borderRadius: 5 }}>
             <Typography variant="body2" color="primary.contrastText">
               {translate('pages.allConnectionHistory')}
@@ -230,9 +228,9 @@ const Dashboard = (props: any) => {
     <InfiniteList {...props}
       title={translate('pages.homepage')}
       aside={<WorkFilterMenu />}
-      resource={"works"}
+      resource={"works/" + localStorage.getItem('theme')}
       exporter={false}
-      filterDefaultValues={{ theme: cookies.theme }}
+      filterDefaultValues={{ theme: localStorage.getItem('theme') }}
       sx={{
         '& .MuiToolbar-root': { display: "none" },
       }}

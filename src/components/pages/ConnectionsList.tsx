@@ -3,6 +3,7 @@ import * as React from 'react';
 import {
   InfiniteList,
   TextField,
+  FunctionField,
   DateField,
   useTranslate,
 } from 'react-admin';
@@ -14,9 +15,8 @@ import {
   Button,
 } from '@mui/material';
 import { ConnectButton } from '../buttons/ConnectButton'
-import { ThemeContext, workerTheme } from '../../App'
+import { AppContext, workerTheme } from '../../App'
 import { ActiveConnectionPanel } from '../layouts/ActiveConnectionPanel'
-import { useCookies } from 'react-cookie';
 import { useParams } from "react-router-dom";
 import PersonOffIcon from '@mui/icons-material/PersonOff';
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
@@ -29,8 +29,7 @@ type FFireContext = {
 export const FireContext = React.createContext({} as FFireContext);
 const ConnectionsList = (props: any) => {
   const { workId } = useParams()
-  const { setTheme } = React.useContext(ThemeContext);
-  const [cookies, setCookie] = useCookies(["theme"]);
+  const { setTheme } = React.useContext(AppContext);
   const [activeFire, setActiveFire] = React.useState(false)
   const translate = useTranslate()
   const navigate = useNavigate()
@@ -56,7 +55,7 @@ const ConnectionsList = (props: any) => {
       }}>
         <Button onClick={() => {
           setTheme(workerTheme)
-          setCookie("theme", "worker")
+          localStorage.setItem('theme', 'worker')
         }}>
           {translate('guacamole.changeWorker')}
         </Button>
@@ -64,7 +63,7 @@ const ConnectionsList = (props: any) => {
 
     </Box>
   );
-  if (cookies.theme === "admin") return <AdminAccess />
+  if (localStorage.getItem('theme') === "admin") return <AdminAccess />
   return (<FireContext.Provider value={{ fire: activeFire, setFire: setActiveFire }}>
     <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
       <Link
@@ -89,7 +88,12 @@ const ConnectionsList = (props: any) => {
       <CustomDatagrid bulkActionButtons={false} >
         <TextField label="guacamole.field.id" source="identifier" width="0%" />
         <TextField label="guacamole.field.connectName" source="name" width="50%" />
-        <TextField label="guacamole.field.protocol" source="protocol" className="protocol" />
+        <FunctionField label="guacamole.field.protocol" sortBy="protocol" render={(record: any) => {
+          if (record.protocol === "ssh") return translate('guacamole.filter.protocol.ssh')
+          else if (record.protocol === "rdp") return translate('guacamole.filter.protocol.rdp')
+          else if (record.protocol === "telnet") return translate('guacamole.filter.protocol.telnet')
+          else if (record.protocol === "vnc") return translate('guacamole.filter.protocol.vnc')
+        }} />
         <TextField label="guacamole.field.parent" source="parentIdentifier" />
         <DateField label="guacamole.field.lastActive" source="lastActive" showTime />
         <Box width="0%">

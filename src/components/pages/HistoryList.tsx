@@ -16,11 +16,12 @@ import {
   Breadcrumbs,
   Link,
 } from '@mui/material';
-import { useCookies } from 'react-cookie';
-import { ThemeContext, adminTheme } from '../../App'
+import { AppContext, adminTheme } from '../../App'
 import { useParams } from "react-router-dom";
 import PersonOffIcon from '@mui/icons-material/PersonOff';
 import { HistoryFilterMenu } from '../layouts/FilterMenu'
+import { RecordPlayButton } from '../buttons/RecordPlayButton'
+import { RecordTextDownloadButton } from '../buttons/RecordTextDownloadButton'
 import dayjs, { extend } from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -34,8 +35,7 @@ const HistoryList = (props: any) => {
   const { workId } = useParams()
   const translate = useTranslate()
   const navigate = useNavigate()
-  const { theme, setTheme } = React.useContext(ThemeContext);
-  const [cookies, setCookie, removeCookie] = useCookies(["theme"]);
+  const { theme, setTheme } = React.useContext(AppContext);
   const WorkerAccess = () => (
     <Box sx={{ width: 1, display: 'flex', flexDirection: 'column' }}>
       <Box sx={{
@@ -58,7 +58,7 @@ const HistoryList = (props: any) => {
       }}>
         <Button onClick={() => {
           setTheme(adminTheme)
-          setCookie("theme", "admin")
+          localStorage.setItem('theme', 'admin')
         }}>
           {translate('guacamole.changeAdmin')}
         </Button>
@@ -66,7 +66,7 @@ const HistoryList = (props: any) => {
 
     </Box>
   );
-  if(workId ==="all" && cookies.theme === "worker") return <WorkerAccess />
+  if (workId === "all" && localStorage.getItem('theme') === "worker") return <WorkerAccess />
   return (<Box>
     <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
       <Link
@@ -91,14 +91,20 @@ const HistoryList = (props: any) => {
       <CustomDatagrid bulkActionButtons={false}>
         <DateField label="guacamole.field.startDate" source="startDate" showTime locales="jp-JP" />
         <TextField label="guacamole.field.usename" source="username" />
+        <TextField label="guacamole.field.connectionIdentifier" source="connectionIdentifier" />
         <TextField label="guacamole.field.connectName" source="connectionName" />
-        <TextField label="guacamole.field.remoteHost" source="remoteHost" />
         <FunctionField label="guacamole.field.duration" sortBy="duration" render={(record: any) => {
           if (record.endDate === null) return "-"
           const duration = dayjs.duration(record.endDate - record.startDate)
           return duration.humanize();
         }} />
+        <Box sx={{display: 'inline-flex'}}>
+          <RecordPlayButton />
+          <RecordTextDownloadButton />
+        </Box>
+
       </CustomDatagrid>
+
     </List>
   </Box >
   );

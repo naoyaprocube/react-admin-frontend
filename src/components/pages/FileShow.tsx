@@ -9,8 +9,6 @@ import {
   useTranslate,
   useRecordContext,
   SaveButton,
-  DeleteButton,
-  Toolbar,
 } from 'react-admin';
 import { useWatch } from 'react-hook-form';
 import {

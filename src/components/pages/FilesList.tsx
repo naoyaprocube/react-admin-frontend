@@ -54,7 +54,7 @@ const FilesList = (props: any) => {
           setDir(json)
         }
       }).catch((response: any) => {
-        notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
+        notify('file.statusCodeError', { type: 'error', messageArgs: { code: 500, text: "There is no work directory" } })
       })
     }
     else dataProvider.getdir("files", { id: dirId }).then((result: any) => {
@@ -122,7 +122,7 @@ const FilesList = (props: any) => {
         />
       </Box>
       <Typography variant="h4" align="center" sx={{ color: 'text.secondary' }}>
-        {translate('ra.page.empty')}
+        {translate('file.empty')}
       </Typography>
     </Box>
   );

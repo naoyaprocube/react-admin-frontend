@@ -38,6 +38,7 @@ export const ConnectionFilterMenu = (params: any) => {
         <FilterLiveSearch />
         <FilterList label="guacamole.filter.protocol.name" icon={<SettingsInputComponentIcon />}>
           <FilterListItem label="guacamole.filter.protocol.vnc" value={{ protocol: 'vnc' }} />
+          <FilterListItem label="guacamole.filter.protocol.telnet" value={{ protocol: 'telnet' }} />
           <FilterListItem label="guacamole.filter.protocol.ssh" value={{ protocol: 'ssh' }} />
           <FilterListItem label="guacamole.filter.protocol.rdp" value={{ protocol: 'rdp' }} />
         </FilterList>
@@ -70,11 +71,36 @@ export const WorkFilterMenu = () => (
     <CardContent>
       <SavedQueriesList />
       <FilterLiveSearch />
-      <FilterList label="guacamole.filter.work.name" icon={<AccessTimeIcon />}>
-        <FilterListItem label="guacamole.filter.work.before" value={{ workStatus: "before" }} />
-        <FilterListItem label="guacamole.filter.work.now" value={{ workStatus: "now" }} />
-        <FilterListItem label="guacamole.filter.work.out" value={{ workStatus: "out" }} />
-        <FilterListItem label="guacamole.filter.work.after" value={{ workStatus: "after" }} />
+      <FilterList label="guacamole.filter.work.name" icon={<AccessTimeIcon />} sx={{
+        "&& .Before": {
+          backgroundColor: "#c5e1a5",
+          borderRadius:3,
+          border:1,
+          mb:0.5,
+        },
+        "&& .Now": {
+          backgroundColor: "#80deea",
+          borderRadius:3,
+          border:1,
+          mb:0.5,
+        },
+        "&& .Out": {
+          backgroundColor: "#fff59d",
+          borderRadius:3,
+          border:1,
+          mb:0.5,
+        },
+        "&& .After": {
+          backgroundColor: "#ef9a9a",
+          borderRadius:3,
+          border:1,
+          mb:0.5,
+        },
+      }}>
+        <FilterListItem label="guacamole.filter.work.before" value={{ workStatus: "before" }} className="Before"/>
+        <FilterListItem label="guacamole.filter.work.now" value={{ workStatus: "now" }} className="Now" />
+        <FilterListItem label="guacamole.filter.work.out" value={{ workStatus: "out" }} className="Out" />
+        <FilterListItem label="guacamole.filter.work.after" value={{ workStatus: "after" }} className="After" />
       </FilterList>
     </CardContent>
   </Card>

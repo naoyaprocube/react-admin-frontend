@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {
   useTranslate,
-  useRecordContext
+  useRecordContext,
+  useDataProvider,
 } from 'react-admin'
 import { Button, Typography } from '@mui/material';
 import { getClientIdentifier } from '../utils'
@@ -13,14 +14,16 @@ export const ConnectButton = (props: any) => {
   const record = useRecordContext();
   const translate = useTranslate()
   const identifier = id ? getClientIdentifier(id, type, workId) : getClientIdentifier(record.identifier, type, workId)
-  
+  const dataProvider = useDataProvider()
   return (
     <Button
       variant="contained"
       sx={{ height: 20, m: 0.3 }}
       onClick={() => {
-        setFire(!fire)
-        window.open("http://localhost:8080/#/client/" + identifier, "admingate")
+        dataProvider.getenv("files", {}).then(({ json }: any) => {
+          setFire(!fire)
+          window.open( json.guacUrl + "/#/client/" + identifier, identifier)
+        })
       }}
     >
       <Typography component="pre" variant="body2">

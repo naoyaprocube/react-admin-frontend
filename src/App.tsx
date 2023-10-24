@@ -6,9 +6,8 @@ import {
   defaultTheme,
   combineDataProviders,
 } from 'react-admin';
-import { colors } from '@mui/material';
+import { colors, Box } from '@mui/material';
 import { Route, } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
 import {
   FileProvider,
   ConnectProvider,
@@ -27,17 +26,35 @@ import { i18nProvider } from './i18nProvider';
 import { GuacMenu } from './components/layouts/Sidebar';
 import { AGAppbar } from './components/layouts/Appbar';
 
-type TThemeContext = {
+export const LogoBox =() => (
+  <Box
+    component="img"
+    sx={{
+      height: 30,
+      width: 75,
+      p: 0.5,
+      m: 0.5,
+      border: 1,
+      borderRadius: 1,
+      bgcolor: "#ffffff"
+    }}
+    src="https://optage.co.jp/common/img/common/header/logo-optage.png"
+  />
+)
+
+type AppContext = {
   theme: any,
   setTheme: React.Dispatch<React.SetStateAction<any>>
+  token: string,
+  setToken: React.Dispatch<React.SetStateAction<string>>
 }
-export const ThemeContext = React.createContext({} as TThemeContext);
+export const AppContext = React.createContext({} as AppContext);
 
 export const adminTheme = {
   ...defaultTheme,
   palette: {
     primary: colors.teal,
-    secondary: colors.teal
+    secondary: colors.grey
   },
   sidebar: {
     width: 270, // The default value is 240
@@ -48,7 +65,7 @@ export const workerTheme = {
   ...defaultTheme,
   palette: {
     primary: colors.blue,
-    secondary: colors.blue
+    secondary: colors.grey
   },
   sidebar: {
     width: 270, // The default value is 240
@@ -57,10 +74,10 @@ export const workerTheme = {
 };
 
 const App = () => {
-  const [cookies, setCookies] = useCookies(["theme"]);
-  if(!cookies.theme) setCookies("theme", "worker")
-  const initialTheme = cookies.theme === "admin" ? adminTheme : workerTheme
+  if (!localStorage.getItem('theme')) localStorage.setItem('theme', "worker")
+  const initialTheme = localStorage.getItem('theme') === "admin" ? adminTheme : workerTheme
   const [theme, setTheme] = React.useState(initialTheme)
+  const [token, setToken] = React.useState("")
   const layout = (props: any) => {
     return (<>
       <Layout {...props}
@@ -79,7 +96,7 @@ const App = () => {
     else return null
   });
   return (
-    <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
+    <AppContext.Provider value={{ theme: theme, setTheme: setTheme, token: token, setToken: setToken }}>
       <Admin
         dataProvider={dataProviders}
         authProvider={authProvider}
@@ -111,7 +128,7 @@ const App = () => {
           </>}
         />
       </Admin>
-    </ThemeContext.Provider>
+    </AppContext.Provider>
   );
 }
 

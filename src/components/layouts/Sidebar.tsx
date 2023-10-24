@@ -12,8 +12,11 @@ import {
   Typography,
   Box,
   Collapse,
+  Button,
+  IconButton,
 } from '@mui/material';
-import { useCookies } from 'react-cookie';
+import { Menu as MuiMenu } from '@mui/material';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import HomeIcon from '@mui/icons-material/Home';
@@ -23,7 +26,7 @@ import HistoryIcon from '@mui/icons-material/History';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { stringToColor } from "../utils"
+import { statusToColor, statusStringToColor } from "../utils"
 
 const initialState = [{}]
 const reducerFunc = (openState: Array<any>, obj: any) => {
@@ -41,14 +44,17 @@ const reducerFunc = (openState: Array<any>, obj: any) => {
   return state
 }
 export const GuacMenu = () => {
-  const [works, setWorks] = React.useState([]);
+  const [works, setWorks]: any = React.useState([]);
   const [openState, dispatch] = React.useReducer(reducerFunc, initialState)
   const [activeItem, setActiveItem] = React.useState("")
   const [fire, setFire] = React.useState<boolean>(false);
+  const [page, setPage] = React.useState<number>(1)
+  const [perpage, setPerpage] = React.useState<number>(15)
+  const [filter, setFilter] = React.useState(null)
+  const [hasNextPage, setHasNextPage] = React.useState<boolean>(true)
   const dataProvider = useDataProvider()
   const translate = useTranslate()
   const notify = useNotify()
-  const [cookies] = useCookies()
   const [open, setOpen] = React.useState(false);
   const handleClick = () => setOpen(true);
   const handleDialogClose = () => setOpen(false);
@@ -57,29 +63,146 @@ export const GuacMenu = () => {
       setOpen(false);
       return res
     }).then(({ json }: any) => {
-      window.open(json.idmUrl, "_blank", "noreferrer")
+      window.open(json.idmUrl, "admingate_idmurl")
     })
   };
+  interface GetListParams {
+    pagination: { page: number, perPage: number };
+    sort: { field: string, order: 'ASC' | 'DESC' };
+    filter: any;
+    meta?: any;
+  }
+  const params: GetListParams = {
+    pagination: { page: page, perPage: perpage },
+    sort: { field: "id", order: 'ASC' },
+    filter: { workStatus: filter },
+  }
   React.useEffect(() => {
-    dataProvider.getListAll("works").then((result: any) => {
+    dataProvider.getList("works/" + localStorage.getItem('theme'), params).then((result: any) => {
       setWorks(result.data)
+      setHasNextPage(result.pageInfo.hasNextPage)
     }).catch((response: any) => {
       notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
-  }, [])
+  }, [perpage, filter])
+  const SidebarWorkFilter = (props: any) => {
+    const ITEM_HEIGHT = 48;
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
+    return (
+      <Box>
+        <IconButton
+          aria-label="more"
+          id="long-button"
+          aria-controls={open ? 'long-menu' : undefined}
+          aria-expanded={open ? 'true' : undefined}
+          aria-haspopup="true"
+          onClick={handleClick}
+          size="small"
+          sx={{ ml: 1 }}
+        >
+          {filter ? <WorkspacesIcon fontSize="small" sx={{ color: statusStringToColor(filter), stroke: "#000000", strokeWidth: 1 }} /> : null}
+          <FilterAltIcon />
+        </IconButton>
+        <MuiMenu
+          id="long-menu"
+          MenuListProps={{
+            'aria-labelledby': 'long-button',
+          }}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          PaperProps={{
+            style: {
+              maxHeight: ITEM_HEIGHT * 4.5,
+            },
+          }}
+        >
+          <MenuItem onClick={() => {
+            setFilter(null)
+            handleClose()
+          }}>
+            {translate('guacamole.filter.work.none')}
+          </MenuItem>
+          <MenuItem
+            sx={{
+              "&:hover": {
+                backgroundColor: statusStringToColor("before")
+              }
+            }}
+            onClick={() => {
+              setFilter("before")
+              handleClose()
+            }}>
+            {translate('guacamole.filter.work.before')}
+          </MenuItem>
+          <MenuItem
+            sx={{
+              "&:hover": {
+                backgroundColor: statusStringToColor("now")
+              }
+            }}
+            onClick={() => {
+              setFilter("now")
+              handleClose()
+            }}>
+            {translate('guacamole.filter.work.now')}
+          </MenuItem>
+          <MenuItem
+            sx={{
+              "&:hover": {
+                backgroundColor: statusStringToColor("out")
+              }
+            }}
+            onClick={() => {
+              setFilter("out")
+              handleClose()
+            }}>
+            {translate('guacamole.filter.work.out')}
+          </MenuItem>
+          <MenuItem
+            sx={{
+              "&:hover": {
+                backgroundColor: statusStringToColor("after")
+              }
+            }}
+            onClick={() => {
+              setFilter("after")
+              handleClose()
+            }}>
+            {translate('guacamole.filter.work.after')}
+          </MenuItem>
+        </MuiMenu>
+      </Box>
+    );
+  }
+
+  const MoreLoadButton = () => {
+    if (!hasNextPage) return null
+    return (<Button onClick={() => {
+      setPerpage(perpage + 15)
+    }}>
+      {"load more"}
+    </Button>)
+  }
   interface Props {
     dense: boolean;
     handleToggle: () => void;
     isOpen: boolean;
     isParent: boolean;
     name: string;
-    id: string;
+    color: string;
     children: React.ReactNode;
   }
   const MenuWorkItem = React.useCallback((props: Props) => {
-    const { handleToggle, isOpen, name, id, isParent, children, dense } = props;
-    const isActive = (activeItem === id)
-    const color = stringToColor(id)
+    const { handleToggle, isOpen, name, color, isParent, children, dense } = props;
     const ItemIcon = () => (<>
       {isParent ?
         isOpen ? <><KeyboardArrowDownIcon sx={{ color: "text.secondary" }} fontSize="small" /><WorkspacesIcon sx={{ color: color, stroke: "#000000", strokeWidth: 1 }} /></>
@@ -138,10 +261,10 @@ export const GuacMenu = () => {
           isOpen={isOpen}
           isParent={true}
           name={menuItemData.name}
-          id={menuItemData.idmIdentifier}
+          color={statusToColor(menuItemData)}
           dense={false}
           children={<Box>
-            {cookies.theme === "worker" ?
+            {localStorage.getItem('theme') === "worker" ?
               <Menu.Item
                 to={"/connections/" + menuItemData.idmIdentifier}
                 primaryText={
@@ -151,6 +274,7 @@ export const GuacMenu = () => {
                 }
                 sx={{ borderRadius: 5, }}
                 leftIcon={<CableIcon />}
+                disabled={!menuItemData.isNow}
                 key={menuItemData.idmIdentifier + "-connection"}
               /> : null
             }
@@ -218,7 +342,7 @@ export const GuacMenu = () => {
         leftIcon={<CloudUploadIcon />}
         key="public"
       />
-      {cookies.theme === "worker" ? null :
+      {localStorage.getItem('theme') === "worker" ? null :
         <Menu.Item
           to="/history/all"
           primaryText={
@@ -230,11 +354,16 @@ export const GuacMenu = () => {
           key="historyAll"
         />
       }
+      <Box sx={{ display: 'inline-flex' }}>
+        <Typography variant="body2" sx={{ ml: 1, mt: 1 }} key="textWorks">
+          {translate('guacamole.works')}
+        </Typography>
+        <SidebarWorkFilter />
 
-      <Typography variant="body2" sx={{ ml: 1, mt: 1 }} key="textWorks">
-        {translate('guacamole.works')}
-      </Typography>
+      </Box>
+
       {MenuWorkItems(works)}
+      <MoreLoadButton />
     </Menu>
   )
 };

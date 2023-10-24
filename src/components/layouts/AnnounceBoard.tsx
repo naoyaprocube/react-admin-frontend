@@ -61,6 +61,7 @@ const AnnounceBoard = (props: any) => {
       resource={"announce"}
       title={" "}
       empty={<Empty />}
+      disableSyncWithLocation
       sx={{
         '& .MuiToolbar-root': { display: "none" },
         '& .MuiTableCell-root': {

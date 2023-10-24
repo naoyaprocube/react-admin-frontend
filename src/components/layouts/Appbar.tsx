@@ -8,7 +8,7 @@ import {
   useUserMenu,
   useTranslate,
 } from 'react-admin';
-import { ThemeContext, workerTheme, adminTheme } from '../../App'
+import { AppContext, workerTheme, adminTheme, LogoBox } from '../../App'
 import {
   Box,
   MenuItem,
@@ -16,16 +16,14 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
-import { useCookies } from 'react-cookie';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import { useLocation } from "react-router-dom";
-import { stringToColor } from "../utils"
+import { statusToColor } from "../utils"
 
 export const AGAppbar = () => {
 
-  const { setTheme } = React.useContext(ThemeContext);
-  const [cookies, setCookie] = useCookies(["theme"]);
+  const { setTheme } = React.useContext(AppContext);
   const translate = useTranslate()
   const pathname = useLocation().pathname
   const workId = pathname.split("/")[2]
@@ -41,7 +39,7 @@ export const AGAppbar = () => {
   }, [pathname])
   const WorkField = (props: any) => {
     if (Object.keys(work).length === 0) return null
-    const color = stringToColor(work.idmIdentifier)
+    const color = statusToColor(work)
     return (
       <Box sx={{ display: 'inline-flex', mr: 5 }}>
         <Box sx={{
@@ -69,7 +67,7 @@ export const AGAppbar = () => {
       <MenuItem
         onClick={() => {
           setTheme(workerTheme)
-          setCookie("theme", "worker")
+          localStorage.setItem('theme', 'worker')
           onClose()
         }}
       >
@@ -83,7 +81,7 @@ export const AGAppbar = () => {
       <MenuItem
         onClick={() => {
           setTheme(adminTheme)
-          setCookie("theme", "admin")
+          localStorage.setItem('theme', 'admin')
           onClose()
         }}
       >
@@ -114,20 +112,7 @@ export const AGAppbar = () => {
         </UserMenu>
       }
     >
-      <Box
-        component="img"
-        sx={{
-          height: 30,
-          width: 75,
-          p: 0.5,
-          m: 0.5,
-          border: 1,
-          borderRadius: 1,
-          bgcolor: "#ffffff"
-        }}
-        alt="The house from the offer."
-        src="https://optage.co.jp/common/img/common/header/logo-optage.png"
-      />
+      <LogoBox />
       <TitlePortal />
       <WorkField />
     </AppBar >

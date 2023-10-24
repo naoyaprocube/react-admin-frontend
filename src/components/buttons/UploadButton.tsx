@@ -198,7 +198,6 @@ export const UploadButton = (props: UploadButtonProps) => {
           <Button
             onClick={() => {
               dataProvider.cancel("files/" + dirId, { filename: file ? file.title : null }).then((response: any) => {
-                console.log(response)
                 if (response.status < 200 || response.status >= 300) {
                   notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
                 }
