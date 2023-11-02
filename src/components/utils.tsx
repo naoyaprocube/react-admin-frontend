@@ -1,3 +1,5 @@
+import * as nodePath from 'path-browserify'; 
+
 export function download(blob: Blob, filename: string) {
   const url = window.URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -105,16 +107,16 @@ export const stringToColor = (str: string) => {
   return colorArray[index]
 };
 
-export const statusToColor = (work:any) => {
-  if(work.isNow) return "#80deea" //cyan
-  if(work.isBefore) return "#c5e1a5" //lightGreen
-  if(work.isAfter) return "#ef9a9a" //red
+export const statusToColor = (work: any) => {
+  if (work.isNow) return "#80deea" //cyan
+  if (work.isBefore) return "#c5e1a5" //lightGreen
+  if (work.isAfter) return "#ef9a9a" //red
   else return "#fff59d" //yellow
 };
 export const statusStringToColor = (status: string) => {
-  if(status === "now") return "#80deea" //cyan
-  if(status === "before") return "#c5e1a5" //lightGreen
-  if(status === "after") return "#ef9a9a" //red
+  if (status === "now") return "#80deea" //cyan
+  if (status === "before") return "#c5e1a5" //lightGreen
+  if (status === "after") return "#ef9a9a" //red
   else return "#fff59d" //yellow
 };
 
@@ -135,3 +137,18 @@ export const getClientIdentifier = (id: number, type: string, workId: string) =>
     workId,
   ].join('\0'))
 };
+
+export const resolvePath = (path:string) => {
+  const UNIX_SEP_REGEX = /\//g;
+  const WIN_SEP_REGEX = /\\/g;
+  // Unix separators normalize nicer on both unix and win platforms
+  const resolvedPath = path.replace(WIN_SEP_REGEX, '/');
+
+  // Join cwd with new path
+  const joinedPath = nodePath.normalize(resolvedPath)
+
+  // Create FTP client path using unix separator
+  const clientPath = joinedPath.replace(WIN_SEP_REGEX, '/');
+
+  return clientPath
+}

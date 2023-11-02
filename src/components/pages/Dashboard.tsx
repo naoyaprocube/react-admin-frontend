@@ -77,7 +77,7 @@ const Dashboard = (props: any) => {
     const [open, setOpen] = React.useState(false);
     const [parentList, setParentList] = React.useState([]);
     return (
-      <Box sx={{ width: 1 }}>
+      <Card sx={{ width: 1 }}>
         <Box sx={{ width: 1, display: 'inline-flex', flexDirection: 'row', borderBottom: 0.6, p: 0.5 }}>
           <ConnectedTvIcon fontSize="small" sx={{ ml: -0.5 }} />
           <Typography variant="body1" component="pre" sx={{ ml: 1 }}>
@@ -87,11 +87,11 @@ const Dashboard = (props: any) => {
         <Collapse in={open} collapsedSize={0} >
           {parentList.map((parent: any, index: number) => {
             return (
-              <Card sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
+              <Box sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
                 <Typography variant="body2">
                   {parent}
                 </Typography>
-              </Card>)
+              </Box>)
           })}
         </Collapse>
         <Box sx={{ display: 'flex', width: 1, justifyContent: 'center' }}>
@@ -106,8 +106,7 @@ const Dashboard = (props: any) => {
             }
           </IconButton>
         </Box>
-
-      </Box>
+      </Card>
     );
   };
 
@@ -115,32 +114,32 @@ const Dashboard = (props: any) => {
     const record = useRecordContext();
     const [open, setOpen] = React.useState(false);
     return (
-      <Box sx={{ width: 1 }}>
+      <Card sx={{ width: 1 }}>
         <Box sx={{ width: 1, display: 'inline-flex', flexDirection: 'row', borderBottom: 0.6, p: 0.5 }}>
           <TimelapseIcon fontSize="small" sx={{ ml: -0.5 }} />
           <Typography variant="body1" component="pre" sx={{ ml: 1 }}>
             {translate('guacamole.period')}
           </Typography>
         </Box>
-        <Card sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
+        <Box sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
           <Typography variant="body2" component="pre">
             {record.periods[0].validFrom} ~ {record.periods[0].validUntil}
           </Typography>
           <Typography variant="body2" component="pre" sx={{ ml: 1 }}>
             {record.periods[0].startTime} - {record.periods[0].endTime}
           </Typography>
-        </Card>
+        </Box>
         <Collapse in={open} collapsedSize={0} >
           {record.periods.map((period: any, index: number) => {
             return (index === 0 ? null :
-              <Card sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
+              <Box sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
                 <Typography variant="body2" component="pre">
                   {period.validFrom} ~ {period.validUntil}
                 </Typography>
                 <Typography variant="body2" component="pre" sx={{ ml: 1 }}>
                   {period.startTime} - {period.endTime}
                 </Typography>
-              </Card>)
+              </Box>)
           })}
         </Collapse>
         <Box sx={{ display: 'flex', width: 1, justifyContent: 'center' }}>
@@ -152,7 +151,7 @@ const Dashboard = (props: any) => {
             </IconButton>
           }
         </Box>
-      </Box>
+      </Card>
     );
   };
 

@@ -12,6 +12,7 @@ const english = {
     fields: {
       file: 'File',
       filename: 'File Name',
+      name: 'Name',
       length: 'Size',
       uploadDate: 'Upload Date',
       metadata:{
@@ -144,6 +145,12 @@ const english = {
         "5m": '5 minutes or more',
         "1h": '1 hours or more',
       },
+      startTime: {
+        name: 'Start Date',
+        day: 'Within a day',
+        week: 'Within a week',
+        month: 'Within a month',
+      },
       work: {
         name: 'Status',
         none: 'All',
@@ -166,6 +173,7 @@ const japanese = {
     fields: {
       file: 'ファイル',
       filename: 'ファイル名',
+      name: '名前',
       length: 'サイズ',
       uploadDate: '最終更新日時',
       metadata:{
@@ -297,6 +305,12 @@ const japanese = {
         "30s": '30 秒以上',
         "5m": '5 分以上',
         "1h": '1 時間以上',
+      },
+      startTime: {
+        name: '開始日時',
+        day: '24時間以内',
+        week: '1週間以内',
+        month: '1ヶ月以内',
       },
       work: {
         name: '作業状態',

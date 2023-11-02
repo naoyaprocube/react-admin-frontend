@@ -18,7 +18,7 @@ export const ConnectButton = (props: any) => {
   return (
     <Button
       variant="contained"
-      sx={{ height: 20, m: 0.3 }}
+      sx={{ height: 20, minWidth: "max-content"  }}
       onClick={() => {
         dataProvider.getenv("files", {}).then(({ json }: any) => {
           setFire(!fire)

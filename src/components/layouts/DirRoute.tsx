@@ -6,9 +6,10 @@ import {
 } from '@mui/material';
 
 export const DirRoute = (props: any) => {
-  const { dir } = props
+  const { dir, isMongo } = props
   const fullpath = dir.fullpath
-  const route = fullpath.slice(1,-1).map((d: string) => {
+  const start = isMongo ? 1 : 0
+  const route = fullpath.slice(start, -1).map((d: string) => {
     return (<Typography color="text.primary">
       {d}
     </Typography>)
@@ -22,6 +23,7 @@ export const DirRoute = (props: any) => {
     style={{ textTransform: 'none' }}
   >
     <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
+      <Box />
       {route}
       <Typography color="text.primary">{dir.dirname}</Typography>
     </Breadcrumbs>

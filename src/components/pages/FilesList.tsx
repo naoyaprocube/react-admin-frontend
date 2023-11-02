@@ -30,6 +30,8 @@ import DownloadButton from '../buttons/DownloadButton'
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { useParams } from "react-router-dom";
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
+import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DirMenu from '../layouts/Dirmenu';
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
 import { useNavigate } from "react-router-dom";
@@ -87,7 +89,7 @@ const FilesList = (props: any) => {
   const FilesListActions = (props: any) => {
     return (
       <TopToolbar sx={{ width: 1 }}>
-        {Object.keys(dir).length !== 0 ? <DirRoute dir={dir} /> : null}
+        {Object.keys(dir).length !== 0 ? <DirRoute dir={dir} isMongo={true} /> : null}
         <CreateButton
           resource={"files/" + workId + "/" + id}
           icon={<NoteAddIcon />}
@@ -158,15 +160,30 @@ const FilesList = (props: any) => {
         title={workId === "public" ? translate('pages.publicFileManager') : translate('pages.fileManager')}
         aside={<DirMenu workId={workId} />}
         empty={<Empty />}
-        resource={"files/" + id}
+        resource={"files"}
+        queryOptions={{ meta: { includeDir: false, dirId: id } }}
         exporter={false}
         actions={<FilesListActions />}
       >
         <CustomDatagrid>
-          <TextField width="30%" source="filename" label="file.fields.filename" sortable={false} className={"filename"} sx={{ width: 1, }} />
-          <FunctionField width="20%" source="length" label="file.fields.length" sortable={true} sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />
+          <FunctionField width="30%" source="filename" label="file.fields.filename" render={(record: any) => (
+            <Box sx={{ display: "inline-flex" }}>
+              <InsertDriveFileOutlinedIcon fontSize="small" sx={{ mr: 0.5 }} />
+              <Typography variant="body2">
+                {record.filename}
+              </Typography>
+            </Box>
+          )} />
+          <FunctionField width="20%" source="length" label="file.fields.length" sortBy="length" render={(record: any) => humanFileSize(record.length, false)} />
           <DateField width="20%" source="uploadDate" label="file.fields.uploadDate" showTime locales="jp-JP" />
-          <TextField width="20%" source="metadata.status" label="file.fields.metadata.status" className="status" sortable={false} />
+          <FunctionField width="20%" source="metadata.status" label="file.fields.metadata.status" render={(record: any) => (
+            <Box sx={{ display: "inline-flex" }}>
+              {record.metadata.status === "COMPLETE" ? <CheckCircleIcon fontSize="small" color="success" sx={{ mr: 0.5 }} /> : null}
+              <Typography variant="body2">
+                {record.metadata.status}
+              </Typography>
+            </Box>
+          )} />
           <FileActionButtons width="0%" />
         </CustomDatagrid>
       </List>

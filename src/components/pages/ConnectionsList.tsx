@@ -15,6 +15,7 @@ import {
   Button,
 } from '@mui/material';
 import { ConnectButton } from '../buttons/ConnectButton'
+import { SFTPConnectButton } from '../buttons/SFTPConnectButton'
 import { AppContext, workerTheme } from '../../App'
 import { ActiveConnectionPanel } from '../layouts/ActiveConnectionPanel'
 import { useParams } from "react-router-dom";
@@ -80,7 +81,7 @@ const ConnectionsList = (props: any) => {
     </Breadcrumbs>
     <InfiniteList {...props}
       title={translate('pages.connectionSelect')}
-      actions={<ActiveConnectionPanel />}
+      // actions={<ActiveConnectionPanel />}
       aside={<ConnectionFilterMenu workId={workId} />}
       resource={"connections/" + workId}
       exporter={false}
@@ -96,11 +97,12 @@ const ConnectionsList = (props: any) => {
         }} />
         <TextField label="guacamole.field.parent" source="parentIdentifier" />
         <DateField label="guacamole.field.lastActive" source="lastActive" showTime />
-        <Box width="0%">
+        <Box width="0%" sx={{display:"inline-flex"}}>
           <ConnectButton
             type="c"
             workId={workId}
           />
+          <SFTPConnectButton />
         </Box>
 
       </CustomDatagrid>

@@ -22,7 +22,7 @@ export const RecordPlayButton = (props: any) => {
   return (
     <Button
       variant="contained"
-      sx={{ height: 20, m: 0.3 }}
+      sx={{ height: 20, ml: 0.3 }}
       startIcon={<PlayArrowIcon/>}
       onClick={() => {
         dataProvider.getenv("files", {}).then(({ json }: any) => {

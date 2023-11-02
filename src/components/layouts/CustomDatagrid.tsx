@@ -7,19 +7,7 @@ import {
   DatagridBodyProps,
   DatagridProps,
 } from "react-admin";
-import { TableCell, TableRow, Checkbox, Box } from "@mui/material";
-import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
-import TerminalIcon from '@mui/icons-material/Terminal';
-import WorkspacesIcon from '@mui/icons-material/Workspaces';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-
-const fieldIcon = (field: any, record: any) => {
-  if (field.props.className === "filename") return <InsertDriveFileOutlinedIcon fontSize="small" sx={{ mr: 0.5 }} />
-  if (field.props.className === "connectionName") return <TerminalIcon fontSize="small" sx={{ mr: 0.5 }} />
-  if (field.props.className === "workName") return <WorkspacesIcon fontSize="small" sx={{ mr: 0.5 }} />
-  if (field.props.className === "status" && record.metadata && record.metadata.status === "COMPLETE") return <CheckCircleIcon color="success" fontSize="small" sx={{ mr: 0.5 }} />
-  else return null
-}
+import { TableCell, TableRow, Checkbox } from "@mui/material";
 const MyDatagridRow = ({
   record,
   id,
@@ -34,7 +22,10 @@ const MyDatagridRow = ({
       <TableRow>
         {/* first column: selection checkbox */}
         {!hasBulkActions ? null :
-          <TableCell padding="none">
+          <TableCell padding="none"
+          style={{
+            width: "0%",
+          }}>
             {selectable && (
               <Checkbox
                 checked={selected}
@@ -63,11 +54,7 @@ const MyDatagridRow = ({
             }}
             key={`${id}-${field.props.source}`}
           >
-            <Box sx={{ display: "flex" }}>
-              {fieldIcon(field, record)}
-              {field}
-            </Box>
-
+            {field}
           </TableCell>
         )}
       </TableRow>

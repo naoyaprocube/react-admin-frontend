@@ -1,7 +1,7 @@
 import { fetchUtils, HttpError } from 'react-admin';
 import { stringify } from 'query-string';
 import { convertPeriod } from './components/utils'
-import { dummyWorks, dummyConnections, dummyHistory, dummyAnnounces, testHistory } from './dummy/dummyObjects'
+import { dummyWorks, dummyAnnounces } from './dummy/dummyObjects'
 const apiUrl = '/api';
 const guacUrl = '/guacamole'
 // const httpClient = fetchUtils.fetchJson;
@@ -20,15 +20,32 @@ export const dataProvider = {
   getList: (resource: any, params: any) => {
     const { page, perPage } = params.pagination;
     const { field, order } = params.sort;
+    const { includeDir, dirId } = params.meta
     const query = {
-      sort: JSON.stringify([field, order]),
-      page: JSON.stringify(page),
-      perpage: JSON.stringify(perPage),
-      filter: JSON.stringify(params.filter),
+      includeDir: includeDir
     };
-    const url = `${apiUrl}/${resource}?${stringify(query)}`;
-    return httpClient(url).then(({ headers, json }: any) => ({
-      data: json.map((resource: any) => ({ ...resource, id: resource._id })),
+    const url = `${apiUrl}/${resource}/${dirId}?${stringify(query)}`;
+    return httpClient(url).then(({ headers, json }: any) => {
+      let list = json
+      if (page && perPage) list = list.slice((page - 1) * perPage, page * perPage)
+      if (field) list = list.sort((a: any, b: any) => {
+        if (includeDir && field === "filename") {
+          a[field] = a.filename ? a.filename : a.dirname
+          b[field] = b.filename ? b.filename : b.dirname
+        }
+        if (a[field] < b[field]) {
+          if (order === "ASC") return 1
+          return -1;
+        }
+        if (a[field] > b[field]) {
+          if (order === "ASC") return -1
+          return 1;
+        }
+        return 0;
+      })
+      return { headers, list }
+    }).then(({ headers, list }: any) => ({
+      data: list.map((file: any) => ({ ...file, id: file._id })),
       total: Number(headers.get('Content-Range')),
     }));
   },
@@ -214,14 +231,14 @@ export const WorkProvider = {
     const { page, perPage } = params.pagination;
     const { q, workStatus } = params.filter
 
-    // const url = `${guacUrl}/api/session/data/postgresql/works`;
+    const url = `${guacUrl}/api/session/data/postgresql/works`;
     // const json = await httpClient(url).then(({ json }) => json)
-    // let work: any = json
-    let work = dummyWorks
+    const json = dummyWorks
+    let work = Object.entries(json).map((array) => array[1])
+
     const now = new Date
     const theme = resource.split("/")[1];
     work.map((w: any) => {
-      w.idmIdentifier = String(w.idmIdentifier.slice(0, 5)).toUpperCase()
       w.isNow = w.periods.filter((period: any) =>
         convertPeriod(period).filter((time: Array<number>) =>
           (now.getTime() > time[0] && now.getTime() < time[1])
@@ -264,8 +281,8 @@ export const WorkProvider = {
   getListAll: async (resource: any, params: any) => {
     const url = `${guacUrl}/api/session/data/postgresql/works`;
     // const json = await httpClient(url).then(({ json }) => json)
-    // work: any = json
-    let work = dummyWorks
+    const json = dummyWorks
+    let work = Object.entries(json).map((array) => array[1])
     work.map((w: any) => {
       w.idmIdentifier = String(w.idmIdentifier.slice(0, 5)).toUpperCase()
     })
@@ -284,18 +301,16 @@ export const ConnectProvider = {
     const { field, order } = params.sort
     const { q, protocol, parent } = params.filter
     const workId = resource.split("/")[1]
-    const url = `${guacUrl}/api/session/data/postgresql/connections`;
-    // const workUrl = `${guacUrl}/api/session/data/postgresql/works/${workId}`
-    // const work = await httpClient(workUrl).then(({ json }) => json)
-    const work = dummyWorks.filter((v: any) => {
-      return v.idmIdentifier.slice(0, 5) === workId
-    })[0]
-    // const json = await httpClient(url).then(({ json }) => json)
-    // let connections = Object.keys(json).map(function (key) { return json[key] })
-    let connections = dummyConnections
-    connections = connections.filter((v: any) => {
-      return work.connections.indexOf(Number(v.identifier)) !== -1
-    })
+    const workUrl = `${guacUrl}/api/session/data/postgresql/works/${workId}`
+    // const json = await httpClient(workUrl).then(({ json }) => json)
+    const json = dummyWorks
+    let work:any = Object
+      .entries(json)
+      .map((array) => array[1])
+      .filter((v: any) => {
+        return v.idmIdentifier.slice(0, 5) === workId
+      })[0]
+    let connections = work.connections
     if (q) connections = connections.filter((v: any) => v.name.includes(String(q)))
     if (protocol) connections = connections.filter((v: any) => v.protocol === protocol)
     if (field) connections = connections.sort((a: any, b: any) => {
@@ -340,22 +355,21 @@ export const ConnectProvider = {
 
   getParentList: async (resource: any, params: any) => {
     const workId = resource.split("/")[1];
-    const url = `${guacUrl}/api/session/data/postgresql/connections`;
-    // const work = await httpClient(workUrl).then(({ json }) => json)
-    const work = dummyWorks.filter((v: any) => {
-      return v.idmIdentifier.slice(0, 5) === workId
-    })[0]
-    // const json = await httpClient(url).then(({ json }) => json)
-    // let connections = Object.keys(json).map(function (key) { return json[key] })
-    let connections = dummyConnections
-    connections = connections.filter((v: any) => {
-      return work.connections.indexOf(Number(v.identifier)) !== -1
-    })
+    const workUrl = `${guacUrl}/api/session/data/postgresql/works/${workId}`
+    // const json = await httpClient(workUrl).then(({ json }) => json)
+    const json = dummyWorks
+    let work:any = Object
+      .entries(json)
+      .map((array) => array[1])
+      .filter((v: any) => {
+        return v.idmIdentifier.slice(0, 5) === workId
+      })[0]
+    let connections = work.connections
     const parents: Array<any> = []
     connections.map((connection: any) => {
       if (parents.indexOf(connection.parentIdentifier) === -1) parents.push(connection.parentIdentifier)
     })
-    return parents.sort()
+    return parents
   },
 }
 
@@ -365,19 +379,23 @@ export const HistoryProvider = {
   getList: async (resource: any, params: any) => {
     const { page, perPage } = params.pagination;
     const { field, order } = params.sort
-    const { q, duration } = params.filter
+    const { q, duration, startTime } = params.filter
     const workId = resource.split("/")[1];
     const url = `${guacUrl}/api/session/data/postgresql/history/connections`;
-    // const workUrl = `${guacUrl}/guacamole/api/session/data/postgresql/works/${workId}`
-    // const work = await httpClient(workUrl).then(({ json }) => json)
-    const work = dummyWorks.filter((v: any) => {
-      return v.idmIdentifier.slice(0, 5) === workId
-    })[0]
-    const json = await httpClient(url).then(({ json }) => json)
-    let history = json
-    // let history = testHistory
+    const workUrl = `${guacUrl}/guacamole/api/session/data/postgresql/works/${workId}`
+    // const json = await httpClient(workUrl).then(({ json }) => json)
+    const json = dummyWorks
+    let work:any = Object
+      .entries(json)
+      .map((array) => array[1])
+      .filter((v: any) => {
+        return v.idmIdentifier.slice(0, 5) === workId
+      })[0]
+    const historyJson = await httpClient(url).then(({ json }) => json)
+    let history = historyJson
     if (workId !== "all") history = history.filter((v: any) => {
-      return work.connections.indexOf(Number(v.connectionIdentifier)) !== -1
+      const ids = work.connections.map((connection: any) => Number(connection.identifier))
+      return ids.indexOf(Number(v.connectionIdentifier)) !== -1
     })
     if (q) history = history.filter((v: any) => (
       v.connectionName.includes(String(q))
@@ -385,6 +403,7 @@ export const HistoryProvider = {
       || v.username.includes(String(q))
     ))
     if (duration) history = history.filter((v: any) => v.endDate - v.startDate >= duration)
+    if (startTime) history = history.filter((v: any) => v.startDate >= new Date().getTime() - startTime)
     if (field) history = history.sort((a: any, b: any) => {
       if (field === "duration") {
         const unit = order === "ASC" ? 1 : -1
@@ -410,7 +429,7 @@ export const HistoryProvider = {
   },
 
   download: (resource: any, params: any) => {
-    return fetch(new Request(`${apiUrl}/api/session/data/postgresql/history/connections/${params.id}/logs/${params.key}`, {
+    return fetch(new Request(`${guacUrl}/api/session/data/postgresql/history/connections/${params.id}/logs/${params.key}`, {
       method: "GET",
       credentials: 'include',
       headers: new Headers({
@@ -426,10 +445,12 @@ export const AnnounceProvider = {
 
   getList: async (resource: any, params: any) => {
     const { page, perPage } = params.pagination;
-    const url = `${guacUrl}/api/session/data/postgresql/history/connections`;
+    const url = `${guacUrl}/api/session/data/postgresql/notifications`;
     // const json = await httpClient(url).then(({ json }) => json)
-    let announce = dummyAnnounces
-    // let announce:any = []
+    const json = dummyAnnounces
+    let announce = Object
+      .entries(json)
+      .map((array) => array[1])
     const now = new Date
     function compareDate(a: any, b: any) {
       return b.startDate - a.startDate;
@@ -446,3 +467,80 @@ export const AnnounceProvider = {
 
 }
 
+export const SFTPProvider = {
+  ...dataProvider,
+  getList: async (resource: any, params: any) => {
+    const { page, perPage } = params.pagination;
+    const { field, order } = params.sort;
+    const { path, connectionId, token } = params.meta
+    const query = {
+      path: path,
+      id: connectionId,
+      token: token,
+    };
+    const url = `${apiUrl}/sftp/readdir?${stringify(query)}`;
+    return httpClient(url).then(({ json }) => {
+      const total = json.length
+      let list = json
+      list = list.map((file: any) => {
+        return {
+          ...file,
+          attrs: {
+            ...file.attrs,
+            mmtime: file.attrs.mtime * 1000,
+            amtime: file.attrs.mtime * 1000,
+          }
+        }
+      })
+      if (path !== "/") list = [{
+        filename: "..",
+        longname: "drw-rw-rw-    1 root     root",
+        attrs: {
+          "mode": 33188,
+          "uid": 0,
+          "gid": 0,
+          "size": 0,
+          "atime": 0,
+          "mtime": 0
+        }
+      }].concat(list)
+      if (page && perPage) list = list.slice((page - 1) * perPage, page * perPage)
+      if (field) list = list.sort((a: any, b: any) => {
+        if (a[field] < b[field]) {
+          if (order === "ASC") return 1
+          return -1;
+        }
+        if (a[field] > b[field]) {
+          if (order === "ASC") return -1
+          return 1;
+        }
+        return 0;
+      })
+      return { list, total }
+    }).then(({ list, total }) => ({
+      data: list.map((file: any) => ({
+        ...file,
+        id: path === "/" ? "/" + file.filename : path + "/" + file.filename
+      })),
+      total: total
+    }))
+  },
+
+  gethome: async (resource: any, params: any) => {
+    const query = {
+      id: params.connectionId,
+      token: params.token,
+    };
+    const url = `${apiUrl}/sftp/gethome?${stringify(query)}`;
+    return httpClient(url)
+  },
+  readdir: async (resource: any, params: any) => {
+    const query = {
+      path: params.path,
+      id: params.connectionId,
+      token: params.token,
+    };
+    const url = `${apiUrl}/sftp/readdir?${stringify(query)}`;
+    return httpClient(url).then(({ json }) => json)
+  },
+}

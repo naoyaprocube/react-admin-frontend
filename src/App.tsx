@@ -14,12 +14,14 @@ import {
   HistoryProvider,
   WorkProvider,
   AnnounceProvider,
+  SFTPProvider,
 } from './dataProvider';
 import authProvider from './authProvider';
 import FilesList from './components/pages/FilesList';
 import FileShow from './components/pages/FileShow';
 import FilesCreate from './components/pages/FilesCreate';
 import ConnectionsList from './components/pages/ConnectionsList';
+import SFTPClient from './components/pages/SFTPClient';
 import HistoryList from './components/pages/HistoryList';
 import Dashboard from './components/pages/Dashboard';
 import { i18nProvider } from './i18nProvider';
@@ -93,6 +95,7 @@ const App = () => {
     else if (resource.startsWith("history")) return HistoryProvider;
     else if (resource.startsWith("works")) return WorkProvider;
     else if (resource.startsWith("announce")) return AnnounceProvider;
+    else if (resource.startsWith("sftp")) return SFTPProvider;
     else return null
   });
   return (
@@ -119,6 +122,7 @@ const App = () => {
           name={"connections"}
           children={<>
             <Route path="/:workId" element={<ConnectionsList />} />
+            <Route path="/:workId/:connectionId/SFTP" element={<SFTPClient />} />
           </>}
         />
         <Resource

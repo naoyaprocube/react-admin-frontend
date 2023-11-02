@@ -13,6 +13,7 @@ import {
   Box,
   Button,
   Typography,
+  Tooltip,
   Breadcrumbs,
   Link,
 } from '@mui/material';
@@ -22,6 +23,7 @@ import PersonOffIcon from '@mui/icons-material/PersonOff';
 import { HistoryFilterMenu } from '../layouts/FilterMenu'
 import { RecordPlayButton } from '../buttons/RecordPlayButton'
 import { RecordTextDownloadButton } from '../buttons/RecordTextDownloadButton'
+import { RMConnectionButton } from '../buttons/RMConnectionButton'
 import dayjs, { extend } from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -30,12 +32,27 @@ import { useNavigate } from "react-router-dom";
 
 extend(duration);
 extend(relativeTime);
-
+type FFireContext = {
+  fire: boolean,
+  setFire: React.Dispatch<React.SetStateAction<boolean>>
+}
+export const FireContext = React.createContext({} as FFireContext);
 const HistoryList = (props: any) => {
   const { workId } = useParams()
   const translate = useTranslate()
   const navigate = useNavigate()
+  const dataProvider = useDataProvider()
+  const [actives, setActives]: any = React.useState([])
+  const [activeFire, setActiveFire] = React.useState(false)
   const { theme, setTheme } = React.useContext(AppContext);
+  React.useEffect(() => {
+    dataProvider.getActives("connections").then((result: any) => {
+      const ids = result.map((v: any) => {
+        return v.identifier
+      })
+      setActives(ids)
+    })
+  }, [activeFire])
   const WorkerAccess = () => (
     <Box sx={{ width: 1, display: 'flex', flexDirection: 'column' }}>
       <Box sx={{
@@ -67,7 +84,7 @@ const HistoryList = (props: any) => {
     </Box>
   );
   if (workId === "all" && localStorage.getItem('theme') === "worker") return <WorkerAccess />
-  return (<Box>
+  return (<FireContext.Provider value={{ fire: activeFire, setFire: setActiveFire }}>
     <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
       <Link
         underline="hover"
@@ -87,7 +104,7 @@ const HistoryList = (props: any) => {
         </Typography>
       }
     </Breadcrumbs>
-    <List {...props} title={translate('pages.connectionHistory')} aside={<HistoryFilterMenu />} resource={"history/" + workId} exporter={false}>
+    <List {...props} title={translate('pages.connectionHistory')} aside={<HistoryFilterMenu />} resource={"history/" + workId}>
       <CustomDatagrid bulkActionButtons={false}>
         <DateField label="guacamole.field.startDate" source="startDate" showTime locales="jp-JP" />
         <TextField label="guacamole.field.usename" source="username" />
@@ -96,17 +113,23 @@ const HistoryList = (props: any) => {
         <FunctionField label="guacamole.field.duration" sortBy="duration" render={(record: any) => {
           if (record.endDate === null) return "-"
           const duration = dayjs.duration(record.endDate - record.startDate)
-          return duration.humanize();
+          return (<Tooltip title={duration.format('HH:mm:ss')} placement="left">
+            <Typography variant="body2">
+              {duration.humanize()}
+            </Typography>
+          </Tooltip>)
         }} />
-        <Box sx={{display: 'inline-flex'}}>
+        <Box sx={{ display: 'inline-flex' }}>
           <RecordPlayButton />
           <RecordTextDownloadButton />
+          <RMConnectionButton actives={actives} />
         </Box>
 
       </CustomDatagrid>
 
     </List>
-  </Box >
+  </FireContext.Provider>
+
   );
 };
 
