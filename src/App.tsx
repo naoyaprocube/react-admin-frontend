@@ -59,7 +59,7 @@ export const adminTheme = {
     secondary: colors.grey
   },
   sidebar: {
-    width: 270, // The default value is 240
+    width: 250, // The default value is 240
     closedWidth: 0, // The default value is 55
   },
 };
@@ -70,7 +70,7 @@ export const workerTheme = {
     secondary: colors.grey
   },
   sidebar: {
-    width: 270, // The default value is 240
+    width: 250, // The default value is 240
     closedWidth: 0, // The default value is 55
   },
 };

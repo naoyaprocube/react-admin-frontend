@@ -23,9 +23,9 @@ const MyDatagridRow = ({
         {/* first column: selection checkbox */}
         {!hasBulkActions ? null :
           <TableCell padding="none"
-          style={{
-            width: "0%",
-          }}>
+            style={{
+              width: "0%",
+            }}>
             {selectable && (
               <Checkbox
                 checked={selected}

@@ -17,11 +17,12 @@ import { CustomDatagrid } from '../layouts/CustomDatagrid'
 const AnnounceBoard = (props: any) => {
   const translate = useTranslate()
   const Empty = () => (
-    <Box sx={{ mt: 1, }}>
+    <Box sx={{ mt: 1, width: 1 }}>
       <Box sx={{
         display: 'flex',
-        justifyContent: 'space-evenly',
-        mt: 4
+        justifyContent: 'center',
+        mt: 4,
+        width: 1
       }}>
         <TipsAndUpdatesIcon sx={{
           width: '3em',
@@ -44,9 +45,9 @@ const AnnounceBoard = (props: any) => {
         '& .RaDatagrid-headerRow': { display: 'none' },
       }}
     >
-      <DateField source="startDate" width="5%" />
+      <DateField source="startDate" width="0%" />
       <Box sx={{ width: 1 }}>
-        <TextField source="message" style={{ whiteSpace: 'pre-wrap' }} />
+        <TextField source="message" width="100%" style={{ whiteSpace: 'pre-wrap' }} />
       </Box>
     </CustomDatagrid>)
   }
@@ -66,7 +67,7 @@ const AnnounceBoard = (props: any) => {
         '& .MuiToolbar-root': { display: "none" },
         '& .MuiTableCell-root': {
           verticalAlign: 'top',
-          borderBottom: `1px solid #ffffff`,
+          borderBottom: 'none',
         },
         '& .MuiCard-root': { boxShadow: 0 },
       }}

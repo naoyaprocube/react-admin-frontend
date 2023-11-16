@@ -107,17 +107,20 @@ const HistoryList = (props: any) => {
     <List {...props} title={translate('pages.connectionHistory')} aside={<HistoryFilterMenu />} resource={"history/" + workId}>
       <CustomDatagrid bulkActionButtons={false}>
         <DateField label="guacamole.field.startDate" source="startDate" showTime locales="jp-JP" />
-        <TextField label="guacamole.field.usename" source="username" />
-        <TextField label="guacamole.field.connectionIdentifier" source="connectionIdentifier" />
-        <TextField label="guacamole.field.connectName" source="connectionName" />
+        <TextField label="guacamole.field.username" source="username" />
+        <TextField label="guacamole.field.hostname" source="hostname" />
+        <FunctionField label="guacamole.field.protocol" sortBy="protocol" render={(record: any) => {
+          if (record.protocol === "ssh") return translate('guacamole.filter.protocol.ssh')
+          else if (record.protocol === "rdp") return translate('guacamole.filter.protocol.rdp')
+          else if (record.protocol === "telnet") return translate('guacamole.filter.protocol.telnet')
+          else if (record.protocol === "vnc") return translate('guacamole.filter.protocol.vnc')
+        }} />
         <FunctionField label="guacamole.field.duration" sortBy="duration" render={(record: any) => {
           if (record.endDate === null) return "-"
           const duration = dayjs.duration(record.endDate - record.startDate)
-          return (<Tooltip title={duration.format('HH:mm:ss')} placement="left">
-            <Typography variant="body2">
-              {duration.humanize()}
-            </Typography>
-          </Tooltip>)
+          return (<Typography variant="body2">
+            {duration.format('HH:mm:ss')}
+          </Typography>)
         }} />
         <Box sx={{ display: 'inline-flex' }}>
           <RecordPlayButton />

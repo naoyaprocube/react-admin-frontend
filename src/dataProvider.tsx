@@ -1,7 +1,7 @@
 import { fetchUtils, HttpError } from 'react-admin';
 import { stringify } from 'query-string';
 import { convertPeriod } from './components/utils'
-import { dummyWorks, dummyAnnounces } from './dummy/dummyObjects'
+import { dummyWorks, dummyAnnounces, testHistory } from './dummy/dummyObjects'
 const apiUrl = '/api';
 const guacUrl = '/guacamole'
 // const httpClient = fetchUtils.fetchJson;
@@ -110,15 +110,9 @@ export const dataProvider = {
     })),
 
   delete: (resource: any, params: any) => {
-    function encodeUTF8(str: any) {
-      const encoder = new TextEncoder();
-      return encoder.encode(str);
-    }
-    const filename = encodeUTF8(params.id).toString()
 
     return httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: 'DELETE',
-      headers: new Headers({ 'content-filename': filename }),
       body: JSON.stringify(params.id),
     }).then(({ json }: any) => ({
       ...json,
@@ -234,62 +228,82 @@ export const WorkProvider = {
     const url = `${guacUrl}/api/session/data/postgresql/works`;
     // const json = await httpClient(url).then(({ json }) => json)
     const json = dummyWorks
-    let work = Object.entries(json).map((array) => array[1])
+    let works = Object.entries(json).map((array) => array[1])
 
     const now = new Date
     const theme = resource.split("/")[1];
-    work.map((w: any) => {
-      w.isNow = w.periods.filter((period: any) =>
-        convertPeriod(period).filter((time: Array<number>) =>
+    if (theme === "worker") works = works.filter((v: any) => v.isWorker)
+    if (theme === "admin") works = works.filter((v: any) => v.isAdmin)
+    works.map((w: any) => {
+      const converted = w.periods.map((period: any) => convertPeriod(period))
+      w.isNow = converted.filter((period: Array<Array<number>>) =>
+        period.filter((time: Array<number>) =>
           (now.getTime() > time[0] && now.getTime() < time[1])
         ).length > 0
       ).length > 0
-      w.isOut = w.periods.filter((period: any) =>
-        convertPeriod(period).filter((time: Array<number>) =>
+      w.isOut = converted.filter((period: Array<Array<number>>) =>
+        period.filter((time: Array<number>) =>
           (now.getTime() > time[0] && now.getTime() < time[1])
         ).length === 0
       ).length === w.periods.length
-      w.isBefore = w.periods.filter((period: any) =>
-        convertPeriod(period).filter((time: Array<number>) =>
+      w.isBefore = converted.filter((period: Array<Array<number>>) =>
+        period.filter((time: Array<number>) =>
           now.getTime() > time[0]
         ).length === 0
       ).length === w.periods.length
-      w.isAfter = w.periods.filter((period: any) =>
-        convertPeriod(period).filter((time: Array<number>) =>
+      w.isAfter = converted.filter((period: Array<Array<number>>) =>
+        period.filter((time: Array<number>) =>
           now.getTime() < time[1]
         ).length === 0
       ).length === w.periods.length
     })
-    if (theme === "worker") work = work.filter((v: any) => v.isWorker)
-    if (theme === "admin") work = work.filter((v: any) => v.isAdmin)
-    if (q) work = work.filter((v: any) => v.name.includes(String(q)) || v.idmIdentifier.includes(String(q)))
+    if (q) works = works.filter((v: any) => v.name.includes(String(q)) || v.idmIdentifier.includes(String(q)))
     if (workStatus) {
-      if (workStatus === "now") work = work.filter((v: any) => v.isNow)
-      else if (workStatus === "out") work = work.filter((v: any) => v.isOut && !v.isBefore && !v.isAfter)
-      else if (workStatus === "before") work = work.filter((v: any) => v.isBefore)
-      else if (workStatus === "after") work = work.filter((v: any) => v.isAfter)
+      if (workStatus === "now") works = works.filter((v: any) => v.isNow)
+      else if (workStatus === "out") works = works.filter((v: any) => v.isOut && !v.isBefore && !v.isAfter)
+      else if (workStatus === "before") works = works.filter((v: any) => v.isBefore)
+      else if (workStatus === "after") works = works.filter((v: any) => v.isAfter)
     }
-    const length = work.length
-    if (page && perPage) work = work.slice((page - 1) * perPage, page * perPage)
+    const length = works.length
+    if (page && perPage) works = works.slice((page - 1) * perPage, page * perPage)
     return {
-      data: work.map((resource: any) => ({ ...resource, id: resource.idmIdentifier })),
+      data: works.map((resource: any) => ({ ...resource, id: resource.identifier })),
       total: length,
       pageInfo: { hasNextPage: (length - (page * perPage)) > 0 }
     }
   },
 
-  getListAll: async (resource: any, params: any) => {
-    const url = `${guacUrl}/api/session/data/postgresql/works`;
+  getWork: async (resource: any, params: any) => {
+    const url = `${guacUrl}/api/session/data/postgresql/works/${params.id}`;
     // const json = await httpClient(url).then(({ json }) => json)
-    const json = dummyWorks
-    let work = Object.entries(json).map((array) => array[1])
-    work.map((w: any) => {
-      w.idmIdentifier = String(w.idmIdentifier.slice(0, 5)).toUpperCase()
-    })
-    return {
-      data: work.map((resource: any) => ({ ...resource, id: resource.idmIdentifier })),
-      total: work.length
-    }
+    const json = Object.entries(dummyWorks).map((array) => array[1]).filter((v: any) => {
+      return v.identifier === params.id
+    })[0]
+    let w = json
+    const now = new Date()
+    const converted = w.periods.map((period: any) => convertPeriod(period))
+    w.isNow = converted.filter((period: Array<Array<number>>) =>
+      period.filter((time: Array<number>) =>
+        (now.getTime() > time[0] && now.getTime() < time[1])
+      ).length > 0
+    ).length > 0
+    w.isOut = converted.filter((period: Array<Array<number>>) =>
+      period.filter((time: Array<number>) =>
+        (now.getTime() > time[0] && now.getTime() < time[1])
+      ).length === 0
+    ).length === w.periods.length
+    w.isBefore = converted.filter((period: Array<Array<number>>) =>
+      period.filter((time: Array<number>) =>
+        now.getTime() > time[0]
+      ).length === 0
+    ).length === w.periods.length
+    w.isAfter = converted.filter((period: Array<Array<number>>) =>
+      period.filter((time: Array<number>) =>
+        now.getTime() < time[1]
+      ).length === 0
+    ).length === w.periods.length
+    w.id = w.identifier
+    return w
   },
 }
 
@@ -303,17 +317,26 @@ export const ConnectProvider = {
     const workId = resource.split("/")[1]
     const workUrl = `${guacUrl}/api/session/data/postgresql/works/${workId}`
     // const json = await httpClient(workUrl).then(({ json }) => json)
-    const json = dummyWorks
-    let work:any = Object
-      .entries(json)
+    const json = Object
+      .entries(dummyWorks)
       .map((array) => array[1])
       .filter((v: any) => {
-        return v.idmIdentifier.slice(0, 5) === workId
+        return v.identifier === workId
       })[0]
+    const work: any = json
     let connections = work.connections
-    if (q) connections = connections.filter((v: any) => v.name.includes(String(q)))
+    if (q) connections = connections.filter((v: any) =>
+      v.hostname.includes(String(q))
+      || v.protocol.includes(String(q))
+      || v.remark.includes(String(q))
+      || v.identifier.includes(String(q))
+    )
     if (protocol) connections = connections.filter((v: any) => v.protocol === protocol)
     if (field) connections = connections.sort((a: any, b: any) => {
+      if (field === "identifier") {
+        const unit = order === "ASC" ? 1 : -1
+        return (Number(a[field]) - Number(b[field])) * unit
+      }
       if (a[field] < b[field]) {
         if (order === "ASC") return 1
         return -1;
@@ -325,7 +348,7 @@ export const ConnectProvider = {
       return 0;
     })
     if (parent) connections = connections.filter((v: any) =>
-      v.parentIdentifier === parent
+      v.hostname === parent
     )
     const length = connections.length
     if (page && perPage) connections = connections.slice((page - 1) * perPage, page * perPage)
@@ -357,17 +380,17 @@ export const ConnectProvider = {
     const workId = resource.split("/")[1];
     const workUrl = `${guacUrl}/api/session/data/postgresql/works/${workId}`
     // const json = await httpClient(workUrl).then(({ json }) => json)
-    const json = dummyWorks
-    let work:any = Object
-      .entries(json)
+    const json = Object
+      .entries(dummyWorks)
       .map((array) => array[1])
       .filter((v: any) => {
-        return v.idmIdentifier.slice(0, 5) === workId
+        return v.identifier === workId
       })[0]
-    let connections = work.connections
-    const parents: Array<any> = []
+    const work: any = json
+    const connections = work.connections
+    const parents: Array<string> = []
     connections.map((connection: any) => {
-      if (parents.indexOf(connection.parentIdentifier) === -1) parents.push(connection.parentIdentifier)
+      if (parents.indexOf(connection.hostname) === -1) parents.push(connection.hostname)
     })
     return parents
   },
@@ -381,26 +404,37 @@ export const HistoryProvider = {
     const { field, order } = params.sort
     const { q, duration, startTime } = params.filter
     const workId = resource.split("/")[1];
-    const url = `${guacUrl}/api/session/data/postgresql/history/connections`;
-    const workUrl = `${guacUrl}/guacamole/api/session/data/postgresql/works/${workId}`
-    // const json = await httpClient(workUrl).then(({ json }) => json)
-    const json = dummyWorks
-    let work:any = Object
-      .entries(json)
-      .map((array) => array[1])
-      .filter((v: any) => {
-        return v.idmIdentifier.slice(0, 5) === workId
-      })[0]
-    const historyJson = await httpClient(url).then(({ json }) => json)
+    const historyUrl = `${guacUrl}/api/session/data/postgresql/history/connections`;
+    const workListUrl = `${guacUrl}/api/session/data/postgresql/works`
+    const workUrl = `${guacUrl}/api/session/data/postgresql/works/${workId}`
+    // const historyJson = await httpClient(historyUrl).then(({ json }) => json)
+    const historyJson = testHistory
     let history = historyJson
-    if (workId !== "all") history = history.filter((v: any) => {
-      const ids = work.connections.map((connection: any) => Number(connection.identifier))
-      return ids.indexOf(Number(v.connectionIdentifier)) !== -1
-    })
+    if (workId !== "all") {
+      // const workJson = await httpClient(workUrl).then(({ json }) => json)
+      const workJson = Object
+        .entries(dummyWorks)
+        .map((array) => array[1])
+        .filter((v: any) => {
+          return v.identifier === workId
+        })[0]
+      history = history.filter((v: any) => v.workId === workJson.idmIdentifier)
+    }
+    else {
+      // const worksJson = await httpClient(workListUrl).then(({ json }) => json)
+      const worksJson = dummyWorks
+      const works: any = Object
+        .entries(worksJson)
+        .map((array) => array[1])
+      const adminWorks = works.filter((v: any) => {
+        return v.isAdmin
+      }).map((work: any) => String(work.idmIdentifier))
+      history = history.filter((v: any) => adminWorks.indexOf(String(v.workId)) !== -1)
+    }
     if (q) history = history.filter((v: any) => (
-      v.connectionName.includes(String(q))
-      || String(v.connectionIdentifier).includes(String(q))
+      v.hostname.includes(String(q))
       || v.username.includes(String(q))
+      || v.protocol.includes(String(q))
     ))
     if (duration) history = history.filter((v: any) => v.endDate - v.startDate >= duration)
     if (startTime) history = history.filter((v: any) => v.startDate >= new Date().getTime() - startTime)
@@ -472,75 +506,61 @@ export const SFTPProvider = {
   getList: async (resource: any, params: any) => {
     const { page, perPage } = params.pagination;
     const { field, order } = params.sort;
-    const { path, connectionId, token } = params.meta
-    const query = {
-      path: path,
-      id: connectionId,
-      token: token,
-    };
-    const url = `${apiUrl}/sftp/readdir?${stringify(query)}`;
-    return httpClient(url).then(({ json }) => {
-      const total = json.length
-      let list = json
-      list = list.map((file: any) => {
-        return {
-          ...file,
-          attrs: {
-            ...file.attrs,
-            mmtime: file.attrs.mtime * 1000,
-            amtime: file.attrs.mtime * 1000,
-          }
-        }
-      })
-      if (path !== "/") list = [{
-        filename: "..",
-        longname: "drw-rw-rw-    1 root     root",
+    const { json, path } = params.meta
+    let list = json ? JSON.parse(json).list : []
+    list = list.map((file: any) => {
+      return {
+        ...file,
+        sortSize: file.attrs.size,
+        sortMtime: file.attrs.mtime,
+        sortAtime: file.attrs.atime,
         attrs: {
-          "mode": 33188,
-          "uid": 0,
-          "gid": 0,
-          "size": 0,
-          "atime": 0,
-          "mtime": 0
+          ...file.attrs,
+          mmtime: file.attrs.mtime * 1000,
+          amtime: file.attrs.atime * 1000,
         }
-      }].concat(list)
-      if (page && perPage) list = list.slice((page - 1) * perPage, page * perPage)
-      if (field) list = list.sort((a: any, b: any) => {
-        if (a[field] < b[field]) {
-          if (order === "ASC") return 1
-          return -1;
-        }
-        if (a[field] > b[field]) {
-          if (order === "ASC") return -1
-          return 1;
-        }
-        return 0;
-      })
-      return { list, total }
-    }).then(({ list, total }) => ({
+      }
+    })
+    if (path !== "/") list = [{
+      filename: "..",
+      longname: "drw-rw-rw-    1 root     root",
+      sortSize: "-",
+      attrs: {
+        "mode": 33188,
+        "uid": 0,
+        "gid": 0,
+        "size": 0,
+        "atime": "-",
+        "mtime": "-"
+      }
+    }].concat(list)
+    if (field) list = list.sort((a: any, b: any) => {
+      if (a[field] < b[field]) {
+        if (order === "ASC") return 1
+        return -1;
+      }
+      if (a[field] > b[field]) {
+        if (order === "ASC") return -1
+        return 1;
+      }
+      return 0;
+    })
+    const total = list.length
+    if (page && perPage) list = list.slice((page - 1) * perPage, page * perPage)
+    return {
       data: list.map((file: any) => ({
         ...file,
         id: path === "/" ? "/" + file.filename : path + "/" + file.filename
       })),
       total: total
-    }))
+    }
   },
-
-  gethome: async (resource: any, params: any) => {
+  childdirs: (resource: any, params: any) => {
     const query = {
-      id: params.connectionId,
-      token: params.token,
-    };
-    const url = `${apiUrl}/sftp/gethome?${stringify(query)}`;
-    return httpClient(url)
-  },
-  readdir: async (resource: any, params: any) => {
-    const query = {
-      path: params.path,
-      id: params.connectionId,
-      token: params.token,
-    };
-    const url = `${apiUrl}/sftp/readdir?${stringify(query)}`;
-    return httpClient(url).then(({ json }) => json)
+      path: params.path
+    }
+    return httpClient(`${apiUrl}/sftp/childdirs?${stringify(query)}`, {
+      method: "GET"
+    })
   },
 }

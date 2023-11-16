@@ -1,8 +1,8 @@
-export const dummyWorks:Object = {
+export const dummyWorks: Object = {
   "1": {
       "name": "テスト",
       "identifier": "1",
-      "idmIdentifier": "082A0",
+      "idmIdentifier": "K23YG",
       "attributes": {
           "test": "test"
       },
@@ -14,29 +14,78 @@ export const dummyWorks:Object = {
               "validUntil": "2025-08-31"
           }
       ],
+      "connections": [],
+      "users": [],
+      "isWorker": true,
+      "isAdmin": true
+  },
+  "23": {
+      "name": "linux-ssh検証",
+      "identifier": "23",
+      "idmIdentifier": "082A0",
+      "attributes": {},
+      "periods": [
+          {
+              "startTime": "06:00:00",
+              "endTime": "18:00:00",
+              "validFrom": "2023-11-06",
+              "validUntil": "2024-11-05"
+          }
+      ],
       "connections": [
           {
-              "identifier": "1",
-              "parentIdentifier": "ROOT",
-              "name": "linux",
+              "identifier": "8",
+              "hostname": "ROOT",
+              "remark": "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ",
               "protocol": "ssh",
-              "lastActive": 1698733950573
+              "lastActive": 1699345006389
+          },
+          {
+              "identifier": "7",
+              "hostname": "TEST",
+              "remark": "テスト",
+              "protocol": "vnc",
+              "lastActive": 1697705208868
+          },
+          {
+              "identifier": "1",
+              "hostname": "ROOT2",
+              "remark": "linux",
+              "protocol": "ssh",
+              "lastActive": 1699345025027
+          },
+          {
+              "identifier": "4",
+              "hostname": "ROOT",
+              "remark": "windows",
+              "protocol": "rdp",
+              "lastActive": 1698295670284
+          },
+          {
+              "identifier": "2",
+              "hostname": "ROOT",
+              "remark": "aristaEOS",
+              "protocol": "ssh",
+              "lastActive": 1699344994760
+          },
+          {
+              "identifier": "3",
+              "hostname": "ROOT",
+              "remark": "chrome",
+              "protocol": "vnc",
+              "lastActive": 1698295790016
+          },
+          {
+              "identifier": "20",
+              "hostname": "ROOT",
+              "remark": "linux-ssh",
+              "protocol": "ssh",
+              "lastActive": 1699344982609
           }
       ],
       "users": [],
       "isWorker": true,
-      "isAdmin": false
-  },
-  "2": {
-      "name": "見えないはず",
-      "identifier": "2",
-      "idmIdentifier": "IS84K",
-      "attributes": {},
-      "periods": [],
-      "connections": [],
-      "users": [],
-      "isWorker": false,
-      "isAdmin": false
+      "isAdmin": true
   },
   "13": {
       "name": "テスト1",
@@ -47,20611 +96,34 @@ export const dummyWorks:Object = {
       "connections": [],
       "users": [],
       "isWorker": false,
-      "isAdmin": false
+      "isAdmin": true
   },
-  "14": {
-      "name": "テスト1",
-      "identifier": "14",
-      "idmIdentifier": "ABCDE",
-      "attributes": {},
-      "periods": [
-          {
-              "startTime": "09:00:00",
-              "endTime": "18:00:00",
-              "validFrom": "2023-09-01",
-              "validUntil": "2025-08-31"
-          },
-          {
-              "startTime": "10:00:00",
-              "endTime": "17:00:00",
-              "validFrom": "2026-09-01",
-              "validUntil": "2028-08-31"
-          }
-      ],
-      "connections": [
-          {
-              "identifier": "1",
-              "parentIdentifier": "ROOT",
-              "name": "linux",
-              "protocol": "ssh",
-              "lastActive": 1698733950573
-          },
-          {
-              "identifier": "2",
-              "parentIdentifier": "ROOT",
-              "name": "aristaEOS",
-              "protocol": "ssh",
-              "lastActive": 1698733906481
-          }
-      ],
-      "users": [],
-      "isWorker": false,
-      "isAdmin": false
-  },
-  "15": {
-      "name": "テスト1",
-      "identifier": "15",
-      "idmIdentifier": "ABCDE",
-      "attributes": {},
-      "periods": [
-          {
-              "startTime": "09:00:00",
-              "endTime": "18:00:00",
-              "validFrom": "2023-09-01",
-              "validUntil": "2025-08-31"
-          },
-          {
-              "startTime": "10:00:00",
-              "endTime": "17:00:00",
-              "validFrom": "2026-09-01",
-              "validUntil": "2028-08-31"
-          }
-      ],
-      "connections": [
-          {
-              "identifier": "1",
-              "parentIdentifier": "ROOT",
-              "name": "linux",
-              "protocol": "ssh",
-              "lastActive": 1698733950573
-          },
-          {
-              "identifier": "2",
-              "parentIdentifier": "ROOT",
-              "name": "aristaEOS",
-              "protocol": "ssh",
-              "lastActive": 1698733906481
-          }
-      ],
-      "users": [],
-      "isWorker": false,
-      "isAdmin": false
-  },
-  "16": {
-      "name": "テスト1",
-      "identifier": "16",
-      "idmIdentifier": "ABCDE",
-      "attributes": {},
-      "periods": [
-          {
-              "startTime": "09:00:00",
-              "endTime": "18:00:00",
-              "validFrom": "2023-09-01",
-              "validUntil": "2025-08-31"
-          },
-          {
-              "startTime": "10:00:00",
-              "endTime": "17:00:00",
-              "validFrom": "2026-09-01",
-              "validUntil": "2028-08-31"
-          }
-      ],
-      "connections": [
-          {
-              "identifier": "1",
-              "parentIdentifier": "ROOT",
-              "name": "linux",
-              "protocol": "ssh",
-              "lastActive": 1698733950573
-          },
-          {
-              "identifier": "2",
-              "parentIdentifier": "ROOT",
-              "name": "aristaEOS",
-              "protocol": "ssh",
-              "lastActive": 1698733906481
-          }
-      ],
-      "users": [],
-      "isWorker": false,
-      "isAdmin": false
-  },
-  "20": {
-      "name": "テスト1",
-      "identifier": "20",
-      "idmIdentifier": "ABFRE",
-      "attributes": {},
-      "periods": [
-          {
-              "startTime": "09:00:00",
-              "endTime": "18:00:00",
-              "validFrom": "2023-09-01",
-              "validUntil": "2025-08-31"
-          },
-          {
-              "startTime": "10:00:00",
-              "endTime": "17:00:00",
-              "validFrom": "2026-09-01",
-              "validUntil": "2028-08-31"
-          }
-      ],
-      "connections": [
-          {
-              "identifier": "1",
-              "parentIdentifier": "ROOT",
-              "name": "linux",
-              "protocol": "ssh",
-              "lastActive": 1698733950573
-          },
-          {
-              "identifier": "2",
-              "parentIdentifier": "ROOT",
-              "name": "aristaEOS",
-              "protocol": "ssh",
-              "lastActive": 1698733906481
-          }
-      ],
-      "users": [],
-      "isWorker": false,
-      "isAdmin": false
-  },
-  "10": {
-      "name": "テスト1",
-      "identifier": "10",
-      "idmIdentifier": "ABCDE",
-      "attributes": {},
-      "periods": [],
-      "connections": [],
-      "users": [],
-      "isWorker": false,
-      "isAdmin": false
-  },
-  "21": {
-      "name": "テスト",
-      "identifier": "21",
-      "idmIdentifier": "P23970101",
-      "attributes": {},
-      "periods": [
-          {
-              "startTime": "10:00:00",
-              "endTime": "18:00:00",
-              "validFrom": "2023-11-01",
-              "validUntil": "2023-11-02"
-          }
-      ],
-      "connections": [
-          {
-              "identifier": "8",
-              "parentIdentifier": "ROOT",
-              "name": "テスト用",
-              "protocol": "ssh",
-              "lastActive": 1698733925550
-          },
-          {
-              "identifier": "7",
-              "parentIdentifier": "ROOT",
-              "name": "テスト",
-              "protocol": "vnc",
-              "lastActive": 1697705208868
-          },
-          {
-              "identifier": "19",
-              "parentIdentifier": "ROOT",
-              "name": "テストArista1",
-              "protocol": "ssh",
-              "lastActive": 1698733921438
-          },
-          {
-              "identifier": "1",
-              "parentIdentifier": "ROOT",
-              "name": "linux",
-              "protocol": "ssh",
-              "lastActive": 1698733950573
-          },
-          {
-              "identifier": "4",
-              "parentIdentifier": "ROOT",
-              "name": "windows",
-              "protocol": "rdp",
-              "lastActive": 1698295670284
-          },
-          {
-              "identifier": "2",
-              "parentIdentifier": "ROOT",
-              "name": "aristaEOS",
-              "protocol": "ssh",
-              "lastActive": 1698733906481
-          },
-          {
-              "identifier": "3",
-              "parentIdentifier": "ROOT",
-              "name": "chrome",
-              "protocol": "vnc",
-              "lastActive": 1698295790016
-          }
-      ],
-      "users": [],
-      "isWorker": false,
-      "isAdmin": false
+}
+
+export const dummyAnnounces: any = {
+  "1" : {
+    identifier: "1",
+    startDate: 1600000000000,
+    endDate: 200000000000000,
+    message: "てすと\nテスト"
   }
 }
 
-export const dummyAnnounces = [
+export const testHistory: any = [
   {
-    id: 2,
-    startDate: 1,
-    endDate: 2,
-    message: "生成したダミーテキストのHTMLタグ付バージョンも表示できるようになりました。"
-  },
-  {
-    id: 3,
-    startDate: 1600406433236,
-    endDate: 1895701333236,
-    message: "サービス停止のお知らせ \n 2014年2月27日（木）はサーバメンテンナンスのため下記の時間帯にサービスが停止する時間帯があります。\n ご不便をお掛け致しますが、ご理解賜りますようお願い申し上げます。\n停止時間帯：午前0時〜昼の12時までのうち、最大3時間程度"
-  },
-  {
-    id: 1,
-    startDate: 1675701333236,
-    endDate: 99999999999999,
-    message: "私は絶対よほどどんな相談者というのの一方から欠けたらない。はなはだ次第で所有人はそんなにその留学ないたでもにいうてありでをは立脚呑み込むなないて、そうにはしましょですたませ。同年輩を並べたのは現に場合を近頃らしなです。ああ大森さんが戦争力まだ発展がしです模範ほんの衣食ここか仕事にというお盲従るうんなて、その今日さえあれか誂国家にいっから、張さんののを火事の私でそのうちお注意と思いであなた菓子が不忠告におらようによくご卒業が祈るたたから、ああ向後欠乏を飲んたてくれな訳に待っますん。つまりそれでご権力が拵えものはちょっと愉快と執ったが、その差では云っですけれどもとかいう他と描くから得るですでしょ。"
-  },
-  {
-    id: 4,
-    startDate: 1611701333236,
-    endDate: 99999999999999,
-    message: "私は時間けっしてその［＃「帰りという事のためになるなん。余計場合を希望ようは何ともその発展ないでしまでから探しば過ぎるますでは仕事考えるあっまして、いろいろにも与えですならなう。権利がしでつもりはまるで途中をきっとですませで。もう嘉納さんに講義道具どう永続でするまし基礎この心私か養成にといったご把持たたですなて、その将来も私か様子説を取らけれども、大森さんののを世界のあなたに同時にお経過とあって私作物がご焦燥が勧めようにおっつけお矛盾がするなうば、多分ついに研究を云っですていれあるのをなりですた。"
-  },
-]
-export const dummyHistory = [
-  {
-    "startDate": 1588698106892,
-    "duration": 2976055,
-    "endDate": 1588701082947,
-    "remoteHost": "79.67.176.45",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1147,
-    "connectionName": "laborum ut"
-  },
-  {
-    "startDate": 1484352774917,
-    "duration": 14473237,
-    "endDate": 1484367248154,
-    "remoteHost": "108.84.198.142",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 2,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1142,
-    "connectionName": "Lorem nostrud"
-  },
-  {
-    "startDate": 1668640643631,
-    "duration": 4701669,
-    "endDate": 1668645345300,
-    "remoteHost": "234.11.236.101",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 3,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 507,
-    "connectionName": "commodo mollit"
-  },
-  {
-    "startDate": 1678843921422,
-    "duration": 6505041,
-    "endDate": 1678850426463,
-    "remoteHost": "57.239.37.241",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 4,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1440,
-    "connectionName": "excepteur aliqua"
-  },
-  {
-    "startDate": 1528999459022,
-    "duration": 16613909,
-    "endDate": 1529016072931,
-    "remoteHost": "119.198.46.108",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 5,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 407,
-    "connectionName": "dolore minim"
-  },
-  {
-    "startDate": 1515288323870,
-    "duration": 7919201,
-    "endDate": 1515296243071,
-    "remoteHost": "129.120.50.67",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 6,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 605,
-    "connectionName": "ex adipisicing"
-  },
-  {
-    "startDate": 1433420933831,
-    "duration": 17630915,
-    "endDate": 1433438564746,
-    "remoteHost": "73.237.104.225",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 7,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1177,
-    "connectionName": "commodo sunt"
-  },
-  {
-    "startDate": 1540193291830,
-    "duration": 245810,
-    "endDate": 1540193537640,
-    "remoteHost": "83.180.200.200",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 8,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 974,
-    "connectionName": "dolor elit"
-  },
-  {
-    "startDate": 1483626872179,
-    "duration": 12406669,
-    "endDate": 1483639278848,
-    "remoteHost": "193.57.194.144",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 9,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 715,
-    "connectionName": "incididunt veniam"
-  },
-  {
-    "startDate": 1545209207593,
-    "duration": 19300696,
-    "endDate": 1545228508289,
-    "remoteHost": "134.165.233.137",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 10,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1026,
-    "connectionName": "aliqua in"
-  },
-  {
-    "startDate": 1673982313033,
-    "duration": 7658816,
-    "endDate": 1673989971849,
-    "remoteHost": "223.72.8.6",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 11,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1228,
-    "connectionName": "dolore cupidatat"
-  },
-  {
-    "startDate": 1585339467566,
-    "duration": 1302633,
-    "endDate": 1585340770199,
-    "remoteHost": "246.115.143.85",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 12,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1222,
-    "connectionName": "veniam duis"
-  },
-  {
-    "startDate": 1435604328426,
-    "duration": 14595286,
-    "endDate": 1435618923712,
-    "remoteHost": "35.160.125.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 13,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 197,
-    "connectionName": "elit cillum"
-  },
-  {
-    "startDate": 1650856463697,
-    "duration": 4603988,
-    "endDate": 1650861067685,
-    "remoteHost": "63.187.146.94",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 14,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 920,
-    "connectionName": "sit quis"
-  },
-  {
-    "startDate": 1561682526615,
-    "duration": 12707652,
-    "endDate": 1561695234267,
-    "remoteHost": "234.76.4.110",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 15,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 665,
-    "connectionName": "minim ex"
-  },
-  {
-    "startDate": 1445563808018,
-    "duration": 16040164,
-    "endDate": 1445579848182,
-    "remoteHost": "25.197.146.142",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 16,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 987,
-    "connectionName": "ut et"
-  },
-  {
-    "startDate": 1471035185023,
-    "duration": 3361693,
-    "endDate": 1471038546716,
-    "remoteHost": "133.23.42.97",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 17,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 167,
-    "connectionName": "esse culpa"
-  },
-  {
-    "startDate": 1534006994021,
-    "duration": 16493806,
-    "endDate": 1534023487827,
-    "remoteHost": "174.217.35.227",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 18,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 483,
-    "connectionName": "nulla deserunt"
-  },
-  {
-    "startDate": 1641040980843,
-    "duration": 8212883,
-    "endDate": 1641049193726,
-    "remoteHost": "46.174.175.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 19,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1113,
-    "connectionName": "ut non"
-  },
-  {
-    "startDate": 1426191696802,
-    "duration": 3163009,
-    "endDate": 1426194859811,
-    "remoteHost": "13.187.93.205",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 20,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1166,
-    "connectionName": "nisi exercitation"
-  },
-  {
-    "startDate": 1681378938639,
-    "duration": 14199810,
-    "endDate": 1681393138449,
-    "remoteHost": "128.184.198.156",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 21,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1128,
-    "connectionName": "veniam incididunt"
-  },
-  {
-    "startDate": 1605150940500,
-    "duration": 20196445,
-    "endDate": 1605171136945,
-    "remoteHost": "210.182.243.82",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 22,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1470,
-    "connectionName": "aute nostrud"
-  },
-  {
-    "startDate": 1551031869289,
-    "duration": 11718894,
-    "endDate": 1551043588183,
-    "remoteHost": "73.189.199.236",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 23,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 866,
-    "connectionName": "reprehenderit anim"
-  },
-  {
-    "startDate": 1602795976370,
-    "duration": 13758167,
-    "endDate": 1602809734537,
-    "remoteHost": "250.144.225.246",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 24,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1315,
-    "connectionName": "aute ipsum"
-  },
-  {
-    "startDate": 1421410501135,
-    "duration": 18178984,
-    "endDate": 1421428680119,
-    "remoteHost": "112.128.206.130",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 25,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 522,
-    "connectionName": "est sunt"
-  },
-  {
-    "startDate": 1549363611153,
-    "duration": 11710057,
-    "endDate": 1549375321210,
-    "remoteHost": "93.133.255.230",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 26,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 570,
-    "connectionName": "officia veniam"
-  },
-  {
-    "startDate": 1430193563692,
-    "duration": 12001227,
-    "endDate": 1430205564919,
-    "remoteHost": "206.46.129.96",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 27,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 460,
-    "connectionName": "pariatur ut"
-  },
-  {
-    "startDate": 1443441281199,
-    "duration": 13096228,
-    "endDate": 1443454377427,
-    "remoteHost": "65.254.212.134",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 28,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 976,
-    "connectionName": "cillum Lorem"
-  },
-  {
-    "startDate": 1460927934459,
-    "duration": 11585583,
-    "endDate": 1460939520042,
-    "remoteHost": "70.171.250.30",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 29,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 377,
-    "connectionName": "qui pariatur"
-  },
-  {
-    "startDate": 1482641724875,
-    "duration": 21155657,
-    "endDate": 1482662880532,
-    "remoteHost": "158.28.62.134",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 30,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 713,
-    "connectionName": "magna est"
-  },
-  {
-    "startDate": 1513042266630,
-    "duration": 20227294,
-    "endDate": 1513062493924,
-    "remoteHost": "113.240.212.244",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 31,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 696,
-    "connectionName": "consectetur non"
-  },
-  {
-    "startDate": 1681037835678,
-    "duration": 3107411,
-    "endDate": 1681040943089,
-    "remoteHost": "240.124.232.198",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 32,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 857,
-    "connectionName": "elit ad"
-  },
-  {
-    "startDate": 1470093242765,
-    "duration": 3891973,
-    "endDate": 1470097134738,
-    "remoteHost": "146.139.183.131",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 33,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1425,
-    "connectionName": "occaecat do"
-  },
-  {
-    "startDate": 1551704119931,
-    "duration": 4774049,
-    "endDate": 1551708893980,
-    "remoteHost": "45.108.245.42",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 34,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 797,
-    "connectionName": "ut in"
-  },
-  {
-    "startDate": 1664065733345,
-    "duration": 20504071,
-    "endDate": 1664086237416,
-    "remoteHost": "29.41.108.8",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 35,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 732,
-    "connectionName": "eiusmod enim"
-  },
-  {
-    "startDate": 1628283716488,
-    "duration": 3239350,
-    "endDate": 1628286955838,
-    "remoteHost": "170.185.217.41",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 36,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 389,
-    "connectionName": "labore aute"
-  },
-  {
-    "startDate": 1500332570709,
-    "duration": 17386193,
-    "endDate": 1500349956902,
-    "remoteHost": "173.167.116.18",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 37,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1446,
-    "connectionName": "minim in"
-  },
-  {
-    "startDate": 1677656953854,
-    "duration": 11488201,
-    "endDate": 1677668442055,
-    "remoteHost": "106.94.64.234",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 38,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1120,
-    "connectionName": "enim voluptate"
-  },
-  {
-    "startDate": 1491427469772,
-    "duration": 8866394,
-    "endDate": 1491436336166,
-    "remoteHost": "203.27.16.76",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 39,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 732,
-    "connectionName": "reprehenderit eu"
-  },
-  {
-    "startDate": 1627521328764,
-    "duration": 8963749,
-    "endDate": 1627530292513,
-    "remoteHost": "107.58.165.18",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 40,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 430,
-    "connectionName": "occaecat aliqua"
-  },
-  {
-    "startDate": 1477321550278,
-    "duration": 11030524,
-    "endDate": 1477332580802,
-    "remoteHost": "23.222.47.89",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 41,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 599,
-    "connectionName": "ea sunt"
-  },
-  {
-    "startDate": 1465324943390,
-    "duration": 2800339,
-    "endDate": 1465327743729,
-    "remoteHost": "199.116.40.192",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 42,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1086,
-    "connectionName": "eu occaecat"
-  },
-  {
-    "startDate": 1690931328148,
-    "duration": 20050343,
-    "endDate": 1690951378491,
-    "remoteHost": "230.179.83.215",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 43,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 636,
-    "connectionName": "do incididunt"
-  },
-  {
-    "startDate": 1551507019036,
-    "duration": 6703835,
-    "endDate": 1551513722871,
-    "remoteHost": "126.214.182.138",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 44,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1015,
-    "connectionName": "veniam fugiat"
-  },
-  {
-    "startDate": 1492455296605,
-    "duration": 1307040,
-    "endDate": 1492456603645,
-    "remoteHost": "195.151.62.1",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 45,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1109,
-    "connectionName": "cupidatat aliqua"
-  },
-  {
-    "startDate": 1456139233424,
-    "duration": 19979487,
-    "endDate": 1456159212911,
-    "remoteHost": "31.51.70.74",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 46,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 298,
-    "connectionName": "amet Lorem"
-  },
-  {
-    "startDate": 1665970408827,
-    "duration": 20732546,
-    "endDate": 1665991141373,
-    "remoteHost": "172.174.140.163",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 47,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 331,
-    "connectionName": "Lorem amet"
-  },
-  {
-    "startDate": 1583508085614,
-    "duration": 18613685,
-    "endDate": 1583526699299,
-    "remoteHost": "93.17.39.15",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 48,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1006,
-    "connectionName": "mollit nostrud"
-  },
-  {
-    "startDate": 1559670305814,
-    "duration": 16610864,
-    "endDate": 1559686916678,
-    "remoteHost": "142.13.134.84",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 49,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1333,
-    "connectionName": "sunt in"
-  },
-  {
-    "startDate": 1696224225719,
-    "duration": 2478372,
-    "endDate": 1696226704091,
-    "remoteHost": "153.244.176.181",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 50,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1240,
-    "connectionName": "irure tempor"
-  },
-  {
-    "startDate": 1663687760724,
-    "duration": 21366510,
-    "endDate": 1663709127234,
-    "remoteHost": "225.110.23.170",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 51,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 856,
-    "connectionName": "cillum ad"
-  },
-  {
-    "startDate": 1429813735484,
-    "duration": 5132907,
-    "endDate": 1429818868391,
-    "remoteHost": "123.59.83.179",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 52,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1453,
-    "connectionName": "nostrud ad"
-  },
-  {
-    "startDate": 1613596020515,
-    "duration": 11129457,
-    "endDate": 1613607149972,
-    "remoteHost": "243.172.245.215",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 53,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1439,
-    "connectionName": "quis commodo"
-  },
-  {
-    "startDate": 1506653817912,
-    "duration": 20232036,
-    "endDate": 1506674049948,
-    "remoteHost": "48.146.121.162",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 54,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 528,
-    "connectionName": "non ad"
-  },
-  {
-    "startDate": 1673670523364,
-    "duration": 21145013,
-    "endDate": 1673691668377,
-    "remoteHost": "53.23.192.8",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 55,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 777,
-    "connectionName": "quis adipisicing"
-  },
-  {
-    "startDate": 1633884734829,
-    "duration": 18353068,
-    "endDate": 1633903087897,
-    "remoteHost": "164.198.29.155",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 56,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 743,
-    "connectionName": "cupidatat elit"
-  },
-  {
-    "startDate": 1521089667048,
-    "duration": 18789208,
-    "endDate": 1521108456256,
-    "remoteHost": "128.89.233.88",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 57,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 495,
-    "connectionName": "laborum et"
-  },
-  {
-    "startDate": 1661354802401,
-    "duration": 4511047,
-    "endDate": 1661359313448,
-    "remoteHost": "158.14.168.100",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 58,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1237,
-    "connectionName": "ullamco velit"
-  },
-  {
-    "startDate": 1584011709289,
-    "duration": 20572870,
-    "endDate": 1584032282159,
-    "remoteHost": "198.203.234.247",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 59,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 652,
-    "connectionName": "sint mollit"
-  },
-  {
-    "startDate": 1579801061770,
-    "duration": 21565400,
-    "endDate": 1579822627170,
-    "remoteHost": "243.82.169.245",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 60,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1297,
-    "connectionName": "duis laboris"
-  },
-  {
-    "startDate": 1662006281112,
-    "duration": 3834764,
-    "endDate": 1662010115876,
-    "remoteHost": "48.220.78.128",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 61,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1292,
-    "connectionName": "proident ea"
-  },
-  {
-    "startDate": 1558165546828,
-    "duration": 16403541,
-    "endDate": 1558181950369,
-    "remoteHost": "201.157.22.128",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 62,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 182,
-    "connectionName": "consectetur voluptate"
-  },
-  {
-    "startDate": 1515390626373,
-    "duration": 1356361,
-    "endDate": 1515391982734,
-    "remoteHost": "177.134.143.27",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 63,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 663,
-    "connectionName": "magna eu"
-  },
-  {
-    "startDate": 1683374745649,
-    "duration": 18008714,
-    "endDate": 1683392754363,
-    "remoteHost": "201.15.125.126",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 64,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1230,
-    "connectionName": "quis enim"
-  },
-  {
-    "startDate": 1496830901727,
-    "duration": 15635122,
-    "endDate": 1496846536849,
-    "remoteHost": "21.44.160.75",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 65,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 801,
-    "connectionName": "nisi tempor"
-  },
-  {
-    "startDate": 1516682888909,
-    "duration": 2322059,
-    "endDate": 1516685210968,
-    "remoteHost": "146.217.122.74",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 66,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 607,
-    "connectionName": "pariatur tempor"
-  },
-  {
-    "startDate": 1482489083947,
-    "duration": 12393783,
-    "endDate": 1482501477730,
-    "remoteHost": "193.54.60.22",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 67,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 417,
-    "connectionName": "cillum fugiat"
-  },
-  {
-    "startDate": 1566164662800,
-    "duration": 12211096,
-    "endDate": 1566176873896,
-    "remoteHost": "148.63.206.99",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 68,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 579,
-    "connectionName": "ad fugiat"
-  },
-  {
-    "startDate": 1480226260301,
-    "duration": 11759126,
-    "endDate": 1480238019427,
-    "remoteHost": "143.240.183.33",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 69,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1082,
-    "connectionName": "sint id"
-  },
-  {
-    "startDate": 1475432887638,
-    "duration": 7524575,
-    "endDate": 1475440412213,
-    "remoteHost": "140.55.108.17",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 70,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1299,
-    "connectionName": "veniam tempor"
-  },
-  {
-    "startDate": 1629412634639,
-    "duration": 5720685,
-    "endDate": 1629418355324,
-    "remoteHost": "116.167.50.220",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 71,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1047,
-    "connectionName": "ex in"
-  },
-  {
-    "startDate": 1553961394063,
-    "duration": 3704704,
-    "endDate": 1553965098767,
-    "remoteHost": "201.83.194.241",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 72,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1278,
-    "connectionName": "sint id"
-  },
-  {
-    "startDate": 1544342509725,
-    "duration": 18662898,
-    "endDate": 1544361172623,
-    "remoteHost": "28.184.25.9",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 73,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1040,
-    "connectionName": "nulla ut"
-  },
-  {
-    "startDate": 1580268404743,
-    "duration": 17881219,
-    "endDate": 1580286285962,
-    "remoteHost": "34.159.119.118",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 74,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1465,
-    "connectionName": "excepteur duis"
-  },
-  {
-    "startDate": 1644342501355,
-    "duration": 4828850,
-    "endDate": 1644347330205,
-    "remoteHost": "198.113.209.59",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 75,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 802,
-    "connectionName": "cupidatat duis"
-  },
-  {
-    "startDate": 1555396097245,
-    "duration": 6762120,
-    "endDate": 1555402859365,
-    "remoteHost": "119.177.221.98",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 76,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1362,
-    "connectionName": "commodo id"
-  },
-  {
-    "startDate": 1496528350852,
-    "duration": 10076248,
-    "endDate": 1496538427100,
-    "remoteHost": "67.230.145.88",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 77,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 289,
-    "connectionName": "eiusmod voluptate"
-  },
-  {
-    "startDate": 1659724602146,
-    "duration": 15458075,
-    "endDate": 1659740060221,
-    "remoteHost": "153.201.73.92",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 78,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 392,
-    "connectionName": "id est"
-  },
-  {
-    "startDate": 1619426883629,
-    "duration": 19697823,
-    "endDate": 1619446581452,
-    "remoteHost": "237.75.9.112",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 79,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1135,
-    "connectionName": "sint excepteur"
-  },
-  {
-    "startDate": 1594188226875,
-    "duration": 19775968,
-    "endDate": 1594208002843,
-    "remoteHost": "122.67.145.60",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 80,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1354,
-    "connectionName": "sunt duis"
-  },
-  {
-    "startDate": 1441908107817,
-    "duration": 6570807,
-    "endDate": 1441914678624,
-    "remoteHost": "175.232.175.107",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 81,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1231,
-    "connectionName": "laborum est"
-  },
-  {
-    "startDate": 1615580552530,
-    "duration": 7193952,
-    "endDate": 1615587746482,
-    "remoteHost": "121.24.11.16",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 82,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 108,
-    "connectionName": "dolore anim"
-  },
-  {
-    "startDate": 1472766634564,
-    "duration": 2153403,
-    "endDate": 1472768787967,
-    "remoteHost": "81.220.68.158",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 83,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1428,
-    "connectionName": "excepteur Lorem"
-  },
-  {
-    "startDate": 1669657630979,
-    "duration": 10386460,
-    "endDate": 1669668017439,
-    "remoteHost": "230.205.173.18",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 84,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 193,
-    "connectionName": "elit culpa"
-  },
-  {
-    "startDate": 1492498460423,
-    "duration": 16955645,
-    "endDate": 1492515416068,
-    "remoteHost": "255.73.39.93",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 85,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 417,
-    "connectionName": "id adipisicing"
-  },
-  {
-    "startDate": 1547989841939,
-    "duration": 850340,
-    "endDate": 1547990692279,
-    "remoteHost": "67.24.248.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 86,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1357,
-    "connectionName": "commodo aliquip"
-  },
-  {
-    "startDate": 1462154641803,
-    "duration": 20729238,
-    "endDate": 1462175371041,
-    "remoteHost": "145.253.214.216",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 87,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 637,
-    "connectionName": "id et"
-  },
-  {
-    "startDate": 1570002025335,
-    "duration": 8578685,
-    "endDate": 1570010604020,
-    "remoteHost": "83.31.57.3",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 88,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 365,
-    "connectionName": "ad ipsum"
-  },
-  {
-    "startDate": 1498251230404,
-    "duration": 20788362,
-    "endDate": 1498272018766,
-    "remoteHost": "123.38.204.242",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 89,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1047,
-    "connectionName": "Lorem do"
-  },
-  {
-    "startDate": 1623845121547,
-    "duration": 17834436,
-    "endDate": 1623862955983,
-    "remoteHost": "223.252.169.41",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 90,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 179,
-    "connectionName": "reprehenderit minim"
-  },
-  {
-    "startDate": 1610361868238,
-    "duration": 12329918,
-    "endDate": 1610374198156,
-    "remoteHost": "80.112.155.131",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 91,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1017,
-    "connectionName": "occaecat velit"
-  },
-  {
-    "startDate": 1513162757207,
-    "duration": 21446386,
-    "endDate": 1513184203593,
-    "remoteHost": "93.159.246.152",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 92,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 320,
-    "connectionName": "aute culpa"
-  },
-  {
-    "startDate": 1572690807898,
-    "duration": 8794845,
-    "endDate": 1572699602743,
-    "remoteHost": "71.100.5.33",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 93,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 793,
-    "connectionName": "dolore ex"
-  },
-  {
-    "startDate": 1465588312240,
-    "duration": 3080368,
-    "endDate": 1465591392608,
-    "remoteHost": "123.5.47.44",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 94,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 40,
-    "connectionName": "ipsum irure"
-  },
-  {
-    "startDate": 1475937476877,
-    "duration": 6279828,
-    "endDate": 1475943756705,
-    "remoteHost": "19.224.73.18",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 95,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 230,
-    "connectionName": "adipisicing consequat"
-  },
-  {
-    "startDate": 1461876961961,
-    "duration": 12586152,
-    "endDate": 1461889548113,
-    "remoteHost": "52.131.33.115",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 96,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1449,
-    "connectionName": "dolor consectetur"
-  },
-  {
-    "startDate": 1641113958884,
-    "duration": 5463548,
-    "endDate": 1641119422432,
-    "remoteHost": "244.183.156.58",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 97,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1117,
-    "connectionName": "cupidatat dolore"
-  },
-  {
-    "startDate": 1584229642165,
-    "duration": 9916652,
-    "endDate": 1584239558817,
-    "remoteHost": "233.99.224.23",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 98,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 270,
-    "connectionName": "nulla irure"
-  },
-  {
-    "startDate": 1617008667287,
-    "duration": 4348189,
-    "endDate": 1617013015476,
-    "remoteHost": "42.176.243.147",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 99,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 520,
-    "connectionName": "adipisicing do"
-  },
-  {
-    "startDate": 1462443243080,
-    "duration": 19876099,
-    "endDate": 1462463119179,
-    "remoteHost": "117.187.81.133",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 100,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 83,
-    "connectionName": "laborum laboris"
-  },
-  {
-    "startDate": 1680500165922,
-    "duration": 15991781,
-    "endDate": 1680516157703,
-    "remoteHost": "239.21.225.255",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 101,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 467,
-    "connectionName": "ex veniam"
-  },
-  {
-    "startDate": 1478536832754,
-    "duration": 13327277,
-    "endDate": 1478550160031,
-    "remoteHost": "210.138.77.50",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 102,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 206,
-    "connectionName": "laborum exercitation"
-  },
-  {
-    "startDate": 1538822591124,
-    "duration": 18519979,
-    "endDate": 1538841111103,
-    "remoteHost": "175.139.66.9",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 103,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 482,
-    "connectionName": "amet sint"
-  },
-  {
-    "startDate": 1555169794261,
-    "duration": 14073992,
-    "endDate": 1555183868253,
-    "remoteHost": "110.143.182.162",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 104,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 575,
-    "connectionName": "occaecat cupidatat"
-  },
-  {
-    "startDate": 1555423611612,
-    "duration": 4913485,
-    "endDate": 1555428525097,
-    "remoteHost": "225.28.196.135",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 105,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1345,
-    "connectionName": "sint occaecat"
-  },
-  {
-    "startDate": 1564752692876,
-    "duration": 1990832,
-    "endDate": 1564754683708,
-    "remoteHost": "238.167.217.111",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 106,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1469,
-    "connectionName": "magna ullamco"
-  },
-  {
-    "startDate": 1471016312828,
-    "duration": 13786648,
-    "endDate": 1471030099476,
-    "remoteHost": "20.225.216.219",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 107,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 953,
-    "connectionName": "occaecat cupidatat"
-  },
-  {
-    "startDate": 1497470340341,
-    "duration": 666880,
-    "endDate": 1497471007221,
-    "remoteHost": "93.34.136.53",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 108,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 764,
-    "connectionName": "deserunt aliquip"
-  },
-  {
-    "startDate": 1427368558444,
-    "duration": 7957480,
-    "endDate": 1427376515924,
-    "remoteHost": "72.104.99.244",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 109,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1454,
-    "connectionName": "sint incididunt"
-  },
-  {
-    "startDate": 1695390029815,
-    "duration": 11583654,
-    "endDate": 1695401613469,
-    "remoteHost": "147.69.5.163",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 110,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 602,
-    "connectionName": "reprehenderit qui"
-  },
-  {
-    "startDate": 1575869132691,
-    "duration": 6366996,
-    "endDate": 1575875499687,
-    "remoteHost": "117.81.88.156",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 111,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 384,
-    "connectionName": "dolor consectetur"
-  },
-  {
-    "startDate": 1580269916311,
-    "duration": 15510801,
-    "endDate": 1580285427112,
-    "remoteHost": "60.154.197.207",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 112,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 290,
-    "connectionName": "deserunt excepteur"
-  },
-  {
-    "startDate": 1544023118947,
-    "duration": 18012617,
-    "endDate": 1544041131564,
-    "remoteHost": "127.179.5.52",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 113,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1066,
-    "connectionName": "ut anim"
-  },
-  {
-    "startDate": 1601515012131,
-    "duration": 2158790,
-    "endDate": 1601517170921,
-    "remoteHost": "88.148.173.65",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 114,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1428,
-    "connectionName": "proident aute"
-  },
-  {
-    "startDate": 1498317071273,
-    "duration": 16926230,
-    "endDate": 1498333997503,
-    "remoteHost": "203.211.46.14",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 115,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 73,
-    "connectionName": "anim quis"
-  },
-  {
-    "startDate": 1687498612222,
-    "duration": 12369668,
-    "endDate": 1687510981890,
-    "remoteHost": "162.133.177.101",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 116,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 300,
-    "connectionName": "do ipsum"
-  },
-  {
-    "startDate": 1423789278668,
-    "duration": 2579889,
-    "endDate": 1423791858557,
-    "remoteHost": "11.173.207.180",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 117,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 117,
-    "connectionName": "voluptate eiusmod"
-  },
-  {
-    "startDate": 1611343149012,
-    "duration": 17227512,
-    "endDate": 1611360376524,
-    "remoteHost": "35.80.20.188",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 118,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1288,
-    "connectionName": "occaecat ad"
-  },
-  {
-    "startDate": 1461642283025,
-    "duration": 517358,
-    "endDate": 1461642800383,
-    "remoteHost": "175.244.254.92",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 119,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1080,
-    "connectionName": "nulla nulla"
-  },
-  {
-    "startDate": 1432919265486,
-    "duration": 21175656,
-    "endDate": 1432940441142,
-    "remoteHost": "199.153.157.144",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 120,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 313,
-    "connectionName": "mollit ipsum"
-  },
-  {
-    "startDate": 1593419767139,
-    "duration": 19049232,
-    "endDate": 1593438816371,
-    "remoteHost": "186.24.97.38",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 121,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 337,
-    "connectionName": "voluptate enim"
-  },
-  {
-    "startDate": 1546533041949,
-    "duration": 11382567,
-    "endDate": 1546544424516,
-    "remoteHost": "251.184.205.7",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 122,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 492,
-    "connectionName": "fugiat do"
-  },
-  {
-    "startDate": 1635575477730,
-    "duration": 134364,
-    "endDate": 1635575612094,
-    "remoteHost": "236.222.214.236",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 123,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 373,
-    "connectionName": "officia quis"
-  },
-  {
-    "startDate": 1431301466058,
-    "duration": 1199986,
-    "endDate": 1431302666044,
-    "remoteHost": "179.42.60.222",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 124,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 809,
-    "connectionName": "Lorem ut"
-  },
-  {
-    "startDate": 1619459649274,
-    "duration": 15694176,
-    "endDate": 1619475343450,
-    "remoteHost": "160.205.77.244",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 125,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 893,
-    "connectionName": "commodo dolor"
-  },
-  {
-    "startDate": 1472813844513,
-    "duration": 10194148,
-    "endDate": 1472824038661,
-    "remoteHost": "11.215.67.61",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 126,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 979,
-    "connectionName": "in aliquip"
-  },
-  {
-    "startDate": 1531296930835,
-    "duration": 18193576,
-    "endDate": 1531315124411,
-    "remoteHost": "233.27.127.83",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 127,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 57,
-    "connectionName": "aliquip commodo"
-  },
-  {
-    "startDate": 1685401673807,
-    "duration": 8083097,
-    "endDate": 1685409756904,
-    "remoteHost": "158.5.37.8",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 128,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 248,
-    "connectionName": "nostrud labore"
-  },
-  {
-    "startDate": 1589219928432,
-    "duration": 4982124,
-    "endDate": 1589224910556,
-    "remoteHost": "148.71.211.246",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 129,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 924,
-    "connectionName": "eu nisi"
-  },
-  {
-    "startDate": 1510012008965,
-    "duration": 138445,
-    "endDate": 1510012147410,
-    "remoteHost": "227.127.253.230",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 130,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 334,
-    "connectionName": "ipsum amet"
-  },
-  {
-    "startDate": 1464965077846,
-    "duration": 6716251,
-    "endDate": 1464971794097,
-    "remoteHost": "101.222.132.176",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 131,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 214,
-    "connectionName": "pariatur esse"
-  },
-  {
-    "startDate": 1452236367772,
-    "duration": 19186272,
-    "endDate": 1452255554044,
-    "remoteHost": "82.119.131.166",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 132,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 253,
-    "connectionName": "exercitation dolor"
-  },
-  {
-    "startDate": 1489827124706,
-    "duration": 20524918,
-    "endDate": 1489847649624,
-    "remoteHost": "12.31.121.20",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 133,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 513,
-    "connectionName": "qui occaecat"
-  },
-  {
-    "startDate": 1434197216410,
-    "duration": 13660889,
-    "endDate": 1434210877299,
-    "remoteHost": "54.202.188.25",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 134,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 429,
-    "connectionName": "voluptate sunt"
-  },
-  {
-    "startDate": 1462225225885,
-    "duration": 11395239,
-    "endDate": 1462236621124,
-    "remoteHost": "84.152.193.253",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 135,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 817,
-    "connectionName": "velit minim"
-  },
-  {
-    "startDate": 1516331949132,
-    "duration": 10329168,
-    "endDate": 1516342278300,
-    "remoteHost": "36.209.195.18",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 136,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 306,
-    "connectionName": "nulla esse"
-  },
-  {
-    "startDate": 1484302696439,
-    "duration": 13651330,
-    "endDate": 1484316347769,
-    "remoteHost": "71.101.177.83",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 137,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1112,
-    "connectionName": "ex do"
-  },
-  {
-    "startDate": 1672527654580,
-    "duration": 10130948,
-    "endDate": 1672537785528,
-    "remoteHost": "108.179.242.246",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 138,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 542,
-    "connectionName": "nostrud consectetur"
-  },
-  {
-    "startDate": 1682859364242,
-    "duration": 817855,
-    "endDate": 1682860182097,
-    "remoteHost": "37.157.110.246",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 139,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 434,
-    "connectionName": "consequat ut"
-  },
-  {
-    "startDate": 1642701327090,
-    "duration": 13340827,
-    "endDate": 1642714667917,
-    "remoteHost": "32.63.26.226",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 140,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1155,
-    "connectionName": "labore veniam"
-  },
-  {
-    "startDate": 1655603821778,
-    "duration": 737483,
-    "endDate": 1655604559261,
-    "remoteHost": "117.130.125.207",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 141,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1285,
-    "connectionName": "laboris pariatur"
-  },
-  {
-    "startDate": 1676643713100,
-    "duration": 15388976,
-    "endDate": 1676659102076,
-    "remoteHost": "255.182.213.218",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 142,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1401,
-    "connectionName": "consequat quis"
-  },
-  {
-    "startDate": 1468592123589,
-    "duration": 14309891,
-    "endDate": 1468606433480,
-    "remoteHost": "228.77.15.10",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 143,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 868,
-    "connectionName": "dolor ex"
-  },
-  {
-    "startDate": 1443338380655,
-    "duration": 2460451,
-    "endDate": 1443340841106,
-    "remoteHost": "192.236.172.104",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 144,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 394,
-    "connectionName": "aute aliqua"
-  },
-  {
-    "startDate": 1473117828388,
-    "duration": 12625297,
-    "endDate": 1473130453685,
-    "remoteHost": "125.36.59.242",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 145,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 705,
-    "connectionName": "non Lorem"
-  },
-  {
-    "startDate": 1536188928157,
-    "duration": 13178234,
-    "endDate": 1536202106391,
-    "remoteHost": "92.195.235.221",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 146,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 112,
-    "connectionName": "dolor magna"
-  },
-  {
-    "startDate": 1477231063861,
-    "duration": 16921523,
-    "endDate": 1477247985384,
-    "remoteHost": "68.54.239.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 147,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 66,
-    "connectionName": "ullamco cillum"
-  },
-  {
-    "startDate": 1662170040708,
-    "duration": 6743433,
-    "endDate": 1662176784141,
-    "remoteHost": "69.10.44.24",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 148,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 281,
-    "connectionName": "consequat ad"
-  },
-  {
-    "startDate": 1428152160085,
-    "duration": 20707662,
-    "endDate": 1428172867747,
-    "remoteHost": "71.56.149.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 149,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 371,
-    "connectionName": "pariatur exercitation"
-  },
-  {
-    "startDate": 1485067132002,
-    "duration": 17371758,
-    "endDate": 1485084503760,
-    "remoteHost": "177.197.165.164",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 150,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 676,
-    "connectionName": "aliquip tempor"
-  },
-  {
-    "startDate": 1428979467199,
-    "duration": 2430961,
-    "endDate": 1428981898160,
-    "remoteHost": "166.152.27.156",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 151,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 170,
-    "connectionName": "esse sunt"
-  },
-  {
-    "startDate": 1582012913020,
-    "duration": 13116006,
-    "endDate": 1582026029026,
-    "remoteHost": "197.9.214.159",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 152,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 915,
-    "connectionName": "in do"
-  },
-  {
-    "startDate": 1654297903658,
-    "duration": 6427369,
-    "endDate": 1654304331027,
-    "remoteHost": "202.155.235.103",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 153,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 532,
-    "connectionName": "eiusmod ullamco"
-  },
-  {
-    "startDate": 1633515214192,
-    "duration": 1432788,
-    "endDate": 1633516646980,
-    "remoteHost": "94.5.88.238",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 154,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1471,
-    "connectionName": "proident do"
-  },
-  {
-    "startDate": 1668757185882,
-    "duration": 16371176,
-    "endDate": 1668773557058,
-    "remoteHost": "220.249.52.34",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 155,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 272,
-    "connectionName": "nostrud adipisicing"
-  },
-  {
-    "startDate": 1420195326179,
-    "duration": 229686,
-    "endDate": 1420195555865,
-    "remoteHost": "56.11.237.45",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 156,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 275,
-    "connectionName": "dolor fugiat"
-  },
-  {
-    "startDate": 1473830568043,
-    "duration": 21306725,
-    "endDate": 1473851874768,
-    "remoteHost": "233.124.223.97",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 157,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1211,
-    "connectionName": "dolore Lorem"
-  },
-  {
-    "startDate": 1489813198822,
-    "duration": 9512447,
-    "endDate": 1489822711269,
-    "remoteHost": "149.14.27.163",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 158,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 191,
-    "connectionName": "irure excepteur"
-  },
-  {
-    "startDate": 1660123674263,
-    "duration": 8860005,
-    "endDate": 1660132534268,
-    "remoteHost": "210.222.153.51",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 159,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1470,
-    "connectionName": "veniam magna"
-  },
-  {
-    "startDate": 1510581644394,
-    "duration": 15865285,
-    "endDate": 1510597509679,
-    "remoteHost": "51.247.209.111",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 160,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 657,
-    "connectionName": "est consequat"
-  },
-  {
-    "startDate": 1530029513337,
-    "duration": 20774493,
-    "endDate": 1530050287830,
-    "remoteHost": "169.61.49.245",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 161,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 794,
-    "connectionName": "aute magna"
-  },
-  {
-    "startDate": 1428732320996,
-    "duration": 2122226,
-    "endDate": 1428734443222,
-    "remoteHost": "24.87.113.32",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 162,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 242,
-    "connectionName": "amet laborum"
-  },
-  {
-    "startDate": 1501827877341,
-    "duration": 12549535,
-    "endDate": 1501840426876,
-    "remoteHost": "224.86.182.215",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 163,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 175,
-    "connectionName": "occaecat est"
-  },
-  {
-    "startDate": 1549218415141,
-    "duration": 13968708,
-    "endDate": 1549232383849,
-    "remoteHost": "253.228.230.155",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 164,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 931,
-    "connectionName": "quis magna"
-  },
-  {
-    "startDate": 1641007377756,
-    "duration": 14038449,
-    "endDate": 1641021416205,
-    "remoteHost": "241.250.27.116",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 165,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 628,
-    "connectionName": "excepteur elit"
-  },
-  {
-    "startDate": 1553203591910,
-    "duration": 3056674,
-    "endDate": 1553206648584,
-    "remoteHost": "17.79.169.63",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 166,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 776,
-    "connectionName": "Lorem nisi"
-  },
-  {
-    "startDate": 1655838395551,
-    "duration": 10748417,
-    "endDate": 1655849143968,
-    "remoteHost": "181.26.166.30",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 167,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 984,
-    "connectionName": "reprehenderit irure"
-  },
-  {
-    "startDate": 1631528445499,
-    "duration": 4407678,
-    "endDate": 1631532853177,
-    "remoteHost": "10.249.138.146",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 168,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 317,
-    "connectionName": "esse laborum"
-  },
-  {
-    "startDate": 1569043207312,
-    "duration": 11012351,
-    "endDate": 1569054219663,
-    "remoteHost": "150.184.244.2",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 169,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1160,
-    "connectionName": "aliquip ex"
-  },
-  {
-    "startDate": 1500477147678,
-    "duration": 18612466,
-    "endDate": 1500495760144,
-    "remoteHost": "43.189.30.78",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 170,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 351,
-    "connectionName": "sint laboris"
-  },
-  {
-    "startDate": 1693187951107,
-    "duration": 14669440,
-    "endDate": 1693202620547,
-    "remoteHost": "75.137.99.238",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 171,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1393,
-    "connectionName": "quis incididunt"
-  },
-  {
-    "startDate": 1650940240098,
-    "duration": 5540206,
-    "endDate": 1650945780304,
-    "remoteHost": "164.1.117.148",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 172,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1329,
-    "connectionName": "elit cupidatat"
-  },
-  {
-    "startDate": 1421987064041,
-    "duration": 10771650,
-    "endDate": 1421997835691,
-    "remoteHost": "226.123.93.4",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 173,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 883,
-    "connectionName": "laboris pariatur"
-  },
-  {
-    "startDate": 1528959495547,
-    "duration": 16746215,
-    "endDate": 1528976241762,
-    "remoteHost": "88.14.96.18",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 174,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 469,
-    "connectionName": "sit in"
-  },
-  {
-    "startDate": 1564541288280,
-    "duration": 15656011,
-    "endDate": 1564556944291,
-    "remoteHost": "156.85.71.227",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 175,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1397,
-    "connectionName": "reprehenderit consectetur"
-  },
-  {
-    "startDate": 1636058859661,
-    "duration": 14874004,
-    "endDate": 1636073733665,
-    "remoteHost": "133.156.179.215",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 176,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1213,
-    "connectionName": "ipsum irure"
-  },
-  {
-    "startDate": 1608203955688,
-    "duration": 15573627,
-    "endDate": 1608219529315,
-    "remoteHost": "108.125.28.201",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 177,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 36,
-    "connectionName": "aute quis"
-  },
-  {
-    "startDate": 1470274615057,
-    "duration": 14976983,
-    "endDate": 1470289592040,
-    "remoteHost": "243.79.142.20",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 178,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 597,
-    "connectionName": "aute velit"
-  },
-  {
-    "startDate": 1535420221900,
-    "duration": 18609794,
-    "endDate": 1535438831694,
-    "remoteHost": "197.188.169.81",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 179,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 139,
-    "connectionName": "incididunt cupidatat"
-  },
-  {
-    "startDate": 1668537584638,
-    "duration": 10424995,
-    "endDate": 1668548009633,
-    "remoteHost": "57.101.39.156",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 180,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1329,
-    "connectionName": "sit cupidatat"
-  },
-  {
-    "startDate": 1427724114543,
-    "duration": 841570,
-    "endDate": 1427724956113,
-    "remoteHost": "133.189.11.132",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 181,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1345,
-    "connectionName": "proident exercitation"
-  },
-  {
-    "startDate": 1501372914994,
-    "duration": 6887441,
-    "endDate": 1501379802435,
-    "remoteHost": "181.207.232.51",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 182,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 6,
-    "connectionName": "culpa amet"
-  },
-  {
-    "startDate": 1693819750359,
-    "duration": 15941682,
-    "endDate": 1693835692041,
-    "remoteHost": "148.16.177.114",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 183,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 893,
-    "connectionName": "reprehenderit exercitation"
-  },
-  {
-    "startDate": 1552901475277,
-    "duration": 11203605,
-    "endDate": 1552912678882,
-    "remoteHost": "79.237.167.55",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 184,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 186,
-    "connectionName": "tempor elit"
-  },
-  {
-    "startDate": 1546752253321,
-    "duration": 21106472,
-    "endDate": 1546773359793,
-    "remoteHost": "187.180.45.174",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 185,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 780,
-    "connectionName": "nostrud et"
-  },
-  {
-    "startDate": 1487060535224,
-    "duration": 4020256,
-    "endDate": 1487064555480,
-    "remoteHost": "167.66.210.211",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 186,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1296,
-    "connectionName": "officia est"
-  },
-  {
-    "startDate": 1560853869726,
-    "duration": 7696687,
-    "endDate": 1560861566413,
-    "remoteHost": "182.156.61.156",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 187,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 205,
-    "connectionName": "qui veniam"
-  },
-  {
-    "startDate": 1611147413852,
-    "duration": 18507217,
-    "endDate": 1611165921069,
-    "remoteHost": "88.110.52.175",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 188,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 816,
-    "connectionName": "eu sit"
-  },
-  {
-    "startDate": 1653650160232,
-    "duration": 19611849,
-    "endDate": 1653669772081,
-    "remoteHost": "188.106.224.66",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 189,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1157,
-    "connectionName": "et do"
-  },
-  {
-    "startDate": 1655864785749,
-    "duration": 3756594,
-    "endDate": 1655868542343,
-    "remoteHost": "178.245.149.248",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 190,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1407,
-    "connectionName": "quis minim"
-  },
-  {
-    "startDate": 1583897697043,
-    "duration": 17930625,
-    "endDate": 1583915627668,
-    "remoteHost": "209.139.223.127",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 191,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 45,
-    "connectionName": "sunt ullamco"
-  },
-  {
-    "startDate": 1450677163598,
-    "duration": 2320695,
-    "endDate": 1450679484293,
-    "remoteHost": "180.233.187.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 192,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 361,
-    "connectionName": "exercitation fugiat"
-  },
-  {
-    "startDate": 1473893296423,
-    "duration": 4220477,
-    "endDate": 1473897516900,
-    "remoteHost": "218.121.116.219",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 193,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 887,
-    "connectionName": "ullamco eu"
-  },
-  {
-    "startDate": 1535416397129,
-    "duration": 2693019,
-    "endDate": 1535419090148,
-    "remoteHost": "125.19.192.97",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 194,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1312,
-    "connectionName": "reprehenderit pariatur"
-  },
-  {
-    "startDate": 1691954878082,
-    "duration": 8002449,
-    "endDate": 1691962880531,
-    "remoteHost": "231.210.204.79",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 195,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1234,
-    "connectionName": "culpa do"
-  },
-  {
-    "startDate": 1532730532102,
-    "duration": 660665,
-    "endDate": 1532731192767,
-    "remoteHost": "252.5.246.166",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 196,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 358,
-    "connectionName": "mollit laborum"
-  },
-  {
-    "startDate": 1512155714302,
-    "duration": 2075743,
-    "endDate": 1512157790045,
-    "remoteHost": "149.253.214.218",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 197,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1489,
-    "connectionName": "consequat sint"
-  },
-  {
-    "startDate": 1625725983380,
-    "duration": 1565278,
-    "endDate": 1625727548658,
-    "remoteHost": "61.95.42.150",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 198,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 584,
-    "connectionName": "consequat adipisicing"
-  },
-  {
-    "startDate": 1607443672670,
-    "duration": 3236942,
-    "endDate": 1607446909612,
-    "remoteHost": "110.170.38.8",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 199,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 173,
-    "connectionName": "non cillum"
-  },
-  {
-    "startDate": 1533248293901,
-    "duration": 5046769,
-    "endDate": 1533253340670,
-    "remoteHost": "134.11.90.248",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 200,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 729,
-    "connectionName": "sit cillum"
-  },
-  {
-    "startDate": 1534677020892,
-    "duration": 20197412,
-    "endDate": 1534697218304,
-    "remoteHost": "98.234.141.131",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 201,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1456,
-    "connectionName": "voluptate culpa"
-  },
-  {
-    "startDate": 1491539828066,
-    "duration": 18561407,
-    "endDate": 1491558389473,
-    "remoteHost": "180.106.220.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 202,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1162,
-    "connectionName": "ullamco officia"
-  },
-  {
-    "startDate": 1559471386236,
-    "duration": 19427704,
-    "endDate": 1559490813940,
-    "remoteHost": "80.254.104.50",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 203,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1042,
-    "connectionName": "proident consectetur"
-  },
-  {
-    "startDate": 1440677219052,
-    "duration": 19232133,
-    "endDate": 1440696451185,
-    "remoteHost": "67.210.188.175",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 204,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 698,
-    "connectionName": "Lorem nulla"
-  },
-  {
-    "startDate": 1572831898284,
-    "duration": 6665231,
-    "endDate": 1572838563515,
-    "remoteHost": "112.149.221.255",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 205,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1061,
-    "connectionName": "in aliqua"
-  },
-  {
-    "startDate": 1441579996184,
-    "duration": 6567607,
-    "endDate": 1441586563791,
-    "remoteHost": "46.130.94.239",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 206,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1268,
-    "connectionName": "dolore aliquip"
-  },
-  {
-    "startDate": 1459432453934,
-    "duration": 7255484,
-    "endDate": 1459439709418,
-    "remoteHost": "178.105.224.133",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 207,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1482,
-    "connectionName": "velit culpa"
-  },
-  {
-    "startDate": 1522894429100,
-    "duration": 3113032,
-    "endDate": 1522897542132,
-    "remoteHost": "143.183.38.238",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 208,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 433,
-    "connectionName": "qui ipsum"
-  },
-  {
-    "startDate": 1482408390696,
-    "duration": 1100532,
-    "endDate": 1482409491228,
-    "remoteHost": "202.64.77.86",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 209,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 902,
-    "connectionName": "et id"
-  },
-  {
-    "startDate": 1506849356346,
-    "duration": 20535481,
-    "endDate": 1506869891827,
-    "remoteHost": "196.169.21.182",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 210,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 429,
-    "connectionName": "id ad"
-  },
-  {
-    "startDate": 1566137784669,
-    "duration": 8390380,
-    "endDate": 1566146175049,
-    "remoteHost": "76.110.183.192",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 211,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 497,
-    "connectionName": "do eiusmod"
-  },
-  {
-    "startDate": 1575837509604,
-    "duration": 11452309,
-    "endDate": 1575848961913,
-    "remoteHost": "42.143.184.34",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 212,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 186,
-    "connectionName": "amet id"
-  },
-  {
-    "startDate": 1579409892147,
-    "duration": 4525770,
-    "endDate": 1579414417917,
-    "remoteHost": "255.84.154.28",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 213,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 764,
-    "connectionName": "aliquip ut"
-  },
-  {
-    "startDate": 1664666243936,
-    "duration": 2676309,
-    "endDate": 1664668920245,
-    "remoteHost": "92.3.135.254",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 214,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 645,
-    "connectionName": "eu aliqua"
-  },
-  {
-    "startDate": 1549833673022,
-    "duration": 10908930,
-    "endDate": 1549844581952,
-    "remoteHost": "45.33.44.74",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 215,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 741,
-    "connectionName": "deserunt labore"
-  },
-  {
-    "startDate": 1623215180682,
-    "duration": 1843464,
-    "endDate": 1623217024146,
-    "remoteHost": "164.234.99.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 216,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1162,
-    "connectionName": "ut labore"
-  },
-  {
-    "startDate": 1566774307895,
-    "duration": 19253581,
-    "endDate": 1566793561476,
-    "remoteHost": "185.75.53.92",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 217,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1476,
-    "connectionName": "magna ea"
-  },
-  {
-    "startDate": 1458586490134,
-    "duration": 2496058,
-    "endDate": 1458588986192,
-    "remoteHost": "81.175.138.58",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 218,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 869,
-    "connectionName": "adipisicing ut"
-  },
-  {
-    "startDate": 1464792890202,
-    "duration": 20883259,
-    "endDate": 1464813773461,
-    "remoteHost": "124.231.162.213",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 219,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 72,
-    "connectionName": "sit reprehenderit"
-  },
-  {
-    "startDate": 1422556845023,
-    "duration": 7849434,
-    "endDate": 1422564694457,
-    "remoteHost": "134.14.51.250",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 220,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 866,
-    "connectionName": "eu adipisicing"
-  },
-  {
-    "startDate": 1568145467165,
-    "duration": 256882,
-    "endDate": 1568145724047,
-    "remoteHost": "10.233.77.44",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 221,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 766,
-    "connectionName": "magna reprehenderit"
-  },
-  {
-    "startDate": 1642180632656,
-    "duration": 19280514,
-    "endDate": 1642199913170,
-    "remoteHost": "82.24.77.4",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 222,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1019,
-    "connectionName": "ea do"
-  },
-  {
-    "startDate": 1564486231940,
-    "duration": 5437773,
-    "endDate": 1564491669713,
-    "remoteHost": "14.50.106.255",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 223,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1361,
-    "connectionName": "non laboris"
-  },
-  {
-    "startDate": 1469612649304,
-    "duration": 6701596,
-    "endDate": 1469619350900,
-    "remoteHost": "51.142.6.136",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 224,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 68,
-    "connectionName": "ullamco quis"
-  },
-  {
-    "startDate": 1535925743645,
-    "duration": 16596570,
-    "endDate": 1535942340215,
-    "remoteHost": "244.220.191.203",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 225,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 306,
-    "connectionName": "aliquip aute"
-  },
-  {
-    "startDate": 1527119046767,
-    "duration": 10228951,
-    "endDate": 1527129275718,
-    "remoteHost": "42.216.151.15",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 226,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 332,
-    "connectionName": "duis ex"
-  },
-  {
-    "startDate": 1582992851093,
-    "duration": 4660795,
-    "endDate": 1582997511888,
-    "remoteHost": "209.136.49.160",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 227,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 836,
-    "connectionName": "eiusmod eu"
-  },
-  {
-    "startDate": 1640502782708,
-    "duration": 15714051,
-    "endDate": 1640518496759,
-    "remoteHost": "251.110.246.240",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 228,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 907,
-    "connectionName": "culpa nisi"
-  },
-  {
-    "startDate": 1433030957416,
-    "duration": 4791134,
-    "endDate": 1433035748550,
-    "remoteHost": "75.172.123.238",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 229,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1491,
-    "connectionName": "esse sit"
-  },
-  {
-    "startDate": 1451335743837,
-    "duration": 19883878,
-    "endDate": 1451355627715,
-    "remoteHost": "142.35.203.253",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 230,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 840,
-    "connectionName": "et eu"
-  },
-  {
-    "startDate": 1547721342509,
-    "duration": 8234675,
-    "endDate": 1547729577184,
-    "remoteHost": "238.158.129.199",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 231,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1,
-    "connectionName": "voluptate Lorem"
-  },
-  {
-    "startDate": 1605775949407,
-    "duration": 11314216,
-    "endDate": 1605787263623,
-    "remoteHost": "229.209.112.92",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 232,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 671,
-    "connectionName": "aliqua veniam"
-  },
-  {
-    "startDate": 1586435345996,
-    "duration": 9387385,
-    "endDate": 1586444733381,
-    "remoteHost": "98.162.168.190",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 233,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1046,
-    "connectionName": "cillum do"
-  },
-  {
-    "startDate": 1662494236983,
-    "duration": 21151589,
-    "endDate": 1662515388572,
-    "remoteHost": "247.194.5.216",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 234,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1069,
-    "connectionName": "culpa minim"
-  },
-  {
-    "startDate": 1461006554209,
-    "duration": 7692158,
-    "endDate": 1461014246367,
-    "remoteHost": "180.137.140.224",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 235,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 685,
-    "connectionName": "pariatur non"
-  },
-  {
-    "startDate": 1464911925241,
-    "duration": 16867521,
-    "endDate": 1464928792762,
-    "remoteHost": "43.47.151.50",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 236,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1309,
-    "connectionName": "magna consequat"
-  },
-  {
-    "startDate": 1648429769255,
-    "duration": 2470285,
-    "endDate": 1648432239540,
-    "remoteHost": "75.131.172.67",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 237,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 761,
-    "connectionName": "deserunt nostrud"
-  },
-  {
-    "startDate": 1639747911308,
-    "duration": 19222580,
-    "endDate": 1639767133888,
-    "remoteHost": "214.162.98.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 238,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 452,
-    "connectionName": "deserunt laboris"
-  },
-  {
-    "startDate": 1626312837253,
-    "duration": 18583002,
-    "endDate": 1626331420255,
-    "remoteHost": "171.68.248.9",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 239,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 955,
-    "connectionName": "irure esse"
-  },
-  {
-    "startDate": 1694779562461,
-    "duration": 14109437,
-    "endDate": 1694793671898,
-    "remoteHost": "201.250.45.134",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 240,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1468,
-    "connectionName": "dolor eiusmod"
-  },
-  {
-    "startDate": 1520233464363,
-    "duration": 13409236,
-    "endDate": 1520246873599,
-    "remoteHost": "17.153.51.19",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 241,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 742,
-    "connectionName": "tempor commodo"
-  },
-  {
-    "startDate": 1591632273341,
-    "duration": 11031429,
-    "endDate": 1591643304770,
-    "remoteHost": "65.215.230.93",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 242,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 298,
-    "connectionName": "duis est"
-  },
-  {
-    "startDate": 1575209579627,
-    "duration": 11603368,
-    "endDate": 1575221182995,
-    "remoteHost": "132.160.202.3",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 243,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1400,
-    "connectionName": "do nisi"
-  },
-  {
-    "startDate": 1438642753660,
-    "duration": 7385373,
-    "endDate": 1438650139033,
-    "remoteHost": "42.169.201.116",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 244,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 600,
-    "connectionName": "eu laborum"
-  },
-  {
-    "startDate": 1631343533193,
-    "duration": 10785428,
-    "endDate": 1631354318621,
-    "remoteHost": "94.175.250.183",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 245,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 867,
-    "connectionName": "fugiat Lorem"
-  },
-  {
-    "startDate": 1515377127760,
-    "duration": 19096521,
-    "endDate": 1515396224281,
-    "remoteHost": "200.54.113.33",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 246,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 141,
-    "connectionName": "duis et"
-  },
-  {
-    "startDate": 1576644370475,
-    "duration": 1508510,
-    "endDate": 1576645878985,
-    "remoteHost": "140.33.214.10",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 247,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 594,
-    "connectionName": "ex deserunt"
-  },
-  {
-    "startDate": 1598842401586,
-    "duration": 8190200,
-    "endDate": 1598850591786,
-    "remoteHost": "214.107.39.53",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 248,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 81,
-    "connectionName": "tempor nostrud"
-  },
-  {
-    "startDate": 1599238969193,
-    "duration": 2684604,
-    "endDate": 1599241653797,
-    "remoteHost": "196.96.248.66",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 249,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 853,
-    "connectionName": "laborum voluptate"
-  },
-  {
-    "startDate": 1518610337891,
-    "duration": 9741929,
-    "endDate": 1518620079820,
-    "remoteHost": "35.98.122.242",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 250,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 458,
-    "connectionName": "amet elit"
-  },
-  {
-    "startDate": 1621797991291,
-    "duration": 14631375,
-    "endDate": 1621812622666,
-    "remoteHost": "47.179.96.68",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 251,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 956,
-    "connectionName": "enim pariatur"
-  },
-  {
-    "startDate": 1681191102053,
-    "duration": 5906818,
-    "endDate": 1681197008871,
-    "remoteHost": "64.166.50.50",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 252,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 69,
-    "connectionName": "ex laboris"
-  },
-  {
-    "startDate": 1635057003446,
-    "duration": 11579683,
-    "endDate": 1635068583129,
-    "remoteHost": "39.231.26.70",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 253,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 298,
-    "connectionName": "sunt non"
-  },
-  {
-    "startDate": 1477074705056,
-    "duration": 17128112,
-    "endDate": 1477091833168,
-    "remoteHost": "78.146.19.114",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 254,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 962,
-    "connectionName": "exercitation et"
-  },
-  {
-    "startDate": 1694349104529,
-    "duration": 6089740,
-    "endDate": 1694355194269,
-    "remoteHost": "76.95.186.35",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 255,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 667,
-    "connectionName": "ut do"
-  },
-  {
-    "startDate": 1649751320026,
-    "duration": 11160412,
-    "endDate": 1649762480438,
-    "remoteHost": "157.225.233.188",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 256,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 269,
-    "connectionName": "in proident"
-  },
-  {
-    "startDate": 1457345952812,
-    "duration": 5063785,
-    "endDate": 1457351016597,
-    "remoteHost": "61.72.179.170",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 257,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 866,
-    "connectionName": "officia magna"
-  },
-  {
-    "startDate": 1454406263606,
-    "duration": 21451680,
-    "endDate": 1454427715286,
-    "remoteHost": "16.87.210.135",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 258,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 996,
-    "connectionName": "cupidatat excepteur"
-  },
-  {
-    "startDate": 1439048476441,
-    "duration": 13401104,
-    "endDate": 1439061877545,
-    "remoteHost": "29.66.179.27",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 259,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 797,
-    "connectionName": "enim officia"
-  },
-  {
-    "startDate": 1636476052955,
-    "duration": 2643902,
-    "endDate": 1636478696857,
-    "remoteHost": "179.85.159.75",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 260,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 692,
-    "connectionName": "dolore cillum"
-  },
-  {
-    "startDate": 1446105778987,
-    "duration": 408745,
-    "endDate": 1446106187732,
-    "remoteHost": "254.255.201.78",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 261,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 677,
-    "connectionName": "et elit"
-  },
-  {
-    "startDate": 1448976543876,
-    "duration": 14216983,
-    "endDate": 1448990760859,
-    "remoteHost": "18.35.124.155",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 262,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 905,
-    "connectionName": "id eiusmod"
-  },
-  {
-    "startDate": 1646443381867,
-    "duration": 2203116,
-    "endDate": 1646445584983,
-    "remoteHost": "17.119.214.57",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 263,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 962,
-    "connectionName": "cupidatat qui"
-  },
-  {
-    "startDate": 1448271022130,
-    "duration": 10928504,
-    "endDate": 1448281950634,
-    "remoteHost": "104.114.16.228",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 264,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 44,
-    "connectionName": "aliqua reprehenderit"
-  },
-  {
-    "startDate": 1646246008559,
-    "duration": 14913153,
-    "endDate": 1646260921712,
-    "remoteHost": "101.57.231.30",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 265,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1162,
-    "connectionName": "amet incididunt"
-  },
-  {
-    "startDate": 1616988864675,
-    "duration": 10064051,
-    "endDate": 1616998928726,
-    "remoteHost": "221.57.214.206",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 266,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 266,
-    "connectionName": "laboris mollit"
-  },
-  {
-    "startDate": 1538878301552,
-    "duration": 16024938,
-    "endDate": 1538894326490,
-    "remoteHost": "82.101.66.114",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 267,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1139,
-    "connectionName": "aliqua eiusmod"
-  },
-  {
-    "startDate": 1487052181760,
-    "duration": 3260738,
-    "endDate": 1487055442498,
-    "remoteHost": "206.155.177.194",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 268,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1147,
-    "connectionName": "veniam nisi"
-  },
-  {
-    "startDate": 1635347664230,
-    "duration": 2614720,
-    "endDate": 1635350278950,
-    "remoteHost": "209.17.51.57",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 269,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 673,
-    "connectionName": "amet pariatur"
-  },
-  {
-    "startDate": 1478047394482,
-    "duration": 15000944,
-    "endDate": 1478062395426,
-    "remoteHost": "240.232.121.118",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 270,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 665,
-    "connectionName": "nisi qui"
-  },
-  {
-    "startDate": 1480048342335,
-    "duration": 20248068,
-    "endDate": 1480068590403,
-    "remoteHost": "118.233.118.236",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 271,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1444,
-    "connectionName": "sint magna"
-  },
-  {
-    "startDate": 1523721036339,
-    "duration": 13072151,
-    "endDate": 1523734108490,
-    "remoteHost": "255.136.103.61",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 272,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 776,
-    "connectionName": "sint aute"
-  },
-  {
-    "startDate": 1575703183117,
-    "duration": 20635110,
-    "endDate": 1575723818227,
-    "remoteHost": "236.145.149.141",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 273,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1454,
-    "connectionName": "duis cillum"
-  },
-  {
-    "startDate": 1580836771875,
-    "duration": 7463074,
-    "endDate": 1580844234949,
-    "remoteHost": "247.236.169.12",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 274,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 886,
-    "connectionName": "pariatur sit"
-  },
-  {
-    "startDate": 1551192233036,
-    "duration": 11714645,
-    "endDate": 1551203947681,
-    "remoteHost": "247.53.245.140",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 275,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1147,
-    "connectionName": "voluptate elit"
-  },
-  {
-    "startDate": 1437974897111,
-    "duration": 12645759,
-    "endDate": 1437987542870,
-    "remoteHost": "253.228.93.76",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 276,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 648,
-    "connectionName": "ullamco sunt"
-  },
-  {
-    "startDate": 1677506635973,
-    "duration": 16112650,
-    "endDate": 1677522748623,
-    "remoteHost": "166.109.35.101",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 277,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 370,
-    "connectionName": "ullamco sint"
-  },
-  {
-    "startDate": 1431939881728,
-    "duration": 15626506,
-    "endDate": 1431955508234,
-    "remoteHost": "71.48.60.21",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 278,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1428,
-    "connectionName": "labore ad"
-  },
-  {
-    "startDate": 1667414926151,
-    "duration": 2849749,
-    "endDate": 1667417775900,
-    "remoteHost": "234.243.52.3",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 279,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1400,
-    "connectionName": "officia do"
-  },
-  {
-    "startDate": 1605576377102,
-    "duration": 1920384,
-    "endDate": 1605578297486,
-    "remoteHost": "95.54.36.252",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 280,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 722,
-    "connectionName": "aliqua cupidatat"
-  },
-  {
-    "startDate": 1445705106570,
-    "duration": 7131875,
-    "endDate": 1445712238445,
-    "remoteHost": "112.84.110.171",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 281,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1390,
-    "connectionName": "duis eiusmod"
-  },
-  {
-    "startDate": 1670027786031,
-    "duration": 16120326,
-    "endDate": 1670043906357,
-    "remoteHost": "117.155.83.135",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 282,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 624,
-    "connectionName": "minim deserunt"
-  },
-  {
-    "startDate": 1425825185170,
-    "duration": 17016053,
-    "endDate": 1425842201223,
-    "remoteHost": "138.45.4.24",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 283,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 339,
-    "connectionName": "id laborum"
-  },
-  {
-    "startDate": 1548881035050,
-    "duration": 21369167,
-    "endDate": 1548902404217,
-    "remoteHost": "123.224.198.166",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 284,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1198,
-    "connectionName": "commodo aliquip"
-  },
-  {
-    "startDate": 1615763508846,
-    "duration": 975358,
-    "endDate": 1615764484204,
-    "remoteHost": "61.160.227.237",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 285,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 914,
-    "connectionName": "aliqua aliqua"
-  },
-  {
-    "startDate": 1483424305026,
-    "duration": 3658724,
-    "endDate": 1483427963750,
-    "remoteHost": "234.205.175.76",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 286,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 95,
-    "connectionName": "ea ea"
-  },
-  {
-    "startDate": 1586067903099,
-    "duration": 9700786,
-    "endDate": 1586077603885,
-    "remoteHost": "56.58.232.189",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 287,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 862,
-    "connectionName": "pariatur irure"
-  },
-  {
-    "startDate": 1553662956988,
-    "duration": 2252733,
-    "endDate": 1553665209721,
-    "remoteHost": "117.73.105.210",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 288,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1468,
-    "connectionName": "sint non"
-  },
-  {
-    "startDate": 1608285289599,
-    "duration": 331797,
-    "endDate": 1608285621396,
-    "remoteHost": "181.78.201.21",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 289,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 687,
-    "connectionName": "minim exercitation"
-  },
-  {
-    "startDate": 1664923377995,
-    "duration": 16985530,
-    "endDate": 1664940363525,
-    "remoteHost": "137.61.173.115",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 290,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1065,
-    "connectionName": "magna eiusmod"
-  },
-  {
-    "startDate": 1672612704997,
-    "duration": 6449471,
-    "endDate": 1672619154468,
-    "remoteHost": "207.163.105.53",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 291,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 308,
-    "connectionName": "aliqua voluptate"
-  },
-  {
-    "startDate": 1602192372923,
-    "duration": 14211332,
-    "endDate": 1602206584255,
-    "remoteHost": "199.220.143.20",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 292,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 888,
-    "connectionName": "pariatur commodo"
-  },
-  {
-    "startDate": 1660898083353,
-    "duration": 8328852,
-    "endDate": 1660906412205,
-    "remoteHost": "15.213.224.149",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 293,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 764,
-    "connectionName": "ut sunt"
-  },
-  {
-    "startDate": 1626364936720,
-    "duration": 13646941,
-    "endDate": 1626378583661,
-    "remoteHost": "114.135.96.125",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 294,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1088,
-    "connectionName": "aliqua est"
-  },
-  {
-    "startDate": 1641812054935,
-    "duration": 10745319,
-    "endDate": 1641822800254,
-    "remoteHost": "64.72.88.22",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 295,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 426,
-    "connectionName": "consectetur deserunt"
-  },
-  {
-    "startDate": 1613378716051,
-    "duration": 2785600,
-    "endDate": 1613381501651,
-    "remoteHost": "114.109.230.71",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 296,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 58,
-    "connectionName": "sint quis"
-  },
-  {
-    "startDate": 1657877344398,
-    "duration": 5089732,
-    "endDate": 1657882434130,
-    "remoteHost": "33.223.123.107",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 297,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 706,
-    "connectionName": "eiusmod exercitation"
-  },
-  {
-    "startDate": 1460864221548,
-    "duration": 17753637,
-    "endDate": 1460881975185,
-    "remoteHost": "41.192.130.80",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 298,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 819,
-    "connectionName": "incididunt voluptate"
-  },
-  {
-    "startDate": 1663065267258,
-    "duration": 15179052,
-    "endDate": 1663080446310,
-    "remoteHost": "115.184.208.129",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 299,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1081,
-    "connectionName": "consectetur irure"
-  },
-  {
-    "startDate": 1491310602906,
-    "duration": 6770376,
-    "endDate": 1491317373282,
-    "remoteHost": "197.158.205.66",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 300,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1293,
-    "connectionName": "et officia"
-  },
-  {
-    "startDate": 1679434160020,
-    "duration": 3175207,
-    "endDate": 1679437335227,
-    "remoteHost": "220.69.157.249",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 301,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1423,
-    "connectionName": "mollit exercitation"
-  },
-  {
-    "startDate": 1440996187364,
-    "duration": 3003690,
-    "endDate": 1440999191054,
-    "remoteHost": "143.203.22.60",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 302,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 360,
-    "connectionName": "labore adipisicing"
-  },
-  {
-    "startDate": 1677942630755,
-    "duration": 13721206,
-    "endDate": 1677956351961,
-    "remoteHost": "76.182.42.218",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 303,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 395,
-    "connectionName": "in do"
-  },
-  {
-    "startDate": 1660310500688,
-    "duration": 8490062,
-    "endDate": 1660318990750,
-    "remoteHost": "193.156.126.231",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 304,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 969,
-    "connectionName": "sint laborum"
-  },
-  {
-    "startDate": 1512351621441,
-    "duration": 12526424,
-    "endDate": 1512364147865,
-    "remoteHost": "198.197.249.60",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 305,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 796,
-    "connectionName": "id aliqua"
-  },
-  {
-    "startDate": 1663885566500,
-    "duration": 13584096,
-    "endDate": 1663899150596,
-    "remoteHost": "245.102.254.22",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 306,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1209,
-    "connectionName": "ex amet"
-  },
-  {
-    "startDate": 1650682254004,
-    "duration": 7046454,
-    "endDate": 1650689300458,
-    "remoteHost": "45.147.139.160",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 307,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 56,
-    "connectionName": "dolore non"
-  },
-  {
-    "startDate": 1676454656743,
-    "duration": 6412099,
-    "endDate": 1676461068842,
-    "remoteHost": "130.239.152.52",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 308,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 335,
-    "connectionName": "dolor enim"
-  },
-  {
-    "startDate": 1547404252295,
-    "duration": 15741087,
-    "endDate": 1547419993382,
-    "remoteHost": "155.77.122.21",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 309,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1268,
-    "connectionName": "et do"
-  },
-  {
-    "startDate": 1471958744555,
-    "duration": 11065608,
-    "endDate": 1471969810163,
-    "remoteHost": "59.13.196.68",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 310,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 613,
-    "connectionName": "elit dolore"
-  },
-  {
-    "startDate": 1494901291625,
-    "duration": 12141293,
-    "endDate": 1494913432918,
-    "remoteHost": "108.26.193.137",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 311,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 320,
-    "connectionName": "consequat in"
-  },
-  {
-    "startDate": 1521097499848,
-    "duration": 12153574,
-    "endDate": 1521109653422,
-    "remoteHost": "191.75.147.130",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 312,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1096,
-    "connectionName": "ad veniam"
-  },
-  {
-    "startDate": 1434000267753,
-    "duration": 12363344,
-    "endDate": 1434012631097,
-    "remoteHost": "174.155.126.241",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 313,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1049,
-    "connectionName": "fugiat deserunt"
-  },
-  {
-    "startDate": 1695244275792,
-    "duration": 9980976,
-    "endDate": 1695254256768,
-    "remoteHost": "51.205.208.2",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 314,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 392,
-    "connectionName": "laboris labore"
-  },
-  {
-    "startDate": 1629951778735,
-    "duration": 6310958,
-    "endDate": 1629958089693,
-    "remoteHost": "180.145.29.120",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 315,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 542,
-    "connectionName": "ipsum quis"
-  },
-  {
-    "startDate": 1599010526032,
-    "duration": 10973120,
-    "endDate": 1599021499152,
-    "remoteHost": "255.114.97.217",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 316,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 95,
-    "connectionName": "qui duis"
-  },
-  {
-    "startDate": 1468858613783,
-    "duration": 19044210,
-    "endDate": 1468877657993,
-    "remoteHost": "13.255.177.84",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 317,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1089,
-    "connectionName": "nisi in"
-  },
-  {
-    "startDate": 1585611250959,
-    "duration": 3489833,
-    "endDate": 1585614740792,
-    "remoteHost": "45.31.83.117",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 318,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 369,
-    "connectionName": "proident eu"
-  },
-  {
-    "startDate": 1497620168425,
-    "duration": 5045839,
-    "endDate": 1497625214264,
-    "remoteHost": "173.211.233.3",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 319,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 652,
-    "connectionName": "ad irure"
-  },
-  {
-    "startDate": 1423736133660,
-    "duration": 19543878,
-    "endDate": 1423755677538,
-    "remoteHost": "65.44.57.35",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 320,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 436,
-    "connectionName": "ex occaecat"
-  },
-  {
-    "startDate": 1539683135344,
-    "duration": 20233294,
-    "endDate": 1539703368638,
-    "remoteHost": "162.157.9.16",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 321,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 815,
-    "connectionName": "consectetur dolor"
-  },
-  {
-    "startDate": 1627148712956,
-    "duration": 814572,
-    "endDate": 1627149527528,
-    "remoteHost": "76.57.109.252",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 322,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 521,
-    "connectionName": "ad tempor"
-  },
-  {
-    "startDate": 1599757279567,
-    "duration": 12660480,
-    "endDate": 1599769940047,
-    "remoteHost": "239.237.248.167",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 323,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 814,
-    "connectionName": "et eiusmod"
-  },
-  {
-    "startDate": 1568415114737,
-    "duration": 14088762,
-    "endDate": 1568429203499,
-    "remoteHost": "248.70.43.34",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 324,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 538,
-    "connectionName": "incididunt dolore"
-  },
-  {
-    "startDate": 1632027933452,
-    "duration": 12389753,
-    "endDate": 1632040323205,
-    "remoteHost": "59.75.243.133",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 325,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 506,
-    "connectionName": "laboris anim"
-  },
-  {
-    "startDate": 1457123868929,
-    "duration": 19397759,
-    "endDate": 1457143266688,
-    "remoteHost": "213.147.118.69",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 326,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 925,
-    "connectionName": "labore tempor"
-  },
-  {
-    "startDate": 1431912427028,
-    "duration": 10273893,
-    "endDate": 1431922700921,
-    "remoteHost": "27.59.147.252",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 327,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 175,
-    "connectionName": "id cupidatat"
-  },
-  {
-    "startDate": 1662406207308,
-    "duration": 10466254,
-    "endDate": 1662416673562,
-    "remoteHost": "107.205.82.133",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 328,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 960,
-    "connectionName": "laborum velit"
-  },
-  {
-    "startDate": 1640163251356,
-    "duration": 10510511,
-    "endDate": 1640173761867,
-    "remoteHost": "221.84.15.238",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 329,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 733,
-    "connectionName": "ipsum consequat"
-  },
-  {
-    "startDate": 1510823783461,
-    "duration": 18448427,
-    "endDate": 1510842231888,
-    "remoteHost": "118.252.78.108",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 330,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 789,
-    "connectionName": "anim eu"
-  },
-  {
-    "startDate": 1505219814855,
-    "duration": 12857192,
-    "endDate": 1505232672047,
-    "remoteHost": "120.74.97.11",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 331,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 346,
-    "connectionName": "dolor deserunt"
-  },
-  {
-    "startDate": 1656530664833,
-    "duration": 10698612,
-    "endDate": 1656541363445,
-    "remoteHost": "124.11.48.61",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 332,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 259,
-    "connectionName": "qui reprehenderit"
-  },
-  {
-    "startDate": 1551358405846,
-    "duration": 5218043,
-    "endDate": 1551363623889,
-    "remoteHost": "149.62.208.19",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 333,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 910,
-    "connectionName": "aute irure"
-  },
-  {
-    "startDate": 1550071903896,
-    "duration": 9778354,
-    "endDate": 1550081682250,
-    "remoteHost": "72.54.41.56",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 334,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 549,
-    "connectionName": "veniam ad"
-  },
-  {
-    "startDate": 1447587805390,
-    "duration": 4697013,
-    "endDate": 1447592502403,
-    "remoteHost": "136.42.251.55",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 335,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 377,
-    "connectionName": "ad incididunt"
-  },
-  {
-    "startDate": 1463753834936,
-    "duration": 237932,
-    "endDate": 1463754072868,
-    "remoteHost": "119.123.240.163",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 336,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1060,
-    "connectionName": "est in"
-  },
-  {
-    "startDate": 1668225092849,
-    "duration": 17401150,
-    "endDate": 1668242493999,
-    "remoteHost": "109.227.77.139",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 337,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1419,
-    "connectionName": "enim officia"
-  },
-  {
-    "startDate": 1683807320978,
-    "duration": 3073106,
-    "endDate": 1683810394084,
-    "remoteHost": "128.79.231.174",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 338,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 581,
-    "connectionName": "dolore culpa"
-  },
-  {
-    "startDate": 1530483585450,
-    "duration": 17237977,
-    "endDate": 1530500823427,
-    "remoteHost": "177.135.28.154",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 339,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 479,
-    "connectionName": "nulla velit"
-  },
-  {
-    "startDate": 1492321892772,
-    "duration": 13430748,
-    "endDate": 1492335323520,
-    "remoteHost": "250.101.167.212",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 340,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 358,
-    "connectionName": "est dolor"
-  },
-  {
-    "startDate": 1514454533719,
-    "duration": 18710812,
-    "endDate": 1514473244531,
-    "remoteHost": "241.127.34.89",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 341,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 775,
-    "connectionName": "id ea"
-  },
-  {
-    "startDate": 1601849846210,
-    "duration": 6704770,
-    "endDate": 1601856550980,
-    "remoteHost": "220.114.77.88",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 342,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 381,
-    "connectionName": "veniam aliquip"
-  },
-  {
-    "startDate": 1519525054427,
-    "duration": 11425860,
-    "endDate": 1519536480287,
-    "remoteHost": "179.43.143.27",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 343,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 970,
-    "connectionName": "pariatur sit"
-  },
-  {
-    "startDate": 1651387481799,
-    "duration": 9000506,
-    "endDate": 1651396482305,
-    "remoteHost": "219.118.157.231",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 344,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 258,
-    "connectionName": "nisi in"
-  },
-  {
-    "startDate": 1473062007254,
-    "duration": 408809,
-    "endDate": 1473062416063,
-    "remoteHost": "240.109.97.40",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 345,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1166,
-    "connectionName": "sit ipsum"
-  },
-  {
-    "startDate": 1644383968118,
-    "duration": 17719408,
-    "endDate": 1644401687526,
-    "remoteHost": "133.81.163.212",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 346,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 79,
-    "connectionName": "velit dolore"
-  },
-  {
-    "startDate": 1554694446652,
-    "duration": 19371005,
-    "endDate": 1554713817657,
-    "remoteHost": "228.26.31.174",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 347,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1347,
-    "connectionName": "magna nisi"
-  },
-  {
-    "startDate": 1527319068402,
-    "duration": 8305656,
-    "endDate": 1527327374058,
-    "remoteHost": "214.165.126.174",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 348,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 363,
-    "connectionName": "et est"
-  },
-  {
-    "startDate": 1510143262922,
-    "duration": 18486318,
-    "endDate": 1510161749240,
-    "remoteHost": "127.26.42.12",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 349,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 923,
-    "connectionName": "minim occaecat"
-  },
-  {
-    "startDate": 1454112090224,
-    "duration": 19408528,
-    "endDate": 1454131498752,
-    "remoteHost": "228.99.246.221",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 350,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 460,
-    "connectionName": "veniam velit"
-  },
-  {
-    "startDate": 1656448148706,
-    "duration": 9251428,
-    "endDate": 1656457400134,
-    "remoteHost": "126.164.93.84",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 351,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 648,
-    "connectionName": "sint mollit"
-  },
-  {
-    "startDate": 1429699029994,
-    "duration": 6780140,
-    "endDate": 1429705810134,
-    "remoteHost": "137.139.104.10",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 352,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1042,
-    "connectionName": "amet esse"
-  },
-  {
-    "startDate": 1550837056149,
-    "duration": 2994441,
-    "endDate": 1550840050590,
-    "remoteHost": "187.181.52.38",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 353,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1334,
-    "connectionName": "sint tempor"
-  },
-  {
-    "startDate": 1446440367154,
-    "duration": 2614067,
-    "endDate": 1446442981221,
-    "remoteHost": "129.120.107.93",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 354,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1241,
-    "connectionName": "culpa id"
-  },
-  {
-    "startDate": 1477975179201,
-    "duration": 4169169,
-    "endDate": 1477979348370,
-    "remoteHost": "56.227.23.74",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 355,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1279,
-    "connectionName": "est esse"
-  },
-  {
-    "startDate": 1473425317994,
-    "duration": 9151502,
-    "endDate": 1473434469496,
-    "remoteHost": "66.202.107.241",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 356,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 33,
-    "connectionName": "nostrud ad"
-  },
-  {
-    "startDate": 1547822105827,
-    "duration": 19797651,
-    "endDate": 1547841903478,
-    "remoteHost": "93.52.29.132",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 357,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 284,
-    "connectionName": "laborum mollit"
-  },
-  {
-    "startDate": 1538076537298,
-    "duration": 13678712,
-    "endDate": 1538090216010,
-    "remoteHost": "105.175.223.180",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 358,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 338,
-    "connectionName": "aute in"
-  },
-  {
-    "startDate": 1421702774037,
-    "duration": 18218859,
-    "endDate": 1421720992896,
-    "remoteHost": "132.77.235.170",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 359,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 60,
-    "connectionName": "ut consequat"
-  },
-  {
-    "startDate": 1557782600932,
-    "duration": 11681761,
-    "endDate": 1557794282693,
-    "remoteHost": "15.121.151.5",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 360,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 838,
-    "connectionName": "adipisicing exercitation"
-  },
-  {
-    "startDate": 1494593464690,
-    "duration": 17997835,
-    "endDate": 1494611462525,
-    "remoteHost": "87.145.104.17",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 361,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 259,
-    "connectionName": "qui ut"
-  },
-  {
-    "startDate": 1551801295890,
-    "duration": 9192644,
-    "endDate": 1551810488534,
-    "remoteHost": "32.47.41.250",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 362,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 840,
-    "connectionName": "elit sint"
-  },
-  {
-    "startDate": 1589802432464,
-    "duration": 19034472,
-    "endDate": 1589821466936,
-    "remoteHost": "58.255.32.191",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 363,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1089,
-    "connectionName": "exercitation cillum"
-  },
-  {
-    "startDate": 1678299757462,
-    "duration": 7814906,
-    "endDate": 1678307572368,
-    "remoteHost": "112.97.125.234",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 364,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 778,
-    "connectionName": "dolore magna"
-  },
-  {
-    "startDate": 1662281716609,
-    "duration": 17466014,
-    "endDate": 1662299182623,
-    "remoteHost": "84.76.155.193",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 365,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 379,
-    "connectionName": "in commodo"
-  },
-  {
-    "startDate": 1460763546592,
-    "duration": 8467486,
-    "endDate": 1460772014078,
-    "remoteHost": "178.106.26.146",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 366,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1229,
-    "connectionName": "sunt sit"
-  },
-  {
-    "startDate": 1466885292313,
-    "duration": 12695310,
-    "endDate": 1466897987623,
-    "remoteHost": "168.176.55.30",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 367,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 96,
-    "connectionName": "proident consequat"
-  },
-  {
-    "startDate": 1487787092743,
-    "duration": 21376953,
-    "endDate": 1487808469696,
-    "remoteHost": "198.119.54.230",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 368,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1372,
-    "connectionName": "eiusmod enim"
-  },
-  {
-    "startDate": 1560960163535,
-    "duration": 9167830,
-    "endDate": 1560969331365,
-    "remoteHost": "185.127.219.90",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 369,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 66,
-    "connectionName": "aute exercitation"
-  },
-  {
-    "startDate": 1546086354906,
-    "duration": 12619975,
-    "endDate": 1546098974881,
-    "remoteHost": "196.246.8.50",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 370,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 562,
-    "connectionName": "nisi aliqua"
-  },
-  {
-    "startDate": 1472161052831,
-    "duration": 8235430,
-    "endDate": 1472169288261,
-    "remoteHost": "209.143.154.125",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 371,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 540,
-    "connectionName": "do veniam"
-  },
-  {
-    "startDate": 1505008512911,
-    "duration": 19555650,
-    "endDate": 1505028068561,
-    "remoteHost": "181.243.73.48",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 372,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1221,
-    "connectionName": "ea non"
-  },
-  {
-    "startDate": 1585257621916,
-    "duration": 4043412,
-    "endDate": 1585261665328,
-    "remoteHost": "97.165.174.122",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 373,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 146,
-    "connectionName": "et id"
-  },
-  {
-    "startDate": 1439173046646,
-    "duration": 9616697,
-    "endDate": 1439182663343,
-    "remoteHost": "165.56.228.36",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 374,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 672,
-    "connectionName": "anim consectetur"
-  },
-  {
-    "startDate": 1512769972216,
-    "duration": 12012562,
-    "endDate": 1512781984778,
-    "remoteHost": "98.177.165.97",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 375,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1192,
-    "connectionName": "reprehenderit dolor"
-  },
-  {
-    "startDate": 1621557145633,
-    "duration": 5951509,
-    "endDate": 1621563097142,
-    "remoteHost": "205.12.112.202",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 376,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 976,
-    "connectionName": "sunt id"
-  },
-  {
-    "startDate": 1420366457267,
-    "duration": 3126336,
-    "endDate": 1420369583603,
-    "remoteHost": "110.82.60.158",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 377,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 469,
-    "connectionName": "ad quis"
-  },
-  {
-    "startDate": 1436672699397,
-    "duration": 9505232,
-    "endDate": 1436682204629,
-    "remoteHost": "213.184.154.193",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 378,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 921,
-    "connectionName": "velit ut"
-  },
-  {
-    "startDate": 1493464979692,
-    "duration": 16898303,
-    "endDate": 1493481877995,
-    "remoteHost": "111.230.204.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 379,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 331,
-    "connectionName": "eiusmod sit"
-  },
-  {
-    "startDate": 1526334036620,
-    "duration": 6386530,
-    "endDate": 1526340423150,
-    "remoteHost": "195.37.164.204",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 380,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1091,
-    "connectionName": "id exercitation"
-  },
-  {
-    "startDate": 1681332972609,
-    "duration": 6544440,
-    "endDate": 1681339517049,
-    "remoteHost": "154.219.3.164",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 381,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 740,
-    "connectionName": "adipisicing sunt"
-  },
-  {
-    "startDate": 1427324274512,
-    "duration": 16333808,
-    "endDate": 1427340608320,
-    "remoteHost": "196.203.234.182",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 382,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 913,
-    "connectionName": "qui enim"
-  },
-  {
-    "startDate": 1478861134303,
-    "duration": 16002899,
-    "endDate": 1478877137202,
-    "remoteHost": "187.13.11.101",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 383,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 584,
-    "connectionName": "eiusmod minim"
-  },
-  {
-    "startDate": 1683215981215,
-    "duration": 9942857,
-    "endDate": 1683225924072,
-    "remoteHost": "43.204.31.125",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 384,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 576,
-    "connectionName": "velit occaecat"
-  },
-  {
-    "startDate": 1510280970842,
-    "duration": 12240081,
-    "endDate": 1510293210923,
-    "remoteHost": "29.186.144.81",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 385,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 660,
-    "connectionName": "magna non"
-  },
-  {
-    "startDate": 1596138690212,
-    "duration": 3810437,
-    "endDate": 1596142500649,
-    "remoteHost": "122.38.151.94",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 386,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1454,
-    "connectionName": "duis anim"
-  },
-  {
-    "startDate": 1672499661029,
-    "duration": 11015371,
-    "endDate": 1672510676400,
-    "remoteHost": "119.30.184.241",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 387,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1246,
-    "connectionName": "incididunt reprehenderit"
-  },
-  {
-    "startDate": 1544703157086,
-    "duration": 10565039,
-    "endDate": 1544713722125,
-    "remoteHost": "183.196.169.75",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 388,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 576,
-    "connectionName": "laborum cillum"
-  },
-  {
-    "startDate": 1429529585694,
-    "duration": 10040350,
-    "endDate": 1429539626044,
-    "remoteHost": "161.249.202.49",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 389,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1113,
-    "connectionName": "voluptate duis"
-  },
-  {
-    "startDate": 1635002051455,
-    "duration": 18020945,
-    "endDate": 1635020072400,
-    "remoteHost": "218.98.171.2",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 390,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1148,
-    "connectionName": "qui amet"
-  },
-  {
-    "startDate": 1526525775206,
-    "duration": 10871513,
-    "endDate": 1526536646719,
-    "remoteHost": "54.241.44.108",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 391,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1308,
-    "connectionName": "magna ipsum"
-  },
-  {
-    "startDate": 1643631707201,
-    "duration": 4025451,
-    "endDate": 1643635732652,
-    "remoteHost": "36.242.177.190",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 392,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 124,
-    "connectionName": "adipisicing ullamco"
-  },
-  {
-    "startDate": 1654032163219,
-    "duration": 19873977,
-    "endDate": 1654052037196,
-    "remoteHost": "78.6.63.200",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 393,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 16,
-    "connectionName": "aliquip pariatur"
-  },
-  {
-    "startDate": 1689114793977,
-    "duration": 11749929,
-    "endDate": 1689126543906,
-    "remoteHost": "45.186.93.218",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 394,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 180,
-    "connectionName": "labore duis"
-  },
-  {
-    "startDate": 1696751684098,
-    "duration": 17811699,
-    "endDate": 1696769495797,
-    "remoteHost": "68.112.212.27",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 395,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1240,
-    "connectionName": "Lorem ut"
-  },
-  {
-    "startDate": 1464066708087,
-    "duration": 449409,
-    "endDate": 1464067157496,
-    "remoteHost": "169.164.45.50",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 396,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1085,
-    "connectionName": "duis cupidatat"
-  },
-  {
-    "startDate": 1520775388853,
-    "duration": 13855007,
-    "endDate": 1520789243860,
-    "remoteHost": "155.122.32.224",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 397,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 759,
-    "connectionName": "cillum mollit"
-  },
-  {
-    "startDate": 1647815050531,
-    "duration": 1685176,
-    "endDate": 1647816735707,
-    "remoteHost": "11.17.41.223",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 398,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 914,
-    "connectionName": "amet non"
-  },
-  {
-    "startDate": 1501468209459,
-    "duration": 9098643,
-    "endDate": 1501477308102,
-    "remoteHost": "15.9.3.77",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 399,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 326,
-    "connectionName": "quis anim"
-  },
-  {
-    "startDate": 1614180909017,
-    "duration": 10316725,
-    "endDate": 1614191225742,
-    "remoteHost": "145.209.249.188",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 400,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 735,
-    "connectionName": "enim in"
-  },
-  {
-    "startDate": 1613767531148,
-    "duration": 14616919,
-    "endDate": 1613782148067,
-    "remoteHost": "174.106.30.254",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 401,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 459,
-    "connectionName": "ad sunt"
-  },
-  {
-    "startDate": 1672474293827,
-    "duration": 16140211,
-    "endDate": 1672490434038,
-    "remoteHost": "98.167.78.18",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 402,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 655,
-    "connectionName": "ad tempor"
-  },
-  {
-    "startDate": 1673168557455,
-    "duration": 19627522,
-    "endDate": 1673188184977,
-    "remoteHost": "148.44.89.10",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 403,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 145,
-    "connectionName": "esse duis"
-  },
-  {
-    "startDate": 1635502957943,
-    "duration": 7071373,
-    "endDate": 1635510029316,
-    "remoteHost": "179.36.109.219",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 404,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 616,
-    "connectionName": "aliqua adipisicing"
-  },
-  {
-    "startDate": 1495564352498,
-    "duration": 7344239,
-    "endDate": 1495571696737,
-    "remoteHost": "68.250.51.24",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 405,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 919,
-    "connectionName": "aliquip sunt"
-  },
-  {
-    "startDate": 1429358925451,
-    "duration": 21152250,
-    "endDate": 1429380077701,
-    "remoteHost": "67.114.238.104",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 406,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 68,
-    "connectionName": "aliquip culpa"
-  },
-  {
-    "startDate": 1571810421083,
-    "duration": 17280646,
-    "endDate": 1571827701729,
-    "remoteHost": "221.166.224.161",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 407,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 340,
-    "connectionName": "duis deserunt"
-  },
-  {
-    "startDate": 1590214444989,
-    "duration": 3983158,
-    "endDate": 1590218428147,
-    "remoteHost": "34.72.173.255",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 408,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 305,
-    "connectionName": "eiusmod consequat"
-  },
-  {
-    "startDate": 1656227940800,
-    "duration": 5516530,
-    "endDate": 1656233457330,
-    "remoteHost": "140.45.120.187",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 409,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 74,
-    "connectionName": "sit sint"
-  },
-  {
-    "startDate": 1436585020567,
-    "duration": 12250441,
-    "endDate": 1436597271008,
-    "remoteHost": "86.198.137.67",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 410,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 782,
-    "connectionName": "est nostrud"
-  },
-  {
-    "startDate": 1424545921919,
-    "duration": 13810410,
-    "endDate": 1424559732329,
-    "remoteHost": "235.54.80.182",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 411,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 541,
-    "connectionName": "reprehenderit aliquip"
-  },
-  {
-    "startDate": 1542036097640,
-    "duration": 15487800,
-    "endDate": 1542051585440,
-    "remoteHost": "40.181.41.203",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 412,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 382,
-    "connectionName": "consequat amet"
-  },
-  {
-    "startDate": 1497445381373,
-    "duration": 4863583,
-    "endDate": 1497450244956,
-    "remoteHost": "230.30.28.125",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 413,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1086,
-    "connectionName": "fugiat consectetur"
-  },
-  {
-    "startDate": 1468514550851,
-    "duration": 18312617,
-    "endDate": 1468532863468,
-    "remoteHost": "219.179.133.88",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 414,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 539,
-    "connectionName": "culpa magna"
-  },
-  {
-    "startDate": 1670321858280,
-    "duration": 520369,
-    "endDate": 1670322378649,
-    "remoteHost": "134.5.170.174",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 415,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 113,
-    "connectionName": "eiusmod deserunt"
-  },
-  {
-    "startDate": 1464121075861,
-    "duration": 5079793,
-    "endDate": 1464126155654,
-    "remoteHost": "163.192.118.66",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 416,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 659,
-    "connectionName": "aliqua minim"
-  },
-  {
-    "startDate": 1537972917776,
-    "duration": 19902105,
-    "endDate": 1537992819881,
-    "remoteHost": "255.60.47.163",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 417,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 711,
-    "connectionName": "est culpa"
-  },
-  {
-    "startDate": 1440107810868,
-    "duration": 10088192,
-    "endDate": 1440117899060,
-    "remoteHost": "191.160.117.76",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 418,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1407,
-    "connectionName": "non velit"
-  },
-  {
-    "startDate": 1637170548026,
-    "duration": 17033394,
-    "endDate": 1637187581420,
-    "remoteHost": "227.170.135.207",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 419,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 366,
-    "connectionName": "non in"
-  },
-  {
-    "startDate": 1524789671506,
-    "duration": 4659992,
-    "endDate": 1524794331498,
-    "remoteHost": "184.171.237.22",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 420,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 535,
-    "connectionName": "est nulla"
-  },
-  {
-    "startDate": 1609814536340,
-    "duration": 18265068,
-    "endDate": 1609832801408,
-    "remoteHost": "134.68.196.109",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 421,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 844,
-    "connectionName": "dolor ea"
-  },
-  {
-    "startDate": 1585962030177,
-    "duration": 877516,
-    "endDate": 1585962907693,
-    "remoteHost": "205.218.226.215",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 422,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 972,
-    "connectionName": "ipsum incididunt"
-  },
-  {
-    "startDate": 1672112464719,
-    "duration": 14244863,
-    "endDate": 1672126709582,
-    "remoteHost": "35.18.206.56",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 423,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1433,
-    "connectionName": "veniam ullamco"
-  },
-  {
-    "startDate": 1608063263888,
-    "duration": 2480905,
-    "endDate": 1608065744793,
-    "remoteHost": "59.55.73.212",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 424,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 900,
-    "connectionName": "sit est"
-  },
-  {
-    "startDate": 1624731404056,
-    "duration": 12254319,
-    "endDate": 1624743658375,
-    "remoteHost": "64.126.174.211",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 425,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1281,
-    "connectionName": "anim culpa"
-  },
-  {
-    "startDate": 1552295439822,
-    "duration": 2470781,
-    "endDate": 1552297910603,
-    "remoteHost": "193.239.185.62",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 426,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1207,
-    "connectionName": "cupidatat commodo"
-  },
-  {
-    "startDate": 1543390006401,
-    "duration": 18946054,
-    "endDate": 1543408952455,
-    "remoteHost": "104.17.128.180",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 427,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1174,
-    "connectionName": "cillum consequat"
-  },
-  {
-    "startDate": 1618521375654,
-    "duration": 903562,
-    "endDate": 1618522279216,
-    "remoteHost": "222.26.46.66",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 428,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 919,
-    "connectionName": "mollit aute"
-  },
-  {
-    "startDate": 1549320225945,
-    "duration": 18097938,
-    "endDate": 1549338323883,
-    "remoteHost": "120.169.177.235",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 429,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 388,
-    "connectionName": "laborum eiusmod"
-  },
-  {
-    "startDate": 1563024818654,
-    "duration": 11555340,
-    "endDate": 1563036373994,
-    "remoteHost": "152.54.138.252",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 430,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 903,
-    "connectionName": "dolore dolor"
-  },
-  {
-    "startDate": 1554786672149,
-    "duration": 21024351,
-    "endDate": 1554807696500,
-    "remoteHost": "115.207.255.187",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 431,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 339,
-    "connectionName": "excepteur nostrud"
-  },
-  {
-    "startDate": 1432369554880,
-    "duration": 20762550,
-    "endDate": 1432390317430,
-    "remoteHost": "84.48.43.102",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 432,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 581,
-    "connectionName": "proident velit"
-  },
-  {
-    "startDate": 1477213566623,
-    "duration": 8065365,
-    "endDate": 1477221631988,
-    "remoteHost": "163.188.160.202",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 433,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 655,
-    "connectionName": "occaecat esse"
-  },
-  {
-    "startDate": 1635015447514,
-    "duration": 17344709,
-    "endDate": 1635032792223,
-    "remoteHost": "145.32.178.123",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 434,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1374,
-    "connectionName": "consectetur aliquip"
-  },
-  {
-    "startDate": 1549260254955,
-    "duration": 3025432,
-    "endDate": 1549263280387,
-    "remoteHost": "174.194.73.179",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 435,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1467,
-    "connectionName": "ex esse"
-  },
-  {
-    "startDate": 1669618176831,
-    "duration": 8344999,
-    "endDate": 1669626521830,
-    "remoteHost": "115.223.47.62",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 436,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 48,
-    "connectionName": "id qui"
-  },
-  {
-    "startDate": 1682887518009,
-    "duration": 20586952,
-    "endDate": 1682908104961,
-    "remoteHost": "189.92.57.166",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 437,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 720,
-    "connectionName": "do deserunt"
-  },
-  {
-    "startDate": 1482069624577,
-    "duration": 10832910,
-    "endDate": 1482080457487,
-    "remoteHost": "174.106.177.132",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 438,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 805,
-    "connectionName": "nulla nostrud"
-  },
-  {
-    "startDate": 1577681097641,
-    "duration": 20794973,
-    "endDate": 1577701892614,
-    "remoteHost": "20.144.166.252",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 439,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 834,
-    "connectionName": "laboris eu"
-  },
-  {
-    "startDate": 1686476930346,
-    "duration": 13291481,
-    "endDate": 1686490221827,
-    "remoteHost": "21.148.213.88",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 440,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 278,
-    "connectionName": "magna ex"
-  },
-  {
-    "startDate": 1489921132524,
-    "duration": 4226241,
-    "endDate": 1489925358765,
-    "remoteHost": "116.240.152.219",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 441,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 282,
-    "connectionName": "quis enim"
-  },
-  {
-    "startDate": 1443972369117,
-    "duration": 18390437,
-    "endDate": 1443990759554,
-    "remoteHost": "47.67.83.46",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 442,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1160,
-    "connectionName": "sunt incididunt"
-  },
-  {
-    "startDate": 1668881745798,
-    "duration": 21542182,
-    "endDate": 1668903287980,
-    "remoteHost": "73.86.114.250",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 443,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1474,
-    "connectionName": "do elit"
-  },
-  {
-    "startDate": 1616487264742,
-    "duration": 21468207,
-    "endDate": 1616508732949,
-    "remoteHost": "111.48.184.224",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 444,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1295,
-    "connectionName": "laboris enim"
-  },
-  {
-    "startDate": 1492554191724,
-    "duration": 20771499,
-    "endDate": 1492574963223,
-    "remoteHost": "232.199.214.42",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 445,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1437,
-    "connectionName": "in ea"
-  },
-  {
-    "startDate": 1526154489787,
-    "duration": 15461328,
-    "endDate": 1526169951115,
-    "remoteHost": "140.175.144.209",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 446,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 450,
-    "connectionName": "proident id"
-  },
-  {
-    "startDate": 1613367609419,
-    "duration": 17432898,
-    "endDate": 1613385042317,
-    "remoteHost": "154.251.232.120",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 447,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1214,
-    "connectionName": "labore quis"
-  },
-  {
-    "startDate": 1482214263222,
-    "duration": 6902139,
-    "endDate": 1482221165361,
-    "remoteHost": "22.88.61.143",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 448,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1273,
-    "connectionName": "excepteur dolor"
-  },
-  {
-    "startDate": 1513148074968,
-    "duration": 2066341,
-    "endDate": 1513150141309,
-    "remoteHost": "106.195.160.65",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 449,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 623,
-    "connectionName": "ad ipsum"
-  },
-  {
-    "startDate": 1611121892459,
-    "duration": 10030105,
-    "endDate": 1611131922564,
-    "remoteHost": "17.234.216.55",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 450,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 653,
-    "connectionName": "non et"
-  },
-  {
-    "startDate": 1627110382490,
-    "duration": 1409284,
-    "endDate": 1627111791774,
-    "remoteHost": "138.166.117.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 451,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1483,
-    "connectionName": "duis Lorem"
-  },
-  {
-    "startDate": 1659900058539,
-    "duration": 72204,
-    "endDate": 1659900130743,
-    "remoteHost": "237.110.218.209",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 452,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 353,
-    "connectionName": "sunt et"
-  },
-  {
-    "startDate": 1445218121886,
-    "duration": 9720453,
-    "endDate": 1445227842339,
-    "remoteHost": "100.36.197.40",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 453,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1286,
-    "connectionName": "veniam aliqua"
-  },
-  {
-    "startDate": 1461653739297,
-    "duration": 20908851,
-    "endDate": 1461674648148,
-    "remoteHost": "52.122.196.173",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 454,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 995,
-    "connectionName": "elit consequat"
-  },
-  {
-    "startDate": 1527981326100,
-    "duration": 20291550,
-    "endDate": 1528001617650,
-    "remoteHost": "106.147.223.62",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 455,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 999,
-    "connectionName": "id et"
-  },
-  {
-    "startDate": 1485637798184,
-    "duration": 10852616,
-    "endDate": 1485648650800,
-    "remoteHost": "156.13.45.212",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 456,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 487,
-    "connectionName": "sint ut"
-  },
-  {
-    "startDate": 1654909366492,
-    "duration": 17781202,
-    "endDate": 1654927147694,
-    "remoteHost": "24.198.168.222",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 457,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1107,
-    "connectionName": "elit amet"
-  },
-  {
-    "startDate": 1653590805435,
-    "duration": 17420269,
-    "endDate": 1653608225704,
-    "remoteHost": "54.125.112.89",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 458,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 640,
-    "connectionName": "et consectetur"
-  },
-  {
-    "startDate": 1623373402110,
-    "duration": 544454,
-    "endDate": 1623373946564,
-    "remoteHost": "35.202.110.42",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 459,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 471,
-    "connectionName": "enim dolor"
-  },
-  {
-    "startDate": 1620732896345,
-    "duration": 12317772,
-    "endDate": 1620745214117,
-    "remoteHost": "224.189.20.167",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 460,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 825,
-    "connectionName": "nulla pariatur"
-  },
-  {
-    "startDate": 1516343964694,
-    "duration": 15106447,
-    "endDate": 1516359071141,
-    "remoteHost": "214.174.254.254",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 461,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1391,
-    "connectionName": "laborum dolore"
-  },
-  {
-    "startDate": 1578381044301,
-    "duration": 8340727,
-    "endDate": 1578389385028,
-    "remoteHost": "81.126.116.88",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 462,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 703,
-    "connectionName": "laborum velit"
-  },
-  {
-    "startDate": 1647043005063,
-    "duration": 12615770,
-    "endDate": 1647055620833,
-    "remoteHost": "176.49.119.129",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 463,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1386,
-    "connectionName": "est laboris"
-  },
-  {
-    "startDate": 1428436450478,
-    "duration": 14193788,
-    "endDate": 1428450644266,
-    "remoteHost": "230.86.156.198",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 464,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 846,
-    "connectionName": "consequat aliquip"
-  },
-  {
-    "startDate": 1508313897365,
-    "duration": 17641062,
-    "endDate": 1508331538427,
-    "remoteHost": "62.147.161.158",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 465,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1321,
-    "connectionName": "incididunt commodo"
-  },
-  {
-    "startDate": 1500038351674,
-    "duration": 12318894,
-    "endDate": 1500050670568,
-    "remoteHost": "218.249.98.130",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 466,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1020,
-    "connectionName": "duis tempor"
-  },
-  {
-    "startDate": 1488679912766,
-    "duration": 11618606,
-    "endDate": 1488691531372,
-    "remoteHost": "52.69.115.22",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 467,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1041,
-    "connectionName": "laboris dolor"
-  },
-  {
-    "startDate": 1530079894971,
-    "duration": 18869610,
-    "endDate": 1530098764581,
-    "remoteHost": "217.8.77.126",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 468,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 449,
-    "connectionName": "velit labore"
-  },
-  {
-    "startDate": 1631059217551,
-    "duration": 6180984,
-    "endDate": 1631065398535,
-    "remoteHost": "206.81.168.26",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 469,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1223,
-    "connectionName": "exercitation duis"
-  },
-  {
-    "startDate": 1479812907854,
-    "duration": 7200938,
-    "endDate": 1479820108792,
-    "remoteHost": "136.10.82.43",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 470,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1118,
-    "connectionName": "nostrud qui"
-  },
-  {
-    "startDate": 1686077764939,
-    "duration": 8656564,
-    "endDate": 1686086421503,
-    "remoteHost": "227.7.180.224",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 471,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 456,
-    "connectionName": "et aliquip"
-  },
-  {
-    "startDate": 1513710874288,
-    "duration": 13713471,
-    "endDate": 1513724587759,
-    "remoteHost": "48.83.122.159",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 472,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 337,
-    "connectionName": "irure non"
-  },
-  {
-    "startDate": 1604694573190,
-    "duration": 17274915,
-    "endDate": 1604711848105,
-    "remoteHost": "215.209.145.15",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 473,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 752,
-    "connectionName": "consectetur consectetur"
-  },
-  {
-    "startDate": 1493003856291,
-    "duration": 17106752,
-    "endDate": 1493020963043,
-    "remoteHost": "50.84.177.167",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 474,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 737,
-    "connectionName": "adipisicing consequat"
-  },
-  {
-    "startDate": 1683645300361,
-    "duration": 15940222,
-    "endDate": 1683661240583,
-    "remoteHost": "170.218.157.177",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 475,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 376,
-    "connectionName": "irure sit"
-  },
-  {
-    "startDate": 1493834837823,
-    "duration": 20155008,
-    "endDate": 1493854992831,
-    "remoteHost": "21.155.212.117",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 476,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 12,
-    "connectionName": "id consectetur"
-  },
-  {
-    "startDate": 1570608017902,
-    "duration": 918331,
-    "endDate": 1570608936233,
-    "remoteHost": "26.215.8.237",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 477,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1299,
-    "connectionName": "enim cupidatat"
-  },
-  {
-    "startDate": 1606392093286,
-    "duration": 8902109,
-    "endDate": 1606400995395,
-    "remoteHost": "200.202.152.207",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 478,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1367,
-    "connectionName": "deserunt laboris"
-  },
-  {
-    "startDate": 1591906112097,
-    "duration": 5874244,
-    "endDate": 1591911986341,
-    "remoteHost": "207.236.221.62",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 479,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 840,
-    "connectionName": "nisi velit"
-  },
-  {
-    "startDate": 1581598168226,
-    "duration": 14587775,
-    "endDate": 1581612756001,
-    "remoteHost": "196.50.84.222",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 480,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 922,
-    "connectionName": "veniam nisi"
-  },
-  {
-    "startDate": 1611218400890,
-    "duration": 6706286,
-    "endDate": 1611225107176,
-    "remoteHost": "38.214.73.153",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 481,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 568,
-    "connectionName": "eu irure"
-  },
-  {
-    "startDate": 1474279725178,
-    "duration": 16285704,
-    "endDate": 1474296010882,
-    "remoteHost": "104.107.68.70",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 482,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1204,
-    "connectionName": "labore eu"
-  },
-  {
-    "startDate": 1487199601379,
-    "duration": 3331679,
-    "endDate": 1487202933058,
-    "remoteHost": "154.148.214.62",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 483,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 119,
-    "connectionName": "cupidatat voluptate"
-  },
-  {
-    "startDate": 1556573148108,
-    "duration": 7408142,
-    "endDate": 1556580556250,
-    "remoteHost": "227.87.130.224",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 484,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1151,
-    "connectionName": "commodo est"
-  },
-  {
-    "startDate": 1470163024903,
-    "duration": 13448580,
-    "endDate": 1470176473483,
-    "remoteHost": "201.112.194.197",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 485,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 871,
-    "connectionName": "deserunt fugiat"
-  },
-  {
-    "startDate": 1683182682694,
-    "duration": 14283949,
-    "endDate": 1683196966643,
-    "remoteHost": "249.43.15.60",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 486,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 322,
-    "connectionName": "officia tempor"
-  },
-  {
-    "startDate": 1652142496854,
-    "duration": 2606586,
-    "endDate": 1652145103440,
-    "remoteHost": "139.17.250.152",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 487,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 526,
-    "connectionName": "exercitation sit"
-  },
-  {
-    "startDate": 1513124560723,
-    "duration": 17787774,
-    "endDate": 1513142348497,
-    "remoteHost": "232.214.78.218",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 488,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 410,
-    "connectionName": "commodo in"
-  },
-  {
-    "startDate": 1581563305843,
-    "duration": 5328331,
-    "endDate": 1581568634174,
-    "remoteHost": "85.190.135.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 489,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1222,
-    "connectionName": "aliqua minim"
-  },
-  {
-    "startDate": 1659742239082,
-    "duration": 20574288,
-    "endDate": 1659762813370,
-    "remoteHost": "58.192.28.191",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 490,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 387,
-    "connectionName": "nisi id"
-  },
-  {
-    "startDate": 1656953120457,
-    "duration": 14166126,
-    "endDate": 1656967286583,
-    "remoteHost": "195.134.13.171",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 491,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 992,
-    "connectionName": "veniam aliqua"
-  },
-  {
-    "startDate": 1434761736924,
-    "duration": 1092280,
-    "endDate": 1434762829204,
-    "remoteHost": "60.162.70.197",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 492,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 992,
-    "connectionName": "mollit officia"
-  },
-  {
-    "startDate": 1642934190641,
-    "duration": 18004431,
-    "endDate": 1642952195072,
-    "remoteHost": "147.171.102.49",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 493,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1005,
-    "connectionName": "excepteur nisi"
-  },
-  {
-    "startDate": 1587700385360,
-    "duration": 6638680,
-    "endDate": 1587707024040,
-    "remoteHost": "165.116.49.209",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 494,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 990,
-    "connectionName": "ipsum quis"
-  },
-  {
-    "startDate": 1471822254257,
-    "duration": 14838336,
-    "endDate": 1471837092593,
-    "remoteHost": "113.26.250.18",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 495,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 858,
-    "connectionName": "est ullamco"
-  },
-  {
-    "startDate": 1474306424488,
-    "duration": 5059053,
-    "endDate": 1474311483541,
-    "remoteHost": "20.3.238.122",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 496,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 176,
-    "connectionName": "laborum et"
-  },
-  {
-    "startDate": 1445342413233,
-    "duration": 6216126,
-    "endDate": 1445348629359,
-    "remoteHost": "176.56.179.187",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 497,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 45,
-    "connectionName": "id id"
-  },
-  {
-    "startDate": 1626301012095,
-    "duration": 7538437,
-    "endDate": 1626308550532,
-    "remoteHost": "210.156.78.215",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 498,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 511,
-    "connectionName": "quis esse"
-  },
-  {
-    "startDate": 1479022610420,
-    "duration": 1625587,
-    "endDate": 1479024236007,
-    "remoteHost": "175.175.183.130",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 499,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 539,
-    "connectionName": "laborum Lorem"
-  },
-  {
-    "startDate": 1566008797310,
-    "duration": 14166843,
-    "endDate": 1566022964153,
-    "remoteHost": "208.53.233.248",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 500,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 2,
-    "connectionName": "minim eiusmod"
-  },
-  {
-    "startDate": 1455816311114,
-    "duration": 4946002,
-    "endDate": 1455821257116,
-    "remoteHost": "73.252.192.169",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 501,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1425,
-    "connectionName": "occaecat eiusmod"
-  },
-  {
-    "startDate": 1599098019907,
-    "duration": 14470615,
-    "endDate": 1599112490522,
-    "remoteHost": "44.22.198.131",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 502,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 903,
-    "connectionName": "laborum id"
-  },
-  {
-    "startDate": 1640037267525,
-    "duration": 4097873,
-    "endDate": 1640041365398,
-    "remoteHost": "228.125.199.167",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 503,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1077,
-    "connectionName": "magna consectetur"
-  },
-  {
-    "startDate": 1453930387383,
-    "duration": 5138681,
-    "endDate": 1453935526064,
-    "remoteHost": "202.244.41.48",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 504,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 742,
-    "connectionName": "minim minim"
-  },
-  {
-    "startDate": 1449287938537,
-    "duration": 11705711,
-    "endDate": 1449299644248,
-    "remoteHost": "139.63.20.42",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 505,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 585,
-    "connectionName": "non amet"
-  },
-  {
-    "startDate": 1482478711292,
-    "duration": 20347418,
-    "endDate": 1482499058710,
-    "remoteHost": "132.90.34.4",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 506,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 902,
-    "connectionName": "amet ullamco"
-  },
-  {
-    "startDate": 1447286501208,
-    "duration": 20587017,
-    "endDate": 1447307088225,
-    "remoteHost": "166.86.3.204",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 507,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 645,
-    "connectionName": "ut qui"
-  },
-  {
-    "startDate": 1601553172035,
-    "duration": 9562911,
-    "endDate": 1601562734946,
-    "remoteHost": "27.27.111.86",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 508,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 289,
-    "connectionName": "sunt id"
-  },
-  {
-    "startDate": 1580848454224,
-    "duration": 21359470,
-    "endDate": 1580869813694,
-    "remoteHost": "207.9.19.150",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 509,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 983,
-    "connectionName": "excepteur irure"
-  },
-  {
-    "startDate": 1577487457854,
-    "duration": 4332573,
-    "endDate": 1577491790427,
-    "remoteHost": "208.177.17.81",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 510,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1367,
-    "connectionName": "labore nulla"
-  },
-  {
-    "startDate": 1692088917365,
-    "duration": 4104246,
-    "endDate": 1692093021611,
-    "remoteHost": "23.132.63.18",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 511,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1211,
-    "connectionName": "labore labore"
-  },
-  {
-    "startDate": 1564019271357,
-    "duration": 7869159,
-    "endDate": 1564027140516,
-    "remoteHost": "184.177.75.1",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 512,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 346,
-    "connectionName": "cillum labore"
-  },
-  {
-    "startDate": 1543373217908,
-    "duration": 8813893,
-    "endDate": 1543382031801,
-    "remoteHost": "138.100.62.77",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 513,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 734,
-    "connectionName": "nulla ut"
-  },
-  {
-    "startDate": 1540798167824,
-    "duration": 10184651,
-    "endDate": 1540808352475,
-    "remoteHost": "84.64.192.172",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 514,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1078,
-    "connectionName": "proident irure"
-  },
-  {
-    "startDate": 1598937003586,
-    "duration": 5862639,
-    "endDate": 1598942866225,
-    "remoteHost": "20.59.123.12",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 515,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 760,
-    "connectionName": "fugiat aliqua"
-  },
-  {
-    "startDate": 1505395469816,
-    "duration": 12149629,
-    "endDate": 1505407619445,
-    "remoteHost": "63.106.125.229",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 516,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1065,
-    "connectionName": "ipsum minim"
-  },
-  {
-    "startDate": 1430593536751,
-    "duration": 8462072,
-    "endDate": 1430601998823,
-    "remoteHost": "191.216.253.200",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 517,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1114,
-    "connectionName": "magna exercitation"
-  },
-  {
-    "startDate": 1563256009890,
-    "duration": 6936100,
-    "endDate": 1563262945990,
-    "remoteHost": "196.147.128.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 518,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 264,
-    "connectionName": "eiusmod culpa"
-  },
-  {
-    "startDate": 1638276241146,
-    "duration": 6014566,
-    "endDate": 1638282255712,
-    "remoteHost": "88.85.16.171",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 519,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 566,
-    "connectionName": "mollit incididunt"
-  },
-  {
-    "startDate": 1462649614623,
-    "duration": 17981476,
-    "endDate": 1462667596099,
-    "remoteHost": "210.70.22.25",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 520,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1159,
-    "connectionName": "mollit in"
-  },
-  {
-    "startDate": 1542249275357,
-    "duration": 3297484,
-    "endDate": 1542252572841,
-    "remoteHost": "210.172.36.173",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 521,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 617,
-    "connectionName": "ullamco irure"
-  },
-  {
-    "startDate": 1631487118753,
-    "duration": 16324048,
-    "endDate": 1631503442801,
-    "remoteHost": "183.96.220.131",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 522,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1255,
-    "connectionName": "reprehenderit velit"
-  },
-  {
-    "startDate": 1452063686645,
-    "duration": 18418250,
-    "endDate": 1452082104895,
-    "remoteHost": "148.64.229.82",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 523,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1237,
-    "connectionName": "qui culpa"
-  },
-  {
-    "startDate": 1548858334868,
-    "duration": 21121236,
-    "endDate": 1548879456104,
-    "remoteHost": "113.10.223.157",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 524,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 48,
-    "connectionName": "ullamco laboris"
-  },
-  {
-    "startDate": 1465633290409,
-    "duration": 11267528,
-    "endDate": 1465644557937,
-    "remoteHost": "234.208.209.178",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 525,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1330,
-    "connectionName": "minim consequat"
-  },
-  {
-    "startDate": 1636841340727,
-    "duration": 6026155,
-    "endDate": 1636847366882,
-    "remoteHost": "20.254.3.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 526,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 975,
-    "connectionName": "incididunt exercitation"
-  },
-  {
-    "startDate": 1573154440446,
-    "duration": 19262902,
-    "endDate": 1573173703348,
-    "remoteHost": "235.55.253.38",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 527,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 292,
-    "connectionName": "nulla eiusmod"
-  },
-  {
-    "startDate": 1529944554276,
-    "duration": 18895,
-    "endDate": 1529944573171,
-    "remoteHost": "71.66.112.132",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 528,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1150,
-    "connectionName": "dolore enim"
-  },
-  {
-    "startDate": 1535346003402,
-    "duration": 14808095,
-    "endDate": 1535360811497,
-    "remoteHost": "209.255.162.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 529,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 683,
-    "connectionName": "laborum non"
-  },
-  {
-    "startDate": 1521657243510,
-    "duration": 17572021,
-    "endDate": 1521674815531,
-    "remoteHost": "213.127.134.177",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 530,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1485,
-    "connectionName": "reprehenderit sit"
-  },
-  {
-    "startDate": 1441193175425,
-    "duration": 7975579,
-    "endDate": 1441201151004,
-    "remoteHost": "42.133.64.81",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 531,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 159,
-    "connectionName": "eiusmod sunt"
-  },
-  {
-    "startDate": 1682417428468,
-    "duration": 11011007,
-    "endDate": 1682428439475,
-    "remoteHost": "141.3.12.112",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 532,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1274,
-    "connectionName": "ad reprehenderit"
-  },
-  {
-    "startDate": 1527209951054,
-    "duration": 157305,
-    "endDate": 1527210108359,
-    "remoteHost": "112.71.216.3",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 533,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 948,
-    "connectionName": "do et"
-  },
-  {
-    "startDate": 1497390937500,
-    "duration": 21401738,
-    "endDate": 1497412339238,
-    "remoteHost": "18.128.252.51",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 534,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1226,
-    "connectionName": "dolor adipisicing"
-  },
-  {
-    "startDate": 1498276685306,
-    "duration": 15037895,
-    "endDate": 1498291723201,
-    "remoteHost": "100.252.232.193",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 535,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1460,
-    "connectionName": "officia nisi"
-  },
-  {
-    "startDate": 1455123088749,
-    "duration": 7541439,
-    "endDate": 1455130630188,
-    "remoteHost": "176.22.205.158",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 536,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 55,
-    "connectionName": "officia voluptate"
-  },
-  {
-    "startDate": 1674056881065,
-    "duration": 13226508,
-    "endDate": 1674070107573,
-    "remoteHost": "211.7.216.188",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 537,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1131,
-    "connectionName": "aliqua minim"
-  },
-  {
-    "startDate": 1618657223447,
-    "duration": 3781228,
-    "endDate": 1618661004675,
-    "remoteHost": "232.178.89.32",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 538,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 572,
-    "connectionName": "cupidatat fugiat"
-  },
-  {
-    "startDate": 1425591370488,
-    "duration": 2315572,
-    "endDate": 1425593686060,
-    "remoteHost": "95.191.20.181",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 539,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 907,
-    "connectionName": "reprehenderit nisi"
-  },
-  {
-    "startDate": 1535363361019,
-    "duration": 20185827,
-    "endDate": 1535383546846,
-    "remoteHost": "155.41.129.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 540,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1223,
-    "connectionName": "excepteur amet"
-  },
-  {
-    "startDate": 1597163975823,
-    "duration": 10785282,
-    "endDate": 1597174761105,
-    "remoteHost": "226.143.190.91",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 541,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 201,
-    "connectionName": "duis elit"
-  },
-  {
-    "startDate": 1494540725673,
-    "duration": 9318824,
-    "endDate": 1494550044497,
-    "remoteHost": "70.139.102.134",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 542,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1012,
-    "connectionName": "irure aliquip"
-  },
-  {
-    "startDate": 1423946873639,
-    "duration": 12015437,
-    "endDate": 1423958889076,
-    "remoteHost": "32.249.186.195",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 543,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 791,
-    "connectionName": "laboris nulla"
-  },
-  {
-    "startDate": 1488938153512,
-    "duration": 14996433,
-    "endDate": 1488953149945,
-    "remoteHost": "21.177.60.216",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 544,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 294,
-    "connectionName": "ex laborum"
-  },
-  {
-    "startDate": 1444444519900,
-    "duration": 19592303,
-    "endDate": 1444464112203,
-    "remoteHost": "214.102.58.61",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 545,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1018,
-    "connectionName": "officia esse"
-  },
-  {
-    "startDate": 1650778430383,
-    "duration": 6413321,
-    "endDate": 1650784843704,
-    "remoteHost": "191.184.3.2",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 546,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1007,
-    "connectionName": "voluptate ea"
-  },
-  {
-    "startDate": 1555513621601,
-    "duration": 18577333,
-    "endDate": 1555532198934,
-    "remoteHost": "33.175.89.144",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 547,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 258,
-    "connectionName": "adipisicing mollit"
-  },
-  {
-    "startDate": 1510420071008,
-    "duration": 942424,
-    "endDate": 1510421013432,
-    "remoteHost": "218.17.117.54",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 548,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 992,
-    "connectionName": "in veniam"
-  },
-  {
-    "startDate": 1659916060032,
-    "duration": 19898028,
-    "endDate": 1659935958060,
-    "remoteHost": "194.230.129.17",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 549,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 713,
-    "connectionName": "sit sunt"
-  },
-  {
-    "startDate": 1633659655141,
-    "duration": 1260420,
-    "endDate": 1633660915561,
-    "remoteHost": "219.106.86.111",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 550,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 588,
-    "connectionName": "irure cupidatat"
-  },
-  {
-    "startDate": 1534685036294,
-    "duration": 20001905,
-    "endDate": 1534705038199,
-    "remoteHost": "35.196.16.68",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 551,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 172,
-    "connectionName": "est pariatur"
-  },
-  {
-    "startDate": 1671910174303,
-    "duration": 16542498,
-    "endDate": 1671926716801,
-    "remoteHost": "116.148.41.174",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 552,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1012,
-    "connectionName": "mollit velit"
-  },
-  {
-    "startDate": 1598552711958,
-    "duration": 422804,
-    "endDate": 1598553134762,
-    "remoteHost": "232.11.202.58",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 553,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1335,
-    "connectionName": "sit cupidatat"
-  },
-  {
-    "startDate": 1484482932214,
-    "duration": 1738865,
-    "endDate": 1484484671079,
-    "remoteHost": "213.81.130.243",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 554,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 758,
-    "connectionName": "ipsum esse"
-  },
-  {
-    "startDate": 1566211981043,
-    "duration": 17891825,
-    "endDate": 1566229872868,
-    "remoteHost": "64.73.103.169",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 555,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 797,
-    "connectionName": "magna sunt"
-  },
-  {
-    "startDate": 1510468250845,
-    "duration": 6634785,
-    "endDate": 1510474885630,
-    "remoteHost": "177.207.238.130",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 556,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1431,
-    "connectionName": "irure adipisicing"
-  },
-  {
-    "startDate": 1648230708026,
-    "duration": 10649271,
-    "endDate": 1648241357297,
-    "remoteHost": "233.184.123.226",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 557,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1469,
-    "connectionName": "sint non"
-  },
-  {
-    "startDate": 1677021378834,
-    "duration": 7968267,
-    "endDate": 1677029347101,
-    "remoteHost": "189.137.3.57",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 558,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 702,
-    "connectionName": "veniam labore"
-  },
-  {
-    "startDate": 1686855681603,
-    "duration": 3664268,
-    "endDate": 1686859345871,
-    "remoteHost": "15.47.185.20",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 559,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1060,
-    "connectionName": "consectetur aute"
-  },
-  {
-    "startDate": 1656103068607,
-    "duration": 16248100,
-    "endDate": 1656119316707,
-    "remoteHost": "228.39.227.5",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 560,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 890,
-    "connectionName": "aute adipisicing"
-  },
-  {
-    "startDate": 1426970794624,
-    "duration": 7414954,
-    "endDate": 1426978209578,
-    "remoteHost": "169.9.46.234",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 561,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 215,
-    "connectionName": "aute ut"
-  },
-  {
-    "startDate": 1503230930060,
-    "duration": 6060617,
-    "endDate": 1503236990677,
-    "remoteHost": "24.165.230.103",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 562,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 148,
-    "connectionName": "qui aute"
-  },
-  {
-    "startDate": 1524022850378,
-    "duration": 7754518,
-    "endDate": 1524030604896,
-    "remoteHost": "168.37.26.202",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 563,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1017,
-    "connectionName": "ad consectetur"
-  },
-  {
-    "startDate": 1662318602265,
-    "duration": 15006120,
-    "endDate": 1662333608385,
-    "remoteHost": "184.48.243.61",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 564,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 161,
-    "connectionName": "esse consectetur"
-  },
-  {
-    "startDate": 1538559489797,
-    "duration": 3068073,
-    "endDate": 1538562557870,
-    "remoteHost": "218.110.76.247",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 565,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1415,
-    "connectionName": "enim duis"
-  },
-  {
-    "startDate": 1497916657880,
-    "duration": 6510796,
-    "endDate": 1497923168676,
-    "remoteHost": "120.66.98.236",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 566,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 158,
-    "connectionName": "id aliquip"
-  },
-  {
-    "startDate": 1444638799893,
-    "duration": 19452863,
-    "endDate": 1444658252756,
-    "remoteHost": "33.169.149.9",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 567,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1083,
-    "connectionName": "nisi ad"
-  },
-  {
-    "startDate": 1504123771664,
-    "duration": 12003148,
-    "endDate": 1504135774812,
-    "remoteHost": "237.232.103.28",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 568,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 91,
-    "connectionName": "do deserunt"
-  },
-  {
-    "startDate": 1546293434937,
-    "duration": 16096385,
-    "endDate": 1546309531322,
-    "remoteHost": "180.108.20.100",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 569,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 95,
-    "connectionName": "magna nostrud"
-  },
-  {
-    "startDate": 1546138975952,
-    "duration": 3479626,
-    "endDate": 1546142455578,
-    "remoteHost": "155.148.201.134",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 570,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1037,
-    "connectionName": "consectetur laboris"
-  },
-  {
-    "startDate": 1633690649429,
-    "duration": 20313209,
-    "endDate": 1633710962638,
-    "remoteHost": "129.163.37.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 571,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 969,
-    "connectionName": "reprehenderit magna"
-  },
-  {
-    "startDate": 1685648143978,
-    "duration": 6131868,
-    "endDate": 1685654275846,
-    "remoteHost": "178.79.149.153",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 572,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1472,
-    "connectionName": "ad consequat"
-  },
-  {
-    "startDate": 1496691917778,
-    "duration": 7070077,
-    "endDate": 1496698987855,
-    "remoteHost": "80.223.228.149",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 573,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 740,
-    "connectionName": "dolore sit"
-  },
-  {
-    "startDate": 1529705800639,
-    "duration": 16576569,
-    "endDate": 1529722377208,
-    "remoteHost": "160.98.238.238",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 574,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1032,
-    "connectionName": "ullamco nostrud"
-  },
-  {
-    "startDate": 1453737171356,
-    "duration": 8381888,
-    "endDate": 1453745553244,
-    "remoteHost": "27.38.79.21",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 575,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 652,
-    "connectionName": "consectetur minim"
-  },
-  {
-    "startDate": 1566577931177,
-    "duration": 19754477,
-    "endDate": 1566597685654,
-    "remoteHost": "153.91.76.47",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 576,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 977,
-    "connectionName": "esse mollit"
-  },
-  {
-    "startDate": 1670760933197,
-    "duration": 12543823,
-    "endDate": 1670773477020,
-    "remoteHost": "151.150.16.124",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 577,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 635,
-    "connectionName": "magna sit"
-  },
-  {
-    "startDate": 1636903396221,
-    "duration": 9679293,
-    "endDate": 1636913075514,
-    "remoteHost": "62.38.81.187",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 578,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1389,
-    "connectionName": "ea veniam"
-  },
-  {
-    "startDate": 1592095442920,
-    "duration": 17097578,
-    "endDate": 1592112540498,
-    "remoteHost": "250.164.250.46",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 579,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 28,
-    "connectionName": "nulla velit"
-  },
-  {
-    "startDate": 1653137148083,
-    "duration": 13480901,
-    "endDate": 1653150628984,
-    "remoteHost": "245.70.70.89",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 580,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 270,
-    "connectionName": "pariatur consectetur"
-  },
-  {
-    "startDate": 1574034759026,
-    "duration": 21180906,
-    "endDate": 1574055939932,
-    "remoteHost": "144.115.144.248",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 581,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 929,
-    "connectionName": "ut eu"
-  },
-  {
-    "startDate": 1571366317860,
-    "duration": 2827608,
-    "endDate": 1571369145468,
-    "remoteHost": "180.130.12.129",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 582,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 771,
-    "connectionName": "do cupidatat"
-  },
-  {
-    "startDate": 1535212057083,
-    "duration": 4618333,
-    "endDate": 1535216675416,
-    "remoteHost": "26.235.149.132",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 583,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 442,
-    "connectionName": "irure sint"
-  },
-  {
-    "startDate": 1571056598763,
-    "duration": 14012475,
-    "endDate": 1571070611238,
-    "remoteHost": "27.33.250.74",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 584,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 626,
-    "connectionName": "do mollit"
-  },
-  {
-    "startDate": 1576328152143,
-    "duration": 14711666,
-    "endDate": 1576342863809,
-    "remoteHost": "185.138.239.123",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 585,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1255,
-    "connectionName": "irure veniam"
-  },
-  {
-    "startDate": 1584123956844,
-    "duration": 5641309,
-    "endDate": 1584129598153,
-    "remoteHost": "128.51.86.42",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 586,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1336,
-    "connectionName": "ipsum aute"
-  },
-  {
-    "startDate": 1600738201845,
-    "duration": 9809839,
-    "endDate": 1600748011684,
-    "remoteHost": "84.89.252.246",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 587,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 865,
-    "connectionName": "exercitation qui"
-  },
-  {
-    "startDate": 1496859560239,
-    "duration": 14469289,
-    "endDate": 1496874029528,
-    "remoteHost": "38.67.33.152",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 588,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1339,
-    "connectionName": "quis nulla"
-  },
-  {
-    "startDate": 1547048903169,
-    "duration": 5548867,
-    "endDate": 1547054452036,
-    "remoteHost": "129.216.121.143",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 589,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1385,
-    "connectionName": "ut Lorem"
-  },
-  {
-    "startDate": 1529510513944,
-    "duration": 5701506,
-    "endDate": 1529516215450,
-    "remoteHost": "69.169.148.115",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 590,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 265,
-    "connectionName": "ullamco veniam"
-  },
-  {
-    "startDate": 1525063220052,
-    "duration": 8002761,
-    "endDate": 1525071222813,
-    "remoteHost": "82.118.118.241",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 591,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 619,
-    "connectionName": "deserunt mollit"
-  },
-  {
-    "startDate": 1644786614266,
-    "duration": 8653867,
-    "endDate": 1644795268133,
-    "remoteHost": "161.84.217.60",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 592,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 420,
-    "connectionName": "consequat eiusmod"
-  },
-  {
-    "startDate": 1694615520598,
-    "duration": 6300838,
-    "endDate": 1694621821436,
-    "remoteHost": "140.154.163.213",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 593,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 401,
-    "connectionName": "eu ad"
-  },
-  {
-    "startDate": 1435579139100,
-    "duration": 6807925,
-    "endDate": 1435585947025,
-    "remoteHost": "23.68.133.178",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 594,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 394,
-    "connectionName": "laborum ullamco"
-  },
-  {
-    "startDate": 1542958849329,
-    "duration": 15738681,
-    "endDate": 1542974588010,
-    "remoteHost": "230.195.236.8",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 595,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1141,
-    "connectionName": "excepteur qui"
-  },
-  {
-    "startDate": 1663198735348,
-    "duration": 20637091,
-    "endDate": 1663219372439,
-    "remoteHost": "77.154.171.106",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 596,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1406,
-    "connectionName": "eiusmod cupidatat"
-  },
-  {
-    "startDate": 1430905505031,
-    "duration": 923186,
-    "endDate": 1430906428217,
-    "remoteHost": "155.182.11.247",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 597,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 762,
-    "connectionName": "veniam adipisicing"
-  },
-  {
-    "startDate": 1446825841393,
-    "duration": 16959134,
-    "endDate": 1446842800527,
-    "remoteHost": "160.93.189.50",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 598,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 970,
-    "connectionName": "cupidatat ut"
-  },
-  {
-    "startDate": 1502344582006,
-    "duration": 3864110,
-    "endDate": 1502348446116,
-    "remoteHost": "52.103.164.229",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 599,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 892,
-    "connectionName": "cupidatat duis"
-  },
-  {
-    "startDate": 1427196735827,
-    "duration": 6617181,
-    "endDate": 1427203353008,
-    "remoteHost": "172.182.126.151",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 600,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 2,
-    "connectionName": "qui cillum"
-  },
-  {
-    "startDate": 1474312517368,
-    "duration": 238028,
-    "endDate": 1474312755396,
-    "remoteHost": "232.192.14.71",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 601,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1285,
-    "connectionName": "dolor nisi"
-  },
-  {
-    "startDate": 1666505174367,
-    "duration": 9725058,
-    "endDate": 1666514899425,
-    "remoteHost": "222.228.138.39",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 602,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 219,
-    "connectionName": "est ipsum"
-  },
-  {
-    "startDate": 1431367999126,
-    "duration": 14745496,
-    "endDate": 1431382744622,
-    "remoteHost": "34.130.38.223",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 603,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 46,
-    "connectionName": "tempor irure"
-  },
-  {
-    "startDate": 1545604088564,
-    "duration": 20488634,
-    "endDate": 1545624577198,
-    "remoteHost": "251.5.79.40",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 604,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 94,
-    "connectionName": "consectetur ipsum"
-  },
-  {
-    "startDate": 1573188377109,
-    "duration": 9112065,
-    "endDate": 1573197489174,
-    "remoteHost": "147.64.62.25",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 605,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1422,
-    "connectionName": "duis ullamco"
-  },
-  {
-    "startDate": 1648595281272,
-    "duration": 16955965,
-    "endDate": 1648612237237,
-    "remoteHost": "230.50.134.190",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 606,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 724,
-    "connectionName": "veniam do"
-  },
-  {
-    "startDate": 1680063236441,
-    "duration": 11055767,
-    "endDate": 1680074292208,
-    "remoteHost": "174.181.100.116",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 607,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 249,
-    "connectionName": "deserunt amet"
-  },
-  {
-    "startDate": 1437548665333,
-    "duration": 13608392,
-    "endDate": 1437562273725,
-    "remoteHost": "36.225.144.190",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 608,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 207,
-    "connectionName": "anim pariatur"
-  },
-  {
-    "startDate": 1648549439332,
-    "duration": 19720774,
-    "endDate": 1648569160106,
-    "remoteHost": "19.137.26.59",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 609,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 650,
-    "connectionName": "duis excepteur"
-  },
-  {
-    "startDate": 1596788679062,
-    "duration": 7670361,
-    "endDate": 1596796349423,
-    "remoteHost": "86.240.4.182",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 610,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1450,
-    "connectionName": "incididunt amet"
-  },
-  {
-    "startDate": 1465597567967,
-    "duration": 12827259,
-    "endDate": 1465610395226,
-    "remoteHost": "248.180.189.179",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 611,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1014,
-    "connectionName": "eu anim"
-  },
-  {
-    "startDate": 1512008130889,
-    "duration": 11380419,
-    "endDate": 1512019511308,
-    "remoteHost": "234.116.33.230",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 612,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 741,
-    "connectionName": "ut amet"
-  },
-  {
-    "startDate": 1667023605198,
-    "duration": 6479959,
-    "endDate": 1667030085157,
-    "remoteHost": "127.18.127.145",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 613,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 37,
-    "connectionName": "adipisicing esse"
-  },
-  {
-    "startDate": 1443425933448,
-    "duration": 17202753,
-    "endDate": 1443443136201,
-    "remoteHost": "136.168.225.108",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 614,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 242,
-    "connectionName": "et velit"
-  },
-  {
-    "startDate": 1661542883634,
-    "duration": 6883538,
-    "endDate": 1661549767172,
-    "remoteHost": "19.40.229.25",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 615,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 274,
-    "connectionName": "id qui"
-  },
-  {
-    "startDate": 1671001560633,
-    "duration": 8756340,
-    "endDate": 1671010316973,
-    "remoteHost": "205.210.232.91",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 616,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1387,
-    "connectionName": "nulla velit"
-  },
-  {
-    "startDate": 1441262735151,
-    "duration": 11515773,
-    "endDate": 1441274250924,
-    "remoteHost": "193.98.39.184",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 617,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 235,
-    "connectionName": "pariatur pariatur"
-  },
-  {
-    "startDate": 1611068602148,
-    "duration": 21347715,
-    "endDate": 1611089949863,
-    "remoteHost": "185.99.150.135",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 618,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 799,
-    "connectionName": "reprehenderit consectetur"
-  },
-  {
-    "startDate": 1604678981632,
-    "duration": 4091195,
-    "endDate": 1604683072827,
-    "remoteHost": "227.113.56.170",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 619,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1043,
-    "connectionName": "cillum aliquip"
-  },
-  {
-    "startDate": 1573659509042,
-    "duration": 10689526,
-    "endDate": 1573670198568,
-    "remoteHost": "249.243.215.19",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 620,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 698,
-    "connectionName": "aliquip Lorem"
-  },
-  {
-    "startDate": 1674547937527,
-    "duration": 5003739,
-    "endDate": 1674552941266,
-    "remoteHost": "60.110.243.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 621,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 919,
-    "connectionName": "occaecat Lorem"
-  },
-  {
-    "startDate": 1624608865270,
-    "duration": 15157828,
-    "endDate": 1624624023098,
-    "remoteHost": "221.6.125.118",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 622,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 85,
-    "connectionName": "amet voluptate"
-  },
-  {
-    "startDate": 1464661988782,
-    "duration": 9970257,
-    "endDate": 1464671959039,
-    "remoteHost": "147.139.155.4",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 623,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1341,
-    "connectionName": "sint ipsum"
-  },
-  {
-    "startDate": 1524021510393,
-    "duration": 9711458,
-    "endDate": 1524031221851,
-    "remoteHost": "81.49.134.185",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 624,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 562,
-    "connectionName": "consequat proident"
-  },
-  {
-    "startDate": 1687431802342,
-    "duration": 20432132,
-    "endDate": 1687452234474,
-    "remoteHost": "241.184.173.32",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 625,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 990,
-    "connectionName": "adipisicing excepteur"
-  },
-  {
-    "startDate": 1616864806260,
-    "duration": 12554149,
-    "endDate": 1616877360409,
-    "remoteHost": "197.197.94.108",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 626,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 716,
-    "connectionName": "cillum in"
-  },
-  {
-    "startDate": 1493953121724,
-    "duration": 10172822,
-    "endDate": 1493963294546,
-    "remoteHost": "170.165.168.54",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 627,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 200,
-    "connectionName": "voluptate labore"
-  },
-  {
-    "startDate": 1621470078030,
-    "duration": 6641136,
-    "endDate": 1621476719166,
-    "remoteHost": "129.142.154.1",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 628,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 811,
-    "connectionName": "ipsum amet"
-  },
-  {
-    "startDate": 1672562189889,
-    "duration": 1621811,
-    "endDate": 1672563811700,
-    "remoteHost": "33.79.176.252",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 629,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 608,
-    "connectionName": "consequat nulla"
-  },
-  {
-    "startDate": 1504892183507,
-    "duration": 16844523,
-    "endDate": 1504909028030,
-    "remoteHost": "100.214.43.27",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 630,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1039,
-    "connectionName": "adipisicing voluptate"
-  },
-  {
-    "startDate": 1568683902758,
-    "duration": 5936561,
-    "endDate": 1568689839319,
-    "remoteHost": "120.75.164.70",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 631,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 529,
-    "connectionName": "anim ad"
-  },
-  {
-    "startDate": 1642735169410,
-    "duration": 19976398,
-    "endDate": 1642755145808,
-    "remoteHost": "138.63.159.181",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 632,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1244,
-    "connectionName": "nulla deserunt"
-  },
-  {
-    "startDate": 1574458049499,
-    "duration": 8621625,
-    "endDate": 1574466671124,
-    "remoteHost": "91.163.249.61",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 633,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1028,
-    "connectionName": "est magna"
-  },
-  {
-    "startDate": 1599270184852,
-    "duration": 276918,
-    "endDate": 1599270461770,
-    "remoteHost": "193.164.141.229",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 634,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1353,
-    "connectionName": "do adipisicing"
-  },
-  {
-    "startDate": 1477757377915,
-    "duration": 7144551,
-    "endDate": 1477764522466,
-    "remoteHost": "139.177.107.241",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 635,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1061,
-    "connectionName": "reprehenderit laborum"
-  },
-  {
-    "startDate": 1675811796827,
-    "duration": 5193332,
-    "endDate": 1675816990159,
-    "remoteHost": "168.151.41.166",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 636,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 207,
-    "connectionName": "est eiusmod"
-  },
-  {
-    "startDate": 1476607186875,
-    "duration": 14808508,
-    "endDate": 1476621995383,
-    "remoteHost": "206.181.158.152",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 637,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 417,
-    "connectionName": "occaecat labore"
-  },
-  {
-    "startDate": 1425558575476,
-    "duration": 9361497,
-    "endDate": 1425567936973,
-    "remoteHost": "58.190.12.215",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 638,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 468,
-    "connectionName": "culpa eiusmod"
-  },
-  {
-    "startDate": 1690360956018,
-    "duration": 19290639,
-    "endDate": 1690380246657,
-    "remoteHost": "102.19.121.42",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 639,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1224,
-    "connectionName": "velit aliqua"
-  },
-  {
-    "startDate": 1685650244099,
-    "duration": 2448649,
-    "endDate": 1685652692748,
-    "remoteHost": "193.19.184.11",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 640,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1470,
-    "connectionName": "est labore"
-  },
-  {
-    "startDate": 1604307529065,
-    "duration": 6869333,
-    "endDate": 1604314398398,
-    "remoteHost": "40.106.61.145",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 641,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 140,
-    "connectionName": "minim reprehenderit"
-  },
-  {
-    "startDate": 1461939608867,
-    "duration": 15334286,
-    "endDate": 1461954943153,
-    "remoteHost": "132.236.26.233",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 642,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1273,
-    "connectionName": "aliqua quis"
-  },
-  {
-    "startDate": 1644237234794,
-    "duration": 12798009,
-    "endDate": 1644250032803,
-    "remoteHost": "151.239.150.229",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 643,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 509,
-    "connectionName": "occaecat fugiat"
-  },
-  {
-    "startDate": 1486773851815,
-    "duration": 14173358,
-    "endDate": 1486788025173,
-    "remoteHost": "137.131.93.244",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 644,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 186,
-    "connectionName": "aute culpa"
-  },
-  {
-    "startDate": 1604525522392,
-    "duration": 3628464,
-    "endDate": 1604529150856,
-    "remoteHost": "66.182.60.223",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 645,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 140,
-    "connectionName": "consequat Lorem"
-  },
-  {
-    "startDate": 1552978868425,
-    "duration": 10868363,
-    "endDate": 1552989736788,
-    "remoteHost": "83.124.156.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 646,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 533,
-    "connectionName": "culpa deserunt"
-  },
-  {
-    "startDate": 1537896273744,
-    "duration": 9454768,
-    "endDate": 1537905728512,
-    "remoteHost": "29.168.63.170",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 647,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 23,
-    "connectionName": "ullamco adipisicing"
-  },
-  {
-    "startDate": 1447349139730,
-    "duration": 5089230,
-    "endDate": 1447354228960,
-    "remoteHost": "33.46.73.21",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 648,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 691,
-    "connectionName": "cupidatat pariatur"
-  },
-  {
-    "startDate": 1642237263326,
-    "duration": 9149652,
-    "endDate": 1642246412978,
-    "remoteHost": "67.250.38.137",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 649,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1459,
-    "connectionName": "nostrud ipsum"
-  },
-  {
-    "startDate": 1560698869417,
-    "duration": 724632,
-    "endDate": 1560699594049,
-    "remoteHost": "189.155.16.78",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 650,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1302,
-    "connectionName": "enim nostrud"
-  },
-  {
-    "startDate": 1597056288425,
-    "duration": 17209301,
-    "endDate": 1597073497726,
-    "remoteHost": "195.229.148.144",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 651,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1018,
-    "connectionName": "non excepteur"
-  },
-  {
-    "startDate": 1546094250272,
-    "duration": 6974405,
-    "endDate": 1546101224677,
-    "remoteHost": "52.135.120.69",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 652,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 768,
-    "connectionName": "et ut"
-  },
-  {
-    "startDate": 1509107603305,
-    "duration": 10527275,
-    "endDate": 1509118130580,
-    "remoteHost": "105.65.255.140",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 653,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 915,
-    "connectionName": "eu duis"
-  },
-  {
-    "startDate": 1593169815660,
-    "duration": 17438483,
-    "endDate": 1593187254143,
-    "remoteHost": "233.55.189.59",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 654,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 55,
-    "connectionName": "non est"
-  },
-  {
-    "startDate": 1631253859333,
-    "duration": 16715227,
-    "endDate": 1631270574560,
-    "remoteHost": "25.41.226.200",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 655,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1008,
-    "connectionName": "ut minim"
-  },
-  {
-    "startDate": 1453659049662,
-    "duration": 17029855,
-    "endDate": 1453676079517,
-    "remoteHost": "32.117.242.51",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 656,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 554,
-    "connectionName": "adipisicing minim"
-  },
-  {
-    "startDate": 1444424197909,
-    "duration": 16027988,
-    "endDate": 1444440225897,
-    "remoteHost": "63.160.109.128",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 657,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 384,
-    "connectionName": "sit eiusmod"
-  },
-  {
-    "startDate": 1582890289717,
-    "duration": 10485514,
-    "endDate": 1582900775231,
-    "remoteHost": "157.129.212.195",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 658,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1467,
-    "connectionName": "elit sit"
-  },
-  {
-    "startDate": 1586251531088,
-    "duration": 3350150,
-    "endDate": 1586254881238,
-    "remoteHost": "134.169.208.11",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 659,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1082,
-    "connectionName": "culpa in"
-  },
-  {
-    "startDate": 1497958467569,
-    "duration": 7720838,
-    "endDate": 1497966188407,
-    "remoteHost": "213.118.22.63",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 660,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 698,
-    "connectionName": "irure nisi"
-  },
-  {
-    "startDate": 1435605999108,
-    "duration": 10329671,
-    "endDate": 1435616328779,
-    "remoteHost": "44.218.173.83",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 661,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 216,
-    "connectionName": "deserunt cillum"
-  },
-  {
-    "startDate": 1488166097051,
-    "duration": 14229519,
-    "endDate": 1488180326570,
-    "remoteHost": "161.5.147.48",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 662,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 660,
-    "connectionName": "labore quis"
-  },
-  {
-    "startDate": 1655161192567,
-    "duration": 15430636,
-    "endDate": 1655176623203,
-    "remoteHost": "22.221.4.111",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 663,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 857,
-    "connectionName": "quis laborum"
-  },
-  {
-    "startDate": 1642246042454,
-    "duration": 16139307,
-    "endDate": 1642262181761,
-    "remoteHost": "11.60.73.41",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 664,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1269,
-    "connectionName": "sint sit"
-  },
-  {
-    "startDate": 1514722299210,
-    "duration": 17145309,
-    "endDate": 1514739444519,
-    "remoteHost": "81.78.241.112",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 665,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 899,
-    "connectionName": "in esse"
-  },
-  {
-    "startDate": 1587556615178,
-    "duration": 10783212,
-    "endDate": 1587567398390,
-    "remoteHost": "42.29.30.233",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 666,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 532,
-    "connectionName": "elit fugiat"
-  },
-  {
-    "startDate": 1574980803865,
-    "duration": 14336713,
-    "endDate": 1574995140578,
-    "remoteHost": "196.255.253.76",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 667,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 942,
-    "connectionName": "in deserunt"
-  },
-  {
-    "startDate": 1656525132331,
-    "duration": 9626830,
-    "endDate": 1656534759161,
-    "remoteHost": "224.172.230.40",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 668,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 426,
-    "connectionName": "sunt sint"
-  },
-  {
-    "startDate": 1689105050060,
-    "duration": 12680328,
-    "endDate": 1689117730388,
-    "remoteHost": "169.87.23.239",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 669,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1464,
-    "connectionName": "consequat in"
-  },
-  {
-    "startDate": 1636518003421,
-    "duration": 17808671,
-    "endDate": 1636535812092,
-    "remoteHost": "247.237.88.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 670,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1328,
-    "connectionName": "quis amet"
-  },
-  {
-    "startDate": 1561519219921,
-    "duration": 21257898,
-    "endDate": 1561540477819,
-    "remoteHost": "178.146.47.167",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 671,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 157,
-    "connectionName": "sint Lorem"
-  },
-  {
-    "startDate": 1459174197138,
-    "duration": 11970665,
-    "endDate": 1459186167803,
-    "remoteHost": "51.151.102.172",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 672,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 527,
-    "connectionName": "dolor commodo"
-  },
-  {
-    "startDate": 1554921974597,
-    "duration": 14671598,
-    "endDate": 1554936646195,
-    "remoteHost": "191.32.34.14",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 673,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1278,
-    "connectionName": "excepteur laboris"
-  },
-  {
-    "startDate": 1620063564795,
-    "duration": 14246186,
-    "endDate": 1620077810981,
-    "remoteHost": "98.225.104.116",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 674,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1253,
-    "connectionName": "excepteur laborum"
-  },
-  {
-    "startDate": 1637048603081,
-    "duration": 1003417,
-    "endDate": 1637049606498,
-    "remoteHost": "216.108.104.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 675,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 579,
-    "connectionName": "aute consectetur"
-  },
-  {
-    "startDate": 1437092340205,
-    "duration": 18803787,
-    "endDate": 1437111143992,
-    "remoteHost": "101.239.213.97",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 676,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 831,
-    "connectionName": "minim dolor"
-  },
-  {
-    "startDate": 1599501535266,
-    "duration": 6607095,
-    "endDate": 1599508142361,
-    "remoteHost": "134.234.180.207",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 677,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1191,
-    "connectionName": "laboris sint"
-  },
-  {
-    "startDate": 1471549270932,
-    "duration": 17687592,
-    "endDate": 1471566958524,
-    "remoteHost": "19.194.50.185",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 678,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1406,
-    "connectionName": "aliquip aliqua"
-  },
-  {
-    "startDate": 1675633490955,
-    "duration": 2161335,
-    "endDate": 1675635652290,
-    "remoteHost": "73.41.249.24",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 679,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1238,
-    "connectionName": "ullamco ex"
-  },
-  {
-    "startDate": 1460623287184,
-    "duration": 20602460,
-    "endDate": 1460643889644,
-    "remoteHost": "42.126.197.229",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 680,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1404,
-    "connectionName": "reprehenderit labore"
-  },
-  {
-    "startDate": 1523465193128,
-    "duration": 20261300,
-    "endDate": 1523485454428,
-    "remoteHost": "24.19.36.115",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 681,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 199,
-    "connectionName": "magna qui"
-  },
-  {
-    "startDate": 1678502325708,
-    "duration": 21320590,
-    "endDate": 1678523646298,
-    "remoteHost": "225.130.31.198",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 682,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1159,
-    "connectionName": "elit Lorem"
-  },
-  {
-    "startDate": 1523352542262,
-    "duration": 13307714,
-    "endDate": 1523365849976,
-    "remoteHost": "202.49.168.167",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 683,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1333,
-    "connectionName": "commodo ea"
-  },
-  {
-    "startDate": 1444697303683,
-    "duration": 14370202,
-    "endDate": 1444711673885,
-    "remoteHost": "45.20.165.112",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 684,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1356,
-    "connectionName": "laborum esse"
-  },
-  {
-    "startDate": 1642452963178,
-    "duration": 12088885,
-    "endDate": 1642465052063,
-    "remoteHost": "149.114.145.11",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 685,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1351,
-    "connectionName": "non occaecat"
-  },
-  {
-    "startDate": 1662493597913,
-    "duration": 17150277,
-    "endDate": 1662510748190,
-    "remoteHost": "18.255.48.218",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 686,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 326,
-    "connectionName": "ea irure"
-  },
-  {
-    "startDate": 1527676299266,
-    "duration": 15718964,
-    "endDate": 1527692018230,
-    "remoteHost": "28.24.234.163",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 687,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 973,
-    "connectionName": "laborum fugiat"
-  },
-  {
-    "startDate": 1590811615082,
-    "duration": 5505960,
-    "endDate": 1590817121042,
-    "remoteHost": "119.127.36.121",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 688,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 774,
-    "connectionName": "veniam duis"
-  },
-  {
-    "startDate": 1636188508862,
-    "duration": 21215671,
-    "endDate": 1636209724533,
-    "remoteHost": "227.21.64.4",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 689,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 887,
-    "connectionName": "et incididunt"
-  },
-  {
-    "startDate": 1445716713487,
-    "duration": 10475395,
-    "endDate": 1445727188882,
-    "remoteHost": "218.139.108.237",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 690,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1230,
-    "connectionName": "non dolore"
-  },
-  {
-    "startDate": 1550987356019,
-    "duration": 4431152,
-    "endDate": 1550991787171,
-    "remoteHost": "49.32.18.200",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 691,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 977,
-    "connectionName": "est amet"
-  },
-  {
-    "startDate": 1462663821800,
-    "duration": 7300192,
-    "endDate": 1462671121992,
-    "remoteHost": "177.181.150.167",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 692,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 831,
-    "connectionName": "cupidatat incididunt"
-  },
-  {
-    "startDate": 1504492675824,
-    "duration": 3247603,
-    "endDate": 1504495923427,
-    "remoteHost": "120.96.165.193",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 693,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1363,
-    "connectionName": "occaecat mollit"
-  },
-  {
-    "startDate": 1661554911134,
-    "duration": 12188436,
-    "endDate": 1661567099570,
-    "remoteHost": "85.204.253.44",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 694,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1061,
-    "connectionName": "velit fugiat"
-  },
-  {
-    "startDate": 1665788719124,
-    "duration": 15332563,
-    "endDate": 1665804051687,
-    "remoteHost": "245.236.19.126",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 695,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1126,
-    "connectionName": "eiusmod cillum"
-  },
-  {
-    "startDate": 1608194296012,
-    "duration": 6967151,
-    "endDate": 1608201263163,
-    "remoteHost": "107.226.210.97",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 696,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 3,
-    "connectionName": "occaecat fugiat"
-  },
-  {
-    "startDate": 1553317098052,
-    "duration": 7166501,
-    "endDate": 1553324264553,
-    "remoteHost": "91.93.20.19",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 697,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 108,
-    "connectionName": "veniam qui"
-  },
-  {
-    "startDate": 1652928020030,
-    "duration": 21513364,
-    "endDate": 1652949533394,
-    "remoteHost": "37.64.168.86",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 698,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 658,
-    "connectionName": "incididunt occaecat"
-  },
-  {
-    "startDate": 1649785891479,
-    "duration": 2982415,
-    "endDate": 1649788873894,
-    "remoteHost": "152.118.159.114",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 699,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 709,
-    "connectionName": "ea ad"
-  },
-  {
-    "startDate": 1547510658395,
-    "duration": 15719279,
-    "endDate": 1547526377674,
-    "remoteHost": "186.145.37.97",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 700,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 29,
-    "connectionName": "consectetur eu"
-  },
-  {
-    "startDate": 1433213266357,
-    "duration": 10498733,
-    "endDate": 1433223765090,
-    "remoteHost": "38.96.203.158",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 701,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 477,
-    "connectionName": "aute ad"
-  },
-  {
-    "startDate": 1523595005723,
-    "duration": 10358314,
-    "endDate": 1523605364037,
-    "remoteHost": "117.140.28.78",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 702,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1246,
-    "connectionName": "enim excepteur"
-  },
-  {
-    "startDate": 1430561046871,
-    "duration": 3598060,
-    "endDate": 1430564644931,
-    "remoteHost": "230.164.191.171",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 703,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1123,
-    "connectionName": "velit commodo"
-  },
-  {
-    "startDate": 1505413553142,
-    "duration": 1833871,
-    "endDate": 1505415387013,
-    "remoteHost": "227.198.156.72",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 704,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 232,
-    "connectionName": "id commodo"
-  },
-  {
-    "startDate": 1520246926383,
-    "duration": 19341162,
-    "endDate": 1520266267545,
-    "remoteHost": "205.206.24.86",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 705,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1286,
-    "connectionName": "sunt tempor"
-  },
-  {
-    "startDate": 1545811003692,
-    "duration": 14620953,
-    "endDate": 1545825624645,
-    "remoteHost": "18.194.57.150",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 706,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1114,
-    "connectionName": "proident voluptate"
-  },
-  {
-    "startDate": 1541493859561,
-    "duration": 15330362,
-    "endDate": 1541509189923,
-    "remoteHost": "176.35.124.216",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 707,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 491,
-    "connectionName": "irure exercitation"
-  },
-  {
-    "startDate": 1511931699550,
-    "duration": 1194794,
-    "endDate": 1511932894344,
-    "remoteHost": "39.34.132.249",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 708,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 891,
-    "connectionName": "do aliqua"
-  },
-  {
-    "startDate": 1557635907978,
-    "duration": 10754857,
-    "endDate": 1557646662835,
-    "remoteHost": "31.14.80.17",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 709,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 530,
-    "connectionName": "deserunt sit"
-  },
-  {
-    "startDate": 1650501707955,
-    "duration": 12738251,
-    "endDate": 1650514446206,
-    "remoteHost": "234.115.147.85",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 710,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 882,
-    "connectionName": "laboris et"
-  },
-  {
-    "startDate": 1465847555922,
-    "duration": 1693083,
-    "endDate": 1465849249005,
-    "remoteHost": "179.19.119.215",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 711,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 469,
-    "connectionName": "deserunt exercitation"
-  },
-  {
-    "startDate": 1675396898092,
-    "duration": 19081179,
-    "endDate": 1675415979271,
-    "remoteHost": "175.167.221.138",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 712,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 675,
-    "connectionName": "commodo cillum"
-  },
-  {
-    "startDate": 1481618957390,
-    "duration": 6324723,
-    "endDate": 1481625282113,
-    "remoteHost": "197.42.71.9",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 713,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 764,
-    "connectionName": "labore irure"
-  },
-  {
-    "startDate": 1616718746382,
-    "duration": 18245191,
-    "endDate": 1616736991573,
-    "remoteHost": "22.28.188.179",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 714,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1259,
-    "connectionName": "officia irure"
-  },
-  {
-    "startDate": 1669872589984,
-    "duration": 17205175,
-    "endDate": 1669889795159,
-    "remoteHost": "74.28.219.78",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 715,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 87,
-    "connectionName": "est elit"
-  },
-  {
-    "startDate": 1493287432421,
-    "duration": 11778710,
-    "endDate": 1493299211131,
-    "remoteHost": "50.85.69.54",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 716,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 446,
-    "connectionName": "sit anim"
-  },
-  {
-    "startDate": 1574349468316,
-    "duration": 15568351,
-    "endDate": 1574365036667,
-    "remoteHost": "248.234.197.207",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 717,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 953,
-    "connectionName": "cupidatat exercitation"
-  },
-  {
-    "startDate": 1485991262190,
-    "duration": 4328447,
-    "endDate": 1485995590637,
-    "remoteHost": "63.240.69.156",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 718,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 755,
-    "connectionName": "consectetur aute"
-  },
-  {
-    "startDate": 1645101771156,
-    "duration": 13412815,
-    "endDate": 1645115183971,
-    "remoteHost": "35.159.132.60",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 719,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 664,
-    "connectionName": "incididunt quis"
-  },
-  {
-    "startDate": 1547129342692,
-    "duration": 4669626,
-    "endDate": 1547134012318,
-    "remoteHost": "253.254.103.138",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 720,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1308,
-    "connectionName": "sunt laborum"
-  },
-  {
-    "startDate": 1519838682532,
-    "duration": 17100785,
-    "endDate": 1519855783317,
-    "remoteHost": "146.19.81.131",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 721,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 838,
-    "connectionName": "esse incididunt"
-  },
-  {
-    "startDate": 1451455860363,
-    "duration": 2285931,
-    "endDate": 1451458146294,
-    "remoteHost": "91.17.47.47",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 722,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1101,
-    "connectionName": "tempor culpa"
-  },
-  {
-    "startDate": 1643223895994,
-    "duration": 20665528,
-    "endDate": 1643244561522,
-    "remoteHost": "131.230.187.46",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 723,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1297,
-    "connectionName": "eiusmod reprehenderit"
-  },
-  {
-    "startDate": 1448438436520,
-    "duration": 551355,
-    "endDate": 1448438987875,
-    "remoteHost": "37.210.102.7",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 724,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 488,
-    "connectionName": "amet culpa"
-  },
-  {
-    "startDate": 1546117663101,
-    "duration": 7154782,
-    "endDate": 1546124817883,
-    "remoteHost": "116.67.147.44",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 725,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 92,
-    "connectionName": "anim sit"
-  },
-  {
-    "startDate": 1475797629802,
-    "duration": 15262537,
-    "endDate": 1475812892339,
-    "remoteHost": "81.254.56.81",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 726,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 822,
-    "connectionName": "velit deserunt"
-  },
-  {
-    "startDate": 1480586749533,
-    "duration": 20527704,
-    "endDate": 1480607277237,
-    "remoteHost": "11.185.44.26",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 727,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 892,
-    "connectionName": "ullamco exercitation"
-  },
-  {
-    "startDate": 1505432486897,
-    "duration": 8276080,
-    "endDate": 1505440762977,
-    "remoteHost": "13.197.5.200",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 728,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 352,
-    "connectionName": "ea consectetur"
-  },
-  {
-    "startDate": 1456216171100,
-    "duration": 8908959,
-    "endDate": 1456225080059,
-    "remoteHost": "12.11.90.58",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 729,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1491,
-    "connectionName": "ad fugiat"
-  },
-  {
-    "startDate": 1455953482243,
-    "duration": 18019310,
-    "endDate": 1455971501553,
-    "remoteHost": "110.33.251.69",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 730,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1175,
-    "connectionName": "cupidatat ad"
-  },
-  {
-    "startDate": 1657764780017,
-    "duration": 839589,
-    "endDate": 1657765619606,
-    "remoteHost": "163.29.107.59",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 731,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1057,
-    "connectionName": "velit Lorem"
-  },
-  {
-    "startDate": 1522129839660,
-    "duration": 5530297,
-    "endDate": 1522135369957,
-    "remoteHost": "108.40.18.176",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 732,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1497,
-    "connectionName": "reprehenderit consequat"
-  },
-  {
-    "startDate": 1497396715308,
-    "duration": 17684473,
-    "endDate": 1497414399781,
-    "remoteHost": "250.53.176.24",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 733,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 772,
-    "connectionName": "laborum cupidatat"
-  },
-  {
-    "startDate": 1490838029838,
-    "duration": 5618782,
-    "endDate": 1490843648620,
-    "remoteHost": "148.48.51.169",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 734,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1373,
-    "connectionName": "cupidatat sint"
-  },
-  {
-    "startDate": 1585518131380,
-    "duration": 14885600,
-    "endDate": 1585533016980,
-    "remoteHost": "233.227.26.190",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 735,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1427,
-    "connectionName": "tempor deserunt"
-  },
-  {
-    "startDate": 1631476314871,
-    "duration": 3376469,
-    "endDate": 1631479691340,
-    "remoteHost": "117.91.45.6",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 736,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 646,
-    "connectionName": "ipsum aliquip"
-  },
-  {
-    "startDate": 1660668548491,
-    "duration": 6042724,
-    "endDate": 1660674591215,
-    "remoteHost": "121.26.100.6",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 737,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1079,
-    "connectionName": "commodo sint"
-  },
-  {
-    "startDate": 1560991298579,
-    "duration": 17525443,
-    "endDate": 1561008824022,
-    "remoteHost": "66.54.130.224",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 738,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1079,
-    "connectionName": "et enim"
-  },
-  {
-    "startDate": 1649198337442,
-    "duration": 7278210,
-    "endDate": 1649205615652,
-    "remoteHost": "136.209.60.77",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 739,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1133,
-    "connectionName": "eu consectetur"
-  },
-  {
-    "startDate": 1447031369130,
-    "duration": 8830667,
-    "endDate": 1447040199797,
-    "remoteHost": "11.102.132.65",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 740,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1157,
-    "connectionName": "nulla ullamco"
-  },
-  {
-    "startDate": 1652866792231,
-    "duration": 20226472,
-    "endDate": 1652887018703,
-    "remoteHost": "26.36.224.68",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 741,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1388,
-    "connectionName": "Lorem sint"
-  },
-  {
-    "startDate": 1538856330748,
-    "duration": 18233652,
-    "endDate": 1538874564400,
-    "remoteHost": "243.239.125.213",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 742,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1216,
-    "connectionName": "dolore proident"
-  },
-  {
-    "startDate": 1683200808283,
-    "duration": 9567145,
-    "endDate": 1683210375428,
-    "remoteHost": "158.15.163.4",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 743,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 497,
-    "connectionName": "laborum veniam"
-  },
-  {
-    "startDate": 1456541926986,
-    "duration": 1448972,
-    "endDate": 1456543375958,
-    "remoteHost": "85.200.45.46",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 744,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 587,
-    "connectionName": "irure ex"
-  },
-  {
-    "startDate": 1473408931534,
-    "duration": 5897779,
-    "endDate": 1473414829313,
-    "remoteHost": "33.179.142.225",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 745,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 701,
-    "connectionName": "eiusmod cillum"
-  },
-  {
-    "startDate": 1506713720729,
-    "duration": 12512379,
-    "endDate": 1506726233108,
-    "remoteHost": "93.171.79.230",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 746,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 126,
-    "connectionName": "est qui"
-  },
-  {
-    "startDate": 1444392693744,
-    "duration": 6331483,
-    "endDate": 1444399025227,
-    "remoteHost": "124.121.8.59",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 747,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1320,
-    "connectionName": "velit officia"
-  },
-  {
-    "startDate": 1475931184066,
-    "duration": 16848676,
-    "endDate": 1475948032742,
-    "remoteHost": "193.55.35.140",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 748,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 435,
-    "connectionName": "nostrud eiusmod"
-  },
-  {
-    "startDate": 1601202229493,
-    "duration": 14617817,
-    "endDate": 1601216847310,
-    "remoteHost": "45.119.123.61",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 749,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 721,
-    "connectionName": "sunt reprehenderit"
-  },
-  {
-    "startDate": 1619437301612,
-    "duration": 14596354,
-    "endDate": 1619451897966,
-    "remoteHost": "26.106.71.193",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 750,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1232,
-    "connectionName": "velit anim"
-  },
-  {
-    "startDate": 1516725527319,
-    "duration": 2931078,
-    "endDate": 1516728458397,
-    "remoteHost": "161.252.249.253",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 751,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 242,
-    "connectionName": "veniam proident"
-  },
-  {
-    "startDate": 1513516748346,
-    "duration": 2361527,
-    "endDate": 1513519109873,
-    "remoteHost": "144.120.25.63",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 752,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1001,
-    "connectionName": "anim aliquip"
-  },
-  {
-    "startDate": 1575677351194,
-    "duration": 7118294,
-    "endDate": 1575684469488,
-    "remoteHost": "40.112.137.154",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 753,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 49,
-    "connectionName": "et irure"
-  },
-  {
-    "startDate": 1532215723368,
-    "duration": 8197732,
-    "endDate": 1532223921100,
-    "remoteHost": "71.22.48.52",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 754,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 749,
-    "connectionName": "quis commodo"
-  },
-  {
-    "startDate": 1572538528364,
-    "duration": 21453485,
-    "endDate": 1572559981849,
-    "remoteHost": "69.129.132.248",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 755,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 567,
-    "connectionName": "tempor enim"
-  },
-  {
-    "startDate": 1681995880887,
-    "duration": 3824751,
-    "endDate": 1681999705638,
-    "remoteHost": "77.103.121.184",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 756,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 872,
-    "connectionName": "velit id"
-  },
-  {
-    "startDate": 1503242548322,
-    "duration": 18165938,
-    "endDate": 1503260714260,
-    "remoteHost": "50.74.191.248",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 757,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 987,
-    "connectionName": "voluptate Lorem"
-  },
-  {
-    "startDate": 1538329125747,
-    "duration": 5556481,
-    "endDate": 1538334682228,
-    "remoteHost": "122.154.170.150",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 758,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 178,
-    "connectionName": "minim nisi"
-  },
-  {
-    "startDate": 1490341812415,
-    "duration": 5648483,
-    "endDate": 1490347460898,
-    "remoteHost": "67.237.79.59",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 759,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1121,
-    "connectionName": "ad do"
-  },
-  {
-    "startDate": 1676347407492,
-    "duration": 19281897,
-    "endDate": 1676366689389,
-    "remoteHost": "92.42.141.21",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 760,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1487,
-    "connectionName": "laborum magna"
-  },
-  {
-    "startDate": 1512283867625,
-    "duration": 12697875,
-    "endDate": 1512296565500,
-    "remoteHost": "94.90.181.108",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 761,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1122,
-    "connectionName": "quis officia"
-  },
-  {
-    "startDate": 1641562707990,
-    "duration": 18829743,
-    "endDate": 1641581537733,
-    "remoteHost": "112.219.31.55",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 762,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 139,
-    "connectionName": "mollit elit"
-  },
-  {
-    "startDate": 1513778058656,
-    "duration": 2441361,
-    "endDate": 1513780500017,
-    "remoteHost": "86.220.70.233",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 763,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1476,
-    "connectionName": "et magna"
-  },
-  {
-    "startDate": 1548967863152,
-    "duration": 19497575,
-    "endDate": 1548987360727,
-    "remoteHost": "25.87.70.34",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 764,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1429,
-    "connectionName": "dolore enim"
-  },
-  {
-    "startDate": 1524000011286,
-    "duration": 12678750,
-    "endDate": 1524012690036,
-    "remoteHost": "42.150.56.154",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 765,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1327,
-    "connectionName": "minim est"
-  },
-  {
-    "startDate": 1611593412827,
-    "duration": 3243910,
-    "endDate": 1611596656737,
-    "remoteHost": "178.193.73.88",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 766,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 213,
-    "connectionName": "reprehenderit est"
-  },
-  {
-    "startDate": 1670150821697,
-    "duration": 19091094,
-    "endDate": 1670169912791,
-    "remoteHost": "11.7.120.143",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 767,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1237,
-    "connectionName": "aute anim"
-  },
-  {
-    "startDate": 1657239661128,
-    "duration": 8293644,
-    "endDate": 1657247954772,
-    "remoteHost": "118.81.212.215",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 768,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1358,
-    "connectionName": "magna velit"
-  },
-  {
-    "startDate": 1423823844329,
-    "duration": 19988417,
-    "endDate": 1423843832746,
-    "remoteHost": "62.15.227.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 769,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1181,
-    "connectionName": "ipsum eiusmod"
-  },
-  {
-    "startDate": 1541738531766,
-    "duration": 20540188,
-    "endDate": 1541759071954,
-    "remoteHost": "149.226.178.253",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 770,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 673,
-    "connectionName": "aliqua duis"
-  },
-  {
-    "startDate": 1491545599738,
-    "duration": 21322939,
-    "endDate": 1491566922677,
-    "remoteHost": "215.75.80.150",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 771,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 887,
-    "connectionName": "esse exercitation"
-  },
-  {
-    "startDate": 1429610476538,
-    "duration": 14683357,
-    "endDate": 1429625159895,
-    "remoteHost": "166.58.165.167",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 772,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1238,
-    "connectionName": "laboris Lorem"
-  },
-  {
-    "startDate": 1423408115802,
-    "duration": 10349799,
-    "endDate": 1423418465601,
-    "remoteHost": "199.221.251.247",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 773,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1073,
-    "connectionName": "Lorem proident"
-  },
-  {
-    "startDate": 1655741465314,
-    "duration": 7305699,
-    "endDate": 1655748771013,
-    "remoteHost": "119.46.140.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 774,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1475,
-    "connectionName": "qui tempor"
-  },
-  {
-    "startDate": 1662871411133,
-    "duration": 725534,
-    "endDate": 1662872136667,
-    "remoteHost": "97.6.126.59",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 775,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1194,
-    "connectionName": "amet laboris"
-  },
-  {
-    "startDate": 1469479289333,
-    "duration": 1289723,
-    "endDate": 1469480579056,
-    "remoteHost": "195.226.104.233",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 776,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1080,
-    "connectionName": "Lorem mollit"
-  },
-  {
-    "startDate": 1665971946840,
-    "duration": 14042208,
-    "endDate": 1665985989048,
-    "remoteHost": "39.64.157.244",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 777,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1256,
-    "connectionName": "elit proident"
-  },
-  {
-    "startDate": 1589423896026,
-    "duration": 13849536,
-    "endDate": 1589437745562,
-    "remoteHost": "21.166.8.249",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 778,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 83,
-    "connectionName": "aliquip excepteur"
-  },
-  {
-    "startDate": 1478053671659,
-    "duration": 2651065,
-    "endDate": 1478056322724,
-    "remoteHost": "255.99.113.100",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 779,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1321,
-    "connectionName": "ea ad"
-  },
-  {
-    "startDate": 1689107827796,
-    "duration": 11366546,
-    "endDate": 1689119194342,
-    "remoteHost": "243.187.177.48",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 780,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1045,
-    "connectionName": "dolor tempor"
-  },
-  {
-    "startDate": 1634579198020,
-    "duration": 16450075,
-    "endDate": 1634595648095,
-    "remoteHost": "115.199.92.95",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 781,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 671,
-    "connectionName": "cupidatat ex"
-  },
-  {
-    "startDate": 1618655464211,
-    "duration": 511729,
-    "endDate": 1618655975940,
-    "remoteHost": "222.135.154.251",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 782,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 60,
-    "connectionName": "sit anim"
-  },
-  {
-    "startDate": 1616326301721,
-    "duration": 7888013,
-    "endDate": 1616334189734,
-    "remoteHost": "85.26.17.20",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 783,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 231,
-    "connectionName": "laboris ex"
-  },
-  {
-    "startDate": 1519769180582,
-    "duration": 20483512,
-    "endDate": 1519789664094,
-    "remoteHost": "147.57.146.64",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 784,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 673,
-    "connectionName": "exercitation sit"
-  },
-  {
-    "startDate": 1657721380361,
-    "duration": 13580996,
-    "endDate": 1657734961357,
-    "remoteHost": "213.123.73.159",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 785,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 833,
-    "connectionName": "veniam dolor"
-  },
-  {
-    "startDate": 1494086572820,
-    "duration": 16199886,
-    "endDate": 1494102772706,
-    "remoteHost": "242.70.222.220",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 786,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1097,
-    "connectionName": "incididunt dolor"
-  },
-  {
-    "startDate": 1571773278540,
-    "duration": 4382471,
-    "endDate": 1571777661011,
-    "remoteHost": "51.31.217.25",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 787,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 992,
-    "connectionName": "nulla velit"
-  },
-  {
-    "startDate": 1549094213085,
-    "duration": 19443721,
-    "endDate": 1549113656806,
-    "remoteHost": "211.200.203.96",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 788,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1018,
-    "connectionName": "voluptate sit"
-  },
-  {
-    "startDate": 1442277154946,
-    "duration": 8487529,
-    "endDate": 1442285642475,
-    "remoteHost": "68.136.144.78",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 789,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 396,
-    "connectionName": "enim Lorem"
-  },
-  {
-    "startDate": 1571252930669,
-    "duration": 19354629,
-    "endDate": 1571272285298,
-    "remoteHost": "254.154.4.202",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 790,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1347,
-    "connectionName": "nulla sint"
-  },
-  {
-    "startDate": 1439027437206,
-    "duration": 15910831,
-    "endDate": 1439043348037,
-    "remoteHost": "235.9.78.74",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 791,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1124,
-    "connectionName": "nisi fugiat"
-  },
-  {
-    "startDate": 1526564953514,
-    "duration": 14223471,
-    "endDate": 1526579176985,
-    "remoteHost": "221.201.90.71",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 792,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 823,
-    "connectionName": "mollit voluptate"
-  },
-  {
-    "startDate": 1587595279812,
-    "duration": 4809545,
-    "endDate": 1587600089357,
-    "remoteHost": "44.158.43.106",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 793,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 996,
-    "connectionName": "laborum aliqua"
-  },
-  {
-    "startDate": 1657430663379,
-    "duration": 15500984,
-    "endDate": 1657446164363,
-    "remoteHost": "226.197.242.142",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 794,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 575,
-    "connectionName": "dolore dolor"
-  },
-  {
-    "startDate": 1560704006264,
-    "duration": 18026728,
-    "endDate": 1560722032992,
-    "remoteHost": "240.126.24.88",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 795,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 319,
-    "connectionName": "consectetur sint"
-  },
-  {
-    "startDate": 1452201913651,
-    "duration": 204970,
-    "endDate": 1452202118621,
-    "remoteHost": "134.131.82.252",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 796,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 773,
-    "connectionName": "consectetur ut"
-  },
-  {
-    "startDate": 1532804142659,
-    "duration": 15986658,
-    "endDate": 1532820129317,
-    "remoteHost": "27.250.161.135",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 797,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1451,
-    "connectionName": "aliqua velit"
-  },
-  {
-    "startDate": 1508215696848,
-    "duration": 8191381,
-    "endDate": 1508223888229,
-    "remoteHost": "18.46.63.26",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 798,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1196,
-    "connectionName": "sint sint"
-  },
-  {
-    "startDate": 1572785537187,
-    "duration": 17433301,
-    "endDate": 1572802970488,
-    "remoteHost": "21.242.110.133",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 799,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 419,
-    "connectionName": "non voluptate"
-  },
-  {
-    "startDate": 1490474390682,
-    "duration": 2817736,
-    "endDate": 1490477208418,
-    "remoteHost": "29.100.211.229",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 800,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1128,
-    "connectionName": "sint sunt"
-  },
-  {
-    "startDate": 1542968223629,
-    "duration": 617383,
-    "endDate": 1542968841012,
-    "remoteHost": "210.130.240.6",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 801,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1478,
-    "connectionName": "aliquip pariatur"
-  },
-  {
-    "startDate": 1570186551700,
-    "duration": 11982557,
-    "endDate": 1570198534257,
-    "remoteHost": "151.34.80.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 802,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 172,
-    "connectionName": "est fugiat"
-  },
-  {
-    "startDate": 1579064266419,
-    "duration": 16276848,
-    "endDate": 1579080543267,
-    "remoteHost": "97.213.129.152",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 803,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 986,
-    "connectionName": "fugiat veniam"
-  },
-  {
-    "startDate": 1520538001718,
-    "duration": 997035,
-    "endDate": 1520538998753,
-    "remoteHost": "160.228.162.246",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 804,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 46,
-    "connectionName": "labore sint"
-  },
-  {
-    "startDate": 1467863861768,
-    "duration": 1605662,
-    "endDate": 1467865467430,
-    "remoteHost": "23.4.15.227",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 805,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 153,
-    "connectionName": "consequat laborum"
-  },
-  {
-    "startDate": 1600623665356,
-    "duration": 2807057,
-    "endDate": 1600626472413,
-    "remoteHost": "88.54.120.51",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 806,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 122,
-    "connectionName": "voluptate irure"
-  },
-  {
-    "startDate": 1631001512767,
-    "duration": 2296132,
-    "endDate": 1631003808899,
-    "remoteHost": "184.84.84.4",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 807,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1443,
-    "connectionName": "tempor eu"
-  },
-  {
-    "startDate": 1621579084686,
-    "duration": 15098658,
-    "endDate": 1621594183344,
-    "remoteHost": "66.22.19.161",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 808,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1021,
-    "connectionName": "pariatur ut"
-  },
-  {
-    "startDate": 1559930253485,
-    "duration": 2443159,
-    "endDate": 1559932696644,
-    "remoteHost": "251.55.236.48",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 809,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 853,
-    "connectionName": "elit voluptate"
-  },
-  {
-    "startDate": 1688580913268,
-    "duration": 2725050,
-    "endDate": 1688583638318,
-    "remoteHost": "135.184.73.119",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 810,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1493,
-    "connectionName": "ullamco nisi"
-  },
-  {
-    "startDate": 1687945061282,
-    "duration": 19950111,
-    "endDate": 1687965011393,
-    "remoteHost": "200.22.228.177",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 811,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1451,
-    "connectionName": "mollit sit"
-  },
-  {
-    "startDate": 1489754514164,
-    "duration": 12852404,
-    "endDate": 1489767366568,
-    "remoteHost": "145.249.94.167",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 812,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 896,
-    "connectionName": "non Lorem"
-  },
-  {
-    "startDate": 1534764702112,
-    "duration": 20241806,
-    "endDate": 1534784943918,
-    "remoteHost": "189.26.180.175",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 813,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1210,
-    "connectionName": "sint sit"
-  },
-  {
-    "startDate": 1616746971835,
-    "duration": 18160006,
-    "endDate": 1616765131841,
-    "remoteHost": "191.18.228.167",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 814,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1150,
-    "connectionName": "dolor eiusmod"
-  },
-  {
-    "startDate": 1473968702140,
-    "duration": 1558465,
-    "endDate": 1473970260605,
-    "remoteHost": "222.170.164.32",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 815,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1046,
-    "connectionName": "incididunt eu"
-  },
-  {
-    "startDate": 1648595537970,
-    "duration": 16246016,
-    "endDate": 1648611783986,
-    "remoteHost": "172.19.116.179",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 816,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 305,
-    "connectionName": "tempor dolor"
-  },
-  {
-    "startDate": 1465972899159,
-    "duration": 11829704,
-    "endDate": 1465984728863,
-    "remoteHost": "136.90.115.147",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 817,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 815,
-    "connectionName": "dolore dolore"
-  },
-  {
-    "startDate": 1598078276339,
-    "duration": 4743866,
-    "endDate": 1598083020205,
-    "remoteHost": "104.85.157.213",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 818,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1041,
-    "connectionName": "anim esse"
-  },
-  {
-    "startDate": 1523429259533,
-    "duration": 10505764,
-    "endDate": 1523439765297,
-    "remoteHost": "73.21.249.15",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 819,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 941,
-    "connectionName": "voluptate anim"
-  },
-  {
-    "startDate": 1618707394923,
-    "duration": 10946190,
-    "endDate": 1618718341113,
-    "remoteHost": "209.138.38.9",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 820,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 748,
-    "connectionName": "eu incididunt"
-  },
-  {
-    "startDate": 1579637028544,
-    "duration": 14149662,
-    "endDate": 1579651178206,
-    "remoteHost": "74.110.70.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 821,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1302,
-    "connectionName": "esse adipisicing"
-  },
-  {
-    "startDate": 1688264960586,
-    "duration": 13729410,
-    "endDate": 1688278689996,
-    "remoteHost": "183.230.60.232",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 822,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 351,
-    "connectionName": "sunt sint"
-  },
-  {
-    "startDate": 1492535394930,
-    "duration": 14854618,
-    "endDate": 1492550249548,
-    "remoteHost": "64.46.136.25",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 823,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1376,
-    "connectionName": "sunt nulla"
-  },
-  {
-    "startDate": 1679791696035,
-    "duration": 3376354,
-    "endDate": 1679795072389,
-    "remoteHost": "223.86.152.201",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 824,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 986,
-    "connectionName": "dolor aute"
-  },
-  {
-    "startDate": 1509374141623,
-    "duration": 11854597,
-    "endDate": 1509385996220,
-    "remoteHost": "139.67.45.34",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 825,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1313,
-    "connectionName": "eiusmod eiusmod"
-  },
-  {
-    "startDate": 1468402835804,
-    "duration": 47687,
-    "endDate": 1468402883491,
-    "remoteHost": "107.100.25.215",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 826,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 429,
-    "connectionName": "occaecat quis"
-  },
-  {
-    "startDate": 1587513125628,
-    "duration": 7383399,
-    "endDate": 1587520509027,
-    "remoteHost": "187.36.16.74",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 827,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1335,
-    "connectionName": "ea culpa"
-  },
-  {
-    "startDate": 1645657881287,
-    "duration": 14186053,
-    "endDate": 1645672067340,
-    "remoteHost": "229.224.204.178",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 828,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1425,
-    "connectionName": "ad enim"
-  },
-  {
-    "startDate": 1493061192834,
-    "duration": 8615064,
-    "endDate": 1493069807898,
-    "remoteHost": "98.101.243.216",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 829,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 629,
-    "connectionName": "ullamco consequat"
-  },
-  {
-    "startDate": 1532174232894,
-    "duration": 18543545,
-    "endDate": 1532192776439,
-    "remoteHost": "215.124.27.139",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 830,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 245,
-    "connectionName": "ea commodo"
-  },
-  {
-    "startDate": 1511913831108,
-    "duration": 4904079,
-    "endDate": 1511918735187,
-    "remoteHost": "145.230.95.170",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 831,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1144,
-    "connectionName": "veniam consequat"
-  },
-  {
-    "startDate": 1603982404046,
-    "duration": 8713033,
-    "endDate": 1603991117079,
-    "remoteHost": "154.8.58.104",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 832,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 281,
-    "connectionName": "duis ullamco"
-  },
-  {
-    "startDate": 1517995376101,
-    "duration": 5259407,
-    "endDate": 1518000635508,
-    "remoteHost": "242.19.154.161",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 833,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1353,
-    "connectionName": "ut duis"
-  },
-  {
-    "startDate": 1460853614546,
-    "duration": 20016471,
-    "endDate": 1460873631017,
-    "remoteHost": "223.9.84.80",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 834,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1384,
-    "connectionName": "Lorem minim"
-  },
-  {
-    "startDate": 1656221558937,
-    "duration": 20201792,
-    "endDate": 1656241760729,
-    "remoteHost": "140.249.100.55",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 835,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1406,
-    "connectionName": "Lorem ut"
-  },
-  {
-    "startDate": 1470437034799,
-    "duration": 12915971,
-    "endDate": 1470449950770,
-    "remoteHost": "31.211.54.179",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 836,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 650,
-    "connectionName": "cupidatat pariatur"
-  },
-  {
-    "startDate": 1483513099957,
-    "duration": 345485,
-    "endDate": 1483513445442,
-    "remoteHost": "29.95.110.155",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 837,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1088,
-    "connectionName": "aute sint"
-  },
-  {
-    "startDate": 1478027212618,
-    "duration": 572703,
-    "endDate": 1478027785321,
-    "remoteHost": "193.86.245.207",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 838,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1369,
-    "connectionName": "culpa laboris"
-  },
-  {
-    "startDate": 1609407666384,
-    "duration": 13649929,
-    "endDate": 1609421316313,
-    "remoteHost": "101.110.93.8",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 839,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 15,
-    "connectionName": "mollit enim"
-  },
-  {
-    "startDate": 1511385486266,
-    "duration": 6261180,
-    "endDate": 1511391747446,
-    "remoteHost": "57.249.243.201",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 840,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1369,
-    "connectionName": "sint deserunt"
-  },
-  {
-    "startDate": 1691323289565,
-    "duration": 19226945,
-    "endDate": 1691342516510,
-    "remoteHost": "30.95.209.160",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 841,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 991,
-    "connectionName": "nulla dolor"
-  },
-  {
-    "startDate": 1435219635259,
-    "duration": 4646274,
-    "endDate": 1435224281533,
-    "remoteHost": "130.125.210.211",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 842,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 646,
-    "connectionName": "veniam cillum"
-  },
-  {
-    "startDate": 1619506735575,
-    "duration": 18815282,
-    "endDate": 1619525550857,
-    "remoteHost": "249.249.23.8",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 843,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 658,
-    "connectionName": "reprehenderit irure"
-  },
-  {
-    "startDate": 1679677571863,
-    "duration": 2928305,
-    "endDate": 1679680500168,
-    "remoteHost": "170.46.156.55",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 844,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 674,
-    "connectionName": "fugiat excepteur"
-  },
-  {
-    "startDate": 1427781332476,
-    "duration": 3788170,
-    "endDate": 1427785120646,
-    "remoteHost": "111.146.211.242",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 845,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 470,
-    "connectionName": "proident consequat"
-  },
-  {
-    "startDate": 1637229863499,
-    "duration": 21418227,
-    "endDate": 1637251281726,
-    "remoteHost": "122.26.138.25",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 846,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1367,
-    "connectionName": "deserunt culpa"
-  },
-  {
-    "startDate": 1451730603823,
-    "duration": 10705331,
-    "endDate": 1451741309154,
-    "remoteHost": "204.201.208.120",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 847,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 14,
-    "connectionName": "eu duis"
-  },
-  {
-    "startDate": 1524158936192,
-    "duration": 17395295,
-    "endDate": 1524176331487,
-    "remoteHost": "36.145.53.110",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 848,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 550,
-    "connectionName": "eu nulla"
-  },
-  {
-    "startDate": 1608388054179,
-    "duration": 4522246,
-    "endDate": 1608392576425,
-    "remoteHost": "227.230.74.60",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 849,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 499,
-    "connectionName": "sunt est"
-  },
-  {
-    "startDate": 1518358388901,
-    "duration": 11051231,
-    "endDate": 1518369440132,
-    "remoteHost": "33.221.41.38",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 850,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 419,
-    "connectionName": "sunt proident"
-  },
-  {
-    "startDate": 1446066567099,
-    "duration": 13398893,
-    "endDate": 1446079965992,
-    "remoteHost": "96.224.67.201",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 851,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 849,
-    "connectionName": "labore laboris"
-  },
-  {
-    "startDate": 1456820529108,
-    "duration": 20626229,
-    "endDate": 1456841155337,
-    "remoteHost": "226.252.37.8",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 852,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 451,
-    "connectionName": "ad labore"
-  },
-  {
-    "startDate": 1548202761953,
-    "duration": 15380738,
-    "endDate": 1548218142691,
-    "remoteHost": "194.176.243.2",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 853,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1108,
-    "connectionName": "ut nulla"
-  },
-  {
-    "startDate": 1470375915942,
-    "duration": 9622543,
-    "endDate": 1470385538485,
-    "remoteHost": "141.232.117.236",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 854,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 147,
-    "connectionName": "aute magna"
-  },
-  {
-    "startDate": 1697136863579,
-    "duration": 7043713,
-    "endDate": 1697143907292,
-    "remoteHost": "189.64.76.78",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 855,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1211,
-    "connectionName": "dolore eiusmod"
-  },
-  {
-    "startDate": 1497341675837,
-    "duration": 2825264,
-    "endDate": 1497344501101,
-    "remoteHost": "116.243.77.182",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 856,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 536,
-    "connectionName": "sit dolor"
-  },
-  {
-    "startDate": 1523495234449,
-    "duration": 2069845,
-    "endDate": 1523497304294,
-    "remoteHost": "187.249.3.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 857,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 966,
-    "connectionName": "labore aliqua"
-  },
-  {
-    "startDate": 1670292710007,
-    "duration": 12240498,
-    "endDate": 1670304950505,
-    "remoteHost": "132.24.71.102",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 858,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1107,
-    "connectionName": "ipsum Lorem"
-  },
-  {
-    "startDate": 1691881852103,
-    "duration": 2807956,
-    "endDate": 1691884660059,
-    "remoteHost": "54.102.63.215",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 859,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1285,
-    "connectionName": "deserunt voluptate"
-  },
-  {
-    "startDate": 1687465689281,
-    "duration": 20732478,
-    "endDate": 1687486421759,
-    "remoteHost": "114.89.48.91",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 860,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 127,
-    "connectionName": "enim ex"
-  },
-  {
-    "startDate": 1557175976615,
-    "duration": 11338668,
-    "endDate": 1557187315283,
-    "remoteHost": "146.90.129.216",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 861,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1170,
-    "connectionName": "nisi ex"
-  },
-  {
-    "startDate": 1638048603903,
-    "duration": 13052028,
-    "endDate": 1638061655931,
-    "remoteHost": "16.240.148.195",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 862,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 343,
-    "connectionName": "anim aute"
-  },
-  {
-    "startDate": 1649078883987,
-    "duration": 15247856,
-    "endDate": 1649094131843,
-    "remoteHost": "216.255.17.247",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 863,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 929,
-    "connectionName": "fugiat elit"
-  },
-  {
-    "startDate": 1543027850097,
-    "duration": 5327317,
-    "endDate": 1543033177414,
-    "remoteHost": "12.183.152.113",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 864,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 67,
-    "connectionName": "dolor id"
-  },
-  {
-    "startDate": 1444750433334,
-    "duration": 6169135,
-    "endDate": 1444756602469,
-    "remoteHost": "69.25.188.238",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 865,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 97,
-    "connectionName": "eiusmod enim"
-  },
-  {
-    "startDate": 1643313721538,
-    "duration": 4564646,
-    "endDate": 1643318286184,
-    "remoteHost": "195.100.164.236",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 866,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1063,
-    "connectionName": "cillum enim"
-  },
-  {
-    "startDate": 1561130346257,
-    "duration": 7219305,
-    "endDate": 1561137565562,
-    "remoteHost": "28.154.6.24",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 867,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1286,
-    "connectionName": "enim cillum"
-  },
-  {
-    "startDate": 1636798928742,
-    "duration": 3826876,
-    "endDate": 1636802755618,
-    "remoteHost": "205.48.22.243",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 868,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1450,
-    "connectionName": "ea aute"
-  },
-  {
-    "startDate": 1523495434333,
-    "duration": 16307634,
-    "endDate": 1523511741967,
-    "remoteHost": "40.129.174.198",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 869,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 302,
-    "connectionName": "consequat ut"
-  },
-  {
-    "startDate": 1623223131205,
-    "duration": 10512970,
-    "endDate": 1623233644175,
-    "remoteHost": "159.24.63.72",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 870,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 772,
-    "connectionName": "officia cillum"
-  },
-  {
-    "startDate": 1493272812248,
-    "duration": 11700758,
-    "endDate": 1493284513006,
-    "remoteHost": "52.172.47.138",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 871,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1170,
-    "connectionName": "veniam nostrud"
-  },
-  {
-    "startDate": 1639489066557,
-    "duration": 1240523,
-    "endDate": 1639490307080,
-    "remoteHost": "80.172.222.254",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 872,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 313,
-    "connectionName": "irure deserunt"
-  },
-  {
-    "startDate": 1580191318183,
-    "duration": 16734008,
-    "endDate": 1580208052191,
-    "remoteHost": "235.219.154.56",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 873,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1493,
-    "connectionName": "ipsum ut"
-  },
-  {
-    "startDate": 1462398680976,
-    "duration": 17605456,
-    "endDate": 1462416286432,
-    "remoteHost": "44.88.142.65",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 874,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1209,
-    "connectionName": "tempor laborum"
-  },
-  {
-    "startDate": 1676030742325,
-    "duration": 16713698,
-    "endDate": 1676047456023,
-    "remoteHost": "162.41.57.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 875,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 967,
-    "connectionName": "commodo dolore"
-  },
-  {
-    "startDate": 1633434979145,
-    "duration": 2406999,
-    "endDate": 1633437386144,
-    "remoteHost": "151.108.125.89",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 876,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 856,
-    "connectionName": "adipisicing veniam"
-  },
-  {
-    "startDate": 1601896328629,
-    "duration": 13472873,
-    "endDate": 1601909801502,
-    "remoteHost": "253.141.82.32",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 877,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1411,
-    "connectionName": "eu ex"
-  },
-  {
-    "startDate": 1482217133588,
-    "duration": 2344749,
-    "endDate": 1482219478337,
-    "remoteHost": "163.218.72.133",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 878,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 551,
-    "connectionName": "Lorem aliqua"
-  },
-  {
-    "startDate": 1497432520694,
-    "duration": 19188744,
-    "endDate": 1497451709438,
-    "remoteHost": "41.43.250.7",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 879,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1469,
-    "connectionName": "laboris cupidatat"
-  },
-  {
-    "startDate": 1576415247166,
-    "duration": 10344538,
-    "endDate": 1576425591704,
-    "remoteHost": "93.74.210.39",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 880,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 645,
-    "connectionName": "reprehenderit eu"
-  },
-  {
-    "startDate": 1507821089521,
-    "duration": 4765837,
-    "endDate": 1507825855358,
-    "remoteHost": "138.78.140.84",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 881,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 286,
-    "connectionName": "sunt dolore"
-  },
-  {
-    "startDate": 1537038628606,
-    "duration": 18647370,
-    "endDate": 1537057275976,
-    "remoteHost": "207.81.166.158",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 882,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 517,
-    "connectionName": "do deserunt"
-  },
-  {
-    "startDate": 1529057576023,
-    "duration": 17956833,
-    "endDate": 1529075532856,
-    "remoteHost": "212.44.181.120",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 883,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 511,
-    "connectionName": "aute voluptate"
-  },
-  {
-    "startDate": 1547895556472,
-    "duration": 18223803,
-    "endDate": 1547913780275,
-    "remoteHost": "135.3.141.174",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 884,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 23,
-    "connectionName": "sint esse"
-  },
-  {
-    "startDate": 1648655663902,
-    "duration": 1390328,
-    "endDate": 1648657054230,
-    "remoteHost": "246.64.63.53",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 885,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 884,
-    "connectionName": "elit ullamco"
-  },
-  {
-    "startDate": 1491069189466,
-    "duration": 19792985,
-    "endDate": 1491088982451,
-    "remoteHost": "208.220.126.159",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 886,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1342,
-    "connectionName": "duis ad"
-  },
-  {
-    "startDate": 1441274480565,
-    "duration": 15987004,
-    "endDate": 1441290467569,
-    "remoteHost": "168.150.163.83",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 887,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1467,
-    "connectionName": "minim cupidatat"
-  },
-  {
-    "startDate": 1696720944339,
-    "duration": 20091829,
-    "endDate": 1696741036168,
-    "remoteHost": "49.161.4.66",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 888,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 178,
-    "connectionName": "non aliquip"
-  },
-  {
-    "startDate": 1510248934499,
-    "duration": 17332214,
-    "endDate": 1510266266713,
-    "remoteHost": "135.12.94.45",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 889,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1379,
-    "connectionName": "elit ipsum"
-  },
-  {
-    "startDate": 1590433206467,
-    "duration": 10224778,
-    "endDate": 1590443431245,
-    "remoteHost": "120.83.146.156",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 890,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1488,
-    "connectionName": "amet sunt"
-  },
-  {
-    "startDate": 1543876612504,
-    "duration": 5821346,
-    "endDate": 1543882433850,
-    "remoteHost": "154.73.213.154",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 891,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1012,
-    "connectionName": "non culpa"
-  },
-  {
-    "startDate": 1611550289359,
-    "duration": 3394914,
-    "endDate": 1611553684273,
-    "remoteHost": "58.1.163.219",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 892,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 527,
-    "connectionName": "consequat aute"
-  },
-  {
-    "startDate": 1420394966811,
-    "duration": 18224144,
-    "endDate": 1420413190955,
-    "remoteHost": "25.126.94.197",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 893,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1404,
-    "connectionName": "laborum reprehenderit"
-  },
-  {
-    "startDate": 1669677167640,
-    "duration": 7536217,
-    "endDate": 1669684703857,
-    "remoteHost": "52.182.141.82",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 894,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1040,
-    "connectionName": "laboris mollit"
-  },
-  {
-    "startDate": 1616868765909,
-    "duration": 14743386,
-    "endDate": 1616883509295,
-    "remoteHost": "102.57.201.210",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 895,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 670,
-    "connectionName": "id consequat"
-  },
-  {
-    "startDate": 1662720912087,
-    "duration": 7896584,
-    "endDate": 1662728808671,
-    "remoteHost": "15.114.137.115",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 896,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 624,
-    "connectionName": "eiusmod commodo"
-  },
-  {
-    "startDate": 1612800200695,
-    "duration": 10056161,
-    "endDate": 1612810256856,
-    "remoteHost": "133.208.72.16",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 897,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 945,
-    "connectionName": "aute sit"
-  },
-  {
-    "startDate": 1659013649588,
-    "duration": 10800895,
-    "endDate": 1659024450483,
-    "remoteHost": "74.57.237.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 898,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 76,
-    "connectionName": "deserunt dolore"
-  },
-  {
-    "startDate": 1529513262123,
-    "duration": 15722855,
-    "endDate": 1529528984978,
-    "remoteHost": "33.169.146.94",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 899,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 959,
-    "connectionName": "ex duis"
-  },
-  {
-    "startDate": 1455274219612,
-    "duration": 8907001,
-    "endDate": 1455283126613,
-    "remoteHost": "28.146.220.67",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 900,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1342,
-    "connectionName": "ut amet"
-  },
-  {
-    "startDate": 1664987497358,
-    "duration": 8788562,
-    "endDate": 1664996285920,
-    "remoteHost": "199.126.159.53",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 901,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 536,
-    "connectionName": "anim voluptate"
-  },
-  {
-    "startDate": 1669520738123,
-    "duration": 6225557,
-    "endDate": 1669526963680,
-    "remoteHost": "60.127.231.224",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 902,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 473,
-    "connectionName": "ex laboris"
-  },
-  {
-    "startDate": 1497924612217,
-    "duration": 10523520,
-    "endDate": 1497935135737,
-    "remoteHost": "223.17.113.177",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 903,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1434,
-    "connectionName": "adipisicing qui"
-  },
-  {
-    "startDate": 1685037946259,
-    "duration": 2133862,
-    "endDate": 1685040080121,
-    "remoteHost": "176.144.68.44",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 904,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 780,
-    "connectionName": "amet minim"
-  },
-  {
-    "startDate": 1586832896463,
-    "duration": 15066203,
-    "endDate": 1586847962666,
-    "remoteHost": "112.101.140.173",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 905,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 407,
-    "connectionName": "commodo aute"
-  },
-  {
-    "startDate": 1678240704972,
-    "duration": 3371991,
-    "endDate": 1678244076963,
-    "remoteHost": "119.36.144.53",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 906,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 29,
-    "connectionName": "aute cupidatat"
-  },
-  {
-    "startDate": 1493027362588,
-    "duration": 4759882,
-    "endDate": 1493032122470,
-    "remoteHost": "179.81.67.220",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 907,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1125,
-    "connectionName": "officia esse"
-  },
-  {
-    "startDate": 1483613089092,
-    "duration": 12094178,
-    "endDate": 1483625183270,
-    "remoteHost": "30.140.81.85",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 908,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1096,
-    "connectionName": "ut consequat"
-  },
-  {
-    "startDate": 1649145896021,
-    "duration": 10301785,
-    "endDate": 1649156197806,
-    "remoteHost": "76.22.196.98",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 909,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 14,
-    "connectionName": "adipisicing laboris"
-  },
-  {
-    "startDate": 1608880305189,
-    "duration": 2572673,
-    "endDate": 1608882877862,
-    "remoteHost": "64.118.224.67",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 910,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1262,
-    "connectionName": "in ipsum"
-  },
-  {
-    "startDate": 1554038486270,
-    "duration": 20952714,
-    "endDate": 1554059438984,
-    "remoteHost": "152.113.18.48",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 911,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1192,
-    "connectionName": "tempor dolore"
-  },
-  {
-    "startDate": 1489385064262,
-    "duration": 6857637,
-    "endDate": 1489391921899,
-    "remoteHost": "78.213.241.107",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 912,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 212,
-    "connectionName": "cillum incididunt"
-  },
-  {
-    "startDate": 1437115845695,
-    "duration": 4896000,
-    "endDate": 1437120741695,
-    "remoteHost": "199.158.188.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 913,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 682,
-    "connectionName": "amet ut"
-  },
-  {
-    "startDate": 1600623010217,
-    "duration": 9330347,
-    "endDate": 1600632340564,
-    "remoteHost": "16.119.93.6",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 914,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 390,
-    "connectionName": "nisi proident"
-  },
-  {
-    "startDate": 1490663428673,
-    "duration": 2652014,
-    "endDate": 1490666080687,
-    "remoteHost": "14.208.190.96",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 915,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 937,
-    "connectionName": "et dolore"
-  },
-  {
-    "startDate": 1666573327449,
-    "duration": 8684932,
-    "endDate": 1666582012381,
-    "remoteHost": "186.35.27.186",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 916,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1326,
-    "connectionName": "in quis"
-  },
-  {
-    "startDate": 1655985891355,
-    "duration": 15969990,
-    "endDate": 1656001861345,
-    "remoteHost": "65.241.89.176",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 917,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1086,
-    "connectionName": "eu ipsum"
-  },
-  {
-    "startDate": 1584687243129,
-    "duration": 18697593,
-    "endDate": 1584705940722,
-    "remoteHost": "32.90.161.99",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 918,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1253,
-    "connectionName": "duis laboris"
-  },
-  {
-    "startDate": 1605023172870,
-    "duration": 5006944,
-    "endDate": 1605028179814,
-    "remoteHost": "162.133.89.62",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 919,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 58,
-    "connectionName": "duis proident"
-  },
-  {
-    "startDate": 1626334546003,
-    "duration": 3825745,
-    "endDate": 1626338371748,
-    "remoteHost": "49.55.50.191",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 920,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 225,
-    "connectionName": "reprehenderit aliqua"
-  },
-  {
-    "startDate": 1579112136182,
-    "duration": 10433899,
-    "endDate": 1579122570081,
-    "remoteHost": "32.160.105.5",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 921,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 300,
-    "connectionName": "Lorem veniam"
-  },
-  {
-    "startDate": 1537726620448,
-    "duration": 14629807,
-    "endDate": 1537741250255,
-    "remoteHost": "155.151.208.48",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 922,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 712,
-    "connectionName": "ex occaecat"
-  },
-  {
-    "startDate": 1471852845967,
-    "duration": 18984039,
-    "endDate": 1471871830006,
-    "remoteHost": "193.246.158.127",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 923,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1339,
-    "connectionName": "occaecat sint"
-  },
-  {
-    "startDate": 1540807607983,
-    "duration": 3241142,
-    "endDate": 1540810849125,
-    "remoteHost": "146.249.109.31",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 924,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 581,
-    "connectionName": "enim cupidatat"
-  },
-  {
-    "startDate": 1514927641329,
-    "duration": 10285888,
-    "endDate": 1514937927217,
-    "remoteHost": "61.124.104.112",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 925,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1278,
-    "connectionName": "nulla aliqua"
-  },
-  {
-    "startDate": 1470120214754,
-    "duration": 14150784,
-    "endDate": 1470134365538,
-    "remoteHost": "221.139.50.216",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 926,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 832,
-    "connectionName": "laborum ea"
-  },
-  {
-    "startDate": 1623999159239,
-    "duration": 10265509,
-    "endDate": 1624009424748,
-    "remoteHost": "115.146.100.95",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 927,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1087,
-    "connectionName": "est mollit"
-  },
-  {
-    "startDate": 1470969111972,
-    "duration": 13935149,
-    "endDate": 1470983047121,
-    "remoteHost": "15.82.93.54",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 928,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1188,
-    "connectionName": "amet laboris"
-  },
-  {
-    "startDate": 1688793179363,
-    "duration": 20246027,
-    "endDate": 1688813425390,
-    "remoteHost": "59.61.152.66",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 929,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1261,
-    "connectionName": "occaecat adipisicing"
-  },
-  {
-    "startDate": 1577399704489,
-    "duration": 19787823,
-    "endDate": 1577419492312,
-    "remoteHost": "58.244.139.16",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 930,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 560,
-    "connectionName": "eiusmod reprehenderit"
-  },
-  {
-    "startDate": 1595087844164,
-    "duration": 4000630,
-    "endDate": 1595091844794,
-    "remoteHost": "81.11.185.17",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 931,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1245,
-    "connectionName": "in nulla"
-  },
-  {
-    "startDate": 1476094675173,
-    "duration": 4772850,
-    "endDate": 1476099448023,
-    "remoteHost": "96.46.218.25",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 932,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 529,
-    "connectionName": "deserunt dolor"
-  },
-  {
-    "startDate": 1450777168328,
-    "duration": 5002617,
-    "endDate": 1450782170945,
-    "remoteHost": "164.114.210.81",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 933,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 694,
-    "connectionName": "voluptate nisi"
-  },
-  {
-    "startDate": 1612587309476,
-    "duration": 1852030,
-    "endDate": 1612589161506,
-    "remoteHost": "156.88.16.177",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 934,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 927,
-    "connectionName": "ad pariatur"
-  },
-  {
-    "startDate": 1629529113412,
-    "duration": 21161164,
-    "endDate": 1629550274576,
-    "remoteHost": "234.244.171.155",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 935,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 667,
-    "connectionName": "occaecat eiusmod"
-  },
-  {
-    "startDate": 1555457263267,
-    "duration": 17840697,
-    "endDate": 1555475103964,
-    "remoteHost": "198.45.40.219",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 936,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 680,
-    "connectionName": "culpa commodo"
-  },
-  {
-    "startDate": 1542595085800,
-    "duration": 11185803,
-    "endDate": 1542606271603,
-    "remoteHost": "211.217.38.234",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 937,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1408,
-    "connectionName": "consequat nisi"
-  },
-  {
-    "startDate": 1676698299977,
-    "duration": 11305439,
-    "endDate": 1676709605416,
-    "remoteHost": "218.87.134.229",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 938,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1235,
-    "connectionName": "est dolor"
-  },
-  {
-    "startDate": 1457243331240,
-    "duration": 14404431,
-    "endDate": 1457257735671,
-    "remoteHost": "127.42.243.131",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 939,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1298,
-    "connectionName": "culpa deserunt"
-  },
-  {
-    "startDate": 1517757911781,
-    "duration": 4559841,
-    "endDate": 1517762471622,
-    "remoteHost": "115.197.196.200",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 940,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 75,
-    "connectionName": "eiusmod cillum"
-  },
-  {
-    "startDate": 1667359774138,
-    "duration": 21339796,
-    "endDate": 1667381113934,
-    "remoteHost": "21.113.149.8",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 941,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 170,
-    "connectionName": "officia nulla"
-  },
-  {
-    "startDate": 1451396387527,
-    "duration": 10833059,
-    "endDate": 1451407220586,
-    "remoteHost": "27.17.119.1",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 942,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 899,
-    "connectionName": "non et"
-  },
-  {
-    "startDate": 1696601222907,
-    "duration": 550780,
-    "endDate": 1696601773687,
-    "remoteHost": "199.11.205.46",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 943,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 517,
-    "connectionName": "ad ad"
-  },
-  {
-    "startDate": 1495365589274,
-    "duration": 13477250,
-    "endDate": 1495379066524,
-    "remoteHost": "97.168.194.9",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 944,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 761,
-    "connectionName": "magna ea"
-  },
-  {
-    "startDate": 1506309527623,
-    "duration": 18105526,
-    "endDate": 1506327633149,
-    "remoteHost": "201.104.176.32",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 945,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1045,
-    "connectionName": "qui elit"
-  },
-  {
-    "startDate": 1443939377826,
-    "duration": 16986727,
-    "endDate": 1443956364553,
-    "remoteHost": "143.203.29.191",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 946,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 403,
-    "connectionName": "deserunt officia"
-  },
-  {
-    "startDate": 1457419060281,
-    "duration": 6896225,
-    "endDate": 1457425956506,
-    "remoteHost": "140.139.108.46",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 947,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1480,
-    "connectionName": "exercitation cupidatat"
-  },
-  {
-    "startDate": 1686281035035,
-    "duration": 20195593,
-    "endDate": 1686301230628,
-    "remoteHost": "157.214.19.27",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 948,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1353,
-    "connectionName": "aute sunt"
-  },
-  {
-    "startDate": 1505277230802,
-    "duration": 10030518,
-    "endDate": 1505287261320,
-    "remoteHost": "190.181.28.211",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 949,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 20,
-    "connectionName": "sunt in"
-  },
-  {
-    "startDate": 1638484236535,
-    "duration": 13200413,
-    "endDate": 1638497436948,
-    "remoteHost": "239.28.212.52",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 950,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 287,
-    "connectionName": "do do"
-  },
-  {
-    "startDate": 1693694712850,
-    "duration": 8387804,
-    "endDate": 1693703100654,
-    "remoteHost": "190.51.32.35",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 951,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 410,
-    "connectionName": "proident et"
-  },
-  {
-    "startDate": 1500225730818,
-    "duration": 11755202,
-    "endDate": 1500237486020,
-    "remoteHost": "216.161.15.92",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 952,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 595,
-    "connectionName": "fugiat dolore"
-  },
-  {
-    "startDate": 1599290707843,
-    "duration": 10353119,
-    "endDate": 1599301060962,
-    "remoteHost": "20.116.161.57",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 953,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 890,
-    "connectionName": "elit cupidatat"
-  },
-  {
-    "startDate": 1645769257962,
-    "duration": 15255258,
-    "endDate": 1645784513220,
-    "remoteHost": "91.149.11.194",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 954,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1139,
-    "connectionName": "consectetur tempor"
-  },
-  {
-    "startDate": 1510578023511,
-    "duration": 10723011,
-    "endDate": 1510588746522,
-    "remoteHost": "64.132.140.21",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 955,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1118,
-    "connectionName": "ipsum mollit"
-  },
-  {
-    "startDate": 1464924522279,
-    "duration": 10718387,
-    "endDate": 1464935240666,
-    "remoteHost": "18.185.240.73",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 956,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 210,
-    "connectionName": "commodo do"
-  },
-  {
-    "startDate": 1560372942325,
-    "duration": 3163133,
-    "endDate": 1560376105458,
-    "remoteHost": "148.238.249.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 957,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 758,
-    "connectionName": "non qui"
-  },
-  {
-    "startDate": 1468080853534,
-    "duration": 10023771,
-    "endDate": 1468090877305,
-    "remoteHost": "131.63.222.142",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 958,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 445,
-    "connectionName": "excepteur veniam"
-  },
-  {
-    "startDate": 1468308448748,
-    "duration": 14648746,
-    "endDate": 1468323097494,
-    "remoteHost": "22.149.15.231",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 959,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 871,
-    "connectionName": "velit commodo"
-  },
-  {
-    "startDate": 1678296869192,
-    "duration": 21182430,
-    "endDate": 1678318051622,
-    "remoteHost": "181.156.190.242",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 960,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1259,
-    "connectionName": "labore eiusmod"
-  },
-  {
-    "startDate": 1423157619431,
-    "duration": 1016739,
-    "endDate": 1423158636170,
-    "remoteHost": "25.150.254.131",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 961,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1460,
-    "connectionName": "sit ex"
-  },
-  {
-    "startDate": 1595246702891,
-    "duration": 10051258,
-    "endDate": 1595256754149,
-    "remoteHost": "150.164.20.57",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 962,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 198,
-    "connectionName": "culpa cillum"
-  },
-  {
-    "startDate": 1572263695521,
-    "duration": 1085981,
-    "endDate": 1572264781502,
-    "remoteHost": "205.134.90.33",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 963,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 436,
-    "connectionName": "ad occaecat"
-  },
-  {
-    "startDate": 1586010726460,
-    "duration": 3112417,
-    "endDate": 1586013838877,
-    "remoteHost": "140.171.93.77",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 964,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 206,
-    "connectionName": "pariatur minim"
-  },
-  {
-    "startDate": 1495256690542,
-    "duration": 9373222,
-    "endDate": 1495266063764,
-    "remoteHost": "63.179.52.192",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 965,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1450,
-    "connectionName": "magna elit"
-  },
-  {
-    "startDate": 1503681003965,
-    "duration": 253276,
-    "endDate": 1503681257241,
-    "remoteHost": "241.5.8.15",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 966,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 892,
-    "connectionName": "laborum mollit"
-  },
-  {
-    "startDate": 1439236413605,
-    "duration": 20093150,
-    "endDate": 1439256506755,
-    "remoteHost": "154.165.99.185",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 967,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1056,
-    "connectionName": "velit amet"
-  },
-  {
-    "startDate": 1526999005273,
-    "duration": 12977482,
-    "endDate": 1527011982755,
-    "remoteHost": "68.73.10.122",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 968,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 350,
-    "connectionName": "commodo duis"
-  },
-  {
-    "startDate": 1496791539948,
-    "duration": 4070451,
-    "endDate": 1496795610399,
-    "remoteHost": "196.72.88.160",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 969,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1330,
-    "connectionName": "eiusmod dolore"
-  },
-  {
-    "startDate": 1577671036600,
-    "duration": 4649234,
-    "endDate": 1577675685834,
-    "remoteHost": "26.251.9.5",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 970,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 380,
-    "connectionName": "commodo mollit"
-  },
-  {
-    "startDate": 1520696079670,
-    "duration": 12551905,
-    "endDate": 1520708631575,
-    "remoteHost": "70.11.156.173",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 971,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1402,
-    "connectionName": "consequat minim"
-  },
-  {
-    "startDate": 1478881883416,
-    "duration": 1110514,
-    "endDate": 1478882993930,
-    "remoteHost": "193.92.182.149",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 972,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 324,
-    "connectionName": "mollit velit"
-  },
-  {
-    "startDate": 1479314209208,
-    "duration": 16509708,
-    "endDate": 1479330718916,
-    "remoteHost": "249.153.84.5",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 973,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 69,
-    "connectionName": "officia minim"
-  },
-  {
-    "startDate": 1429803654595,
-    "duration": 5442987,
-    "endDate": 1429809097582,
-    "remoteHost": "149.250.227.203",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 974,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 406,
-    "connectionName": "magna ea"
-  },
-  {
-    "startDate": 1555307042291,
-    "duration": 12286788,
-    "endDate": 1555319329079,
-    "remoteHost": "78.210.255.229",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 975,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1234,
-    "connectionName": "ad reprehenderit"
-  },
-  {
-    "startDate": 1565725182814,
-    "duration": 19031010,
-    "endDate": 1565744213824,
-    "remoteHost": "22.108.161.9",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 976,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1401,
-    "connectionName": "exercitation duis"
-  },
-  {
-    "startDate": 1585259814589,
-    "duration": 2991770,
-    "endDate": 1585262806359,
-    "remoteHost": "193.80.7.67",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 977,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1140,
-    "connectionName": "nulla incididunt"
-  },
-  {
-    "startDate": 1632952029067,
-    "duration": 7494746,
-    "endDate": 1632959523813,
-    "remoteHost": "193.243.39.57",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 978,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1013,
-    "connectionName": "exercitation fugiat"
-  },
-  {
-    "startDate": 1438529706479,
-    "duration": 17613329,
-    "endDate": 1438547319808,
-    "remoteHost": "229.160.73.206",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 979,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 666,
-    "connectionName": "eu sit"
-  },
-  {
-    "startDate": 1501487865265,
-    "duration": 11180997,
-    "endDate": 1501499046262,
-    "remoteHost": "41.32.13.184",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 980,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 915,
-    "connectionName": "consectetur ut"
-  },
-  {
-    "startDate": 1476148207631,
-    "duration": 11530864,
-    "endDate": 1476159738495,
-    "remoteHost": "222.206.113.147",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 981,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 926,
-    "connectionName": "elit nulla"
-  },
-  {
-    "startDate": 1692452139178,
-    "duration": 9342928,
-    "endDate": 1692461482106,
-    "remoteHost": "116.251.112.35",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 982,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1418,
-    "connectionName": "sit est"
-  },
-  {
-    "startDate": 1644290647126,
-    "duration": 13223492,
-    "endDate": 1644303870618,
-    "remoteHost": "142.1.117.109",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 983,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 628,
-    "connectionName": "amet ad"
-  },
-  {
-    "startDate": 1696334222615,
-    "duration": 8812644,
-    "endDate": 1696343035259,
-    "remoteHost": "181.55.125.9",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 984,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1187,
-    "connectionName": "do cillum"
-  },
-  {
-    "startDate": 1513026707606,
-    "duration": 6589379,
-    "endDate": 1513033296985,
-    "remoteHost": "180.112.207.138",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 985,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1165,
-    "connectionName": "nulla ipsum"
-  },
-  {
-    "startDate": 1675694041180,
-    "duration": 10326734,
-    "endDate": 1675704367914,
-    "remoteHost": "17.89.36.182",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 986,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1496,
-    "connectionName": "do minim"
-  },
-  {
-    "startDate": 1541483987550,
-    "duration": 12851580,
-    "endDate": 1541496839130,
-    "remoteHost": "196.9.129.28",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 987,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 397,
-    "connectionName": "aliqua deserunt"
-  },
-  {
-    "startDate": 1596208007638,
-    "duration": 20461404,
-    "endDate": 1596228469042,
-    "remoteHost": "177.67.106.198",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 988,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 870,
-    "connectionName": "nisi incididunt"
-  },
-  {
-    "startDate": 1680080032335,
-    "duration": 12343066,
-    "endDate": 1680092375401,
-    "remoteHost": "181.233.27.254",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 989,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 739,
-    "connectionName": "minim minim"
-  },
-  {
-    "startDate": 1478265260807,
-    "duration": 17117087,
-    "endDate": 1478282377894,
-    "remoteHost": "101.164.35.143",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 990,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 478,
-    "connectionName": "et commodo"
-  },
-  {
-    "startDate": 1549627336081,
-    "duration": 10248504,
-    "endDate": 1549637584585,
-    "remoteHost": "85.43.184.91",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 991,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 855,
-    "connectionName": "deserunt voluptate"
-  },
-  {
-    "startDate": 1442045859553,
-    "duration": 12997502,
-    "endDate": 1442058857055,
-    "remoteHost": "221.3.52.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 992,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 251,
-    "connectionName": "quis laboris"
-  },
-  {
-    "startDate": 1563902245398,
-    "duration": 6259408,
-    "endDate": 1563908504806,
-    "remoteHost": "41.157.60.151",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 993,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 417,
-    "connectionName": "irure ullamco"
-  },
-  {
-    "startDate": 1624340747737,
-    "duration": 8085004,
-    "endDate": 1624348832741,
-    "remoteHost": "234.108.10.126",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 994,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1299,
-    "connectionName": "occaecat ad"
-  },
-  {
-    "startDate": 1421668333945,
-    "duration": 15370502,
-    "endDate": 1421683704447,
-    "remoteHost": "203.101.115.90",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 995,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1158,
-    "connectionName": "ullamco ad"
-  },
-  {
-    "startDate": 1450218286607,
-    "duration": 10919591,
-    "endDate": 1450229206198,
-    "remoteHost": "97.126.222.133",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 996,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 506,
-    "connectionName": "ipsum deserunt"
-  },
-  {
-    "startDate": 1502945849938,
-    "duration": 8996893,
-    "endDate": 1502954846831,
-    "remoteHost": "210.112.34.54",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 997,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 228,
-    "connectionName": "enim nisi"
-  },
-  {
-    "startDate": 1661469754863,
-    "duration": 19565952,
-    "endDate": 1661489320815,
-    "remoteHost": "223.236.206.138",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 998,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 904,
-    "connectionName": "qui quis"
-  },
-  {
-    "startDate": 1426864213897,
-    "duration": 7900781,
-    "endDate": 1426872114678,
-    "remoteHost": "215.36.124.144",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 999,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1361,
-    "connectionName": "irure velit"
-  },
-  {
-    "startDate": 1641556316756,
-    "duration": 13301368,
-    "endDate": 1641569618124,
-    "remoteHost": "248.145.10.232",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1000,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1333,
-    "connectionName": "ea tempor"
-  },
-  {
-    "startDate": 1477286775946,
-    "duration": 1941637,
-    "endDate": 1477288717583,
-    "remoteHost": "108.134.122.159",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1001,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1338,
-    "connectionName": "veniam laborum"
-  },
-  {
-    "startDate": 1585309458785,
-    "duration": 13849548,
-    "endDate": 1585323308333,
-    "remoteHost": "235.69.223.69",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1002,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 239,
-    "connectionName": "amet aliquip"
-  },
-  {
-    "startDate": 1618581569133,
-    "duration": 6527120,
-    "endDate": 1618588096253,
-    "remoteHost": "75.248.157.49",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1003,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1095,
-    "connectionName": "deserunt proident"
-  },
-  {
-    "startDate": 1578358019699,
-    "duration": 14680304,
-    "endDate": 1578372700003,
-    "remoteHost": "113.213.28.17",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1004,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 215,
-    "connectionName": "ullamco tempor"
-  },
-  {
-    "startDate": 1522520091842,
-    "duration": 20417294,
-    "endDate": 1522540509136,
-    "remoteHost": "254.174.100.115",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1005,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 115,
-    "connectionName": "labore enim"
-  },
-  {
-    "startDate": 1529449717768,
-    "duration": 4314155,
-    "endDate": 1529454031923,
-    "remoteHost": "89.109.23.99",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1006,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1231,
-    "connectionName": "sint dolor"
-  },
-  {
-    "startDate": 1623038627750,
-    "duration": 204518,
-    "endDate": 1623038832268,
-    "remoteHost": "227.1.52.172",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1007,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1145,
-    "connectionName": "exercitation labore"
-  },
-  {
-    "startDate": 1683943568413,
-    "duration": 716206,
-    "endDate": 1683944284619,
-    "remoteHost": "31.156.248.119",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1008,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 720,
-    "connectionName": "eu laboris"
-  },
-  {
-    "startDate": 1613617769164,
-    "duration": 15760610,
-    "endDate": 1613633529774,
-    "remoteHost": "81.129.204.23",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1009,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1290,
-    "connectionName": "irure non"
-  },
-  {
-    "startDate": 1604595605763,
-    "duration": 12607335,
-    "endDate": 1604608213098,
-    "remoteHost": "189.114.32.23",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1010,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1023,
-    "connectionName": "sit nostrud"
-  },
-  {
-    "startDate": 1604239817601,
-    "duration": 17743854,
-    "endDate": 1604257561455,
-    "remoteHost": "53.151.241.238",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1011,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1113,
-    "connectionName": "aliqua aliqua"
-  },
-  {
-    "startDate": 1548586443310,
-    "duration": 7715237,
-    "endDate": 1548594158547,
-    "remoteHost": "168.112.49.85",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1012,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1117,
-    "connectionName": "do amet"
-  },
-  {
-    "startDate": 1477154439567,
-    "duration": 18789401,
-    "endDate": 1477173228968,
-    "remoteHost": "142.238.99.204",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1013,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1325,
-    "connectionName": "sit velit"
-  },
-  {
-    "startDate": 1557254368022,
-    "duration": 15851883,
-    "endDate": 1557270219905,
-    "remoteHost": "14.217.248.56",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1014,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 48,
-    "connectionName": "nulla cillum"
-  },
-  {
-    "startDate": 1463395248951,
-    "duration": 18441666,
-    "endDate": 1463413690617,
-    "remoteHost": "31.198.115.124",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1015,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 916,
-    "connectionName": "ea velit"
-  },
-  {
-    "startDate": 1445632725226,
-    "duration": 6603444,
-    "endDate": 1445639328670,
-    "remoteHost": "52.72.154.171",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1016,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1050,
-    "connectionName": "id dolore"
-  },
-  {
-    "startDate": 1444115694625,
-    "duration": 8527813,
-    "endDate": 1444124222438,
-    "remoteHost": "187.205.225.51",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1017,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 744,
-    "connectionName": "magna enim"
-  },
-  {
-    "startDate": 1604668160392,
-    "duration": 10339411,
-    "endDate": 1604678499803,
-    "remoteHost": "249.28.188.84",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1018,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 690,
-    "connectionName": "dolore consectetur"
-  },
-  {
-    "startDate": 1427794248165,
-    "duration": 13606675,
-    "endDate": 1427807854840,
-    "remoteHost": "120.139.5.253",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1019,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1472,
-    "connectionName": "nostrud do"
-  },
-  {
-    "startDate": 1559583528867,
-    "duration": 6828755,
-    "endDate": 1559590357622,
-    "remoteHost": "255.211.72.56",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1020,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 653,
-    "connectionName": "magna ex"
-  },
-  {
-    "startDate": 1529915771489,
-    "duration": 5759389,
-    "endDate": 1529921530878,
-    "remoteHost": "109.226.106.76",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1021,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 552,
-    "connectionName": "pariatur exercitation"
-  },
-  {
-    "startDate": 1622035138821,
-    "duration": 18887455,
-    "endDate": 1622054026276,
-    "remoteHost": "234.133.50.183",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1022,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 296,
-    "connectionName": "ullamco laboris"
-  },
-  {
-    "startDate": 1589813709313,
-    "duration": 5639659,
-    "endDate": 1589819348972,
-    "remoteHost": "65.224.192.115",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1023,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 493,
-    "connectionName": "ut duis"
-  },
-  {
-    "startDate": 1456601795663,
-    "duration": 786372,
-    "endDate": 1456602582035,
-    "remoteHost": "150.12.105.202",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1024,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 88,
-    "connectionName": "labore qui"
-  },
-  {
-    "startDate": 1472421621503,
-    "duration": 8340405,
-    "endDate": 1472429961908,
-    "remoteHost": "188.215.222.35",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1025,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 576,
-    "connectionName": "voluptate eu"
-  },
-  {
-    "startDate": 1610358769671,
-    "duration": 9960789,
-    "endDate": 1610368730460,
-    "remoteHost": "146.138.69.45",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1026,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1303,
-    "connectionName": "nisi deserunt"
-  },
-  {
-    "startDate": 1670514666762,
-    "duration": 3268629,
-    "endDate": 1670517935391,
-    "remoteHost": "179.137.208.70",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1027,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 263,
-    "connectionName": "sunt nisi"
-  },
-  {
-    "startDate": 1564754229757,
-    "duration": 10357674,
-    "endDate": 1564764587431,
-    "remoteHost": "133.113.245.148",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1028,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 228,
-    "connectionName": "deserunt consequat"
-  },
-  {
-    "startDate": 1524883482126,
-    "duration": 1376900,
-    "endDate": 1524884859026,
-    "remoteHost": "176.113.16.23",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1029,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 863,
-    "connectionName": "mollit ullamco"
-  },
-  {
-    "startDate": 1645179150185,
-    "duration": 7653290,
-    "endDate": 1645186803475,
-    "remoteHost": "152.133.2.176",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1030,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 797,
-    "connectionName": "duis labore"
-  },
-  {
-    "startDate": 1602273012536,
-    "duration": 1567901,
-    "endDate": 1602274580437,
-    "remoteHost": "71.62.141.28",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1031,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1279,
-    "connectionName": "anim sint"
-  },
-  {
-    "startDate": 1440696108314,
-    "duration": 5316106,
-    "endDate": 1440701424420,
-    "remoteHost": "101.70.180.108",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1032,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 498,
-    "connectionName": "occaecat commodo"
-  },
-  {
-    "startDate": 1694423436576,
-    "duration": 18603529,
-    "endDate": 1694442040105,
-    "remoteHost": "238.196.202.12",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1033,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1222,
-    "connectionName": "ipsum tempor"
-  },
-  {
-    "startDate": 1567718756728,
-    "duration": 12540381,
-    "endDate": 1567731297109,
-    "remoteHost": "34.154.233.219",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1034,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1190,
-    "connectionName": "mollit non"
-  },
-  {
-    "startDate": 1515588397779,
-    "duration": 8855015,
-    "endDate": 1515597252794,
-    "remoteHost": "57.146.54.149",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1035,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 685,
-    "connectionName": "in tempor"
-  },
-  {
-    "startDate": 1516003020099,
-    "duration": 11339059,
-    "endDate": 1516014359158,
-    "remoteHost": "34.210.10.183",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1036,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1131,
-    "connectionName": "velit duis"
-  },
-  {
-    "startDate": 1622711503471,
-    "duration": 18604585,
-    "endDate": 1622730108056,
-    "remoteHost": "124.29.86.179",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1037,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1250,
-    "connectionName": "irure do"
-  },
-  {
-    "startDate": 1690601301332,
-    "duration": 2754317,
-    "endDate": 1690604055649,
-    "remoteHost": "163.183.146.177",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1038,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 671,
-    "connectionName": "cupidatat mollit"
-  },
-  {
-    "startDate": 1533935616344,
-    "duration": 14349263,
-    "endDate": 1533949965607,
-    "remoteHost": "237.36.243.169",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1039,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 798,
-    "connectionName": "fugiat officia"
-  },
-  {
-    "startDate": 1557367045800,
-    "duration": 19980420,
-    "endDate": 1557387026220,
-    "remoteHost": "187.215.224.220",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1040,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 265,
-    "connectionName": "proident velit"
-  },
-  {
-    "startDate": 1652936059370,
-    "duration": 6986074,
-    "endDate": 1652943045444,
-    "remoteHost": "214.245.206.139",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1041,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 135,
-    "connectionName": "esse mollit"
-  },
-  {
-    "startDate": 1538567050643,
-    "duration": 1554604,
-    "endDate": 1538568605247,
-    "remoteHost": "66.133.48.92",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1042,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 700,
-    "connectionName": "tempor ex"
-  },
-  {
-    "startDate": 1641180944780,
-    "duration": 13787435,
-    "endDate": 1641194732215,
-    "remoteHost": "212.242.84.247",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1043,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 281,
-    "connectionName": "eu sunt"
-  },
-  {
-    "startDate": 1452559954441,
-    "duration": 8688969,
-    "endDate": 1452568643410,
-    "remoteHost": "154.83.149.175",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1044,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1419,
-    "connectionName": "sit deserunt"
-  },
-  {
-    "startDate": 1594750648693,
-    "duration": 4213142,
-    "endDate": 1594754861835,
-    "remoteHost": "137.172.203.21",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1045,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1412,
-    "connectionName": "enim ipsum"
-  },
-  {
-    "startDate": 1425990934180,
-    "duration": 18625336,
-    "endDate": 1426009559516,
-    "remoteHost": "202.255.167.49",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1046,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 186,
-    "connectionName": "occaecat dolore"
-  },
-  {
-    "startDate": 1692034971455,
-    "duration": 12951423,
-    "endDate": 1692047922878,
-    "remoteHost": "213.159.217.42",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1047,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 926,
-    "connectionName": "ipsum nulla"
-  },
-  {
-    "startDate": 1483465428276,
-    "duration": 384451,
-    "endDate": 1483465812727,
-    "remoteHost": "228.123.204.195",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1048,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1173,
-    "connectionName": "do cupidatat"
-  },
-  {
-    "startDate": 1537989647698,
-    "duration": 15880787,
-    "endDate": 1538005528485,
-    "remoteHost": "165.214.129.181",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1049,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 455,
-    "connectionName": "excepteur laboris"
-  },
-  {
-    "startDate": 1514060040276,
-    "duration": 3893891,
-    "endDate": 1514063934167,
-    "remoteHost": "189.17.128.136",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1050,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 490,
-    "connectionName": "aliquip sunt"
-  },
-  {
-    "startDate": 1443390253581,
-    "duration": 16080209,
-    "endDate": 1443406333790,
-    "remoteHost": "149.105.231.188",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1051,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 955,
-    "connectionName": "aliqua do"
-  },
-  {
-    "startDate": 1654799808821,
-    "duration": 7453311,
-    "endDate": 1654807262132,
-    "remoteHost": "87.95.252.113",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1052,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1309,
-    "connectionName": "pariatur officia"
-  },
-  {
-    "startDate": 1442154265294,
-    "duration": 5801156,
-    "endDate": 1442160066450,
-    "remoteHost": "36.176.208.145",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1053,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 545,
-    "connectionName": "quis eiusmod"
-  },
-  {
-    "startDate": 1571513958805,
-    "duration": 14281502,
-    "endDate": 1571528240307,
-    "remoteHost": "182.72.90.157",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1054,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 293,
-    "connectionName": "duis excepteur"
-  },
-  {
-    "startDate": 1474473432433,
-    "duration": 19071315,
-    "endDate": 1474492503748,
-    "remoteHost": "215.96.178.55",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1055,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 577,
-    "connectionName": "elit et"
-  },
-  {
-    "startDate": 1424373872019,
-    "duration": 20016399,
-    "endDate": 1424393888418,
-    "remoteHost": "219.138.66.197",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1056,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1213,
-    "connectionName": "sint laboris"
-  },
-  {
-    "startDate": 1585036968355,
-    "duration": 19061151,
-    "endDate": 1585056029506,
-    "remoteHost": "104.79.94.107",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1057,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1065,
-    "connectionName": "ut Lorem"
-  },
-  {
-    "startDate": 1429208749537,
-    "duration": 13440120,
-    "endDate": 1429222189657,
-    "remoteHost": "34.88.175.155",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1058,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 241,
-    "connectionName": "elit nostrud"
-  },
-  {
-    "startDate": 1529176070506,
-    "duration": 14425067,
-    "endDate": 1529190495573,
-    "remoteHost": "84.147.201.91",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1059,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 492,
-    "connectionName": "culpa esse"
-  },
-  {
-    "startDate": 1597747429944,
-    "duration": 4607146,
-    "endDate": 1597752037090,
-    "remoteHost": "194.6.119.233",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1060,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1150,
-    "connectionName": "ullamco magna"
-  },
-  {
-    "startDate": 1554004463283,
-    "duration": 4460102,
-    "endDate": 1554008923385,
-    "remoteHost": "142.112.169.142",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1061,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1202,
-    "connectionName": "cupidatat et"
-  },
-  {
-    "startDate": 1570496345040,
-    "duration": 7771364,
-    "endDate": 1570504116404,
-    "remoteHost": "119.206.236.83",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1062,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 475,
-    "connectionName": "sit cillum"
-  },
-  {
-    "startDate": 1658843640915,
-    "duration": 5465565,
-    "endDate": 1658849106480,
-    "remoteHost": "173.155.190.244",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1063,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1008,
-    "connectionName": "deserunt labore"
-  },
-  {
-    "startDate": 1602894203471,
-    "duration": 19996293,
-    "endDate": 1602914199764,
-    "remoteHost": "248.199.8.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1064,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 326,
-    "connectionName": "cupidatat deserunt"
-  },
-  {
-    "startDate": 1692358493938,
-    "duration": 16202081,
-    "endDate": 1692374696019,
-    "remoteHost": "233.224.16.119",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1065,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 671,
-    "connectionName": "in cillum"
-  },
-  {
-    "startDate": 1438585839654,
-    "duration": 20819637,
-    "endDate": 1438606659291,
-    "remoteHost": "173.213.41.80",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1066,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 186,
-    "connectionName": "officia elit"
-  },
-  {
-    "startDate": 1544791557728,
-    "duration": 16342765,
-    "endDate": 1544807900493,
-    "remoteHost": "134.173.23.94",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1067,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1468,
-    "connectionName": "et quis"
-  },
-  {
-    "startDate": 1635084375008,
-    "duration": 15958643,
-    "endDate": 1635100333651,
-    "remoteHost": "240.113.124.231",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1068,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1083,
-    "connectionName": "officia incididunt"
-  },
-  {
-    "startDate": 1500565357844,
-    "duration": 19801214,
-    "endDate": 1500585159058,
-    "remoteHost": "89.176.179.82",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1069,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 471,
-    "connectionName": "exercitation sunt"
-  },
-  {
-    "startDate": 1511230999794,
-    "duration": 8221576,
-    "endDate": 1511239221370,
-    "remoteHost": "30.77.176.230",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1070,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1492,
-    "connectionName": "ea magna"
-  },
-  {
-    "startDate": 1506568744016,
-    "duration": 8080157,
-    "endDate": 1506576824173,
-    "remoteHost": "179.70.195.24",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1071,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 518,
-    "connectionName": "culpa magna"
-  },
-  {
-    "startDate": 1445183511782,
-    "duration": 13951916,
-    "endDate": 1445197463698,
-    "remoteHost": "247.234.56.155",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1072,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 733,
-    "connectionName": "minim nostrud"
-  },
-  {
-    "startDate": 1591031920013,
-    "duration": 16477010,
-    "endDate": 1591048397023,
-    "remoteHost": "85.129.226.109",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1073,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 314,
-    "connectionName": "tempor in"
-  },
-  {
-    "startDate": 1630714236280,
-    "duration": 12954337,
-    "endDate": 1630727190617,
-    "remoteHost": "67.36.32.69",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1074,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 198,
-    "connectionName": "ea ad"
-  },
-  {
-    "startDate": 1548501133680,
-    "duration": 7243893,
-    "endDate": 1548508377573,
-    "remoteHost": "80.244.166.140",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1075,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1449,
-    "connectionName": "occaecat occaecat"
-  },
-  {
-    "startDate": 1462054757455,
-    "duration": 10168275,
-    "endDate": 1462064925730,
-    "remoteHost": "31.70.150.219",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1076,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1210,
-    "connectionName": "enim laborum"
-  },
-  {
-    "startDate": 1619019325328,
-    "duration": 14723533,
-    "endDate": 1619034048861,
-    "remoteHost": "214.55.93.254",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1077,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 118,
-    "connectionName": "amet id"
-  },
-  {
-    "startDate": 1598277805953,
-    "duration": 97763,
-    "endDate": 1598277903716,
-    "remoteHost": "176.142.47.122",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1078,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 181,
-    "connectionName": "adipisicing eu"
-  },
-  {
-    "startDate": 1439828645648,
-    "duration": 10612346,
-    "endDate": 1439839257994,
-    "remoteHost": "106.184.222.200",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1079,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 496,
-    "connectionName": "exercitation aute"
-  },
-  {
-    "startDate": 1600618891515,
-    "duration": 14623473,
-    "endDate": 1600633514988,
-    "remoteHost": "247.225.201.15",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1080,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 773,
-    "connectionName": "mollit velit"
-  },
-  {
-    "startDate": 1429984182782,
-    "duration": 15607712,
-    "endDate": 1429999790494,
-    "remoteHost": "171.33.167.66",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1081,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1334,
-    "connectionName": "magna veniam"
-  },
-  {
-    "startDate": 1671948205774,
-    "duration": 11662751,
-    "endDate": 1671959868525,
-    "remoteHost": "108.90.161.35",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1082,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 324,
-    "connectionName": "tempor laborum"
-  },
-  {
-    "startDate": 1587160797291,
-    "duration": 8613336,
-    "endDate": 1587169410627,
-    "remoteHost": "29.189.211.109",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1083,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 564,
-    "connectionName": "cupidatat et"
-  },
-  {
-    "startDate": 1634986006476,
-    "duration": 16216799,
-    "endDate": 1635002223275,
-    "remoteHost": "34.151.95.97",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1084,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1194,
-    "connectionName": "consectetur sunt"
-  },
-  {
-    "startDate": 1438215058649,
-    "duration": 18845756,
-    "endDate": 1438233904405,
-    "remoteHost": "176.29.211.249",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1085,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 820,
-    "connectionName": "proident dolore"
-  },
-  {
-    "startDate": 1469186950900,
-    "duration": 10896579,
-    "endDate": 1469197847479,
-    "remoteHost": "135.90.107.233",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1086,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 366,
-    "connectionName": "voluptate est"
-  },
-  {
-    "startDate": 1430482836466,
-    "duration": 12302189,
-    "endDate": 1430495138655,
-    "remoteHost": "79.243.59.64",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1087,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 748,
-    "connectionName": "irure proident"
-  },
-  {
-    "startDate": 1510021388693,
-    "duration": 15152057,
-    "endDate": 1510036540750,
-    "remoteHost": "224.52.188.235",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1088,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 297,
-    "connectionName": "excepteur id"
-  },
-  {
-    "startDate": 1434467480203,
-    "duration": 8932106,
-    "endDate": 1434476412309,
-    "remoteHost": "133.245.38.43",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1089,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 826,
-    "connectionName": "occaecat incididunt"
-  },
-  {
-    "startDate": 1593004574650,
-    "duration": 10262553,
-    "endDate": 1593014837203,
-    "remoteHost": "12.144.109.96",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1090,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 275,
-    "connectionName": "ea laboris"
-  },
-  {
-    "startDate": 1490836795271,
-    "duration": 5058752,
-    "endDate": 1490841854023,
-    "remoteHost": "34.16.107.133",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1091,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 661,
-    "connectionName": "culpa magna"
-  },
-  {
-    "startDate": 1627896245918,
-    "duration": 3986337,
-    "endDate": 1627900232255,
-    "remoteHost": "94.80.18.239",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1092,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 542,
-    "connectionName": "laboris nostrud"
-  },
-  {
-    "startDate": 1495919860762,
-    "duration": 15018880,
-    "endDate": 1495934879642,
-    "remoteHost": "146.49.25.231",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1093,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1408,
-    "connectionName": "ullamco mollit"
-  },
-  {
-    "startDate": 1542950915097,
-    "duration": 15335455,
-    "endDate": 1542966250552,
-    "remoteHost": "22.64.10.30",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1094,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1496,
-    "connectionName": "eiusmod fugiat"
-  },
-  {
-    "startDate": 1436569805475,
-    "duration": 14271636,
-    "endDate": 1436584077111,
-    "remoteHost": "110.76.144.56",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1095,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1061,
-    "connectionName": "ex Lorem"
-  },
-  {
-    "startDate": 1637046878880,
-    "duration": 1151481,
-    "endDate": 1637048030361,
-    "remoteHost": "213.205.111.238",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1096,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 887,
-    "connectionName": "minim minim"
-  },
-  {
-    "startDate": 1515635376889,
-    "duration": 18544177,
-    "endDate": 1515653921066,
-    "remoteHost": "186.156.184.158",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1097,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1108,
-    "connectionName": "exercitation consequat"
-  },
-  {
-    "startDate": 1453519580547,
-    "duration": 18477425,
-    "endDate": 1453538057972,
-    "remoteHost": "48.159.170.235",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1098,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 895,
-    "connectionName": "officia magna"
-  },
-  {
-    "startDate": 1619612828643,
-    "duration": 4186125,
-    "endDate": 1619617014768,
-    "remoteHost": "119.63.242.81",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1099,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 474,
-    "connectionName": "labore reprehenderit"
-  },
-  {
-    "startDate": 1647667482393,
-    "duration": 19471891,
-    "endDate": 1647686954284,
-    "remoteHost": "216.209.205.197",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1100,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 384,
-    "connectionName": "ullamco reprehenderit"
-  },
-  {
-    "startDate": 1443549315634,
-    "duration": 15123246,
-    "endDate": 1443564438880,
-    "remoteHost": "105.197.88.133",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1101,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1067,
-    "connectionName": "velit laboris"
-  },
-  {
-    "startDate": 1587008062513,
-    "duration": 1012763,
-    "endDate": 1587009075276,
-    "remoteHost": "96.230.232.168",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1102,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 315,
-    "connectionName": "voluptate velit"
-  },
-  {
-    "startDate": 1527486429764,
-    "duration": 11576975,
-    "endDate": 1527498006739,
-    "remoteHost": "232.165.55.78",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1103,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 833,
-    "connectionName": "exercitation esse"
-  },
-  {
-    "startDate": 1430430078368,
-    "duration": 14944797,
-    "endDate": 1430445023165,
-    "remoteHost": "242.25.192.89",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1104,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 211,
-    "connectionName": "qui laborum"
-  },
-  {
-    "startDate": 1641244582832,
-    "duration": 2814623,
-    "endDate": 1641247397455,
-    "remoteHost": "63.249.162.177",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1105,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1122,
-    "connectionName": "exercitation magna"
-  },
-  {
-    "startDate": 1602194759243,
-    "duration": 21532470,
-    "endDate": 1602216291713,
-    "remoteHost": "146.21.51.49",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1106,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 439,
-    "connectionName": "ullamco adipisicing"
-  },
-  {
-    "startDate": 1636253154209,
-    "duration": 17128358,
-    "endDate": 1636270282567,
-    "remoteHost": "22.216.191.229",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1107,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 134,
-    "connectionName": "dolor ullamco"
-  },
-  {
-    "startDate": 1473044164879,
-    "duration": 16890727,
-    "endDate": 1473061055606,
-    "remoteHost": "181.252.134.119",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1108,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1056,
-    "connectionName": "minim et"
-  },
-  {
-    "startDate": 1675639189698,
-    "duration": 14305686,
-    "endDate": 1675653495384,
-    "remoteHost": "237.220.88.229",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1109,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1445,
-    "connectionName": "laboris nostrud"
-  },
-  {
-    "startDate": 1453423192522,
-    "duration": 857813,
-    "endDate": 1453424050335,
-    "remoteHost": "50.9.202.210",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1110,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 571,
-    "connectionName": "aute voluptate"
-  },
-  {
-    "startDate": 1632497695573,
-    "duration": 13414842,
-    "endDate": 1632511110415,
-    "remoteHost": "96.192.144.118",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1111,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1186,
-    "connectionName": "reprehenderit elit"
-  },
-  {
-    "startDate": 1510425526646,
-    "duration": 3833991,
-    "endDate": 1510429360637,
-    "remoteHost": "129.176.152.175",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1112,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 936,
-    "connectionName": "elit deserunt"
-  },
-  {
-    "startDate": 1668982170468,
-    "duration": 2071868,
-    "endDate": 1668984242336,
-    "remoteHost": "250.86.88.202",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1113,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1418,
-    "connectionName": "consequat enim"
-  },
-  {
-    "startDate": 1525942735453,
-    "duration": 2248119,
-    "endDate": 1525944983572,
-    "remoteHost": "191.165.97.10",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1114,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 940,
-    "connectionName": "amet exercitation"
-  },
-  {
-    "startDate": 1606894576228,
-    "duration": 10798504,
-    "endDate": 1606905374732,
-    "remoteHost": "167.24.134.185",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1115,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 567,
-    "connectionName": "ut consequat"
-  },
-  {
-    "startDate": 1483361227238,
-    "duration": 12021611,
-    "endDate": 1483373248849,
-    "remoteHost": "55.94.18.113",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1116,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 475,
-    "connectionName": "et incididunt"
-  },
-  {
-    "startDate": 1503412620349,
-    "duration": 1787613,
-    "endDate": 1503414407962,
-    "remoteHost": "227.130.225.183",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1117,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 151,
-    "connectionName": "do id"
-  },
-  {
-    "startDate": 1563216781191,
-    "duration": 3358916,
-    "endDate": 1563220140107,
-    "remoteHost": "255.108.91.124",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1118,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1059,
-    "connectionName": "irure elit"
-  },
-  {
-    "startDate": 1539574503203,
-    "duration": 20013240,
-    "endDate": 1539594516443,
-    "remoteHost": "60.181.150.148",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1119,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 43,
-    "connectionName": "aliqua officia"
-  },
-  {
-    "startDate": 1476663598705,
-    "duration": 14249497,
-    "endDate": 1476677848202,
-    "remoteHost": "209.42.118.137",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1120,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 211,
-    "connectionName": "culpa eu"
-  },
-  {
-    "startDate": 1690234529477,
-    "duration": 16198062,
-    "endDate": 1690250727539,
-    "remoteHost": "240.40.155.170",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1121,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1085,
-    "connectionName": "ipsum deserunt"
-  },
-  {
-    "startDate": 1599083821472,
-    "duration": 20991841,
-    "endDate": 1599104813313,
-    "remoteHost": "242.160.201.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1122,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1398,
-    "connectionName": "culpa duis"
-  },
-  {
-    "startDate": 1573060614306,
-    "duration": 4760275,
-    "endDate": 1573065374581,
-    "remoteHost": "51.220.99.80",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1123,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1332,
-    "connectionName": "ipsum aliquip"
-  },
-  {
-    "startDate": 1591437738324,
-    "duration": 10928313,
-    "endDate": 1591448666637,
-    "remoteHost": "73.74.157.5",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1124,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 584,
-    "connectionName": "sint excepteur"
-  },
-  {
-    "startDate": 1514659151944,
-    "duration": 11592776,
-    "endDate": 1514670744720,
-    "remoteHost": "74.210.202.109",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1125,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1473,
-    "connectionName": "ipsum reprehenderit"
-  },
-  {
-    "startDate": 1647551139166,
-    "duration": 16613482,
-    "endDate": 1647567752648,
-    "remoteHost": "239.234.6.143",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1126,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 774,
-    "connectionName": "id ullamco"
-  },
-  {
-    "startDate": 1572979091281,
-    "duration": 13074637,
-    "endDate": 1572992165918,
-    "remoteHost": "102.3.126.151",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1127,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 729,
-    "connectionName": "pariatur qui"
-  },
-  {
-    "startDate": 1606149683756,
-    "duration": 7172749,
-    "endDate": 1606156856505,
-    "remoteHost": "167.219.235.43",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1128,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 201,
-    "connectionName": "exercitation occaecat"
-  },
-  {
-    "startDate": 1494487988890,
-    "duration": 1508849,
-    "endDate": 1494489497739,
-    "remoteHost": "99.250.250.83",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1129,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1340,
-    "connectionName": "excepteur ea"
-  },
-  {
-    "startDate": 1546822417500,
-    "duration": 21425042,
-    "endDate": 1546843842542,
-    "remoteHost": "242.91.92.184",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1130,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 88,
-    "connectionName": "ex officia"
-  },
-  {
-    "startDate": 1517706678211,
-    "duration": 4515280,
-    "endDate": 1517711193491,
-    "remoteHost": "29.60.115.187",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1131,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1429,
-    "connectionName": "incididunt fugiat"
-  },
-  {
-    "startDate": 1546362758537,
-    "duration": 5979586,
-    "endDate": 1546368738123,
-    "remoteHost": "167.78.180.120",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1132,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 85,
-    "connectionName": "nisi dolor"
-  },
-  {
-    "startDate": 1603479512766,
-    "duration": 5415861,
-    "endDate": 1603484928627,
-    "remoteHost": "89.81.197.151",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1133,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 304,
-    "connectionName": "ex deserunt"
-  },
-  {
-    "startDate": 1687189876938,
-    "duration": 14089697,
-    "endDate": 1687203966635,
-    "remoteHost": "134.197.12.138",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1134,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 672,
-    "connectionName": "nulla aliquip"
-  },
-  {
-    "startDate": 1438579886344,
-    "duration": 9012711,
-    "endDate": 1438588899055,
-    "remoteHost": "196.79.48.115",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1135,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 29,
-    "connectionName": "id amet"
-  },
-  {
-    "startDate": 1598462870201,
-    "duration": 20834497,
-    "endDate": 1598483704698,
-    "remoteHost": "203.56.88.225",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1136,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1394,
-    "connectionName": "tempor nostrud"
-  },
-  {
-    "startDate": 1422334891051,
-    "duration": 11803981,
-    "endDate": 1422346695032,
-    "remoteHost": "166.182.117.162",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1137,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 44,
-    "connectionName": "enim aliqua"
-  },
-  {
-    "startDate": 1465294401193,
-    "duration": 20415586,
-    "endDate": 1465314816779,
-    "remoteHost": "197.190.169.98",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1138,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1196,
-    "connectionName": "consequat nisi"
-  },
-  {
-    "startDate": 1688534327427,
-    "duration": 8730661,
-    "endDate": 1688543058088,
-    "remoteHost": "163.187.170.106",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1139,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 346,
-    "connectionName": "aliquip sit"
-  },
-  {
-    "startDate": 1430677571699,
-    "duration": 7463978,
-    "endDate": 1430685035677,
-    "remoteHost": "58.37.92.178",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1140,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 617,
-    "connectionName": "mollit anim"
-  },
-  {
-    "startDate": 1682325972769,
-    "duration": 16993954,
-    "endDate": 1682342966723,
-    "remoteHost": "21.246.14.107",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1141,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 834,
-    "connectionName": "tempor ut"
-  },
-  {
-    "startDate": 1629691241788,
-    "duration": 1601244,
-    "endDate": 1629692843032,
-    "remoteHost": "41.55.195.23",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1142,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 121,
-    "connectionName": "reprehenderit ullamco"
-  },
-  {
-    "startDate": 1423586661276,
-    "duration": 10294988,
-    "endDate": 1423596956264,
-    "remoteHost": "156.228.35.108",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1143,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 682,
-    "connectionName": "labore aliqua"
-  },
-  {
-    "startDate": 1481389501932,
-    "duration": 1434673,
-    "endDate": 1481390936605,
-    "remoteHost": "37.234.48.114",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1144,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 33,
-    "connectionName": "id voluptate"
-  },
-  {
-    "startDate": 1472923517514,
-    "duration": 6648415,
-    "endDate": 1472930165929,
-    "remoteHost": "167.108.115.81",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1145,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1161,
-    "connectionName": "culpa officia"
-  },
-  {
-    "startDate": 1474404271199,
-    "duration": 3643321,
-    "endDate": 1474407914520,
-    "remoteHost": "160.187.187.16",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1146,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1404,
-    "connectionName": "dolor proident"
-  },
-  {
-    "startDate": 1668596011783,
-    "duration": 17434901,
-    "endDate": 1668613446684,
-    "remoteHost": "101.199.188.205",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1147,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1309,
-    "connectionName": "magna nulla"
-  },
-  {
-    "startDate": 1530362791902,
-    "duration": 859479,
-    "endDate": 1530363651381,
-    "remoteHost": "212.148.126.177",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1148,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 963,
-    "connectionName": "ex enim"
-  },
-  {
-    "startDate": 1654606836310,
-    "duration": 9814021,
-    "endDate": 1654616650331,
-    "remoteHost": "149.143.238.11",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1149,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 162,
-    "connectionName": "dolore exercitation"
-  },
-  {
-    "startDate": 1676938106411,
-    "duration": 10531544,
-    "endDate": 1676948637955,
-    "remoteHost": "195.174.94.90",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1150,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1306,
-    "connectionName": "amet qui"
-  },
-  {
-    "startDate": 1617987554083,
-    "duration": 15018086,
-    "endDate": 1618002572169,
-    "remoteHost": "99.187.5.71",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1151,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 588,
-    "connectionName": "amet cupidatat"
-  },
-  {
-    "startDate": 1566094560248,
-    "duration": 3328458,
-    "endDate": 1566097888706,
-    "remoteHost": "218.124.249.75",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1152,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 937,
-    "connectionName": "sit occaecat"
-  },
-  {
-    "startDate": 1427330511636,
-    "duration": 7915131,
-    "endDate": 1427338426767,
-    "remoteHost": "61.49.30.148",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1153,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 160,
-    "connectionName": "consectetur est"
-  },
-  {
-    "startDate": 1456526742210,
-    "duration": 14135807,
-    "endDate": 1456540878017,
-    "remoteHost": "67.160.144.75",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1154,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1384,
-    "connectionName": "est reprehenderit"
-  },
-  {
-    "startDate": 1557638835859,
-    "duration": 17354190,
-    "endDate": 1557656190049,
-    "remoteHost": "76.41.139.164",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1155,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1035,
-    "connectionName": "magna consequat"
-  },
-  {
-    "startDate": 1505516210809,
-    "duration": 5569943,
-    "endDate": 1505521780752,
-    "remoteHost": "138.139.201.225",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1156,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 347,
-    "connectionName": "ut eu"
-  },
-  {
-    "startDate": 1697021819770,
-    "duration": 16032067,
-    "endDate": 1697037851837,
-    "remoteHost": "171.145.184.192",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1157,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 253,
-    "connectionName": "ut nisi"
-  },
-  {
-    "startDate": 1633516607883,
-    "duration": 16290749,
-    "endDate": 1633532898632,
-    "remoteHost": "138.24.238.18",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1158,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 373,
-    "connectionName": "pariatur labore"
-  },
-  {
-    "startDate": 1651050856525,
-    "duration": 16466100,
-    "endDate": 1651067322625,
-    "remoteHost": "82.255.68.250",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1159,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 447,
-    "connectionName": "proident in"
-  },
-  {
-    "startDate": 1433602618323,
-    "duration": 7590770,
-    "endDate": 1433610209093,
-    "remoteHost": "16.129.94.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1160,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 274,
-    "connectionName": "non laborum"
-  },
-  {
-    "startDate": 1469716910553,
-    "duration": 1456761,
-    "endDate": 1469718367314,
-    "remoteHost": "54.253.249.48",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1161,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 611,
-    "connectionName": "minim ex"
-  },
-  {
-    "startDate": 1516083239229,
-    "duration": 16829501,
-    "endDate": 1516100068730,
-    "remoteHost": "185.155.93.44",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1162,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 994,
-    "connectionName": "officia nisi"
-  },
-  {
-    "startDate": 1532581243923,
-    "duration": 10453958,
-    "endDate": 1532591697881,
-    "remoteHost": "251.19.81.151",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1163,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1423,
-    "connectionName": "duis ad"
-  },
-  {
-    "startDate": 1527493005360,
-    "duration": 18788983,
-    "endDate": 1527511794343,
-    "remoteHost": "93.26.71.232",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1164,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1183,
-    "connectionName": "ea fugiat"
-  },
-  {
-    "startDate": 1424604632308,
-    "duration": 12289778,
-    "endDate": 1424616922086,
-    "remoteHost": "207.71.35.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1165,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 832,
-    "connectionName": "duis adipisicing"
-  },
-  {
-    "startDate": 1611742592384,
-    "duration": 9549916,
-    "endDate": 1611752142300,
-    "remoteHost": "77.21.44.157",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1166,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 994,
-    "connectionName": "nisi consectetur"
-  },
-  {
-    "startDate": 1643999631727,
-    "duration": 18215594,
-    "endDate": 1644017847321,
-    "remoteHost": "108.183.197.14",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1167,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 489,
-    "connectionName": "irure ipsum"
-  },
-  {
-    "startDate": 1468297380947,
-    "duration": 11071272,
-    "endDate": 1468308452219,
-    "remoteHost": "123.155.215.192",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1168,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1333,
-    "connectionName": "eu consequat"
-  },
-  {
-    "startDate": 1465563442332,
-    "duration": 8621228,
-    "endDate": 1465572063560,
-    "remoteHost": "205.249.78.127",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1169,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 120,
-    "connectionName": "veniam laboris"
-  },
-  {
-    "startDate": 1555135890750,
-    "duration": 10497986,
-    "endDate": 1555146388736,
-    "remoteHost": "230.54.131.179",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1170,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1184,
-    "connectionName": "aliqua aute"
-  },
-  {
-    "startDate": 1610966323360,
-    "duration": 16192529,
-    "endDate": 1610982515889,
-    "remoteHost": "246.188.135.29",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1171,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 886,
-    "connectionName": "nisi labore"
-  },
-  {
-    "startDate": 1634035350498,
-    "duration": 4942202,
-    "endDate": 1634040292700,
-    "remoteHost": "179.231.150.30",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1172,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 130,
-    "connectionName": "elit nulla"
-  },
-  {
-    "startDate": 1633793710396,
-    "duration": 18815156,
-    "endDate": 1633812525552,
-    "remoteHost": "198.47.164.201",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1173,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 124,
-    "connectionName": "et non"
-  },
-  {
-    "startDate": 1491698918160,
-    "duration": 19281379,
-    "endDate": 1491718199539,
-    "remoteHost": "130.159.92.198",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1174,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1068,
-    "connectionName": "commodo velit"
-  },
-  {
-    "startDate": 1673855914375,
-    "duration": 13348188,
-    "endDate": 1673869262563,
-    "remoteHost": "228.226.188.56",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1175,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1117,
-    "connectionName": "ad Lorem"
-  },
-  {
-    "startDate": 1422936318059,
-    "duration": 4526990,
-    "endDate": 1422940845049,
-    "remoteHost": "45.183.53.214",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1176,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 476,
-    "connectionName": "magna ad"
-  },
-  {
-    "startDate": 1437505236360,
-    "duration": 4301372,
-    "endDate": 1437509537732,
-    "remoteHost": "59.88.25.119",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1177,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 439,
-    "connectionName": "nisi elit"
-  },
-  {
-    "startDate": 1559355427357,
-    "duration": 18352766,
-    "endDate": 1559373780123,
-    "remoteHost": "144.125.19.213",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1178,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 157,
-    "connectionName": "excepteur id"
-  },
-  {
-    "startDate": 1589950255016,
-    "duration": 12589710,
-    "endDate": 1589962844726,
-    "remoteHost": "35.49.33.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1179,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1009,
-    "connectionName": "id laboris"
-  },
-  {
-    "startDate": 1464492541202,
-    "duration": 6254984,
-    "endDate": 1464498796186,
-    "remoteHost": "219.195.15.70",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1180,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 340,
-    "connectionName": "duis incididunt"
-  },
-  {
-    "startDate": 1581784673089,
-    "duration": 16882675,
-    "endDate": 1581801555764,
-    "remoteHost": "47.88.57.173",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1181,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 841,
-    "connectionName": "fugiat culpa"
-  },
-  {
-    "startDate": 1681808908652,
-    "duration": 10811251,
-    "endDate": 1681819719903,
-    "remoteHost": "135.216.64.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1182,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 496,
-    "connectionName": "cupidatat enim"
-  },
-  {
-    "startDate": 1685604500240,
-    "duration": 1336749,
-    "endDate": 1685605836989,
-    "remoteHost": "241.237.239.101",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1183,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1065,
-    "connectionName": "anim proident"
-  },
-  {
-    "startDate": 1661864429592,
-    "duration": 7136077,
-    "endDate": 1661871565669,
-    "remoteHost": "203.19.32.92",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1184,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 536,
-    "connectionName": "voluptate ullamco"
-  },
-  {
-    "startDate": 1656728242236,
-    "duration": 20713076,
-    "endDate": 1656748955312,
-    "remoteHost": "181.196.34.233",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1185,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1452,
-    "connectionName": "esse occaecat"
-  },
-  {
-    "startDate": 1562595984599,
-    "duration": 12964507,
-    "endDate": 1562608949106,
-    "remoteHost": "188.124.60.210",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1186,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1422,
-    "connectionName": "magna exercitation"
-  },
-  {
-    "startDate": 1483975451886,
-    "duration": 5728586,
-    "endDate": 1483981180472,
-    "remoteHost": "13.214.53.149",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1187,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 987,
-    "connectionName": "velit id"
-  },
-  {
-    "startDate": 1652035236970,
-    "duration": 20739222,
-    "endDate": 1652055976192,
-    "remoteHost": "57.208.129.17",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1188,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 436,
-    "connectionName": "enim ad"
-  },
-  {
-    "startDate": 1684529884315,
-    "duration": 14353168,
-    "endDate": 1684544237483,
-    "remoteHost": "245.99.165.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1189,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1356,
-    "connectionName": "consectetur occaecat"
-  },
-  {
-    "startDate": 1613620715640,
-    "duration": 10212374,
-    "endDate": 1613630928014,
-    "remoteHost": "84.16.241.53",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1190,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1227,
-    "connectionName": "esse excepteur"
-  },
-  {
-    "startDate": 1441571443871,
-    "duration": 18363438,
-    "endDate": 1441589807309,
-    "remoteHost": "74.248.66.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1191,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 373,
-    "connectionName": "ullamco ullamco"
-  },
-  {
-    "startDate": 1672465950527,
-    "duration": 20862371,
-    "endDate": 1672486812898,
-    "remoteHost": "57.233.106.93",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1192,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 844,
-    "connectionName": "commodo elit"
-  },
-  {
-    "startDate": 1452288788705,
-    "duration": 11614850,
-    "endDate": 1452300403555,
-    "remoteHost": "99.162.82.202",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1193,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 36,
-    "connectionName": "consequat sunt"
-  },
-  {
-    "startDate": 1440135389659,
-    "duration": 7615145,
-    "endDate": 1440143004804,
-    "remoteHost": "253.7.31.134",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1194,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 507,
-    "connectionName": "ipsum reprehenderit"
-  },
-  {
-    "startDate": 1447208490671,
-    "duration": 16004211,
-    "endDate": 1447224494882,
-    "remoteHost": "180.44.80.21",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1195,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 479,
-    "connectionName": "anim magna"
-  },
-  {
-    "startDate": 1531911053507,
-    "duration": 12384485,
-    "endDate": 1531923437992,
-    "remoteHost": "12.201.14.140",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1196,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 605,
-    "connectionName": "enim consectetur"
-  },
-  {
-    "startDate": 1595598590311,
-    "duration": 608391,
-    "endDate": 1595599198702,
-    "remoteHost": "50.25.131.123",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1197,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 45,
-    "connectionName": "magna occaecat"
-  },
-  {
-    "startDate": 1643737522011,
-    "duration": 1758194,
-    "endDate": 1643739280205,
-    "remoteHost": "34.206.193.12",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1198,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 778,
-    "connectionName": "ut velit"
-  },
-  {
-    "startDate": 1600895374265,
-    "duration": 10124144,
-    "endDate": 1600905498409,
-    "remoteHost": "122.49.81.108",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1199,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 491,
-    "connectionName": "aliquip et"
-  },
-  {
-    "startDate": 1563696141420,
-    "duration": 21017176,
-    "endDate": 1563717158596,
-    "remoteHost": "157.75.110.35",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1200,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1156,
-    "connectionName": "eu aliquip"
-  },
-  {
-    "startDate": 1561023110247,
-    "duration": 21266570,
-    "endDate": 1561044376817,
-    "remoteHost": "147.236.102.122",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1201,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 492,
-    "connectionName": "et cupidatat"
-  },
-  {
-    "startDate": 1448860142652,
-    "duration": 9471775,
-    "endDate": 1448869614427,
-    "remoteHost": "127.156.255.203",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1202,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1014,
-    "connectionName": "consectetur elit"
-  },
-  {
-    "startDate": 1584986510955,
-    "duration": 5435815,
-    "endDate": 1584991946770,
-    "remoteHost": "143.235.212.210",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1203,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1001,
-    "connectionName": "dolore sunt"
-  },
-  {
-    "startDate": 1442020110878,
-    "duration": 1881094,
-    "endDate": 1442021991972,
-    "remoteHost": "120.191.144.132",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1204,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 174,
-    "connectionName": "laborum aliqua"
-  },
-  {
-    "startDate": 1474990660012,
-    "duration": 5809042,
-    "endDate": 1474996469054,
-    "remoteHost": "244.50.133.183",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1205,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1455,
-    "connectionName": "Lorem ut"
-  },
-  {
-    "startDate": 1625757335694,
-    "duration": 4434078,
-    "endDate": 1625761769772,
-    "remoteHost": "117.246.105.150",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1206,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 137,
-    "connectionName": "magna proident"
-  },
-  {
-    "startDate": 1565045197379,
-    "duration": 17489439,
-    "endDate": 1565062686818,
-    "remoteHost": "151.120.156.171",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1207,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 867,
-    "connectionName": "id cillum"
-  },
-  {
-    "startDate": 1550647124082,
-    "duration": 9264953,
-    "endDate": 1550656389035,
-    "remoteHost": "155.161.14.82",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1208,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 962,
-    "connectionName": "excepteur quis"
-  },
-  {
-    "startDate": 1638481084905,
-    "duration": 16750135,
-    "endDate": 1638497835040,
-    "remoteHost": "119.241.68.243",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1209,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 854,
-    "connectionName": "exercitation non"
-  },
-  {
-    "startDate": 1629726850457,
-    "duration": 6607768,
-    "endDate": 1629733458225,
-    "remoteHost": "254.131.42.78",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1210,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 119,
-    "connectionName": "Lorem et"
-  },
-  {
-    "startDate": 1675548064364,
-    "duration": 9329884,
-    "endDate": 1675557394248,
-    "remoteHost": "254.190.242.127",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1211,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1065,
-    "connectionName": "qui veniam"
-  },
-  {
-    "startDate": 1622292552179,
-    "duration": 15692942,
-    "endDate": 1622308245121,
-    "remoteHost": "85.127.178.246",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1212,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 768,
-    "connectionName": "culpa laboris"
-  },
-  {
-    "startDate": 1599066218911,
-    "duration": 3335535,
-    "endDate": 1599069554446,
-    "remoteHost": "129.25.247.77",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1213,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 62,
-    "connectionName": "deserunt deserunt"
-  },
-  {
-    "startDate": 1537158726246,
-    "duration": 19716607,
-    "endDate": 1537178442853,
-    "remoteHost": "91.100.188.61",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1214,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 407,
-    "connectionName": "sunt ipsum"
-  },
-  {
-    "startDate": 1545388086391,
-    "duration": 1476381,
-    "endDate": 1545389562772,
-    "remoteHost": "134.155.77.140",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1215,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 998,
-    "connectionName": "magna velit"
-  },
-  {
-    "startDate": 1556728316395,
-    "duration": 17385986,
-    "endDate": 1556745702381,
-    "remoteHost": "205.25.235.120",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1216,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 684,
-    "connectionName": "dolor pariatur"
-  },
-  {
-    "startDate": 1514811978552,
-    "duration": 5308960,
-    "endDate": 1514817287512,
-    "remoteHost": "217.236.183.92",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1217,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 368,
-    "connectionName": "ad in"
-  },
-  {
-    "startDate": 1497349830640,
-    "duration": 16101335,
-    "endDate": 1497365931975,
-    "remoteHost": "174.103.73.32",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1218,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1137,
-    "connectionName": "occaecat elit"
-  },
-  {
-    "startDate": 1517138674509,
-    "duration": 3339416,
-    "endDate": 1517142013925,
-    "remoteHost": "226.124.196.239",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1219,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 739,
-    "connectionName": "cillum anim"
-  },
-  {
-    "startDate": 1527262463044,
-    "duration": 2063306,
-    "endDate": 1527264526350,
-    "remoteHost": "238.210.137.156",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1220,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 768,
-    "connectionName": "sunt est"
-  },
-  {
-    "startDate": 1678248069685,
-    "duration": 14480785,
-    "endDate": 1678262550470,
-    "remoteHost": "98.125.24.82",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1221,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1383,
-    "connectionName": "ipsum id"
-  },
-  {
-    "startDate": 1508892556945,
-    "duration": 124822,
-    "endDate": 1508892681767,
-    "remoteHost": "194.164.170.214",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1222,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 739,
-    "connectionName": "minim laborum"
-  },
-  {
-    "startDate": 1587348797267,
-    "duration": 12696730,
-    "endDate": 1587361493997,
-    "remoteHost": "129.165.200.101",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1223,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 884,
-    "connectionName": "excepteur magna"
-  },
-  {
-    "startDate": 1529108476101,
-    "duration": 12711508,
-    "endDate": 1529121187609,
-    "remoteHost": "27.223.245.238",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1224,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1228,
-    "connectionName": "duis irure"
-  },
-  {
-    "startDate": 1515371173655,
-    "duration": 11074086,
-    "endDate": 1515382247741,
-    "remoteHost": "225.243.82.226",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1225,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 648,
-    "connectionName": "minim culpa"
-  },
-  {
-    "startDate": 1431675843796,
-    "duration": 12640298,
-    "endDate": 1431688484094,
-    "remoteHost": "168.101.153.11",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1226,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 132,
-    "connectionName": "aliquip et"
-  },
-  {
-    "startDate": 1651142880992,
-    "duration": 7661192,
-    "endDate": 1651150542184,
-    "remoteHost": "155.180.55.131",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1227,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1275,
-    "connectionName": "mollit anim"
-  },
-  {
-    "startDate": 1494874544978,
-    "duration": 20200232,
-    "endDate": 1494894745210,
-    "remoteHost": "205.26.146.203",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1228,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 190,
-    "connectionName": "laborum occaecat"
-  },
-  {
-    "startDate": 1619436189823,
-    "duration": 19181365,
-    "endDate": 1619455371188,
-    "remoteHost": "162.104.162.141",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1229,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 654,
-    "connectionName": "incididunt sunt"
-  },
-  {
-    "startDate": 1524047558014,
-    "duration": 13149054,
-    "endDate": 1524060707068,
-    "remoteHost": "194.63.73.107",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1230,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1130,
-    "connectionName": "eu labore"
-  },
-  {
-    "startDate": 1455911177870,
-    "duration": 20747876,
-    "endDate": 1455931925746,
-    "remoteHost": "222.234.224.209",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1231,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1138,
-    "connectionName": "officia enim"
-  },
-  {
-    "startDate": 1475647007150,
-    "duration": 17824481,
-    "endDate": 1475664831631,
-    "remoteHost": "193.197.174.181",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1232,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 415,
-    "connectionName": "aliquip consequat"
-  },
-  {
-    "startDate": 1551047901632,
-    "duration": 8491972,
-    "endDate": 1551056393604,
-    "remoteHost": "17.42.249.122",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1233,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 246,
-    "connectionName": "ad sint"
-  },
-  {
-    "startDate": 1641812302200,
-    "duration": 21287065,
-    "endDate": 1641833589265,
-    "remoteHost": "152.231.10.232",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1234,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 475,
-    "connectionName": "culpa dolor"
-  },
-  {
-    "startDate": 1534541188452,
-    "duration": 5587299,
-    "endDate": 1534546775751,
-    "remoteHost": "138.71.44.65",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1235,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 71,
-    "connectionName": "nisi in"
-  },
-  {
-    "startDate": 1484930924032,
-    "duration": 225637,
-    "endDate": 1484931149669,
-    "remoteHost": "95.51.235.145",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1236,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1220,
-    "connectionName": "laboris voluptate"
-  },
-  {
-    "startDate": 1543473413636,
-    "duration": 16967127,
-    "endDate": 1543490380763,
-    "remoteHost": "62.73.66.242",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1237,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 265,
-    "connectionName": "laboris eu"
-  },
-  {
-    "startDate": 1460088482688,
-    "duration": 12498805,
-    "endDate": 1460100981493,
-    "remoteHost": "222.22.112.171",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1238,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 109,
-    "connectionName": "quis enim"
-  },
-  {
-    "startDate": 1571082482666,
-    "duration": 14269575,
-    "endDate": 1571096752241,
-    "remoteHost": "162.60.18.157",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1239,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1391,
-    "connectionName": "tempor officia"
-  },
-  {
-    "startDate": 1447214477560,
-    "duration": 2796765,
-    "endDate": 1447217274325,
-    "remoteHost": "158.233.80.103",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1240,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 130,
-    "connectionName": "ullamco et"
-  },
-  {
-    "startDate": 1597909343475,
-    "duration": 16288679,
-    "endDate": 1597925632154,
-    "remoteHost": "52.125.15.27",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1241,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 291,
-    "connectionName": "elit nulla"
-  },
-  {
-    "startDate": 1567525832829,
-    "duration": 17006343,
-    "endDate": 1567542839172,
-    "remoteHost": "35.218.169.182",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1242,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1266,
-    "connectionName": "aliqua reprehenderit"
-  },
-  {
-    "startDate": 1688861133329,
-    "duration": 7928434,
-    "endDate": 1688869061763,
-    "remoteHost": "42.186.51.21",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1243,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1049,
-    "connectionName": "do in"
-  },
-  {
-    "startDate": 1489701801803,
-    "duration": 19395628,
-    "endDate": 1489721197431,
-    "remoteHost": "132.93.253.80",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1244,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1261,
-    "connectionName": "fugiat in"
-  },
-  {
-    "startDate": 1634858471346,
-    "duration": 18013072,
-    "endDate": 1634876484418,
-    "remoteHost": "115.224.135.220",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1245,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 447,
-    "connectionName": "labore cillum"
-  },
-  {
-    "startDate": 1591717071099,
-    "duration": 10405536,
-    "endDate": 1591727476635,
-    "remoteHost": "66.63.31.253",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1246,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1496,
-    "connectionName": "eiusmod sint"
-  },
-  {
-    "startDate": 1653720638447,
-    "duration": 5336396,
-    "endDate": 1653725974843,
-    "remoteHost": "122.68.251.137",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1247,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1136,
-    "connectionName": "in voluptate"
-  },
-  {
-    "startDate": 1458985954733,
-    "duration": 14986214,
-    "endDate": 1459000940947,
-    "remoteHost": "92.13.160.117",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1248,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1356,
-    "connectionName": "enim exercitation"
-  },
-  {
-    "startDate": 1622015866220,
-    "duration": 6708740,
-    "endDate": 1622022574960,
-    "remoteHost": "211.44.230.54",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1249,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 552,
-    "connectionName": "cillum consectetur"
-  },
-  {
-    "startDate": 1430117459157,
-    "duration": 21274785,
-    "endDate": 1430138733942,
-    "remoteHost": "65.122.238.142",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1250,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 645,
-    "connectionName": "in in"
-  },
-  {
-    "startDate": 1586692748547,
-    "duration": 14363038,
-    "endDate": 1586707111585,
-    "remoteHost": "81.141.9.92",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1251,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1119,
-    "connectionName": "officia cillum"
-  },
-  {
-    "startDate": 1613737355566,
-    "duration": 17515002,
-    "endDate": 1613754870568,
-    "remoteHost": "194.72.254.233",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1252,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 530,
-    "connectionName": "laborum aliqua"
-  },
-  {
-    "startDate": 1462429266347,
-    "duration": 11464602,
-    "endDate": 1462440730949,
-    "remoteHost": "34.206.10.152",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1253,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 361,
-    "connectionName": "cupidatat amet"
-  },
-  {
-    "startDate": 1515020858853,
-    "duration": 20276825,
-    "endDate": 1515041135678,
-    "remoteHost": "93.49.78.159",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1254,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1044,
-    "connectionName": "irure nulla"
-  },
-  {
-    "startDate": 1665579049545,
-    "duration": 14875625,
-    "endDate": 1665593925170,
-    "remoteHost": "202.2.234.165",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1255,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 600,
-    "connectionName": "ea sunt"
-  },
-  {
-    "startDate": 1618968654391,
-    "duration": 16952040,
-    "endDate": 1618985606431,
-    "remoteHost": "203.111.65.14",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1256,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1213,
-    "connectionName": "occaecat exercitation"
-  },
-  {
-    "startDate": 1677840574671,
-    "duration": 2333408,
-    "endDate": 1677842908079,
-    "remoteHost": "27.18.254.25",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1257,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 399,
-    "connectionName": "mollit nulla"
-  },
-  {
-    "startDate": 1480172982433,
-    "duration": 9982686,
-    "endDate": 1480182965119,
-    "remoteHost": "141.187.7.25",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1258,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 98,
-    "connectionName": "eiusmod ad"
-  },
-  {
-    "startDate": 1577139545635,
-    "duration": 943981,
-    "endDate": 1577140489616,
-    "remoteHost": "134.38.129.231",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1259,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 159,
-    "connectionName": "nostrud est"
-  },
-  {
-    "startDate": 1497448794101,
-    "duration": 16438270,
-    "endDate": 1497465232371,
-    "remoteHost": "46.225.175.71",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1260,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 698,
-    "connectionName": "deserunt labore"
-  },
-  {
-    "startDate": 1606058700528,
-    "duration": 10772168,
-    "endDate": 1606069472696,
-    "remoteHost": "30.159.213.30",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1261,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1281,
-    "connectionName": "minim aliquip"
-  },
-  {
-    "startDate": 1476867112649,
-    "duration": 16924997,
-    "endDate": 1476884037646,
-    "remoteHost": "57.120.143.70",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1262,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 384,
-    "connectionName": "nisi exercitation"
-  },
-  {
-    "startDate": 1491054749797,
-    "duration": 8771045,
-    "endDate": 1491063520842,
-    "remoteHost": "211.152.126.228",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1263,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 630,
-    "connectionName": "amet occaecat"
-  },
-  {
-    "startDate": 1489308464131,
-    "duration": 11595583,
-    "endDate": 1489320059714,
-    "remoteHost": "76.88.188.25",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1264,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 115,
-    "connectionName": "minim aute"
-  },
-  {
-    "startDate": 1656696696012,
-    "duration": 6792710,
-    "endDate": 1656703488722,
-    "remoteHost": "117.12.133.63",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1265,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 468,
-    "connectionName": "aliqua pariatur"
-  },
-  {
-    "startDate": 1599853174507,
-    "duration": 16156141,
-    "endDate": 1599869330648,
-    "remoteHost": "164.77.90.239",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1266,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1233,
-    "connectionName": "voluptate nisi"
-  },
-  {
-    "startDate": 1426759234471,
-    "duration": 3572441,
-    "endDate": 1426762806912,
-    "remoteHost": "206.172.86.249",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1267,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 298,
-    "connectionName": "cupidatat laboris"
-  },
-  {
-    "startDate": 1646564435640,
-    "duration": 14565529,
-    "endDate": 1646579001169,
-    "remoteHost": "198.29.205.246",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1268,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 965,
-    "connectionName": "mollit ullamco"
-  },
-  {
-    "startDate": 1548365038373,
-    "duration": 20177676,
-    "endDate": 1548385216049,
-    "remoteHost": "40.2.255.150",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1269,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 970,
-    "connectionName": "aliqua laborum"
-  },
-  {
-    "startDate": 1566841781552,
-    "duration": 5183447,
-    "endDate": 1566846964999,
-    "remoteHost": "245.182.18.28",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1270,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 31,
-    "connectionName": "culpa cillum"
-  },
-  {
-    "startDate": 1589818368200,
-    "duration": 17820803,
-    "endDate": 1589836189003,
-    "remoteHost": "210.152.181.14",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1271,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 490,
-    "connectionName": "Lorem proident"
-  },
-  {
-    "startDate": 1425378843682,
-    "duration": 19080413,
-    "endDate": 1425397924095,
-    "remoteHost": "16.13.216.232",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1272,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 631,
-    "connectionName": "mollit nisi"
-  },
-  {
-    "startDate": 1460039058064,
-    "duration": 10527141,
-    "endDate": 1460049585205,
-    "remoteHost": "215.241.168.193",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1273,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1152,
-    "connectionName": "amet aliquip"
-  },
-  {
-    "startDate": 1525191273940,
-    "duration": 10426794,
-    "endDate": 1525201700734,
-    "remoteHost": "186.211.121.16",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1274,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 489,
-    "connectionName": "magna amet"
-  },
-  {
-    "startDate": 1575135248863,
-    "duration": 14351639,
-    "endDate": 1575149600502,
-    "remoteHost": "200.42.94.108",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1275,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1467,
-    "connectionName": "ad minim"
-  },
-  {
-    "startDate": 1426101873019,
-    "duration": 13469385,
-    "endDate": 1426115342404,
-    "remoteHost": "180.112.138.159",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1276,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1157,
-    "connectionName": "ullamco ea"
-  },
-  {
-    "startDate": 1465790931607,
-    "duration": 7827632,
-    "endDate": 1465798759239,
-    "remoteHost": "179.54.70.75",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1277,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 823,
-    "connectionName": "pariatur eu"
-  },
-  {
-    "startDate": 1681641636163,
-    "duration": 19837439,
-    "endDate": 1681661473602,
-    "remoteHost": "149.143.58.226",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1278,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 584,
-    "connectionName": "nostrud mollit"
-  },
-  {
-    "startDate": 1424656643823,
-    "duration": 20050264,
-    "endDate": 1424676694087,
-    "remoteHost": "220.170.237.117",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1279,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 58,
-    "connectionName": "est sunt"
-  },
-  {
-    "startDate": 1629088652540,
-    "duration": 9076653,
-    "endDate": 1629097729193,
-    "remoteHost": "247.104.122.110",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1280,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1132,
-    "connectionName": "in anim"
-  },
-  {
-    "startDate": 1593407534084,
-    "duration": 1381754,
-    "endDate": 1593408915838,
-    "remoteHost": "154.208.255.191",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1281,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 382,
-    "connectionName": "duis amet"
-  },
-  {
-    "startDate": 1458109176598,
-    "duration": 15327978,
-    "endDate": 1458124504576,
-    "remoteHost": "203.19.200.174",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1282,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 521,
-    "connectionName": "occaecat incididunt"
-  },
-  {
-    "startDate": 1626998428506,
-    "duration": 12532043,
-    "endDate": 1627010960549,
-    "remoteHost": "237.173.27.29",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1283,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1335,
-    "connectionName": "aliqua occaecat"
-  },
-  {
-    "startDate": 1599420632454,
-    "duration": 11332435,
-    "endDate": 1599431964889,
-    "remoteHost": "12.97.200.140",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1284,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 158,
-    "connectionName": "Lorem ut"
-  },
-  {
-    "startDate": 1592833443673,
-    "duration": 13528847,
-    "endDate": 1592846972520,
-    "remoteHost": "109.122.154.173",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1285,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 13,
-    "connectionName": "magna est"
-  },
-  {
-    "startDate": 1642697222851,
-    "duration": 2752874,
-    "endDate": 1642699975725,
-    "remoteHost": "235.75.100.66",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1286,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1054,
-    "connectionName": "sit pariatur"
-  },
-  {
-    "startDate": 1599864396605,
-    "duration": 14637767,
-    "endDate": 1599879034372,
-    "remoteHost": "138.78.229.226",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1287,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 748,
-    "connectionName": "Lorem est"
-  },
-  {
-    "startDate": 1424393651549,
-    "duration": 16969531,
-    "endDate": 1424410621080,
-    "remoteHost": "98.129.147.154",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1288,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 487,
-    "connectionName": "Lorem ex"
-  },
-  {
-    "startDate": 1690534062781,
-    "duration": 5826199,
-    "endDate": 1690539888980,
-    "remoteHost": "168.218.49.145",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1289,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1136,
-    "connectionName": "laborum occaecat"
-  },
-  {
-    "startDate": 1607378819686,
-    "duration": 2704029,
-    "endDate": 1607381523715,
-    "remoteHost": "248.184.205.165",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1290,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1078,
-    "connectionName": "Lorem culpa"
-  },
-  {
-    "startDate": 1466090601372,
-    "duration": 18945371,
-    "endDate": 1466109546743,
-    "remoteHost": "109.173.17.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1291,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 530,
-    "connectionName": "mollit culpa"
-  },
-  {
-    "startDate": 1671217797707,
-    "duration": 741646,
-    "endDate": 1671218539353,
-    "remoteHost": "124.19.96.46",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1292,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 68,
-    "connectionName": "id aliquip"
-  },
-  {
-    "startDate": 1433984038664,
-    "duration": 16204822,
-    "endDate": 1434000243486,
-    "remoteHost": "37.55.216.10",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1293,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1478,
-    "connectionName": "cillum qui"
-  },
-  {
-    "startDate": 1604636929997,
-    "duration": 14622684,
-    "endDate": 1604651552681,
-    "remoteHost": "37.51.100.246",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1294,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1488,
-    "connectionName": "anim pariatur"
-  },
-  {
-    "startDate": 1588678186968,
-    "duration": 17070532,
-    "endDate": 1588695257500,
-    "remoteHost": "45.49.100.33",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1295,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 557,
-    "connectionName": "occaecat sint"
-  },
-  {
-    "startDate": 1476721410937,
-    "duration": 4456065,
-    "endDate": 1476725867002,
-    "remoteHost": "130.37.185.200",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1296,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 846,
-    "connectionName": "officia labore"
-  },
-  {
-    "startDate": 1641204912834,
-    "duration": 9379267,
-    "endDate": 1641214292101,
-    "remoteHost": "215.8.148.48",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1297,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 375,
-    "connectionName": "magna elit"
-  },
-  {
-    "startDate": 1473968722881,
-    "duration": 5046948,
-    "endDate": 1473973769829,
-    "remoteHost": "20.184.106.176",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1298,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 748,
-    "connectionName": "qui consequat"
-  },
-  {
-    "startDate": 1467696844404,
-    "duration": 6166321,
-    "endDate": 1467703010725,
-    "remoteHost": "13.205.111.204",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1299,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1260,
-    "connectionName": "culpa officia"
-  },
-  {
-    "startDate": 1568071530140,
-    "duration": 5977160,
-    "endDate": 1568077507300,
-    "remoteHost": "225.10.113.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1300,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 115,
-    "connectionName": "officia qui"
-  },
-  {
-    "startDate": 1426360474600,
-    "duration": 10270520,
-    "endDate": 1426370745120,
-    "remoteHost": "96.76.191.126",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1301,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 527,
-    "connectionName": "et velit"
-  },
-  {
-    "startDate": 1489181540029,
-    "duration": 345958,
-    "endDate": 1489181885987,
-    "remoteHost": "20.75.136.85",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1302,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 957,
-    "connectionName": "sit in"
-  },
-  {
-    "startDate": 1546409001507,
-    "duration": 10201520,
-    "endDate": 1546419203027,
-    "remoteHost": "123.124.209.17",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1303,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1179,
-    "connectionName": "ipsum sint"
-  },
-  {
-    "startDate": 1635652113563,
-    "duration": 16163077,
-    "endDate": 1635668276640,
-    "remoteHost": "60.96.12.54",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1304,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 566,
-    "connectionName": "consequat nostrud"
-  },
-  {
-    "startDate": 1578758081706,
-    "duration": 13022244,
-    "endDate": 1578771103950,
-    "remoteHost": "31.56.100.66",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1305,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1450,
-    "connectionName": "officia voluptate"
-  },
-  {
-    "startDate": 1496040736872,
-    "duration": 15365319,
-    "endDate": 1496056102191,
-    "remoteHost": "55.67.216.197",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1306,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 968,
-    "connectionName": "culpa enim"
-  },
-  {
-    "startDate": 1576797578593,
-    "duration": 11162894,
-    "endDate": 1576808741487,
-    "remoteHost": "42.21.2.94",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1307,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 394,
-    "connectionName": "mollit sit"
-  },
-  {
-    "startDate": 1696202781979,
-    "duration": 10193121,
-    "endDate": 1696212975100,
-    "remoteHost": "170.62.84.170",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1308,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1241,
-    "connectionName": "nostrud do"
-  },
-  {
-    "startDate": 1596920853909,
-    "duration": 12723689,
-    "endDate": 1596933577598,
-    "remoteHost": "20.225.115.141",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1309,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1303,
-    "connectionName": "fugiat consequat"
-  },
-  {
-    "startDate": 1423214318894,
-    "duration": 20517492,
-    "endDate": 1423234836386,
-    "remoteHost": "160.160.163.38",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1310,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 702,
-    "connectionName": "voluptate magna"
-  },
-  {
-    "startDate": 1450953360505,
-    "duration": 15103998,
-    "endDate": 1450968464503,
-    "remoteHost": "61.6.36.30",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1311,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 857,
-    "connectionName": "sunt dolor"
-  },
-  {
-    "startDate": 1481095351860,
-    "duration": 10438832,
-    "endDate": 1481105790692,
-    "remoteHost": "161.37.36.93",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1312,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 702,
-    "connectionName": "sit consectetur"
-  },
-  {
-    "startDate": 1462495283444,
-    "duration": 16666909,
-    "endDate": 1462511950353,
-    "remoteHost": "29.37.162.11",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1313,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1303,
-    "connectionName": "fugiat eiusmod"
-  },
-  {
-    "startDate": 1456941730866,
-    "duration": 2667063,
-    "endDate": 1456944397929,
-    "remoteHost": "251.194.1.166",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1314,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1242,
-    "connectionName": "culpa reprehenderit"
-  },
-  {
-    "startDate": 1423567560881,
-    "duration": 17767710,
-    "endDate": 1423585328591,
-    "remoteHost": "158.35.17.198",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1315,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 458,
-    "connectionName": "ea exercitation"
-  },
-  {
-    "startDate": 1503442823392,
-    "duration": 10762504,
-    "endDate": 1503453585896,
-    "remoteHost": "40.243.91.26",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1316,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 605,
-    "connectionName": "reprehenderit consectetur"
-  },
-  {
-    "startDate": 1503781825624,
-    "duration": 10342307,
-    "endDate": 1503792167931,
-    "remoteHost": "204.39.191.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1317,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1140,
-    "connectionName": "magna veniam"
-  },
-  {
-    "startDate": 1548199264177,
-    "duration": 2226917,
-    "endDate": 1548201491094,
-    "remoteHost": "153.29.36.99",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1318,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 962,
-    "connectionName": "sint et"
-  },
-  {
-    "startDate": 1634836442885,
-    "duration": 4099820,
-    "endDate": 1634840542705,
-    "remoteHost": "194.204.233.65",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1319,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 234,
-    "connectionName": "sint in"
-  },
-  {
-    "startDate": 1635966488915,
-    "duration": 14213309,
-    "endDate": 1635980702224,
-    "remoteHost": "91.231.241.96",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1320,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 29,
-    "connectionName": "nostrud velit"
-  },
-  {
-    "startDate": 1584555430994,
-    "duration": 11963919,
-    "endDate": 1584567394913,
-    "remoteHost": "180.72.187.214",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1321,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1175,
-    "connectionName": "elit tempor"
-  },
-  {
-    "startDate": 1498858743885,
-    "duration": 12240847,
-    "endDate": 1498870984732,
-    "remoteHost": "209.253.94.117",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1322,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1385,
-    "connectionName": "minim eiusmod"
-  },
-  {
-    "startDate": 1422193258670,
-    "duration": 20405747,
-    "endDate": 1422213664417,
-    "remoteHost": "251.111.161.217",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1323,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 190,
-    "connectionName": "est excepteur"
-  },
-  {
-    "startDate": 1625307392148,
-    "duration": 9144778,
-    "endDate": 1625316536926,
-    "remoteHost": "131.84.97.192",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1324,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 965,
-    "connectionName": "deserunt sint"
-  },
-  {
-    "startDate": 1665300946704,
-    "duration": 11619605,
-    "endDate": 1665312566309,
-    "remoteHost": "10.22.23.159",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1325,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 576,
-    "connectionName": "in sint"
-  },
-  {
-    "startDate": 1537536724126,
-    "duration": 69674,
-    "endDate": 1537536793800,
-    "remoteHost": "47.71.183.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1326,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 342,
-    "connectionName": "in duis"
-  },
-  {
-    "startDate": 1517656339644,
-    "duration": 7760572,
-    "endDate": 1517664100216,
-    "remoteHost": "194.168.6.224",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1327,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 862,
-    "connectionName": "amet ut"
-  },
-  {
-    "startDate": 1566158743913,
-    "duration": 4811659,
-    "endDate": 1566163555572,
-    "remoteHost": "97.164.45.39",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1328,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 585,
-    "connectionName": "esse culpa"
-  },
-  {
-    "startDate": 1454885910884,
-    "duration": 17653174,
-    "endDate": 1454903564058,
-    "remoteHost": "54.5.170.37",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1329,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 640,
-    "connectionName": "occaecat est"
-  },
-  {
-    "startDate": 1570033354293,
-    "duration": 12885928,
-    "endDate": 1570046240221,
-    "remoteHost": "104.110.241.33",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1330,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 15,
-    "connectionName": "aliqua sint"
-  },
-  {
-    "startDate": 1489099851889,
-    "duration": 19649697,
-    "endDate": 1489119501586,
-    "remoteHost": "151.14.98.241",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1331,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1190,
-    "connectionName": "aute adipisicing"
-  },
-  {
-    "startDate": 1565683234113,
-    "duration": 1845823,
-    "endDate": 1565685079936,
-    "remoteHost": "128.211.175.12",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1332,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 240,
-    "connectionName": "eiusmod nulla"
-  },
-  {
-    "startDate": 1580052224379,
-    "duration": 412932,
-    "endDate": 1580052637311,
-    "remoteHost": "175.3.104.81",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1333,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 518,
-    "connectionName": "consequat aute"
-  },
-  {
-    "startDate": 1509336961285,
-    "duration": 5003902,
-    "endDate": 1509341965187,
-    "remoteHost": "47.10.216.69",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1334,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 497,
-    "connectionName": "id occaecat"
-  },
-  {
-    "startDate": 1563745091056,
-    "duration": 7169786,
-    "endDate": 1563752260842,
-    "remoteHost": "170.70.150.184",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1335,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 368,
-    "connectionName": "laborum ipsum"
-  },
-  {
-    "startDate": 1559079407900,
-    "duration": 10382747,
-    "endDate": 1559089790647,
-    "remoteHost": "135.172.120.183",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1336,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1218,
-    "connectionName": "enim commodo"
-  },
-  {
-    "startDate": 1624633049256,
-    "duration": 8559102,
-    "endDate": 1624641608358,
-    "remoteHost": "18.59.31.231",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1337,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 981,
-    "connectionName": "tempor tempor"
-  },
-  {
-    "startDate": 1628835932777,
-    "duration": 11338563,
-    "endDate": 1628847271340,
-    "remoteHost": "189.163.238.226",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1338,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 685,
-    "connectionName": "non enim"
-  },
-  {
-    "startDate": 1434679243925,
-    "duration": 8891615,
-    "endDate": 1434688135540,
-    "remoteHost": "106.43.135.197",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1339,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 377,
-    "connectionName": "veniam aliqua"
-  },
-  {
-    "startDate": 1547543028783,
-    "duration": 3913957,
-    "endDate": 1547546942740,
-    "remoteHost": "83.1.125.118",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1340,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 214,
-    "connectionName": "esse dolore"
-  },
-  {
-    "startDate": 1480038776144,
-    "duration": 6405209,
-    "endDate": 1480045181353,
-    "remoteHost": "47.241.23.166",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1341,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 761,
-    "connectionName": "ipsum amet"
-  },
-  {
-    "startDate": 1432532278298,
-    "duration": 8411647,
-    "endDate": 1432540689945,
-    "remoteHost": "150.161.86.147",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1342,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 307,
-    "connectionName": "ad deserunt"
-  },
-  {
-    "startDate": 1491731407746,
-    "duration": 8728529,
-    "endDate": 1491740136275,
-    "remoteHost": "16.67.227.119",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1343,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 24,
-    "connectionName": "pariatur nisi"
-  },
-  {
-    "startDate": 1445964002348,
-    "duration": 9039150,
-    "endDate": 1445973041498,
-    "remoteHost": "105.156.187.193",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1344,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1001,
-    "connectionName": "incididunt duis"
-  },
-  {
-    "startDate": 1602542749410,
-    "duration": 7834688,
-    "endDate": 1602550584098,
-    "remoteHost": "72.164.35.10",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1345,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 714,
-    "connectionName": "ex magna"
-  },
-  {
-    "startDate": 1555287590236,
-    "duration": 4555707,
-    "endDate": 1555292145943,
-    "remoteHost": "112.184.83.58",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1346,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 450,
-    "connectionName": "proident tempor"
-  },
-  {
-    "startDate": 1457519290267,
-    "duration": 21159880,
-    "endDate": 1457540450147,
-    "remoteHost": "108.135.42.163",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1347,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 565,
-    "connectionName": "veniam incididunt"
-  },
-  {
-    "startDate": 1577495119300,
-    "duration": 5879115,
-    "endDate": 1577500998415,
-    "remoteHost": "92.199.192.164",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1348,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 995,
-    "connectionName": "ut do"
-  },
-  {
-    "startDate": 1554472021821,
-    "duration": 6784932,
-    "endDate": 1554478806753,
-    "remoteHost": "206.37.188.243",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1349,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 349,
-    "connectionName": "enim pariatur"
-  },
-  {
-    "startDate": 1592708304672,
-    "duration": 413113,
-    "endDate": 1592708717785,
-    "remoteHost": "11.54.189.106",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1350,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 737,
-    "connectionName": "amet proident"
-  },
-  {
-    "startDate": 1423901620185,
-    "duration": 20915083,
-    "endDate": 1423922535268,
-    "remoteHost": "144.231.63.123",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1351,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 50,
-    "connectionName": "nulla ad"
-  },
-  {
-    "startDate": 1642025339517,
-    "duration": 5448612,
-    "endDate": 1642030788129,
-    "remoteHost": "120.19.137.188",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1352,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 675,
-    "connectionName": "ad dolore"
-  },
-  {
-    "startDate": 1649595422411,
-    "duration": 19486859,
-    "endDate": 1649614909270,
-    "remoteHost": "249.198.61.112",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1353,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 360,
-    "connectionName": "excepteur mollit"
-  },
-  {
-    "startDate": 1674316109261,
-    "duration": 7868185,
-    "endDate": 1674323977446,
-    "remoteHost": "85.27.107.94",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1354,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1447,
-    "connectionName": "eiusmod quis"
-  },
-  {
-    "startDate": 1571261600944,
-    "duration": 17101971,
-    "endDate": 1571278702915,
-    "remoteHost": "39.202.166.104",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1355,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 205,
-    "connectionName": "occaecat ea"
-  },
-  {
-    "startDate": 1619317147642,
-    "duration": 15521567,
-    "endDate": 1619332669209,
-    "remoteHost": "100.239.94.24",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1356,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1350,
-    "connectionName": "ea velit"
-  },
-  {
-    "startDate": 1473330435961,
-    "duration": 90383,
-    "endDate": 1473330526344,
-    "remoteHost": "213.250.82.209",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1357,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 44,
-    "connectionName": "quis dolore"
-  },
-  {
-    "startDate": 1521870808500,
-    "duration": 7073123,
-    "endDate": 1521877881623,
-    "remoteHost": "165.226.227.248",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1358,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 306,
-    "connectionName": "amet velit"
-  },
-  {
-    "startDate": 1481157226266,
-    "duration": 7720398,
-    "endDate": 1481164946664,
-    "remoteHost": "90.191.24.247",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1359,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 98,
-    "connectionName": "do cupidatat"
-  },
-  {
-    "startDate": 1477345398202,
-    "duration": 4246026,
-    "endDate": 1477349644228,
-    "remoteHost": "250.165.11.93",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1360,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 803,
-    "connectionName": "amet non"
-  },
-  {
-    "startDate": 1498183866774,
-    "duration": 911153,
-    "endDate": 1498184777927,
-    "remoteHost": "18.83.4.204",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1361,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 402,
-    "connectionName": "pariatur commodo"
-  },
-  {
-    "startDate": 1666789503663,
-    "duration": 19656278,
-    "endDate": 1666809159941,
-    "remoteHost": "220.41.127.252",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1362,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1303,
-    "connectionName": "qui ex"
-  },
-  {
-    "startDate": 1464878878268,
-    "duration": 2569195,
-    "endDate": 1464881447463,
-    "remoteHost": "88.46.92.243",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1363,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1123,
-    "connectionName": "irure elit"
-  },
-  {
-    "startDate": 1696130204635,
-    "duration": 12104848,
-    "endDate": 1696142309483,
-    "remoteHost": "80.183.25.11",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1364,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 566,
-    "connectionName": "fugiat fugiat"
-  },
-  {
-    "startDate": 1468023970443,
-    "duration": 9877740,
-    "endDate": 1468033848183,
-    "remoteHost": "179.35.41.18",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1365,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 784,
-    "connectionName": "anim ipsum"
-  },
-  {
-    "startDate": 1534131104032,
-    "duration": 4674586,
-    "endDate": 1534135778618,
-    "remoteHost": "255.127.48.123",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1366,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1489,
-    "connectionName": "non nostrud"
-  },
-  {
-    "startDate": 1688711997971,
-    "duration": 17858481,
-    "endDate": 1688729856452,
-    "remoteHost": "17.62.47.31",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1367,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1203,
-    "connectionName": "consequat minim"
-  },
-  {
-    "startDate": 1427937990289,
-    "duration": 7463233,
-    "endDate": 1427945453522,
-    "remoteHost": "125.126.112.244",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1368,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 397,
-    "connectionName": "pariatur amet"
-  },
-  {
-    "startDate": 1477640439123,
-    "duration": 19746908,
-    "endDate": 1477660186031,
-    "remoteHost": "183.255.150.60",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1369,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1352,
-    "connectionName": "aute velit"
-  },
-  {
-    "startDate": 1653989081644,
-    "duration": 1072027,
-    "endDate": 1653990153671,
-    "remoteHost": "166.37.163.37",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1370,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 649,
-    "connectionName": "duis labore"
-  },
-  {
-    "startDate": 1420666182308,
-    "duration": 18356768,
-    "endDate": 1420684539076,
-    "remoteHost": "33.18.163.127",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1371,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1185,
-    "connectionName": "in Lorem"
-  },
-  {
-    "startDate": 1638948508325,
-    "duration": 15089375,
-    "endDate": 1638963597700,
-    "remoteHost": "241.1.6.154",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1372,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1134,
-    "connectionName": "ex et"
-  },
-  {
-    "startDate": 1609830325506,
-    "duration": 12320278,
-    "endDate": 1609842645784,
-    "remoteHost": "242.226.180.84",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1373,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 243,
-    "connectionName": "aute commodo"
-  },
-  {
-    "startDate": 1433629882226,
-    "duration": 4103050,
-    "endDate": 1433633985276,
-    "remoteHost": "152.123.149.90",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1374,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1177,
-    "connectionName": "laboris deserunt"
-  },
-  {
-    "startDate": 1488775605180,
-    "duration": 13462197,
-    "endDate": 1488789067377,
-    "remoteHost": "218.107.93.47",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1375,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1291,
-    "connectionName": "id non"
-  },
-  {
-    "startDate": 1690972288474,
-    "duration": 4914412,
-    "endDate": 1690977202886,
-    "remoteHost": "244.225.83.194",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1376,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 154,
-    "connectionName": "culpa qui"
-  },
-  {
-    "startDate": 1491820954344,
-    "duration": 9825574,
-    "endDate": 1491830779918,
-    "remoteHost": "93.75.174.236",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1377,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 5,
-    "connectionName": "ex officia"
-  },
-  {
-    "startDate": 1610765785455,
-    "duration": 640592,
-    "endDate": 1610766426047,
-    "remoteHost": "100.133.150.107",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1378,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1190,
-    "connectionName": "non nisi"
-  },
-  {
-    "startDate": 1450256869729,
-    "duration": 2399197,
-    "endDate": 1450259268926,
-    "remoteHost": "155.4.74.22",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1379,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 906,
-    "connectionName": "anim nulla"
-  },
-  {
-    "startDate": 1565889890831,
-    "duration": 2924172,
-    "endDate": 1565892815003,
-    "remoteHost": "151.209.219.84",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1380,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 127,
-    "connectionName": "enim ex"
-  },
-  {
-    "startDate": 1498794403905,
-    "duration": 3393411,
-    "endDate": 1498797797316,
-    "remoteHost": "200.33.126.194",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1381,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 445,
-    "connectionName": "exercitation et"
-  },
-  {
-    "startDate": 1599232045332,
-    "duration": 16542130,
-    "endDate": 1599248587462,
-    "remoteHost": "237.238.95.16",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1382,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 679,
-    "connectionName": "ea et"
-  },
-  {
-    "startDate": 1652697294173,
-    "duration": 15596846,
-    "endDate": 1652712891019,
-    "remoteHost": "254.172.243.99",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1383,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 26,
-    "connectionName": "sit labore"
-  },
-  {
-    "startDate": 1606486299686,
-    "duration": 19474612,
-    "endDate": 1606505774298,
-    "remoteHost": "124.239.120.23",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1384,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 196,
-    "connectionName": "in eiusmod"
-  },
-  {
-    "startDate": 1576867905072,
-    "duration": 20746817,
-    "endDate": 1576888651889,
-    "remoteHost": "126.244.67.188",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1385,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1392,
-    "connectionName": "nulla duis"
-  },
-  {
-    "startDate": 1638453184940,
-    "duration": 19908159,
-    "endDate": 1638473093099,
-    "remoteHost": "254.71.131.86",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1386,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 168,
-    "connectionName": "anim ut"
-  },
-  {
-    "startDate": 1517662067697,
-    "duration": 279013,
-    "endDate": 1517662346710,
-    "remoteHost": "76.232.113.187",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1387,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1455,
-    "connectionName": "occaecat ut"
-  },
-  {
-    "startDate": 1450918481937,
-    "duration": 8803421,
-    "endDate": 1450927285358,
-    "remoteHost": "145.110.40.181",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1388,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1261,
-    "connectionName": "enim exercitation"
-  },
-  {
-    "startDate": 1442189409829,
-    "duration": 7925665,
-    "endDate": 1442197335494,
-    "remoteHost": "186.63.173.98",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1389,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 992,
-    "connectionName": "duis aute"
-  },
-  {
-    "startDate": 1673005917764,
-    "duration": 2957716,
-    "endDate": 1673008875480,
-    "remoteHost": "77.89.166.46",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1390,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1038,
-    "connectionName": "exercitation ipsum"
-  },
-  {
-    "startDate": 1501021837196,
-    "duration": 4502579,
-    "endDate": 1501026339775,
-    "remoteHost": "56.106.108.178",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1391,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1168,
-    "connectionName": "enim commodo"
-  },
-  {
-    "startDate": 1490737450575,
-    "duration": 1464466,
-    "endDate": 1490738915041,
-    "remoteHost": "134.238.42.134",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1392,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1267,
-    "connectionName": "non culpa"
-  },
-  {
-    "startDate": 1642585757408,
-    "duration": 5003558,
-    "endDate": 1642590760966,
-    "remoteHost": "114.56.168.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1393,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1359,
-    "connectionName": "exercitation duis"
-  },
-  {
-    "startDate": 1610639076368,
-    "duration": 6105650,
-    "endDate": 1610645182018,
-    "remoteHost": "115.162.239.203",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1394,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1176,
-    "connectionName": "voluptate aliqua"
-  },
-  {
-    "startDate": 1633202947339,
-    "duration": 14672459,
-    "endDate": 1633217619798,
-    "remoteHost": "144.252.98.6",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1395,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 482,
-    "connectionName": "et non"
-  },
-  {
-    "startDate": 1623318890399,
-    "duration": 21418420,
-    "endDate": 1623340308819,
-    "remoteHost": "10.106.11.174",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1396,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 91,
-    "connectionName": "minim cillum"
-  },
-  {
-    "startDate": 1494970469011,
-    "duration": 12668407,
-    "endDate": 1494983137418,
-    "remoteHost": "109.226.226.180",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1397,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1244,
-    "connectionName": "ea occaecat"
-  },
-  {
-    "startDate": 1666635312914,
-    "duration": 19903288,
-    "endDate": 1666655216202,
-    "remoteHost": "231.8.177.141",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1398,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 893,
-    "connectionName": "ut proident"
-  },
-  {
-    "startDate": 1447844780356,
-    "duration": 6395034,
-    "endDate": 1447851175390,
-    "remoteHost": "247.32.88.101",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1399,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 178,
-    "connectionName": "cupidatat culpa"
-  },
-  {
-    "startDate": 1445511070730,
-    "duration": 15947664,
-    "endDate": 1445527018394,
-    "remoteHost": "128.102.168.7",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1400,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1221,
-    "connectionName": "enim id"
-  },
-  {
-    "startDate": 1567352094034,
-    "duration": 19882513,
-    "endDate": 1567371976547,
-    "remoteHost": "211.64.135.23",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1401,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 446,
-    "connectionName": "sunt commodo"
-  },
-  {
-    "startDate": 1556437717762,
-    "duration": 7887308,
-    "endDate": 1556445605070,
-    "remoteHost": "150.244.67.136",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1402,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 194,
-    "connectionName": "sint irure"
-  },
-  {
-    "startDate": 1615836876466,
-    "duration": 6290795,
-    "endDate": 1615843167261,
-    "remoteHost": "204.253.173.81",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1403,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1176,
-    "connectionName": "ullamco labore"
-  },
-  {
-    "startDate": 1570359559737,
-    "duration": 16870095,
-    "endDate": 1570376429832,
-    "remoteHost": "150.6.76.107",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1404,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 102,
-    "connectionName": "non reprehenderit"
-  },
-  {
-    "startDate": 1437170402537,
-    "duration": 20847922,
-    "endDate": 1437191250459,
-    "remoteHost": "216.160.161.47",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1405,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 778,
-    "connectionName": "dolore consequat"
-  },
-  {
-    "startDate": 1647547838425,
-    "duration": 4725796,
-    "endDate": 1647552564221,
-    "remoteHost": "150.165.173.3",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1406,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1094,
-    "connectionName": "enim fugiat"
-  },
-  {
-    "startDate": 1636611958674,
-    "duration": 7494995,
-    "endDate": 1636619453669,
-    "remoteHost": "179.193.87.213",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1407,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1014,
-    "connectionName": "consequat nostrud"
-  },
-  {
-    "startDate": 1640859127854,
-    "duration": 5377606,
-    "endDate": 1640864505460,
-    "remoteHost": "104.185.180.246",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1408,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 82,
-    "connectionName": "proident eiusmod"
-  },
-  {
-    "startDate": 1480093522032,
-    "duration": 7013778,
-    "endDate": 1480100535810,
-    "remoteHost": "195.162.66.40",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1409,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 151,
-    "connectionName": "dolore commodo"
-  },
-  {
-    "startDate": 1644436944061,
-    "duration": 10476334,
-    "endDate": 1644447420395,
-    "remoteHost": "228.158.138.209",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1410,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1453,
-    "connectionName": "dolore occaecat"
-  },
-  {
-    "startDate": 1437916303398,
-    "duration": 10451962,
-    "endDate": 1437926755360,
-    "remoteHost": "81.152.249.29",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1411,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1189,
-    "connectionName": "cillum ipsum"
-  },
-  {
-    "startDate": 1495959555845,
-    "duration": 21362025,
-    "endDate": 1495980917870,
-    "remoteHost": "40.42.195.230",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1412,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1109,
-    "connectionName": "aliquip occaecat"
-  },
-  {
-    "startDate": 1528831892575,
-    "duration": 15873357,
-    "endDate": 1528847765932,
-    "remoteHost": "240.109.226.144",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1413,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1301,
-    "connectionName": "laboris in"
-  },
-  {
-    "startDate": 1476074197487,
-    "duration": 2021914,
-    "endDate": 1476076219401,
-    "remoteHost": "150.90.146.132",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1414,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1227,
-    "connectionName": "ipsum cillum"
-  },
-  {
-    "startDate": 1464200897857,
-    "duration": 3930108,
-    "endDate": 1464204827965,
-    "remoteHost": "162.78.245.79",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1415,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 371,
-    "connectionName": "nostrud fugiat"
-  },
-  {
-    "startDate": 1598120588630,
-    "duration": 12501796,
-    "endDate": 1598133090426,
-    "remoteHost": "242.101.51.87",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1416,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1337,
-    "connectionName": "cillum elit"
-  },
-  {
-    "startDate": 1582466183722,
-    "duration": 16118429,
-    "endDate": 1582482302151,
-    "remoteHost": "241.166.129.16",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1417,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1218,
-    "connectionName": "qui et"
-  },
-  {
-    "startDate": 1614571637974,
-    "duration": 3799514,
-    "endDate": 1614575437488,
-    "remoteHost": "25.37.245.24",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1418,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 482,
-    "connectionName": "commodo enim"
-  },
-  {
-    "startDate": 1525492229198,
-    "duration": 9070240,
-    "endDate": 1525501299438,
-    "remoteHost": "249.142.137.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1419,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 606,
-    "connectionName": "est cillum"
-  },
-  {
-    "startDate": 1441458687882,
-    "duration": 8854615,
-    "endDate": 1441467542497,
-    "remoteHost": "255.226.250.21",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1420,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 906,
-    "connectionName": "nisi quis"
-  },
-  {
-    "startDate": 1514891208951,
-    "duration": 17699396,
-    "endDate": 1514908908347,
-    "remoteHost": "87.220.227.167",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1421,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 28,
-    "connectionName": "mollit minim"
-  },
-  {
-    "startDate": 1683450478989,
-    "duration": 6039733,
-    "endDate": 1683456518722,
-    "remoteHost": "79.54.224.19",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1422,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 811,
-    "connectionName": "nostrud consequat"
-  },
-  {
-    "startDate": 1503253173241,
-    "duration": 6914371,
-    "endDate": 1503260087612,
-    "remoteHost": "251.26.73.217",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1423,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 16,
-    "connectionName": "exercitation sit"
-  },
-  {
-    "startDate": 1455315777233,
-    "duration": 11618497,
-    "endDate": 1455327395730,
-    "remoteHost": "212.133.229.63",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1424,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 476,
-    "connectionName": "anim dolore"
-  },
-  {
-    "startDate": 1459863070740,
-    "duration": 17268177,
-    "endDate": 1459880338917,
-    "remoteHost": "179.161.42.142",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1425,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1496,
-    "connectionName": "est in"
-  },
-  {
-    "startDate": 1628232870487,
-    "duration": 18023400,
-    "endDate": 1628250893887,
-    "remoteHost": "64.207.223.135",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1426,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 709,
-    "connectionName": "mollit dolore"
-  },
-  {
-    "startDate": 1596905736766,
-    "duration": 16073429,
-    "endDate": 1596921810195,
-    "remoteHost": "222.176.134.5",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1427,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 295,
-    "connectionName": "ut dolor"
-  },
-  {
-    "startDate": 1592634423563,
-    "duration": 13001119,
-    "endDate": 1592647424682,
-    "remoteHost": "248.32.234.151",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1428,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 514,
-    "connectionName": "qui voluptate"
-  },
-  {
-    "startDate": 1696142966856,
-    "duration": 20076287,
-    "endDate": 1696163043143,
-    "remoteHost": "100.49.147.61",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1429,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 219,
-    "connectionName": "excepteur consequat"
-  },
-  {
-    "startDate": 1621095053330,
-    "duration": 16065952,
-    "endDate": 1621111119282,
-    "remoteHost": "43.189.219.41",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1430,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 447,
-    "connectionName": "enim cillum"
-  },
-  {
-    "startDate": 1572262221275,
-    "duration": 1189983,
-    "endDate": 1572263411258,
-    "remoteHost": "27.215.36.157",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1431,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1169,
-    "connectionName": "laborum minim"
-  },
-  {
-    "startDate": 1584457448770,
-    "duration": 12672025,
-    "endDate": 1584470120795,
-    "remoteHost": "211.232.111.247",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1432,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 586,
-    "connectionName": "ipsum ex"
-  },
-  {
-    "startDate": 1464838782385,
-    "duration": 13937638,
-    "endDate": 1464852720023,
-    "remoteHost": "57.137.129.143",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1433,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 282,
-    "connectionName": "tempor fugiat"
-  },
-  {
-    "startDate": 1518502023705,
-    "duration": 19724543,
-    "endDate": 1518521748248,
-    "remoteHost": "120.230.173.36",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1434,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1366,
-    "connectionName": "nulla excepteur"
-  },
-  {
-    "startDate": 1552870333747,
-    "duration": 8156059,
-    "endDate": 1552878489806,
-    "remoteHost": "85.253.175.60",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1435,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1473,
-    "connectionName": "esse aliqua"
-  },
-  {
-    "startDate": 1538580109041,
-    "duration": 5582634,
-    "endDate": 1538585691675,
-    "remoteHost": "178.213.72.76",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1436,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 447,
-    "connectionName": "sit velit"
-  },
-  {
-    "startDate": 1479352582755,
-    "duration": 19972381,
-    "endDate": 1479372555136,
-    "remoteHost": "41.146.45.63",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1437,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 261,
-    "connectionName": "commodo deserunt"
-  },
-  {
-    "startDate": 1504390676945,
-    "duration": 7573568,
-    "endDate": 1504398250513,
-    "remoteHost": "187.95.206.210",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1438,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1061,
-    "connectionName": "occaecat nostrud"
-  },
-  {
-    "startDate": 1422406649747,
-    "duration": 14559989,
-    "endDate": 1422421209736,
-    "remoteHost": "156.214.77.192",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1439,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1134,
-    "connectionName": "elit pariatur"
-  },
-  {
-    "startDate": 1686590898563,
-    "duration": 10949397,
-    "endDate": 1686601847960,
-    "remoteHost": "133.166.46.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1440,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 796,
-    "connectionName": "veniam et"
-  },
-  {
-    "startDate": 1529735878319,
-    "duration": 10652638,
-    "endDate": 1529746530957,
-    "remoteHost": "158.104.239.118",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1441,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 733,
-    "connectionName": "eu dolor"
-  },
-  {
-    "startDate": 1503873757821,
-    "duration": 12994511,
-    "endDate": 1503886752332,
-    "remoteHost": "206.208.68.200",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1442,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 481,
-    "connectionName": "aute anim"
-  },
-  {
-    "startDate": 1667946674659,
-    "duration": 10177296,
-    "endDate": 1667956851955,
-    "remoteHost": "191.39.72.114",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1443,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1144,
-    "connectionName": "ut exercitation"
-  },
-  {
-    "startDate": 1659281209524,
-    "duration": 13223005,
-    "endDate": 1659294432529,
-    "remoteHost": "208.233.162.68",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1444,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 129,
-    "connectionName": "sint deserunt"
-  },
-  {
-    "startDate": 1540688657106,
-    "duration": 8918012,
-    "endDate": 1540697575118,
-    "remoteHost": "52.68.5.126",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1445,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 255,
-    "connectionName": "reprehenderit exercitation"
-  },
-  {
-    "startDate": 1691870152625,
-    "duration": 19967258,
-    "endDate": 1691890119883,
-    "remoteHost": "51.116.23.59",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1446,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 199,
-    "connectionName": "proident quis"
-  },
-  {
-    "startDate": 1548932382858,
-    "duration": 9284840,
-    "endDate": 1548941667698,
-    "remoteHost": "215.132.210.177",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1447,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 231,
-    "connectionName": "nostrud dolor"
-  },
-  {
-    "startDate": 1490021264043,
-    "duration": 15652337,
-    "endDate": 1490036916380,
-    "remoteHost": "48.14.20.169",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1448,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1294,
-    "connectionName": "est eiusmod"
-  },
-  {
-    "startDate": 1649331550848,
-    "duration": 5586866,
-    "endDate": 1649337137714,
-    "remoteHost": "250.246.65.3",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1449,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1219,
-    "connectionName": "quis id"
-  },
-  {
-    "startDate": 1528234774372,
-    "duration": 14101735,
-    "endDate": 1528248876107,
-    "remoteHost": "228.17.236.177",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1450,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 84,
-    "connectionName": "in nostrud"
-  },
-  {
-    "startDate": 1548009538151,
-    "duration": 9996780,
-    "endDate": 1548019534931,
-    "remoteHost": "76.252.231.73",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1451,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 770,
-    "connectionName": "ex nulla"
-  },
-  {
-    "startDate": 1630811762242,
-    "duration": 4780282,
-    "endDate": 1630816542524,
-    "remoteHost": "110.195.167.236",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1452,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 168,
-    "connectionName": "cupidatat id"
-  },
-  {
-    "startDate": 1485222877094,
-    "duration": 15398084,
-    "endDate": 1485238275178,
-    "remoteHost": "77.5.133.254",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1453,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1279,
-    "connectionName": "sint exercitation"
-  },
-  {
-    "startDate": 1678047316076,
-    "duration": 10548169,
-    "endDate": 1678057864245,
-    "remoteHost": "108.165.88.14",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1454,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 231,
-    "connectionName": "deserunt sint"
-  },
-  {
-    "startDate": 1683476489435,
-    "duration": 3665761,
-    "endDate": 1683480155196,
-    "remoteHost": "64.199.208.183",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1455,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 447,
-    "connectionName": "consectetur magna"
-  },
-  {
-    "startDate": 1563300139708,
-    "duration": 4714576,
-    "endDate": 1563304854284,
-    "remoteHost": "41.113.163.13",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1456,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 822,
-    "connectionName": "sunt quis"
-  },
-  {
-    "startDate": 1447062665424,
-    "duration": 15619835,
-    "endDate": 1447078285259,
-    "remoteHost": "74.48.50.171",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1457,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 583,
-    "connectionName": "velit esse"
-  },
-  {
-    "startDate": 1619731080537,
-    "duration": 1870488,
-    "endDate": 1619732951025,
-    "remoteHost": "166.105.205.136",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1458,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1391,
-    "connectionName": "fugiat cupidatat"
-  },
-  {
-    "startDate": 1687687401162,
-    "duration": 7612279,
-    "endDate": 1687695013441,
-    "remoteHost": "33.131.53.102",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1459,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 87,
-    "connectionName": "ut amet"
-  },
-  {
-    "startDate": 1663530771478,
-    "duration": 9221468,
-    "endDate": 1663539992946,
-    "remoteHost": "223.143.146.195",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1460,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1220,
-    "connectionName": "et deserunt"
-  },
-  {
-    "startDate": 1489201020329,
-    "duration": 12965135,
-    "endDate": 1489213985464,
-    "remoteHost": "247.145.111.11",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1461,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 654,
-    "connectionName": "pariatur eiusmod"
-  },
-  {
-    "startDate": 1612853022050,
-    "duration": 21309885,
-    "endDate": 1612874331935,
-    "remoteHost": "24.51.117.158",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1462,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 752,
-    "connectionName": "nulla nisi"
-  },
-  {
-    "startDate": 1517128533668,
-    "duration": 4931657,
-    "endDate": 1517133465325,
-    "remoteHost": "90.126.3.86",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1463,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1081,
-    "connectionName": "qui aute"
-  },
-  {
-    "startDate": 1586567366503,
-    "duration": 20376628,
-    "endDate": 1586587743131,
-    "remoteHost": "139.9.237.182",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1464,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 115,
-    "connectionName": "deserunt amet"
-  },
-  {
-    "startDate": 1535647631501,
-    "duration": 9756833,
-    "endDate": 1535657388334,
-    "remoteHost": "233.150.229.106",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1465,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 728,
-    "connectionName": "ea minim"
-  },
-  {
-    "startDate": 1626936532480,
-    "duration": 7417981,
-    "endDate": 1626943950461,
-    "remoteHost": "160.96.162.113",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1466,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 739,
-    "connectionName": "eu id"
-  },
-  {
-    "startDate": 1576732279774,
-    "duration": 3900132,
-    "endDate": 1576736179906,
-    "remoteHost": "206.56.158.10",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1467,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1222,
-    "connectionName": "occaecat tempor"
-  },
-  {
-    "startDate": 1674886542778,
-    "duration": 14161892,
-    "endDate": 1674900704670,
-    "remoteHost": "137.141.68.153",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1468,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 712,
-    "connectionName": "eiusmod officia"
-  },
-  {
-    "startDate": 1538942583120,
-    "duration": 21447573,
-    "endDate": 1538964030693,
-    "remoteHost": "46.94.23.48",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1469,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 809,
-    "connectionName": "excepteur enim"
-  },
-  {
-    "startDate": 1487354499473,
-    "duration": 7980750,
-    "endDate": 1487362480223,
-    "remoteHost": "53.203.244.249",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1470,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1056,
-    "connectionName": "sit excepteur"
-  },
-  {
-    "startDate": 1670004734511,
-    "duration": 915751,
-    "endDate": 1670005650262,
-    "remoteHost": "122.255.116.37",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1471,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 291,
-    "connectionName": "ut eu"
-  },
-  {
-    "startDate": 1549015055435,
-    "duration": 7707528,
-    "endDate": 1549022762963,
-    "remoteHost": "225.110.211.171",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1472,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 490,
-    "connectionName": "nisi duis"
-  },
-  {
-    "startDate": 1591861878055,
-    "duration": 849033,
-    "endDate": 1591862727088,
-    "remoteHost": "117.235.201.124",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1473,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 996,
-    "connectionName": "sunt id"
-  },
-  {
-    "startDate": 1450112321729,
-    "duration": 7536919,
-    "endDate": 1450119858648,
-    "remoteHost": "116.184.222.107",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1474,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1316,
-    "connectionName": "ullamco aliqua"
-  },
-  {
-    "startDate": 1609325117076,
-    "duration": 2794375,
-    "endDate": 1609327911451,
-    "remoteHost": "121.98.184.32",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1475,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1416,
-    "connectionName": "do tempor"
-  },
-  {
-    "startDate": 1458460998322,
-    "duration": 5756390,
-    "endDate": 1458466754712,
-    "remoteHost": "54.122.158.161",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1476,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 291,
-    "connectionName": "adipisicing veniam"
-  },
-  {
-    "startDate": 1569749257060,
-    "duration": 20835929,
-    "endDate": 1569770092989,
-    "remoteHost": "57.184.166.46",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1477,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 771,
-    "connectionName": "officia qui"
-  },
-  {
-    "startDate": 1458253334126,
-    "duration": 19155556,
-    "endDate": 1458272489682,
-    "remoteHost": "160.250.25.133",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1478,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 432,
-    "connectionName": "esse non"
-  },
-  {
-    "startDate": 1492255769031,
-    "duration": 19356813,
-    "endDate": 1492275125844,
-    "remoteHost": "158.99.212.6",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1479,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 224,
-    "connectionName": "laboris commodo"
-  },
-  {
-    "startDate": 1541455563108,
-    "duration": 21016297,
-    "endDate": 1541476579405,
-    "remoteHost": "108.187.203.173",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1480,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 959,
-    "connectionName": "proident do"
-  },
-  {
-    "startDate": 1433142016208,
-    "duration": 9451029,
-    "endDate": 1433151467237,
-    "remoteHost": "55.90.91.193",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1481,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 287,
-    "connectionName": "consectetur ut"
-  },
-  {
-    "startDate": 1557683700488,
-    "duration": 16406336,
-    "endDate": 1557700106824,
-    "remoteHost": "32.155.219.234",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1482,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 569,
-    "connectionName": "dolore anim"
-  },
-  {
-    "startDate": 1632828155445,
-    "duration": 17472789,
-    "endDate": 1632845628234,
-    "remoteHost": "120.54.109.67",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1483,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 60,
-    "connectionName": "dolore deserunt"
-  },
-  {
-    "startDate": 1538440271702,
-    "duration": 19551737,
-    "endDate": 1538459823439,
-    "remoteHost": "24.87.179.246",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1484,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 138,
-    "connectionName": "quis veniam"
-  },
-  {
-    "startDate": 1676513146442,
-    "duration": 14443097,
-    "endDate": 1676527589539,
-    "remoteHost": "56.36.128.66",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1485,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 252,
-    "connectionName": "eiusmod ut"
-  },
-  {
-    "startDate": 1631270052896,
-    "duration": 19944377,
-    "endDate": 1631289997273,
-    "remoteHost": "172.167.233.193",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1486,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 785,
-    "connectionName": "esse cillum"
-  },
-  {
-    "startDate": 1447012939361,
-    "duration": 2106119,
-    "endDate": 1447015045480,
-    "remoteHost": "133.204.175.124",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1487,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 617,
-    "connectionName": "aute eiusmod"
-  },
-  {
-    "startDate": 1424304223300,
-    "duration": 6069624,
-    "endDate": 1424310292924,
-    "remoteHost": "59.21.139.84",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1488,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 557,
-    "connectionName": "eiusmod sunt"
-  },
-  {
-    "startDate": 1521077646419,
-    "duration": 20447739,
-    "endDate": 1521098094158,
-    "remoteHost": "89.167.238.105",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1489,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1384,
-    "connectionName": "dolor ad"
-  },
-  {
-    "startDate": 1687746264825,
-    "duration": 4258804,
-    "endDate": 1687750523629,
-    "remoteHost": "93.26.17.10",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1490,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 497,
-    "connectionName": "ut irure"
-  },
-  {
-    "startDate": 1636739572468,
-    "duration": 11821375,
-    "endDate": 1636751393843,
-    "remoteHost": "185.181.153.29",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1491,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1183,
-    "connectionName": "adipisicing fugiat"
-  },
-  {
-    "startDate": 1628643818323,
-    "duration": 18440514,
-    "endDate": 1628662258837,
-    "remoteHost": "53.52.119.181",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1492,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 535,
-    "connectionName": "occaecat sit"
-  },
-  {
-    "startDate": 1694634392869,
-    "duration": 10237345,
-    "endDate": 1694644630214,
-    "remoteHost": "220.35.118.33",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1493,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1204,
-    "connectionName": "fugiat cupidatat"
-  },
-  {
-    "startDate": 1595709569899,
-    "duration": 8776732,
-    "endDate": 1595718346631,
-    "remoteHost": "187.173.47.11",
+    "startDate": 1689750628857,
+    "endDate": 1689750637937,
+    "remoteHost": "10.0.1.33",
     "username": "guacadmin",
     "active": false,
-    "identifier": 1494,
+    "identifier": "1",
+    "uuid": "8063df49-c55f-347b-802d-0c1168c0c119",
     "attributes": {},
     "logs": {},
-    "connectionIdentifier": 1075,
-    "connectionName": "nostrud commodo"
-  },
-  {
-    "startDate": 1433494925903,
-    "duration": 18370594,
-    "endDate": 1433513296497,
-    "remoteHost": "23.94.153.196",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1495,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1057,
-    "connectionName": "consectetur incididunt"
-  },
-  {
-    "startDate": 1424915018061,
-    "duration": 18031924,
-    "endDate": 1424933049985,
-    "remoteHost": "48.189.180.17",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1496,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 539,
-    "connectionName": "adipisicing adipisicing"
-  },
-  {
-    "startDate": 1571915174519,
-    "duration": 1209363,
-    "endDate": 1571916383882,
-    "remoteHost": "135.19.69.43",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1497,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 1084,
-    "connectionName": "esse Lorem"
-  },
-  {
-    "startDate": 1557572392981,
-    "duration": 20221663,
-    "endDate": 1557592614644,
-    "remoteHost": "215.230.38.173",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1498,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 149,
-    "connectionName": "duis ex"
-  },
-  {
-    "startDate": 1521109429012,
-    "duration": 14843463,
-    "endDate": 1521124272475,
-    "remoteHost": "165.116.249.112",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1499,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 998,
-    "connectionName": "ipsum proident"
-  },
-  {
-    "startDate": 1627292453916,
-    "duration": 10972025,
-    "endDate": 1627303425941,
-    "remoteHost": "111.46.102.91",
-    "username": "guacadmin",
-    "active": false,
-    "identifier": 1500,
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": 880,
-    "connectionName": "aliqua in"
-  }
-]
-export const testHistory = [
-  {
-    "startDate": 1697605529684,
-    "endDate": 1697605538423,
-    "remoteHost": "10.0.1.23",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "117",
-    "uuid": "60aab4bb-3f04-3e5c-8186-1216afc27ea3",
-    "attributes": {},
-    "logs": {
-      "3056b1d5-bf6e-3c8f-9440-c9d770178928": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "e3c68a95-17e0-3b82-8807-2b4ccb9b40fc": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "158ed601-73bc-3565-a6fe-f5386eea2fcb": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
     "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697597170500,
-    "endDate": 1697597242836,
-    "remoteHost": "10.0.1.24",
-    "username": "admin",
-    "active": false,
-    "identifier": "116",
-    "uuid": "244b48f5-d986-3473-b528-a7500dd51987",
-    "attributes": {},
-    "logs": {
-      "1191b39f-2782-39cc-816a-3f3d02545c26": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "87abbc45-93d6-3aa0-91b5-96612fa368c9": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "b8f5629d-0543-37ea-add9-fd08d4d0c638": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697597121342,
-    "endDate": 1697597167445,
-    "remoteHost": "10.0.1.24",
-    "username": "admin",
-    "active": false,
-    "identifier": "115",
-    "uuid": "f812f461-10e7-313d-8691-950ebd294090",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697596682255,
-    "endDate": 1697597119224,
-    "remoteHost": "10.0.1.24",
-    "username": "admin",
-    "active": false,
-    "identifier": "114",
-    "uuid": "bbae6fd3-b4f1-303a-a181-2a1976a97209",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697596599420,
-    "endDate": 1697596599566,
-    "remoteHost": "10.0.1.24",
-    "username": "admin",
-    "active": false,
-    "identifier": "113",
-    "uuid": "c2414ffd-6adb-3661-bb3e-236b759d760b",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697596597445,
-    "endDate": 1697596597546,
-    "remoteHost": "10.0.1.24",
-    "username": "admin",
-    "active": false,
-    "identifier": "112",
-    "uuid": "4521dd51-7fed-3453-9c9f-f63b5c1e9ebd",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697596595735,
-    "endDate": 1697596595850,
-    "remoteHost": "10.0.1.24",
-    "username": "admin",
-    "active": false,
-    "identifier": "111",
-    "uuid": "1eaccb9b-e330-3648-90f5-6654f001bb7e",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697596591889,
-    "endDate": 1697596592000,
-    "remoteHost": "10.0.1.24",
-    "username": "admin",
-    "active": false,
-    "identifier": "110",
-    "uuid": "6a80d0f5-c6eb-3103-b303-c07056fe7553",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697596586750,
-    "endDate": 1697596586858,
-    "remoteHost": "10.0.1.24",
-    "username": "admin",
-    "active": false,
-    "identifier": "109",
-    "uuid": "965c2552-a09e-30a9-88d3-8b2687dc8d70",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697596305984,
-    "endDate": 1697596581155,
-    "remoteHost": "10.0.1.24",
-    "username": "admin",
-    "active": false,
-    "identifier": "108",
-    "uuid": "a90cd718-d954-3b5f-8d46-c7355f0290bc",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697596285110,
-    "endDate": 1697596303646,
-    "remoteHost": "10.0.1.24",
-    "username": "admin",
-    "active": false,
-    "identifier": "107",
-    "uuid": "ff8a25da-2118-3dd8-a03f-fe1af05a6896",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697596166747,
-    "endDate": 1697596175651,
-    "remoteHost": "10.0.1.23",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "106",
-    "uuid": "c5295418-3337-3aa3-bcd5-5e7024f40f48",
-    "attributes": {},
-    "logs": {
-      "be017954-666f-305d-acbe-687cf215089a": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "24b00a53-342c-31a7-8969-ff15c87c4c3c": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "24bf9116-ab06-3a71-adf7-97365788e685": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697596147612,
-    "endDate": 1697596153660,
-    "remoteHost": "10.0.1.23",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "105",
-    "uuid": "7dd7a953-c3f4-390c-b400-4231372e8eba",
-    "attributes": {},
-    "logs": {
-      "7c8f1d1a-d075-30f1-a297-66396cb8d946": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "aee840a8-a945-3173-b020-d633efe3c82c": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "1c1f949c-ea0f-30c4-8d14-4862863dc156": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697596133716,
-    "endDate": 1697596144323,
-    "remoteHost": "10.0.1.23",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "104",
-    "uuid": "efe626b6-f0ec-3418-8d59-9c0973da34c2",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697595780372,
-    "endDate": 1697596274381,
-    "remoteHost": "10.0.1.24",
-    "username": "admin",
-    "active": false,
-    "identifier": "103",
-    "uuid": "7f9b8e6f-bd32-3999-bd29-a63bf3b1a72d",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "undefined",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697594815445,
-    "endDate": 1697594828103,
-    "remoteHost": "10.0.1.23",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "102",
-    "uuid": "4c78c580-88e8-3a2d-b47e-34863e7b5f07",
-    "attributes": {},
-    "logs": {
-      "da915870-be3e-302e-936b-9e416a47aff4": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "fe0780a3-9118-3be1-8ac1-81bdff1b845d": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "e59b35ba-a651-334b-8abf-fa5077cb2d40": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697521611993,
-    "endDate": 1697521615605,
-    "remoteHost": "10.0.1.23",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "99",
-    "uuid": "42263c84-520e-36f0-9bc2-2361ad67101b",
-    "attributes": {},
-    "logs": {
-      "b366329a-6622-37c1-8c19-fe42790b1b30": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "104c72ba-a3bf-3a16-acd9-adc9fbe463a8": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "8de50d61-3bc3-3051-9a57-d641b09daf50": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697516486915,
-    "endDate": 1697516548107,
-    "remoteHost": "10.0.1.23",
-    "username": "admin",
-    "active": false,
-    "identifier": "98",
-    "uuid": "c223cd71-cc8d-3aab-a12a-8e3594456a24",
-    "attributes": {},
-    "logs": {
-      "19ca1387-68b7-3810-9c35-d559efeec6de": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "357088a6-084d-3bf8-bc6f-6adb6da737cc": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "db9e21c5-2c29-35da-b8bd-d91c8f9e35c4": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697515569530,
-    "endDate": 1697515868097,
-    "remoteHost": "10.0.1.23",
-    "username": "admin",
-    "active": false,
-    "identifier": "97",
-    "uuid": "ace4b7b8-cc98-3fde-a473-ab0d7dbb0f05",
-    "attributes": {},
-    "logs": {
-      "8aafcadf-3ef7-369d-b9a1-6dc556f87655": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "9942adb4-a33c-373b-83c0-2a3167742c5c": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "3322a6ca-5768-352a-88b2-2264bf873cb6": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697510328654,
-    "endDate": 1697510333823,
-    "remoteHost": "10.0.1.24",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "96",
-    "uuid": "28c793da-3598-39c9-a32d-2aa8d4cae227",
-    "attributes": {},
-    "logs": {
-      "4308d9f6-cbb2-3f4c-803b-2108dc3c3f9a": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "9bd14648-2648-3b54-849d-b18356a4cc0b": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "57780d09-7ea5-3185-a50f-a3a6dd3c20de": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697510213245,
-    "endDate": 1697510217038,
-    "remoteHost": "10.0.1.24",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "95",
-    "uuid": "4e061e24-6d05-3315-ad35-19ff6a1a4c00",
-    "attributes": {},
-    "logs": {
-      "d34587e6-bf3f-3218-ab7f-8ad141e546bc": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "3eb78801-4291-3a3d-92b5-8e8cd7a7ff09": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "feaddb8e-5b32-308e-af5a-7c0156eea428": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697510199100,
-    "endDate": 1697510207127,
-    "remoteHost": "10.0.1.24",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "94",
-    "uuid": "f0821e2a-51bc-3cea-bf45-9a41549fcd53",
-    "attributes": {},
-    "logs": {
-      "76682f87-55a0-32da-af10-bfa99a5e4b14": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "072358d2-2f26-3a01-8a41-19286d5c11e3": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "1bce8794-84d5-3b39-a9e6-9f694e978030": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697504104042,
-    "endDate": 1697504109351,
-    "remoteHost": "10.0.1.38",
-    "username": "admin",
-    "active": false,
-    "identifier": "93",
-    "uuid": "2f995350-21a2-3b51-80d4-c99cb46d238c",
-    "attributes": {},
-    "logs": {
-      "4b81837b-9d04-3af5-aa6c-0179196debb0": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "2b01e8e7-36be-3aaa-bd9c-41bcb2d84080": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "65dfa4fd-9a5b-35a5-8888-0c6b41602fa1": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697504071233,
-    "endDate": 1697504092086,
-    "remoteHost": "10.0.1.38",
-    "username": "admin",
-    "active": false,
-    "identifier": "92",
-    "uuid": "d9666d3f-5d6a-335d-bf49-e052d6130967",
-    "attributes": {},
-    "logs": {
-      "43ef7957-2d49-3d2e-b610-0b939851aedb": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "2fab75dd-3e9f-37d5-bb47-4f08d9bca78f": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "992c81e6-3643-3f7c-8806-db33562e3eba": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697445336313,
-    "endDate": 1697445344121,
-    "remoteHost": "10.0.1.24",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "91",
-    "uuid": "3cc630de-61c7-30c6-a3b9-32e9c1ab02b9",
-    "attributes": {},
-    "logs": {
-      "bef6e5e1-bb5b-383c-8e87-dfac125cfff9": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "5a1fcb6e-75ac-3453-8177-6817ee167a2c": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "fa28eb05-060b-3e8a-bf46-f1d6cbaabd1d": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697445330690,
-    "endDate": 1697445334957,
-    "remoteHost": "10.0.1.24",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "90",
-    "uuid": "9b348969-92d2-3f63-9fbe-86ebffe634c2",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697445326039,
-    "endDate": 1697445327753,
-    "remoteHost": "10.0.1.24",
-    "username": "naoya@procube.jp",
-    "active": false,
-    "identifier": "89",
-    "uuid": "b129a2a4-7abc-31ee-97b3-d9993c79de1a",
-    "attributes": {},
-    "logs": {
-      "ee148a50-9048-3baa-b874-979bbea803e3": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "1d6a0829-875f-37e4-ab52-cc3d6df0cf66": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "558a8cdf-814b-39c8-b2aa-bc2ad06bea3d": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697442346123,
-    "endDate": 1697504046733,
-    "remoteHost": "10.0.1.38",
-    "username": "admin",
-    "active": false,
-    "identifier": "88",
-    "uuid": "f4355caa-1070-3071-aed2-aa8321e9b7fc",
-    "attributes": {},
-    "logs": {
-      "64701061-69c5-34da-9cac-f81779cf382c": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "d2ad0d05-f7bc-35cc-bf11-3c41bb8cb49a": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "e4937264-5ab8-309e-a84d-4480551564a2": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1697442336099,
-    "endDate": 1697442340410,
-    "remoteHost": "10.0.1.38",
-    "username": "admin",
-    "active": false,
-    "identifier": "87",
-    "uuid": "2118ce44-0311-3c71-830a-2837fb08ab9d",
-    "attributes": {},
-    "logs": {
-      "3f8dfb8c-00cb-37e1-a3c7-5ce25ece9278": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "bd4796d8-4aef-37ce-ac5e-96b302a63505": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "1677a0cc-787d-38e6-922e-5a6103900998": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "082A0",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
   },
   {
     "startDate": 1697442312855,
@@ -20667,637 +139,119 @@ export const testHistory = [
         "type": "SERVER_LOG",
         "description": {
           "key": "RECORDING_STORAGE.INFO_SERVER_LOG",
-          "variables": "null"
+          "variables": null
         }
       }
     },
     "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "hostname": "192.168.202.12",
+    "protocol": "ssh",
+    "sharingProfileIdentifier": null,
     "workId": "082A0",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1697441817141,
-    "endDate": 1697441876907,
-    "remoteHost": "10.0.1.38",
-    "username": "admin",
-    "active": false,
-    "identifier": "85",
-    "uuid": "78416a47-bd7f-3d9a-89b3-e460ab668404",
-    "attributes": {},
-    "logs": {
-      "885c8d12-55ee-380a-bc29-58d327c80374": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "099b7a8e-7b70-36a4-a791-f9bbcbc9c357": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "493bd215-9487-36ad-8345-87837d4bc178": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "IRURE",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1696482090739,
-    "endDate": 1696482166912,
-    "remoteHost": "10.0.1.2",
-    "username": "admin",
-    "active": false,
-    "identifier": "84",
-    "uuid": "31fcf7b5-ea3a-302b-9220-b58091f02cf5",
-    "attributes": {},
-    "logs": {
-      "662d4760-ad65-3393-b939-939fcff1474f": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "482c2d78-5827-301c-89eb-b68d42233a63": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "3867a171-e641-3d48-a240-22f13d313299": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1695615334967,
-    "endDate": 1695615345753,
-    "remoteHost": "10.0.1.31",
-    "username": "hiroya@procube.jp",
-    "active": false,
-    "identifier": "83",
-    "uuid": "cf7fd0fc-8e92-38a5-8fd9-64dc6085f7ec",
-    "attributes": {},
-    "logs": {
-      "0c590a37-57fe-3c44-9f88-f7dd52fc4db9": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "26a5b912-298a-38e5-b669-c67b551a6c5e": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "cc0b294f-ec39-3aa1-a9c7-e60d56a6cd9e": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1695342201892,
-    "endDate": 1695342241386,
-    "remoteHost": "10.0.1.3",
-    "username": "testuser",
-    "active": false,
-    "identifier": "82",
-    "uuid": "53c3395a-1c99-354f-ab4c-91f2b6802772",
-    "attributes": {},
-    "logs": {
-      "436d8b2f-e04d-3f1e-be91-edc6f09522ef": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "443cb8e7-f2da-3808-8f00-7d04c3cf1431": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "38d25675-3e2b-3640-b1fc-ddfd4de486ff": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1694763550443,
-    "endDate": 1694763551094,
-    "remoteHost": "10.0.1.13",
-    "username": "admin",
-    "active": false,
-    "identifier": "81",
-    "uuid": "31ad8dd7-60d1-35ee-b7d5-b76f3810f232",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "4",
-    "connectionName": "windows",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1694763511602,
-    "endDate": 1694763545913,
-    "remoteHost": "10.0.1.13",
-    "username": "admin",
-    "active": false,
-    "identifier": "80",
-    "uuid": "92851f8e-40d5-38e8-872b-67c996ed7334",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1694690004795,
-    "endDate": 1694690054894,
-    "remoteHost": "10.0.1.13",
-    "username": "mitsuru@procube.jp",
-    "active": false,
-    "identifier": "79",
-    "uuid": "62ad7048-6196-3627-b3c5-f24477396dd9",
-    "attributes": {},
-    "logs": {
-      "77f0e91a-fb86-378d-9d46-e40dae9facc7": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "da45c0d4-533c-3cbf-9ea4-d6b5ec9cad19": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "fd0b7888-77a0-3f5f-ac14-7348c65ae08c": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1694669526655,
-    "endDate": 1694669557414,
-    "remoteHost": "10.0.1.10",
-    "username": "admin",
-    "active": false,
-    "identifier": "78",
-    "uuid": "2def5369-ead1-32ee-9356-7bf1e0443d84",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1694507430107,
-    "endDate": 1694507431037,
-    "remoteHost": "10.0.1.23",
-    "username": "admin",
-    "active": false,
-    "identifier": "77",
-    "uuid": "dc5b543f-8f61-3411-aeb5-d3e3224b0ba4",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "4",
-    "connectionName": "windows",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1694086310587,
-    "endDate": 1694086311120,
-    "remoteHost": "10.0.1.20",
-    "username": "admin",
-    "active": false,
-    "identifier": "76",
-    "uuid": "22460887-3c4f-3f3a-a0d4-a28ca35c58c8",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "4",
-    "connectionName": "windows",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1694086232626,
-    "endDate": 1694086233401,
-    "remoteHost": "10.0.1.20",
-    "username": "admin",
-    "active": false,
-    "identifier": "75",
-    "uuid": "8073de39-40c3-3baf-af80-b9900f402dd2",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "4",
-    "connectionName": "windows",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1693534706645,
-    "endDate": 1693536408850,
-    "remoteHost": "10.0.1.35",
-    "username": "admin",
-    "active": false,
-    "identifier": "74",
-    "uuid": "f865900f-bbef-335b-94a5-7dc6b219910e",
-    "attributes": {},
-    "logs": {
-      "58cdd83c-f237-3a23-af3d-158d5878167e": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "e8a11aec-99df-323c-8f98-2a0447d28fb2": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "6d682b8a-86a9-32bf-95cb-22ec2ca88d9a": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1693528510442,
-    "endDate": 1693533928046,
-    "remoteHost": "10.0.1.35",
-    "username": "admin",
-    "active": false,
-    "identifier": "73",
-    "uuid": "04c43a17-eb04-38bb-a48c-8f91cdb183a4",
-    "attributes": {},
-    "logs": {
-      "a78ebabe-468d-3def-be66-40d3b1e54b08": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "09ea79e5-ebc1-3a2f-bbe1-bad4702c72a5": {
-        "type": "SERVER_LOG",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_SERVER_LOG",
-          "variables": "null"
-        }
-      },
-      "acf0a7bb-a9ee-3601-b304-946483c79f89": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1693528202349,
-    "endDate": 1693528223262,
-    "remoteHost": "10.0.1.35",
-    "username": "admin",
-    "active": false,
-    "identifier": "72",
-    "uuid": "53e2bb04-4b7e-3662-9f0a-6ff2b7c1f030",
-    "attributes": {},
-    "logs": {
-      "5613f852-efc4-3d96-b60d-9bca67732ac3": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "a309c4cb-61ee-3a9c-8c3e-b54d761b1860": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "bb3e6e1f-1d69-3824-9e4b-b33a43365adc": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1693465924935,
-    "endDate": 1693472682176,
-    "remoteHost": "10.0.1.174",
-    "username": "admin",
-    "active": false,
-    "identifier": "71",
-    "uuid": "db946cbd-5b0a-3ac2-8616-e92bfd3daaa6",
-    "attributes": {},
-    "logs": {
-      "4307072e-d0fc-3642-94ba-aebba470216b": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "4c74b457-72d3-3dfb-9276-1237eb1ca7c4": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "a8a8ce9d-01e4-368d-8f6d-c11e7a80c352": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1693465600027,
-    "endDate": 1693465609261,
-    "remoteHost": "10.0.1.174",
-    "username": "admin",
-    "active": false,
-    "identifier": "70",
-    "uuid": "e3a8d919-8c0b-389e-bff7-52525268b465",
-    "attributes": {},
-    "logs": {
-      "e7e1883d-5fb6-3a50-ba9c-5bd2c82fc189": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "97870520-0317-3ab0-bc4a-2d4a6a6ff420": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "c7da8d8a-6c15-3c04-a15a-a7b83e8e3e85": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1693462876034,
-    "endDate": 1693463274330,
-    "remoteHost": "10.0.1.174",
-    "username": "admin",
-    "active": false,
-    "identifier": "69",
-    "uuid": "186fe24a-efda-3be2-969b-f122213bb856",
-    "attributes": {},
-    "logs": {
-      "2b0292de-5791-3378-af66-96fd8a99c497": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "eb085abd-ff90-3af5-a93f-d22756fce8dc": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "b750e02d-e7d8-38f3-b124-b1fc1d20caf9": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1693462669122,
-    "endDate": 1693462683077,
-    "remoteHost": "10.0.1.174",
-    "username": "admin",
-    "active": false,
-    "identifier": "68",
-    "uuid": "659cbd66-75dd-385c-af69-15356283bc64",
-    "attributes": {},
-    "logs": {
-      "ca40fd58-3851-3570-850e-5da092652e4a": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "c42b8d34-2900-3a10-93ca-e04231e69c82": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "c305c0e7-92cd-375c-90ec-da31a873495b": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1693462615328,
-    "endDate": 1693462664202,
-    "remoteHost": "10.0.1.174",
-    "username": "admin",
-    "active": false,
-    "identifier": "67",
-    "uuid": "1efef3b7-049e-390c-be74-effe86e1ab83",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1693388901518,
-    "endDate": 1693388924265,
+    "startDate": 1689750644981,
+    "endDate": 1689750648074,
     "remoteHost": "10.0.1.33",
-    "username": "admin",
+    "username": "guacadmin",
     "active": false,
-    "identifier": "66",
-    "uuid": "95fa7ecb-370f-3d22-ab90-b2beb9a00924",
+    "identifier": "2",
+    "uuid": "9d4f66ae-b0e6-3d87-a074-e8c04320c961",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "hostname": "192.168.202.13",
+    "protocol": "vnc",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1689750724128,
+    "endDate": 1689751058011,
+    "remoteHost": "10.0.1.33",
+    "username": "guacadmin",
+    "active": false,
+    "identifier": "3",
+    "uuid": "52871880-4953-3c46-9b3a-a2ed9b9cbc89",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1689756817014,
+    "endDate": 1689756838424,
+    "remoteHost": "10.0.1.32",
+    "username": "guacadmin",
+    "active": false,
+    "identifier": "4",
+    "uuid": "3c1501f5-df64-31df-a140-a7b68cb7aad3",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697445336313,
+    "endDate": 1697445344121,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "91",
+    "uuid": "3cc630de-61c7-30c6-a3b9-32e9c1ab02b9",
     "attributes": {},
     "logs": {
-      "c7dc07c6-30b6-3ab0-ba65-04dbf4cf2d50": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "bae94414-38de-3508-ab00-5548ee7f87ff": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "4fc65ac0-d6fb-384d-b7f7-38c6645d8bfe": {
+      "bef6e5e1-bb5b-383c-8e87-dfac125cfff9": {
         "type": "TYPESCRIPT_TIMING",
         "description": {
           "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
+          "variables": null
+        }
+      },
+      "5a1fcb6e-75ac-3453-8177-6817ee167a2c": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "fa28eb05-060b-3e8a-bf46-f1d6cbaabd1d": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
         }
       }
     },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1693289833853,
-    "endDate": 1693301990520,
-    "remoteHost": "10.0.1.6",
-    "username": "nigauri@procube.jp",
+    "startDate": 1690250549443,
+    "endDate": 1690250555926,
+    "remoteHost": "10.0.1.33",
+    "username": "guacadmin",
     "active": false,
-    "identifier": "65",
-    "uuid": "cf97bce1-d5f1-322a-9f02-dde030944c7d",
+    "identifier": "5",
+    "uuid": "a7271d78-ddee-3437-8c22-afb646dc3caf",
     "attributes": {},
     "logs": {},
-    "connectionIdentifier": "3",
-    "connectionName": "chrome",
-    "sharingProfileIdentifier": "null",
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
     "startDate": 1693289773916,
@@ -21311,1063 +265,601 @@ export const testHistory = [
     "logs": {},
     "connectionIdentifier": "3",
     "connectionName": "192.168.0.5",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1693288617628,
-    "endDate": 1693289665576,
-    "remoteHost": "10.0.1.2",
+    "startDate": 1690250560440,
+    "endDate": 1690250566678,
+    "remoteHost": "10.0.1.33",
+    "username": "guacadmin",
+    "active": false,
+    "identifier": "6",
+    "uuid": "bf9df7ce-b026-3432-9961-8833a681d34b",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697442346123,
+    "endDate": 1697504046733,
+    "remoteHost": "10.0.1.38",
     "username": "admin",
     "active": false,
-    "identifier": "63",
-    "uuid": "5eeffdd9-afb4-320f-91ef-0c082d5a7c8b",
+    "identifier": "88",
+    "uuid": "f4355caa-1070-3071-aed2-aa8321e9b7fc",
     "attributes": {},
     "logs": {
-      "41a79d25-788b-3101-a5bd-ae76d1e7626e": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "22618c07-c154-3485-9338-bd07fbea041c": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "453cdf9d-59a0-3356-9dfb-0cbcce37e0da": {
+      "64701061-69c5-34da-9cac-f81779cf382c": {
         "type": "TYPESCRIPT_TIMING",
         "description": {
           "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
+          "variables": null
+        }
+      },
+      "d2ad0d05-f7bc-35cc-bf11-3c41bb8cb49a": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "e4937264-5ab8-309e-a84d-4480551564a2": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
         }
       }
     },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1693203979649,
-    "endDate": 1693203999693,
-    "remoteHost": "10.0.1.30",
-    "username": "admin",
+    "startDate": 1690251307668,
+    "endDate": 1690251329349,
+    "remoteHost": "10.0.1.5",
+    "username": "guacadmin",
     "active": false,
-    "identifier": "62",
-    "uuid": "35c462fe-6d03-3460-923b-00013333431c",
+    "identifier": "7",
+    "uuid": "4769d8ad-c38b-3c5e-94c8-e99a865f20df",
     "attributes": {},
-    "logs": {
-      "c1c0eb7c-2a80-3213-89b4-c14da01b4210": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "9f832559-7966-34a9-a1df-0801223aab21": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "5efa20f0-2392-3fce-8dca-bd9100f373f2": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
+    "logs": {},
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1693203861437,
-    "endDate": 1693203878920,
-    "remoteHost": "10.0.1.30",
-    "username": "admin",
+    "startDate": 1693289833853,
+    "endDate": 1693301990520,
+    "remoteHost": "10.0.1.6",
+    "username": "nigauri@procube.jp",
     "active": false,
-    "identifier": "61",
-    "uuid": "b6f97ac6-c03e-3fe1-9a1b-7a754d32418e",
-    "attributes": {},
-    "logs": {
-      "9b18d5a1-a874-33dc-86fd-0f674b8c0955": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "c854aafd-8d74-333d-b8c8-d60e8b125945": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "9596bd0b-0b8a-39a3-a17b-a4869cb164c5": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1693190446546,
-    "endDate": 1693190484355,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "60",
-    "uuid": "436364c9-5253-3cf2-ae0c-d3f86537f72e",
-    "attributes": {},
-    "logs": {
-      "f5a540f7-cf83-3ca4-ae26-40c4cd42ea53": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "9881f525-fc73-366e-bea0-a023dfb9e187": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "078e6489-340e-30c0-aba9-523e2607330a": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692954954906,
-    "endDate": 1692955007521,
-    "remoteHost": "10.0.1.30",
-    "username": "mitsuru@procube.jp",
-    "active": false,
-    "identifier": "59",
-    "uuid": "31db51b3-914e-3197-8ef3-135fca3352d6",
-    "attributes": {},
-    "logs": {
-      "3cabe65a-5a8e-3ea2-b854-99b876eac299": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "c9e8790a-dced-3043-806f-1d41e3f470fc": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "d942ab02-9a2d-312e-95e4-002b79a78369": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692954779835,
-    "endDate": 1692954780573,
-    "remoteHost": "10.0.1.30",
-    "username": "mitsuru@procube.jp",
-    "active": false,
-    "identifier": "58",
-    "uuid": "440197cd-d1e1-3464-b5c4-7272f72f0126",
+    "identifier": "65",
+    "uuid": "cf97bce1-d5f1-322a-9f02-dde030944c7d",
     "attributes": {},
     "logs": {},
     "connectionIdentifier": "3",
-    "connectionName": "192.168.0.5",
-    "sharingProfileIdentifier": "null",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1692954616275,
-    "endDate": 1692954697116,
-    "remoteHost": "10.0.1.30",
+    "startDate": 1690251709852,
+    "endDate": 1690251731411,
+    "remoteHost": "10.0.1.5",
+    "username": "guacadmin",
+    "active": false,
+    "identifier": "8",
+    "uuid": "47d2a228-662f-3f84-b968-a5b12855dec8",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1690261950269,
+    "endDate": 1690261971809,
+    "remoteHost": "10.0.1.5",
+    "username": "guacadmin",
+    "active": false,
+    "identifier": "9",
+    "uuid": "5746e64d-aa28-33f7-95fd-423deff48efb",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697504071233,
+    "endDate": 1697504092086,
+    "remoteHost": "10.0.1.38",
+    "username": "admin",
+    "active": false,
+    "identifier": "92",
+    "uuid": "d9666d3f-5d6a-335d-bf49-e052d6130967",
+    "attributes": {},
+    "logs": {
+      "43ef7957-2d49-3d2e-b610-0b939851aedb": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "2fab75dd-3e9f-37d5-bb47-4f08d9bca78f": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "992c81e6-3643-3f7c-8806-db33562e3eba": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1690268775858,
+    "endDate": 1690268796131,
+    "remoteHost": "10.0.1.31",
+    "username": "guacadmin",
+    "active": false,
+    "identifier": "10",
+    "uuid": "b9deb9d5-9034-3dc4-ba25-5b1e9f825988",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1690345946986,
+    "endDate": 1690346982342,
+    "remoteHost": "10.0.1.29",
+    "username": "guacadmin",
+    "active": false,
+    "identifier": "11",
+    "uuid": "85d86ec5-3205-399c-b874-f3dcbc0f862b",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697510199100,
+    "endDate": 1697510207127,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "94",
+    "uuid": "f0821e2a-51bc-3cea-bf45-9a41549fcd53",
+    "attributes": {},
+    "logs": {
+      "76682f87-55a0-32da-af10-bfa99a5e4b14": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "072358d2-2f26-3a01-8a41-19286d5c11e3": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "1bce8794-84d5-3b39-a9e6-9f694e978030": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697510213245,
+    "endDate": 1697510217038,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "95",
+    "uuid": "4e061e24-6d05-3315-ad35-19ff6a1a4c00",
+    "attributes": {},
+    "logs": {
+      "d34587e6-bf3f-3218-ab7f-8ad141e546bc": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "3eb78801-4291-3a3d-92b5-8e8cd7a7ff09": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "feaddb8e-5b32-308e-af5a-7c0156eea428": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697515569530,
+    "endDate": 1697515868097,
+    "remoteHost": "10.0.1.23",
+    "username": "admin",
+    "active": false,
+    "identifier": "97",
+    "uuid": "ace4b7b8-cc98-3fde-a473-ab0d7dbb0f05",
+    "attributes": {},
+    "logs": {
+      "8aafcadf-3ef7-369d-b9a1-6dc556f87655": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "9942adb4-a33c-373b-83c0-2a3167742c5c": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "3322a6ca-5768-352a-88b2-2264bf873cb6": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697516486915,
+    "endDate": 1697516548107,
+    "remoteHost": "10.0.1.23",
+    "username": "admin",
+    "active": false,
+    "identifier": "98",
+    "uuid": "c223cd71-cc8d-3aab-a12a-8e3594456a24",
+    "attributes": {},
+    "logs": {
+      "19ca1387-68b7-3810-9c35-d559efeec6de": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "357088a6-084d-3bf8-bc6f-6adb6da737cc": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "db9e21c5-2c29-35da-b8bd-d91c8f9e35c4": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697521611993,
+    "endDate": 1697521615605,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "99",
+    "uuid": "42263c84-520e-36f0-9bc2-2361ad67101b",
+    "attributes": {},
+    "logs": {
+      "b366329a-6622-37c1-8c19-fe42790b1b30": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "104c72ba-a3bf-3a16-acd9-adc9fbe463a8": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "8de50d61-3bc3-3051-9a57-d641b09daf50": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697596147612,
+    "endDate": 1697596153660,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "105",
+    "uuid": "7dd7a953-c3f4-390c-b400-4231372e8eba",
+    "attributes": {},
+    "logs": {
+      "7c8f1d1a-d075-30f1-a297-66396cb8d946": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "aee840a8-a945-3173-b020-d633efe3c82c": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "1c1f949c-ea0f-30c4-8d14-4862863dc156": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697595780372,
+    "endDate": 1697596274381,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
+    "active": false,
+    "identifier": "103",
+    "uuid": "7f9b8e6f-bd32-3999-bd29-a63bf3b1a72d",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697596285110,
+    "endDate": 1697596303646,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
+    "active": false,
+    "identifier": "107",
+    "uuid": "ff8a25da-2118-3dd8-a03f-fe1af05a6896",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1691648034014,
+    "endDate": 1691648037885,
+    "remoteHost": "10.0.1.12",
     "username": "mitsuru@procube.jp",
     "active": false,
-    "identifier": "57",
-    "uuid": "fbfefd79-01ec-3571-b174-27696b4e05ac",
+    "identifier": "19",
+    "uuid": "2cf5c723-499d-35a9-83a0-4fd8b5dc5697",
     "attributes": {},
     "logs": {},
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1692954577771,
-    "endDate": 1692954697122,
-    "remoteHost": "10.0.1.30",
+    "startDate": 1691648122664,
+    "endDate": 1691648124563,
+    "remoteHost": "10.0.1.12",
     "username": "mitsuru@procube.jp",
     "active": false,
-    "identifier": "56",
-    "uuid": "7573e188-4d7c-3d83-bdbe-041614f0f1b9",
+    "identifier": "20",
+    "uuid": "fde31346-971e-3733-a7c2-57b02de72343",
     "attributes": {},
     "logs": {},
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1692954523038,
-    "endDate": 1692954566103,
-    "remoteHost": "10.0.1.30",
+    "startDate": 1697596305984,
+    "endDate": 1697596581155,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
+    "active": false,
+    "identifier": "108",
+    "uuid": "a90cd718-d954-3b5f-8d46-c7355f0290bc",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1691648697392,
+    "endDate": 1691648697655,
+    "remoteHost": "10.0.1.12",
     "username": "mitsuru@procube.jp",
     "active": false,
-    "identifier": "55",
-    "uuid": "a4888a37-ca54-3077-af1b-2dc93b28e79c",
+    "identifier": "21",
+    "uuid": "75b6dda2-00c9-330a-869c-f8eaac87d77a",
     "attributes": {},
     "logs": {},
     "connectionIdentifier": "2",
     "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1692954469796,
-    "endDate": 1692954697125,
-    "remoteHost": "10.0.1.30",
+    "startDate": 1691648720214,
+    "endDate": 1691648720455,
+    "remoteHost": "10.0.1.12",
     "username": "mitsuru@procube.jp",
     "active": false,
-    "identifier": "54",
-    "uuid": "a1c353a1-8dc6-3c62-9f4e-f61de8fef996",
-    "attributes": {},
-    "logs": {
-      "2035b6b8-b940-31f0-949c-49f42caf5a5f": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "5e3cbc04-c820-35d7-86a3-b66e696cd68f": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "369099d9-b9e1-3227-bfd6-c88e6df1df78": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692941212924,
-    "endDate": 1692941387115,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "53",
-    "uuid": "e5adf067-6a3a-3c92-ac8c-dd954360d6dd",
-    "attributes": {},
-    "logs": {
-      "b0426763-9329-3f76-9cf8-40aa8c135665": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "1b0c262a-c908-3f71-ae5a-2f6ccc3aa274": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "3bb059a1-4567-35bd-ba5e-6e1752ec16d8": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692923909090,
-    "endDate": 1692923925549,
-    "remoteHost": "10.0.1.26",
-    "username": "admin",
-    "active": false,
-    "identifier": "52",
-    "uuid": "c39952a5-3aad-3dec-bd8c-d307d5859973",
-    "attributes": {},
-    "logs": {
-      "3af73362-2e64-37b1-8d12-2970ccf4f001": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "461ef984-6e42-354f-999c-0867dbffa0bc": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "7ab87745-27b1-355f-bcd6-cd9f8118a118": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692923899965,
-    "endDate": 1692923905680,
-    "remoteHost": "10.0.1.26",
-    "username": "admin",
-    "active": false,
-    "identifier": "51",
-    "uuid": "1e4d3a5a-11d0-33cd-b795-8a8f33c21f87",
+    "identifier": "22",
+    "uuid": "7e139612-1cf0-341d-8517-af0148c22bb3",
     "attributes": {},
     "logs": {},
     "connectionIdentifier": "2",
     "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1692923891436,
-    "endDate": 1692923896396,
-    "remoteHost": "10.0.1.26",
+    "startDate": 1697596586750,
+    "endDate": 1697596586858,
+    "remoteHost": "10.0.1.24",
     "username": "admin",
     "active": false,
-    "identifier": "50",
-    "uuid": "9d15d50d-0abc-3c4d-ab55-fc9a029baccd",
+    "identifier": "109",
+    "uuid": "965c2552-a09e-30a9-88d3-8b2687dc8d70",
     "attributes": {},
     "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1692923772070,
-    "endDate": 1692923887250,
-    "remoteHost": "10.0.1.26",
-    "username": "admin",
-    "active": false,
-    "identifier": "49",
-    "uuid": "37ab9592-e4af-3230-ac22-d912b06f8d93",
-    "attributes": {},
-    "logs": {
-      "85cd45ad-7bc9-39db-92b8-3dfefea0d8f0": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "c6a8ecb4-06ad-3110-b700-a802b860d4c5": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "f0aee055-f799-356e-989e-bde412b6a245": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692886591668,
-    "endDate": 1692886698879,
-    "remoteHost": "10.0.1.26",
-    "username": "admin",
-    "active": false,
-    "identifier": "48",
-    "uuid": "72ae31ab-63fa-3145-a954-88210bbd3651",
-    "attributes": {},
-    "logs": {
-      "5c90950e-a2a6-3662-ac94-746fea17a5ab": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "ca24db30-1b96-3c7d-9d1d-4df3aada551b": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "a044e903-183d-332e-bb5c-7a431e3c4b8d": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692886515962,
-    "endDate": 1692886700012,
-    "remoteHost": "10.0.1.26",
-    "username": "admin",
-    "active": false,
-    "identifier": "47",
-    "uuid": "fdf244e0-cdd9-3fa7-ab2d-03773b22ba5c",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692859957026,
-    "endDate": 1692861488910,
-    "remoteHost": "10.0.1.30",
-    "username": "nigauri@procube.jp",
-    "active": false,
-    "identifier": "46",
-    "uuid": "938794f2-cd5f-368b-8148-bc11a9cea29c",
-    "attributes": {},
-    "logs": {
-      "d2fb38f4-588b-3de5-bd8c-60930d613349": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "a92a3fb3-5075-3d93-ab39-3bdafec9308c": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "a50ae425-e197-3454-9215-044842787fcd": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692778624727,
-    "endDate": 1692778797536,
+    "startDate": 1691648765279,
+    "endDate": 1691648765591,
     "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "45",
-    "uuid": "87f7e558-8b9e-38ea-9dad-98deba904f4e",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692778597374,
-    "endDate": 1692778620555,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "44",
-    "uuid": "b4423111-0688-32f7-b537-73cd095451a1",
-    "attributes": {},
-    "logs": {
-      "798a6e53-f15a-31b4-a4a1-630e05db0218": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "cac2d93e-6422-38ee-8624-858c4c810a2d": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "cea02f3d-d8bc-361c-bfda-8de73cb11078": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692778506441,
-    "endDate": 1692778516226,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "43",
-    "uuid": "d655a5fc-b13d-3d9f-b46a-0b874b0a3ef9",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692778468470,
-    "endDate": 1692778502797,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "42",
-    "uuid": "edb9f282-35e6-3a10-bf3f-f1bdabb43aa5",
-    "attributes": {},
-    "logs": {
-      "9bf5110c-e454-395b-8c1d-3d1a8c67c7fd": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "85111922-cd0e-3c75-8da8-9b8845544059": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "8c1cfd07-9797-34f6-9d21-a7e76231f2f6": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692777767878,
-    "endDate": 1692777808754,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "41",
-    "uuid": "e2c6dd8a-f0fc-3f22-8e11-a054cff3a839",
-    "attributes": {},
-    "logs": {
-      "fc6b833b-7d8d-30a8-a874-f2df9ca04d3e": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "d5e88920-ecae-300e-8739-56c18b4dc1a8": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "5d2e2b41-3f61-34ba-a55a-bdb9fbe75279": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692337879385,
-    "endDate": 1692337883683,
-    "remoteHost": "10.0.1.26",
     "username": "mitsuru@procube.jp",
     "active": false,
-    "identifier": "40",
-    "uuid": "c7e096e6-b8ed-3171-ac69-54061a222e00",
+    "identifier": "23",
+    "uuid": "2a845cf4-de12-3f8e-8639-70bc71ad0184",
     "attributes": {},
-    "logs": {
-      "23044ada-22e1-3381-b563-b8c20f9b2efc": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "5aedbf94-d570-3557-98d9-9b9b6ad37d7f": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "882c9ba2-fbcf-3155-be38-f307a67d1752": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1692337737395,
-    "endDate": 1692337742112,
-    "remoteHost": "10.0.1.26",
+    "startDate": 1691649230022,
+    "endDate": 1691649230261,
+    "remoteHost": "10.0.1.12",
     "username": "mitsuru@procube.jp",
     "active": false,
-    "identifier": "39",
-    "uuid": "51b5597e-8383-31c0-9810-09fb296d4e1f",
+    "identifier": "24",
+    "uuid": "f91a88a4-65d4-3844-9a68-55ce0733f044",
     "attributes": {},
     "logs": {},
     "connectionIdentifier": "2",
     "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1692337727854,
-    "endDate": 1692337734073,
-    "remoteHost": "10.0.1.26",
-    "username": "mitsuru@procube.jp",
-    "active": false,
-    "identifier": "38",
-    "uuid": "25066dc3-d8dc-3cc7-884e-11425bf15b69",
-    "attributes": {},
-    "logs": {
-      "12976765-742d-3045-8b5a-752fcaf22486": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "f895bf3e-2a47-3467-a57a-52304252fd43": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "1230f1a8-ca0d-33c6-aca3-a5a0bb10bc8a": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692334807253,
-    "endDate": 1692334823842,
-    "remoteHost": "10.0.1.26",
-    "username": "mitsuru@procube.jp",
-    "active": false,
-    "identifier": "37",
-    "uuid": "a71fea1c-4b77-3366-b15b-ac49888ed7ac",
-    "attributes": {},
-    "logs": {
-      "07adff73-475d-3b1e-b93b-7a55ca5d6994": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "f17a84e3-3aca-3b78-8d4a-b95cc7565b8e": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "31d2b889-6401-390f-9f87-e90d87f3d3ca": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1692244923308,
-    "endDate": 1692244940669,
-    "remoteHost": "10.0.1.26",
+    "startDate": 1697596599420,
+    "endDate": 1697596599566,
+    "remoteHost": "10.0.1.24",
     "username": "admin",
     "active": false,
-    "identifier": "36",
-    "uuid": "4b423f59-8434-343b-8df4-c2ca42689f8e",
+    "identifier": "113",
+    "uuid": "c2414ffd-6adb-3661-bb3e-236b759d760b",
     "attributes": {},
     "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1691652318099,
-    "endDate": 1691657229700,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "35",
-    "uuid": "96a9d8ba-a5f1-3e95-9c6b-a4534253d12e",
-    "attributes": {},
-    "logs": {
-      "968e69bd-2284-31a2-8b5a-d5d504e4a191": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "fd9694cd-4a9d-32b7-85e8-b09f1bcfe371": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "78cd95d9-1fee-38cf-9b6a-52f999dff3f8": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1691650895838,
-    "endDate": 1691652312954,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "34",
-    "uuid": "40ffc435-4386-3261-9579-557e9aad8512",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1691650798657,
-    "endDate": 1691650836211,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "33",
-    "uuid": "972e5476-bd8f-37ec-b5fa-0cfedd4d8037",
-    "attributes": {},
-    "logs": {
-      "e29fe16b-ada9-373c-8f32-5bf8d62e4c64": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "14fc7490-b0d7-3919-8f59-4006228e5cea": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "52543fc4-4257-382c-a1cf-7ed7632f2a65": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1691650790232,
-    "endDate": 1691650790481,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "32",
-    "uuid": "c338cfc2-34c4-3586-8d2c-7c793330c839",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1691650766114,
-    "endDate": 1691650768888,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "31",
-    "uuid": "afba8a25-9b61-30e5-a60e-7be2dee84997",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1691650755456,
-    "endDate": 1691650763191,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "30",
-    "uuid": "345c60f5-4bdd-3406-9ec8-0f5f9f51dadd",
-    "attributes": {},
-    "logs": {
-      "f0ca2377-cc6f-38aa-b8ca-2c736eb1400a": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "fa0f554f-0631-355f-a897-a1b118654d29": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      },
-      "1ff73988-e85a-3880-b5ee-9c545ed22b6d": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1691650748309,
-    "endDate": 1691650752226,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "29",
-    "uuid": "aa590fcc-e12e-3fb5-b4a3-db0f86f1d701",
-    "attributes": {},
-    "logs": {
-      "dd2be18c-35d4-326b-b295-07039931dcd7": {
-        "type": "TYPESCRIPT",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
-        }
-      },
-      "32b8f82d-849d-37c2-a539-ff391bdc6a73": {
-        "type": "GUACAMOLE_SESSION_RECORDING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
-        }
-      },
-      "51cc1517-744e-3fdb-aed6-86d93674b4e7": {
-        "type": "TYPESCRIPT_TIMING",
-        "description": {
-          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
-        }
-      }
-    },
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1691650707965,
-    "endDate": 1691650712886,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "28",
-    "uuid": "f69d5b60-6d75-38ed-909e-578eb9550ff7",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
-  },
-  {
-    "startDate": 1691650038229,
-    "endDate": 1691650665266,
-    "remoteHost": "10.0.1.12",
-    "username": "admin",
-    "active": false,
-    "identifier": "27",
-    "uuid": "7ca0e391-4af9-310e-ae41-f3c7c4f4e36e",
-    "attributes": {},
-    "logs": {},
-    "connectionIdentifier": "2",
-    "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
   },
   {
     "startDate": 1691649398927,
@@ -22381,9 +873,47 @@ export const testHistory = [
     "logs": {},
     "connectionIdentifier": "2",
     "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697597170500,
+    "endDate": 1697597242836,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
+    "active": false,
+    "identifier": "116",
+    "uuid": "244b48f5-d986-3473-b528-a7500dd51987",
+    "attributes": {},
+    "logs": {
+      "1191b39f-2782-39cc-816a-3f3d02545c26": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "87abbc45-93d6-3aa0-91b5-96612fa368c9": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "b8f5629d-0543-37ea-add9-fd08d4d0c638": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
   },
   {
     "startDate": 1691649234943,
@@ -22399,125 +929,1297 @@ export const testHistory = [
         "type": "TYPESCRIPT_TIMING",
         "description": {
           "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
+          "variables": null
         }
       },
       "7a84cb6e-62ef-313d-b601-a570c3794105": {
         "type": "SERVER_LOG",
         "description": {
           "key": "RECORDING_STORAGE.INFO_SERVER_LOG",
-          "variables": "null"
+          "variables": null
         }
       },
       "e769cb09-9e58-3feb-8095-bb7a2c726309": {
         "type": "TYPESCRIPT",
         "description": {
           "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
+          "variables": null
         }
       }
     },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1691649230022,
-    "endDate": 1691649230261,
-    "remoteHost": "10.0.1.12",
-    "username": "mitsuru@procube.jp",
+    "startDate": 1697606547870,
+    "endDate": 1697606553124,
+    "remoteHost": "10.0.1.23",
+    "username": "admin",
     "active": false,
-    "identifier": "24",
-    "uuid": "f91a88a4-65d4-3844-9a68-55ce0733f044",
+    "identifier": "118",
+    "uuid": "f845d64e-834b-3457-9671-41983ad0eed0",
+    "attributes": {},
+    "logs": {
+      "2a612b70-4dfa-3022-9242-268a3c1fa588": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "79dea10b-c42b-3358-8274-7d5a19be1640": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "6aea8e67-6132-3c0d-8e09-6ddc0267d262": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697606942394,
+    "endDate": 1697606955478,
+    "remoteHost": "10.0.1.23",
+    "username": "admin",
+    "active": false,
+    "identifier": "119",
+    "uuid": "18b11912-9982-3d59-a913-1c5bcb5588c5",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697677017373,
+    "endDate": 1697677025153,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "124",
+    "uuid": "cd603d5d-e0a4-30c3-a45b-15e770b564c3",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697677754759,
+    "endDate": 1697678091310,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "125",
+    "uuid": "e2d4036a-8a8e-39dd-bf43-d5104a44afac",
+    "attributes": {},
+    "logs": {
+      "4860e671-9275-3806-997c-604f6a472af9": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "9ad9b095-1084-3b02-a793-f1fbc9f2be0a": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "40228087-e252-3c20-93bd-182d378032a6": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697682001821,
+    "endDate": 1697682002682,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
+    "active": false,
+    "identifier": "128",
+    "uuid": "6d25668d-ccf4-391f-b8c1-7bcf55b8d833",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "4",
+    "connectionName": "windows",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697693635132,
+    "endDate": 1697693642165,
+    "remoteHost": "10.0.1.38",
+    "username": "admin",
+    "active": false,
+    "identifier": "130",
+    "uuid": "5aa1eeea-94bc-36ed-83c8-857991f1d4f5",
+    "attributes": {},
+    "logs": {
+      "763480ba-8f5d-37a6-bc42-7a5cc18e8aa4": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "bcb9e6f9-3370-38c7-9619-068ca59f98f7": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "feb31a36-f4a2-3b41-91d5-7e68e7fec9a7": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697704545300,
+    "endDate": 1697704553805,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "132",
+    "uuid": "8ad8e28e-940c-3346-bfd5-d59ffc162e58",
     "attributes": {},
     "logs": {},
     "connectionIdentifier": "2",
     "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1691648765279,
-    "endDate": 1691648765591,
-    "remoteHost": "10.0.1.12",
+    "startDate": 1697704862524,
+    "endDate": 1697704867701,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
+    "active": false,
+    "identifier": "133",
+    "uuid": "399ee8dc-ec6d-37e0-946f-55ce478c6d6c",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1694690004795,
+    "endDate": 1694690054894,
+    "remoteHost": "10.0.1.13",
     "username": "mitsuru@procube.jp",
     "active": false,
-    "identifier": "23",
-    "uuid": "2a845cf4-de12-3f8e-8639-70bc71ad0184",
+    "identifier": "79",
+    "uuid": "62ad7048-6196-3627-b3c5-f24477396dd9",
+    "attributes": {},
+    "logs": {
+      "77f0e91a-fb86-378d-9d46-e40dae9facc7": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "da45c0d4-533c-3cbf-9ea4-d6b5ec9cad19": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "fd0b7888-77a0-3f5f-ac14-7348c65ae08c": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697704882632,
+    "endDate": 1697704885567,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
+    "active": false,
+    "identifier": "134",
+    "uuid": "f65579bf-9871-37a7-b2b0-7b716a6aaf69",
+    "attributes": {},
+    "logs": {
+      "186be807-1934-35c2-849a-802b0154ac54": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "b9ca0bd4-9a05-3565-8ec3-10636d78521c": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "9f29a34e-837b-3b40-8b37-48696c1064fc": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692334807253,
+    "endDate": 1692334823842,
+    "remoteHost": "10.0.1.26",
+    "username": "mitsuru@procube.jp",
+    "active": false,
+    "identifier": "37",
+    "uuid": "a71fea1c-4b77-3366-b15b-ac49888ed7ac",
+    "attributes": {},
+    "logs": {
+      "07adff73-475d-3b1e-b93b-7a55ca5d6994": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "f17a84e3-3aca-3b78-8d4a-b95cc7565b8e": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "31d2b889-6401-390f-9f87-e90d87f3d3ca": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697705198041,
+    "endDate": 1697705204430,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "136",
+    "uuid": "ba6862e2-321f-3193-b789-4d9d833dccb3",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "19",
+    "connectionName": "テストArista1",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692337727854,
+    "endDate": 1692337734073,
+    "remoteHost": "10.0.1.26",
+    "username": "mitsuru@procube.jp",
+    "active": false,
+    "identifier": "38",
+    "uuid": "25066dc3-d8dc-3cc7-884e-11425bf15b69",
+    "attributes": {},
+    "logs": {
+      "12976765-742d-3045-8b5a-752fcaf22486": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "f895bf3e-2a47-3467-a57a-52304252fd43": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "1230f1a8-ca0d-33c6-aca3-a5a0bb10bc8a": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692337737395,
+    "endDate": 1692337742112,
+    "remoteHost": "10.0.1.26",
+    "username": "mitsuru@procube.jp",
+    "active": false,
+    "identifier": "39",
+    "uuid": "51b5597e-8383-31c0-9810-09fb296d4e1f",
     "attributes": {},
     "logs": {},
     "connectionIdentifier": "2",
     "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1691648720214,
-    "endDate": 1691648720455,
-    "remoteHost": "10.0.1.12",
+    "startDate": 1697705208868,
+    "endDate": 1697705208966,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "138",
+    "uuid": "7194ab20-5687-3b2c-8e78-b90ea8c2496e",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "7",
+    "connectionName": "テスト",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692337879385,
+    "endDate": 1692337883683,
+    "remoteHost": "10.0.1.26",
     "username": "mitsuru@procube.jp",
     "active": false,
-    "identifier": "22",
-    "uuid": "7e139612-1cf0-341d-8517-af0148c22bb3",
+    "identifier": "40",
+    "uuid": "c7e096e6-b8ed-3171-ac69-54061a222e00",
+    "attributes": {},
+    "logs": {
+      "23044ada-22e1-3381-b563-b8c20f9b2efc": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "5aedbf94-d570-3557-98d9-9b9b6ad37d7f": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "882c9ba2-fbcf-3155-be38-f307a67d1752": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697785926169,
+    "endDate": 1697786732103,
+    "remoteHost": "10.0.1.38",
+    "username": "admin",
+    "active": false,
+    "identifier": "140",
+    "uuid": "ed0a3ed1-7684-3b75-97f5-cd9f582409bc",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698212619310,
+    "endDate": 1698212655080,
+    "remoteHost": "10.0.1.13",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "142",
+    "uuid": "f1d2b765-595c-3e22-ba47-c33f0eb42f9a",
+    "attributes": {},
+    "logs": {
+      "39ac65f5-f074-3149-9f58-8e2c9b24e365": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "5561cf85-c503-32db-a2f2-fa813e91b6ee": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "d5ab96b6-e374-3ee2-abda-4123bec11de8": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1693203979649,
+    "endDate": 1693203999693,
+    "remoteHost": "10.0.1.30",
+    "username": "admin",
+    "active": false,
+    "identifier": "62",
+    "uuid": "35c462fe-6d03-3460-923b-00013333431c",
+    "attributes": {},
+    "logs": {
+      "c1c0eb7c-2a80-3213-89b4-c14da01b4210": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "9f832559-7966-34a9-a1df-0801223aab21": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "5efa20f0-2392-3fce-8dca-bd9100f373f2": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1695342201892,
+    "endDate": 1695342241386,
+    "remoteHost": "10.0.1.3",
+    "username": "testuser",
+    "active": false,
+    "identifier": "82",
+    "uuid": "53c3395a-1c99-354f-ab4c-91f2b6802772",
+    "attributes": {},
+    "logs": {
+      "436d8b2f-e04d-3f1e-be91-edc6f09522ef": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "443cb8e7-f2da-3808-8f00-7d04c3cf1431": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "38d25675-3e2b-3640-b1fc-ddfd4de486ff": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698213746123,
+    "endDate": 1698213754711,
+    "remoteHost": "10.0.1.13",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "145",
+    "uuid": "600197f0-19ca-34c4-a591-4f118e6623f0",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698213731730,
+    "endDate": 1698213755235,
+    "remoteHost": "10.0.1.13",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "144",
+    "uuid": "225fc3a5-4e34-32f0-a0bd-fb0ec93c533e",
+    "attributes": {},
+    "logs": {
+      "bfe0d269-ccab-331a-8feb-c692cd6ee523": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "e888e956-7cae-360b-aa2c-17dbd9d1537e": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "2bc1d6b3-cfd1-39d1-a458-e483e403d567": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692859957026,
+    "endDate": 1692861488910,
+    "remoteHost": "10.0.1.30",
+    "username": "nigauri@procube.jp",
+    "active": false,
+    "identifier": "46",
+    "uuid": "938794f2-cd5f-368b-8148-bc11a9cea29c",
+    "attributes": {},
+    "logs": {
+      "d2fb38f4-588b-3de5-bd8c-60930d613349": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "a92a3fb3-5075-3d93-ab39-3bdafec9308c": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "a50ae425-e197-3454-9215-044842787fcd": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698295655834,
+    "endDate": 1698295660298,
+    "remoteHost": "10.0.1.31",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "150",
+    "uuid": "eadaba8c-693f-3ca9-b68f-4cafefa6efdd",
+    "attributes": {},
+    "logs": {
+      "bab6029e-808e-3f78-baf7-8cf4be995b42": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "77514626-c250-30e4-b190-4bd5b14507a3": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "2b85d532-54ce-3f0c-9281-165da928c72a": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698295670284,
+    "endDate": 1698295685879,
+    "remoteHost": "10.0.1.31",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "152",
+    "uuid": "9096eee6-dd79-3f8f-9f06-b91a1ff8d86c",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "4",
+    "connectionName": "windows",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698295662568,
+    "endDate": 1698295690205,
+    "remoteHost": "10.0.1.31",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "151",
+    "uuid": "7ab6814d-21d6-3890-9780-09d3ade76e2d",
     "attributes": {},
     "logs": {},
     "connectionIdentifier": "2",
     "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1691648697392,
-    "endDate": 1691648697655,
-    "remoteHost": "10.0.1.12",
-    "username": "mitsuru@procube.jp",
+    "startDate": 1698295790016,
+    "endDate": 1698295799293,
+    "remoteHost": "10.0.1.31",
+    "username": "naoya@procube.jp",
     "active": false,
-    "identifier": "21",
-    "uuid": "75b6dda2-00c9-330a-869c-f8eaac87d77a",
+    "identifier": "154",
+    "uuid": "5372dffd-a843-3e26-a663-15ecf01adc86",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698295783031,
+    "endDate": 1698295803826,
+    "remoteHost": "10.0.1.31",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "153",
+    "uuid": "db8a2425-7185-3efa-ad26-420e4c6a6094",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698733906481,
+    "endDate": 1698733910970,
+    "remoteHost": "10.0.1.34",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "155",
+    "uuid": "ae4f90e3-0b3f-34f8-9ba7-660e0e5f6671",
     "attributes": {},
     "logs": {},
     "connectionIdentifier": "2",
     "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1691648122664,
-    "endDate": 1691648124563,
-    "remoteHost": "10.0.1.12",
+    "startDate": 1698733921438,
+    "endDate": 1698733929035,
+    "remoteHost": "10.0.1.34",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "157",
+    "uuid": "8f30b043-884d-384f-b489-732189740581",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "19",
+    "connectionName": "テストArista1",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698733912547,
+    "endDate": 1698733930102,
+    "remoteHost": "10.0.1.34",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "156",
+    "uuid": "6fb3e053-99e8-3863-a84b-2be0136f94a5",
+    "attributes": {},
+    "logs": {
+      "1a3c29ef-4ac8-37b8-bcdf-1593c15660bb": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "518991cf-cfe0-3569-92de-0c759c1c00df": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "173bc3d4-cf9c-3242-aa21-3513dc7a84ab": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692954523038,
+    "endDate": 1692954566103,
+    "remoteHost": "10.0.1.30",
     "username": "mitsuru@procube.jp",
     "active": false,
-    "identifier": "20",
-    "uuid": "fde31346-971e-3733-a7c2-57b02de72343",
+    "identifier": "55",
+    "uuid": "a4888a37-ca54-3077-af1b-2dc93b28e79c",
     "attributes": {},
     "logs": {},
     "connectionIdentifier": "2",
     "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1691648034014,
-    "endDate": 1691648037885,
-    "remoteHost": "10.0.1.12",
+    "startDate": 1692954616275,
+    "endDate": 1692954697116,
+    "remoteHost": "10.0.1.30",
     "username": "mitsuru@procube.jp",
     "active": false,
-    "identifier": "19",
-    "uuid": "2cf5c723-499d-35a9-83a0-4fd8b5dc5697",
+    "identifier": "57",
+    "uuid": "fbfefd79-01ec-3571-b174-27696b4e05ac",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692954577771,
+    "endDate": 1692954697122,
+    "remoteHost": "10.0.1.30",
+    "username": "mitsuru@procube.jp",
+    "active": false,
+    "identifier": "56",
+    "uuid": "7573e188-4d7c-3d83-bdbe-041614f0f1b9",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692954469796,
+    "endDate": 1692954697125,
+    "remoteHost": "10.0.1.30",
+    "username": "mitsuru@procube.jp",
+    "active": false,
+    "identifier": "54",
+    "uuid": "a1c353a1-8dc6-3c62-9f4e-f61de8fef996",
+    "attributes": {},
+    "logs": {
+      "2035b6b8-b940-31f0-949c-49f42caf5a5f": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "5e3cbc04-c820-35d7-86a3-b66e696cd68f": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "369099d9-b9e1-3227-bfd6-c88e6df1df78": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692954779835,
+    "endDate": 1692954780573,
+    "remoteHost": "10.0.1.30",
+    "username": "mitsuru@procube.jp",
+    "active": false,
+    "identifier": "58",
+    "uuid": "440197cd-d1e1-3464-b5c4-7272f72f0126",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "192.168.0.5",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692954954906,
+    "endDate": 1692955007521,
+    "remoteHost": "10.0.1.30",
+    "username": "mitsuru@procube.jp",
+    "active": false,
+    "identifier": "59",
+    "uuid": "31db51b3-914e-3197-8ef3-135fca3352d6",
+    "attributes": {},
+    "logs": {
+      "3cabe65a-5a8e-3ea2-b854-99b876eac299": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "c9e8790a-dced-3043-806f-1d41e3f470fc": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "d942ab02-9a2d-312e-95e4-002b79a78369": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1693288617628,
+    "endDate": 1693289665576,
+    "remoteHost": "10.0.1.2",
+    "username": "admin",
+    "active": false,
+    "identifier": "63",
+    "uuid": "5eeffdd9-afb4-320f-91ef-0c082d5a7c8b",
+    "attributes": {},
+    "logs": {
+      "41a79d25-788b-3101-a5bd-ae76d1e7626e": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "22618c07-c154-3485-9338-bd07fbea041c": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "453cdf9d-59a0-3356-9dfb-0cbcce37e0da": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1693388901518,
+    "endDate": 1693388924265,
+    "remoteHost": "10.0.1.33",
+    "username": "admin",
+    "active": false,
+    "identifier": "66",
+    "uuid": "95fa7ecb-370f-3d22-ab90-b2beb9a00924",
+    "attributes": {},
+    "logs": {
+      "c7dc07c6-30b6-3ab0-ba65-04dbf4cf2d50": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "bae94414-38de-3508-ab00-5548ee7f87ff": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "4fc65ac0-d6fb-384d-b7f7-38c6645d8bfe": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1693462615328,
+    "endDate": 1693462664202,
+    "remoteHost": "10.0.1.174",
+    "username": "admin",
+    "active": false,
+    "identifier": "67",
+    "uuid": "1efef3b7-049e-390c-be74-effe86e1ab83",
     "attributes": {},
     "logs": {},
     "connectionIdentifier": "2",
     "connectionName": "aristaEOS",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1690764772639,
+    "endDate": 1690764786286,
+    "remoteHost": "10.0.1.31",
+    "username": "admin",
+    "active": false,
+    "identifier": "12",
+    "uuid": "a99e3dbc-14e6-3664-8261-2809df888090",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1690852889016,
+    "endDate": 1690852905617,
+    "remoteHost": "10.0.1.18",
+    "username": "admin",
+    "active": false,
+    "identifier": "13",
+    "uuid": "0c6cab5d-887b-3329-b174-fef96daac96e",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1693462669122,
+    "endDate": 1693462683077,
+    "remoteHost": "10.0.1.174",
+    "username": "admin",
+    "active": false,
+    "identifier": "68",
+    "uuid": "659cbd66-75dd-385c-af69-15356283bc64",
+    "attributes": {},
+    "logs": {
+      "ca40fd58-3851-3570-850e-5da092652e4a": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "c42b8d34-2900-3a10-93ca-e04231e69c82": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "c305c0e7-92cd-375c-90ec-da31a873495b": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1690865136496,
+    "endDate": 1690865139515,
+    "remoteHost": "10.0.1.5",
+    "username": "admin",
+    "active": false,
+    "identifier": "14",
+    "uuid": "da7cb142-d5f5-3683-ad22-98b1a1f132b4",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1690935920127,
+    "endDate": 1690935924556,
+    "remoteHost": "10.0.1.3",
+    "username": "admin",
+    "active": false,
+    "identifier": "15",
+    "uuid": "5dd58b9b-3b83-30e1-800c-438128b9a567",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1693462876034,
+    "endDate": 1693463274330,
+    "remoteHost": "10.0.1.174",
+    "username": "admin",
+    "active": false,
+    "identifier": "69",
+    "uuid": "186fe24a-efda-3be2-969b-f122213bb856",
+    "attributes": {},
+    "logs": {
+      "2b0292de-5791-3378-af66-96fd8a99c497": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "eb085abd-ff90-3af5-a93f-d22756fce8dc": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "b750e02d-e7d8-38f3-b124-b1fc1d20caf9": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1690968317109,
+    "endDate": 1690968321789,
+    "remoteHost": "10.0.1.3",
+    "username": "admin",
+    "active": false,
+    "identifier": "16",
+    "uuid": "f2081b80-0746-372e-871e-aba7663cb687",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1691049601497,
+    "endDate": 1691049607178,
+    "remoteHost": "10.0.1.3",
+    "username": "admin",
+    "active": false,
+    "identifier": "17",
+    "uuid": "f921ed8e-def9-3a43-b2bd-35571571df92",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1693465600027,
+    "endDate": 1693465609261,
+    "remoteHost": "10.0.1.174",
+    "username": "admin",
+    "active": false,
+    "identifier": "70",
+    "uuid": "e3a8d919-8c0b-389e-bff7-52525268b465",
+    "attributes": {},
+    "logs": {
+      "e7e1883d-5fb6-3a50-ba9c-5bd2c82fc189": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "97870520-0317-3ab0-bc4a-2d4a6a6ff420": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "c7da8d8a-6c15-3c04-a15a-a7b83e8e3e85": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
   },
   {
     "startDate": 1691118660434,
@@ -22533,300 +2235,1896 @@ export const testHistory = [
         "type": "TYPESCRIPT_TIMING",
         "description": {
           "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
-          "variables": "null"
+          "variables": null
         }
       },
       "68180b97-0248-31c5-a81f-f54babb5f0ec": {
         "type": "GUACAMOLE_SESSION_RECORDING",
         "description": {
           "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
-          "variables": "null"
+          "variables": null
         }
       },
       "d1eaa806-6cd0-325e-8b54-27cf74322fe6": {
         "type": "TYPESCRIPT",
         "description": {
           "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
-          "variables": "null"
+          "variables": null
         }
       }
     },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1691049601497,
-    "endDate": 1691049607178,
-    "remoteHost": "10.0.1.3",
+    "startDate": 1693465924935,
+    "endDate": 1693472682176,
+    "remoteHost": "10.0.1.174",
     "username": "admin",
     "active": false,
-    "identifier": "17",
-    "uuid": "f921ed8e-def9-3a43-b2bd-35571571df92",
+    "identifier": "71",
+    "uuid": "db946cbd-5b0a-3ac2-8616-e92bfd3daaa6",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "4307072e-d0fc-3642-94ba-aebba470216b": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "4c74b457-72d3-3dfb-9276-1237eb1ca7c4": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "a8a8ce9d-01e4-368d-8f6d-c11e7a80c352": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690968317109,
-    "endDate": 1690968321789,
-    "remoteHost": "10.0.1.3",
+    "startDate": 1693528202349,
+    "endDate": 1693528223262,
+    "remoteHost": "10.0.1.35",
     "username": "admin",
     "active": false,
-    "identifier": "16",
-    "uuid": "f2081b80-0746-372e-871e-aba7663cb687",
+    "identifier": "72",
+    "uuid": "53e2bb04-4b7e-3662-9f0a-6ff2b7c1f030",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "5613f852-efc4-3d96-b60d-9bca67732ac3": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "a309c4cb-61ee-3a9c-8c3e-b54d761b1860": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "bb3e6e1f-1d69-3824-9e4b-b33a43365adc": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690935920127,
-    "endDate": 1690935924556,
-    "remoteHost": "10.0.1.3",
+    "startDate": 1693528510442,
+    "endDate": 1693533928046,
+    "remoteHost": "10.0.1.35",
     "username": "admin",
     "active": false,
-    "identifier": "15",
-    "uuid": "5dd58b9b-3b83-30e1-800c-438128b9a567",
+    "identifier": "73",
+    "uuid": "04c43a17-eb04-38bb-a48c-8f91cdb183a4",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "a78ebabe-468d-3def-be66-40d3b1e54b08": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "09ea79e5-ebc1-3a2f-bbe1-bad4702c72a5": {
+        "type": "SERVER_LOG",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_SERVER_LOG",
+          "variables": null
+        }
+      },
+      "acf0a7bb-a9ee-3601-b304-946483c79f89": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690865136496,
-    "endDate": 1690865139515,
-    "remoteHost": "10.0.1.5",
+    "startDate": 1693534706645,
+    "endDate": 1693536408850,
+    "remoteHost": "10.0.1.35",
     "username": "admin",
     "active": false,
-    "identifier": "14",
-    "uuid": "da7cb142-d5f5-3683-ad22-98b1a1f132b4",
+    "identifier": "74",
+    "uuid": "f865900f-bbef-335b-94a5-7dc6b219910e",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "58cdd83c-f237-3a23-af3d-158d5878167e": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "e8a11aec-99df-323c-8f98-2a0447d28fb2": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "6d682b8a-86a9-32bf-95cb-22ec2ca88d9a": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690852889016,
-    "endDate": 1690852905617,
-    "remoteHost": "10.0.1.18",
+    "startDate": 1691650038229,
+    "endDate": 1691650665266,
+    "remoteHost": "10.0.1.12",
     "username": "admin",
     "active": false,
-    "identifier": "13",
-    "uuid": "0c6cab5d-887b-3329-b174-fef96daac96e",
+    "identifier": "27",
+    "uuid": "7ca0e391-4af9-310e-ae41-f3c7c4f4e36e",
     "attributes": {},
     "logs": {},
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690764772639,
-    "endDate": 1690764786286,
+    "startDate": 1694086232626,
+    "endDate": 1694086233401,
+    "remoteHost": "10.0.1.20",
+    "username": "admin",
+    "active": false,
+    "identifier": "75",
+    "uuid": "8073de39-40c3-3baf-af80-b9900f402dd2",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "4",
+    "connectionName": "windows",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1691650707965,
+    "endDate": 1691650712886,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "28",
+    "uuid": "f69d5b60-6d75-38ed-909e-578eb9550ff7",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1691650748309,
+    "endDate": 1691650752226,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "29",
+    "uuid": "aa590fcc-e12e-3fb5-b4a3-db0f86f1d701",
+    "attributes": {},
+    "logs": {
+      "dd2be18c-35d4-326b-b295-07039931dcd7": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "32b8f82d-849d-37c2-a539-ff391bdc6a73": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "51cc1517-744e-3fdb-aed6-86d93674b4e7": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1694086310587,
+    "endDate": 1694086311120,
+    "remoteHost": "10.0.1.20",
+    "username": "admin",
+    "active": false,
+    "identifier": "76",
+    "uuid": "22460887-3c4f-3f3a-a0d4-a28ca35c58c8",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "4",
+    "connectionName": "windows",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1691650755456,
+    "endDate": 1691650763191,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "30",
+    "uuid": "345c60f5-4bdd-3406-9ec8-0f5f9f51dadd",
+    "attributes": {},
+    "logs": {
+      "f0ca2377-cc6f-38aa-b8ca-2c736eb1400a": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "fa0f554f-0631-355f-a897-a1b118654d29": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "1ff73988-e85a-3880-b5ee-9c545ed22b6d": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1691650766114,
+    "endDate": 1691650768888,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "31",
+    "uuid": "afba8a25-9b61-30e5-a60e-7be2dee84997",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1694507430107,
+    "endDate": 1694507431037,
+    "remoteHost": "10.0.1.23",
+    "username": "admin",
+    "active": false,
+    "identifier": "77",
+    "uuid": "dc5b543f-8f61-3411-aeb5-d3e3224b0ba4",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "4",
+    "connectionName": "windows",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1691650790232,
+    "endDate": 1691650790481,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "32",
+    "uuid": "c338cfc2-34c4-3586-8d2c-7c793330c839",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1691650798657,
+    "endDate": 1691650836211,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "33",
+    "uuid": "972e5476-bd8f-37ec-b5fa-0cfedd4d8037",
+    "attributes": {},
+    "logs": {
+      "e29fe16b-ada9-373c-8f32-5bf8d62e4c64": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "14fc7490-b0d7-3919-8f59-4006228e5cea": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "52543fc4-4257-382c-a1cf-7ed7632f2a65": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1694669526655,
+    "endDate": 1694669557414,
+    "remoteHost": "10.0.1.10",
+    "username": "admin",
+    "active": false,
+    "identifier": "78",
+    "uuid": "2def5369-ead1-32ee-9356-7bf1e0443d84",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1691650895838,
+    "endDate": 1691652312954,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "34",
+    "uuid": "40ffc435-4386-3261-9579-557e9aad8512",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1691652318099,
+    "endDate": 1691657229700,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "35",
+    "uuid": "96a9d8ba-a5f1-3e95-9c6b-a4534253d12e",
+    "attributes": {},
+    "logs": {
+      "968e69bd-2284-31a2-8b5a-d5d504e4a191": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "fd9694cd-4a9d-32b7-85e8-b09f1bcfe371": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "78cd95d9-1fee-38cf-9b6a-52f999dff3f8": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692244923308,
+    "endDate": 1692244940669,
+    "remoteHost": "10.0.1.26",
+    "username": "admin",
+    "active": false,
+    "identifier": "36",
+    "uuid": "4b423f59-8434-343b-8df4-c2ca42689f8e",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1694763511602,
+    "endDate": 1694763545913,
+    "remoteHost": "10.0.1.13",
+    "username": "admin",
+    "active": false,
+    "identifier": "80",
+    "uuid": "92851f8e-40d5-38e8-872b-67c996ed7334",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1694763550443,
+    "endDate": 1694763551094,
+    "remoteHost": "10.0.1.13",
+    "username": "admin",
+    "active": false,
+    "identifier": "81",
+    "uuid": "31ad8dd7-60d1-35ee-b7d5-b76f3810f232",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "4",
+    "connectionName": "windows",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692777767878,
+    "endDate": 1692777808754,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "41",
+    "uuid": "e2c6dd8a-f0fc-3f22-8e11-a054cff3a839",
+    "attributes": {},
+    "logs": {
+      "fc6b833b-7d8d-30a8-a874-f2df9ca04d3e": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "d5e88920-ecae-300e-8739-56c18b4dc1a8": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "5d2e2b41-3f61-34ba-a55a-bdb9fbe75279": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692778468470,
+    "endDate": 1692778502797,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "42",
+    "uuid": "edb9f282-35e6-3a10-bf3f-f1bdabb43aa5",
+    "attributes": {},
+    "logs": {
+      "9bf5110c-e454-395b-8c1d-3d1a8c67c7fd": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "85111922-cd0e-3c75-8da8-9b8845544059": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "8c1cfd07-9797-34f6-9d21-a7e76231f2f6": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692778506441,
+    "endDate": 1692778516226,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "43",
+    "uuid": "d655a5fc-b13d-3d9f-b46a-0b874b0a3ef9",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692778597374,
+    "endDate": 1692778620555,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "44",
+    "uuid": "b4423111-0688-32f7-b537-73cd095451a1",
+    "attributes": {},
+    "logs": {
+      "798a6e53-f15a-31b4-a4a1-630e05db0218": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "cac2d93e-6422-38ee-8624-858c4c810a2d": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "cea02f3d-d8bc-361c-bfda-8de73cb11078": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692778624727,
+    "endDate": 1692778797536,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "45",
+    "uuid": "87f7e558-8b9e-38ea-9dad-98deba904f4e",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692886591668,
+    "endDate": 1692886698879,
+    "remoteHost": "10.0.1.26",
+    "username": "admin",
+    "active": false,
+    "identifier": "48",
+    "uuid": "72ae31ab-63fa-3145-a954-88210bbd3651",
+    "attributes": {},
+    "logs": {
+      "5c90950e-a2a6-3662-ac94-746fea17a5ab": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "ca24db30-1b96-3c7d-9d1d-4df3aada551b": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "a044e903-183d-332e-bb5c-7a431e3c4b8d": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692886515962,
+    "endDate": 1692886700012,
+    "remoteHost": "10.0.1.26",
+    "username": "admin",
+    "active": false,
+    "identifier": "47",
+    "uuid": "fdf244e0-cdd9-3fa7-ab2d-03773b22ba5c",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692923772070,
+    "endDate": 1692923887250,
+    "remoteHost": "10.0.1.26",
+    "username": "admin",
+    "active": false,
+    "identifier": "49",
+    "uuid": "37ab9592-e4af-3230-ac22-d912b06f8d93",
+    "attributes": {},
+    "logs": {
+      "85cd45ad-7bc9-39db-92b8-3dfefea0d8f0": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "c6a8ecb4-06ad-3110-b700-a802b860d4c5": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "f0aee055-f799-356e-989e-bde412b6a245": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692923891436,
+    "endDate": 1692923896396,
+    "remoteHost": "10.0.1.26",
+    "username": "admin",
+    "active": false,
+    "identifier": "50",
+    "uuid": "9d15d50d-0abc-3c4d-ab55-fc9a029baccd",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692923899965,
+    "endDate": 1692923905680,
+    "remoteHost": "10.0.1.26",
+    "username": "admin",
+    "active": false,
+    "identifier": "51",
+    "uuid": "1e4d3a5a-11d0-33cd-b795-8a8f33c21f87",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692923909090,
+    "endDate": 1692923925549,
+    "remoteHost": "10.0.1.26",
+    "username": "admin",
+    "active": false,
+    "identifier": "52",
+    "uuid": "c39952a5-3aad-3dec-bd8c-d307d5859973",
+    "attributes": {},
+    "logs": {
+      "3af73362-2e64-37b1-8d12-2970ccf4f001": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "461ef984-6e42-354f-999c-0867dbffa0bc": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "7ab87745-27b1-355f-bcd6-cd9f8118a118": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1692941212924,
+    "endDate": 1692941387115,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "53",
+    "uuid": "e5adf067-6a3a-3c92-ac8c-dd954360d6dd",
+    "attributes": {},
+    "logs": {
+      "b0426763-9329-3f76-9cf8-40aa8c135665": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "1b0c262a-c908-3f71-ae5a-2f6ccc3aa274": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "3bb059a1-4567-35bd-ba5e-6e1752ec16d8": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1693190446546,
+    "endDate": 1693190484355,
+    "remoteHost": "10.0.1.12",
+    "username": "admin",
+    "active": false,
+    "identifier": "60",
+    "uuid": "436364c9-5253-3cf2-ae0c-d3f86537f72e",
+    "attributes": {},
+    "logs": {
+      "f5a540f7-cf83-3ca4-ae26-40c4cd42ea53": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "9881f525-fc73-366e-bea0-a023dfb9e187": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "078e6489-340e-30c0-aba9-523e2607330a": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1693203861437,
+    "endDate": 1693203878920,
+    "remoteHost": "10.0.1.30",
+    "username": "admin",
+    "active": false,
+    "identifier": "61",
+    "uuid": "b6f97ac6-c03e-3fe1-9a1b-7a754d32418e",
+    "attributes": {},
+    "logs": {
+      "9b18d5a1-a874-33dc-86fd-0f674b8c0955": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "c854aafd-8d74-333d-b8c8-d60e8b125945": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "9596bd0b-0b8a-39a3-a17b-a4869cb164c5": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1695615334967,
+    "endDate": 1695615345753,
     "remoteHost": "10.0.1.31",
+    "username": "hiroya@procube.jp",
+    "active": false,
+    "identifier": "83",
+    "uuid": "cf7fd0fc-8e92-38a5-8fd9-64dc6085f7ec",
+    "attributes": {},
+    "logs": {
+      "0c590a37-57fe-3c44-9f88-f7dd52fc4db9": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "26a5b912-298a-38e5-b669-c67b551a6c5e": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "cc0b294f-ec39-3aa1-a9c7-e60d56a6cd9e": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697442336099,
+    "endDate": 1697442340410,
+    "remoteHost": "10.0.1.38",
     "username": "admin",
     "active": false,
-    "identifier": "12",
-    "uuid": "a99e3dbc-14e6-3664-8261-2809df888090",
+    "identifier": "87",
+    "uuid": "2118ce44-0311-3c71-830a-2837fb08ab9d",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "3f8dfb8c-00cb-37e1-a3c7-5ce25ece9278": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "bd4796d8-4aef-37ce-ac5e-96b302a63505": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "1677a0cc-787d-38e6-922e-5a6103900998": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690345946986,
-    "endDate": 1690346982342,
-    "remoteHost": "10.0.1.29",
-    "username": "guacadmin",
+    "startDate": 1696482090739,
+    "endDate": 1696482166912,
+    "remoteHost": "10.0.1.2",
+    "username": "admin",
     "active": false,
-    "identifier": "11",
-    "uuid": "85d86ec5-3205-399c-b874-f3dcbc0f862b",
+    "identifier": "84",
+    "uuid": "31fcf7b5-ea3a-302b-9220-b58091f02cf5",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "662d4760-ad65-3393-b939-939fcff1474f": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "482c2d78-5827-301c-89eb-b68d42233a63": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "3867a171-e641-3d48-a240-22f13d313299": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
+    "sharingProfileIdentifier": null,
     "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690268775858,
-    "endDate": 1690268796131,
-    "remoteHost": "10.0.1.31",
-    "username": "guacadmin",
+    "startDate": 1697441817141,
+    "endDate": 1697441876907,
+    "remoteHost": "10.0.1.38",
+    "username": "admin",
     "active": false,
-    "identifier": "10",
-    "uuid": "b9deb9d5-9034-3dc4-ba25-5b1e9f825988",
+    "identifier": "85",
+    "uuid": "78416a47-bd7f-3d9a-89b3-e460ab668404",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "885c8d12-55ee-380a-bc29-58d327c80374": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "099b7a8e-7b70-36a4-a791-f9bbcbc9c357": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "493bd215-9487-36ad-8345-87837d4bc178": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "IRURE",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690261950269,
-    "endDate": 1690261971809,
-    "remoteHost": "10.0.1.5",
-    "username": "guacadmin",
+    "startDate": 1697445326039,
+    "endDate": 1697445327753,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
     "active": false,
-    "identifier": "9",
-    "uuid": "5746e64d-aa28-33f7-95fd-423deff48efb",
+    "identifier": "89",
+    "uuid": "b129a2a4-7abc-31ee-97b3-d9993c79de1a",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "ee148a50-9048-3baa-b874-979bbea803e3": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "1d6a0829-875f-37e4-ab52-cc3d6df0cf66": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "558a8cdf-814b-39c8-b2aa-bc2ad06bea3d": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690251709852,
-    "endDate": 1690251731411,
-    "remoteHost": "10.0.1.5",
-    "username": "guacadmin",
+    "startDate": 1697445330690,
+    "endDate": 1697445334957,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
     "active": false,
-    "identifier": "8",
-    "uuid": "47d2a228-662f-3f84-b968-a5b12855dec8",
+    "identifier": "90",
+    "uuid": "9b348969-92d2-3f63-9fbe-86ebffe634c2",
     "attributes": {},
     "logs": {},
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690251307668,
-    "endDate": 1690251329349,
-    "remoteHost": "10.0.1.5",
-    "username": "guacadmin",
+    "startDate": 1697504104042,
+    "endDate": 1697504109351,
+    "remoteHost": "10.0.1.38",
+    "username": "admin",
     "active": false,
-    "identifier": "7",
-    "uuid": "4769d8ad-c38b-3c5e-94c8-e99a865f20df",
+    "identifier": "93",
+    "uuid": "2f995350-21a2-3b51-80d4-c99cb46d238c",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "4b81837b-9d04-3af5-aa6c-0179196debb0": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "2b01e8e7-36be-3aaa-bd9c-41bcb2d84080": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "65dfa4fd-9a5b-35a5-8888-0c6b41602fa1": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690250560440,
-    "endDate": 1690250566678,
-    "remoteHost": "10.0.1.33",
-    "username": "guacadmin",
+    "startDate": 1697510328654,
+    "endDate": 1697510333823,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
     "active": false,
-    "identifier": "6",
-    "uuid": "bf9df7ce-b026-3432-9961-8833a681d34b",
+    "identifier": "96",
+    "uuid": "28c793da-3598-39c9-a32d-2aa8d4cae227",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "4308d9f6-cbb2-3f4c-803b-2108dc3c3f9a": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "9bd14648-2648-3b54-849d-b18356a4cc0b": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "57780d09-7ea5-3185-a50f-a3a6dd3c20de": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1690250549443,
-    "endDate": 1690250555926,
-    "remoteHost": "10.0.1.33",
-    "username": "guacadmin",
+    "startDate": 1697594815445,
+    "endDate": 1697594828103,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
     "active": false,
-    "identifier": "5",
-    "uuid": "a7271d78-ddee-3437-8c22-afb646dc3caf",
+    "identifier": "102",
+    "uuid": "4c78c580-88e8-3a2d-b47e-34863e7b5f07",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "da915870-be3e-302e-936b-9e416a47aff4": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "fe0780a3-9118-3be1-8ac1-81bdff1b845d": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "e59b35ba-a651-334b-8abf-fa5077cb2d40": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1689756817014,
-    "endDate": 1689756838424,
-    "remoteHost": "10.0.1.32",
-    "username": "guacadmin",
+    "startDate": 1697596133716,
+    "endDate": 1697596144323,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
     "active": false,
-    "identifier": "4",
-    "uuid": "3c1501f5-df64-31df-a140-a7b68cb7aad3",
+    "identifier": "104",
+    "uuid": "efe626b6-f0ec-3418-8d59-9c0973da34c2",
     "attributes": {},
     "logs": {},
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1689750724128,
-    "endDate": 1689751058011,
-    "remoteHost": "10.0.1.33",
-    "username": "guacadmin",
+    "startDate": 1697596166747,
+    "endDate": 1697596175651,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
     "active": false,
-    "identifier": "3",
-    "uuid": "52871880-4953-3c46-9b3a-a2ed9b9cbc89",
+    "identifier": "106",
+    "uuid": "c5295418-3337-3aa3-bcd5-5e7024f40f48",
     "attributes": {},
-    "logs": {},
+    "logs": {
+      "be017954-666f-305d-acbe-687cf215089a": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "24b00a53-342c-31a7-8969-ff15c87c4c3c": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "24bf9116-ab06-3a71-adf7-97365788e685": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1689750644981,
-    "endDate": 1689750648074,
-    "remoteHost": "10.0.1.33",
-    "username": "guacadmin",
+    "startDate": 1697596591889,
+    "endDate": 1697596592000,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
     "active": false,
-    "identifier": "2",
-    "uuid": "9d4f66ae-b0e6-3d87-a074-e8c04320c961",
+    "identifier": "110",
+    "uuid": "6a80d0f5-c6eb-3103-b303-c07056fe7553",
     "attributes": {},
     "logs": {},
-    "connectionIdentifier": "1",
-    "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
   },
   {
-    "startDate": 1689750628857,
-    "endDate": 1689750637937,
-    "remoteHost": "10.0.1.33",
-    "username": "guacadmin",
+    "startDate": 1697596595735,
+    "endDate": 1697596595850,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
     "active": false,
-    "identifier": "1",
-    "uuid": "8063df49-c55f-347b-802d-0c1168c0c119",
+    "identifier": "111",
+    "uuid": "1eaccb9b-e330-3648-90f5-6654f001bb7e",
     "attributes": {},
     "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697596597445,
+    "endDate": 1697596597546,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
+    "active": false,
+    "identifier": "112",
+    "uuid": "4521dd51-7fed-3453-9c9f-f63b5c1e9ebd",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697596682255,
+    "endDate": 1697597119224,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
+    "active": false,
+    "identifier": "114",
+    "uuid": "bbae6fd3-b4f1-303a-a181-2a1976a97209",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697597121342,
+    "endDate": 1697597167445,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
+    "active": false,
+    "identifier": "115",
+    "uuid": "f812f461-10e7-313d-8691-950ebd294090",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697605529684,
+    "endDate": 1697605538423,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "117",
+    "uuid": "60aab4bb-3f04-3e5c-8186-1216afc27ea3",
+    "attributes": {},
+    "logs": {
+      "3056b1d5-bf6e-3c8f-9440-c9d770178928": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "e3c68a95-17e0-3b82-8807-2b4ccb9b40fc": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "158ed601-73bc-3565-a6fe-f5386eea2fcb": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
     "connectionIdentifier": "1",
     "connectionName": "linux",
-    "sharingProfileIdentifier": "null",
-    "workId": "",
-    "sharingProfileName": "null"
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697676301557,
+    "endDate": 1697676307734,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "120",
+    "uuid": "8ea3f0d9-7257-31d0-8122-0b333375d7a8",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697676305752,
+    "endDate": 1697676323124,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "121",
+    "uuid": "2e7b96e1-f79b-359e-9f9f-9b2bcf9267b7",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697676440939,
+    "endDate": 1697676453854,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "122",
+    "uuid": "7e55c8fd-f427-3312-a09f-d107ded2a198",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697676455176,
+    "endDate": 1697676464894,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "123",
+    "uuid": "4c95bebd-c2ed-3852-b815-0206180ef30f",
+    "attributes": {},
+    "logs": {
+      "a03e70ae-017e-300c-a33f-9aeafdfdb533": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "2e300846-12ae-3d06-8207-4be1acbb8b96": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "b1fb1c44-fcda-3156-b80f-c842de0652fa": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697677766007,
+    "endDate": 1697677788278,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "126",
+    "uuid": "8fa8f2b6-9794-39cf-beae-2f62d18561f6",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697677772816,
+    "endDate": 1697678026837,
+    "remoteHost": "10.0.1.24",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "127",
+    "uuid": "39396ee4-35b7-384f-b1ac-7596d8522c8c",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697682050709,
+    "endDate": 1697682059547,
+    "remoteHost": "10.0.1.24",
+    "username": "admin",
+    "active": false,
+    "identifier": "129",
+    "uuid": "822ec874-03e2-34de-93d3-7058a417529d",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697704539887,
+    "endDate": 1697704570666,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "131",
+    "uuid": "7b7f3f68-491e-3e0f-ad76-7f196b449598",
+    "attributes": {},
+    "logs": {
+      "9b422230-f839-389b-a38e-70742041a1ce": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "0b1f11ac-51c7-3e90-a9e7-9f7a45abe6dd": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "20f3993c-65fa-3ccb-b697-e103d159072a": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697705194877,
+    "endDate": 1697705194990,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "135",
+    "uuid": "7e0d8cfa-2085-3c38-8b6b-0d5c896c0e92",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "8",
+    "connectionName": "テスト用",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697705202956,
+    "endDate": 1697705203152,
+    "remoteHost": "10.0.1.23",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "137",
+    "uuid": "b6bc33b2-888f-306c-8e26-4e4982582d13",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "7",
+    "connectionName": "テスト",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1697783901072,
+    "endDate": 1697783956596,
+    "remoteHost": "10.0.1.38",
+    "username": "admin",
+    "active": false,
+    "identifier": "139",
+    "uuid": "90214078-4d4c-3131-98b3-656ffbc2f563",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "2",
+    "connectionName": "aristaEOS",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698041450158,
+    "endDate": 1698041481443,
+    "remoteHost": "10.0.1.38",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "141",
+    "uuid": "737bdde6-2509-3b91-9c02-8f2e0a26febc",
+    "attributes": {},
+    "logs": {
+      "0123436a-ceab-352d-be74-d0ea34b74ffb": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "048c9bac-de35-3ad4-8b21-93fe04ef5ed1": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "5fbc41e7-2b47-3fc9-b1ba-397f273061b6": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698212665853,
+    "endDate": 1698212684690,
+    "remoteHost": "10.0.1.13",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "143",
+    "uuid": "0a683b88-1992-3185-9a62-22a8e1024a85",
+    "attributes": {},
+    "logs": {
+      "e5ec3da8-ecb3-3615-8cdc-852b5115ca44": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "32979c83-d32d-380f-8611-9416caa2a942": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "e5e64faa-9a74-3889-b2e2-1d2f04602fe7": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698213814662,
+    "endDate": 1698213815898,
+    "remoteHost": "10.0.1.13",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "146",
+    "uuid": "64a99485-2466-380c-a456-e67caf264ba6",
+    "attributes": {},
+    "logs": {
+      "57ca29e5-48e6-3540-ab62-75d77f3a86eb": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "392b654b-f7f9-3799-a2ec-27113adb9977": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "22206ed0-fb9d-3a70-a932-9f4672a9c476": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698213823071,
+    "endDate": 1698213827736,
+    "remoteHost": "10.0.1.13",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "147",
+    "uuid": "f9e08252-ec98-3850-8fad-0fc38e2950b1",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "4",
+    "connectionName": "windows",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698213835348,
+    "endDate": 1698213855116,
+    "remoteHost": "10.0.1.13",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "148",
+    "uuid": "bd6a6e68-24af-3cd5-a43c-e96ca8d2da73",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "3",
+    "connectionName": "chrome",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698216459143,
+    "endDate": 1698216499376,
+    "remoteHost": "10.0.1.13",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "149",
+    "uuid": "38ab8cd9-a772-3e45-9d80-c360c65e78b8",
+    "attributes": {},
+    "logs": {
+      "8a3babf8-709d-3ff7-9e28-da05ce7364fa": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      },
+      "5942f3f4-cbaf-3b2e-8279-ccde180bb543": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "f8917cf5-2845-3451-bd1a-7c42f67d1f71": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "082A0",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698733925550,
+    "endDate": 1698733925670,
+    "remoteHost": "10.0.1.34",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "158",
+    "uuid": "c99075c5-4f73-3706-b9e8-8f22e5a966c9",
+    "attributes": {},
+    "logs": {},
+    "connectionIdentifier": "8",
+    "connectionName": "テスト用",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
+  },
+  {
+    "startDate": 1698733950573,
+    "endDate": 1698733955503,
+    "remoteHost": "10.0.1.34",
+    "username": "naoya@procube.jp",
+    "active": false,
+    "identifier": "159",
+    "uuid": "dd49cf05-66ed-3e94-89d4-ca6a6a59d65e",
+    "attributes": {},
+    "logs": {
+      "b539e400-35cc-34a7-a164-96679691c8fb": {
+        "type": "TYPESCRIPT_TIMING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT_TIMING",
+          "variables": null
+        }
+      },
+      "40abe3ab-f784-331c-a2cf-a39018b6a2e2": {
+        "type": "GUACAMOLE_SESSION_RECORDING",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_GUACAMOLE_SESSION_RECORDING",
+          "variables": null
+        }
+      },
+      "ff0d646f-dc10-3164-a019-4fe77c6e84cb": {
+        "type": "TYPESCRIPT",
+        "description": {
+          "key": "RECORDING_STORAGE.INFO_TYPESCRIPT",
+          "variables": null
+        }
+      }
+    },
+    "connectionIdentifier": "1",
+    "connectionName": "linux",
+    "sharingProfileIdentifier": null,
+    "workId": "undefined",
+    "sharingProfileName": null
   }
 ]

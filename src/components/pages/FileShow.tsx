@@ -25,6 +25,10 @@ const FileInfo = () => {
   const length = useWatch({ name: 'length' });
   const status = useWatch({ name: 'metadata.status' });
   const unique = useWatch({ name: 'metadata.unique' });
+  const path = unique.split("/")
+  path.shift()
+  path.shift()
+  const uniqueStr = "/" + path.join("/")
   const translate = useTranslate()
   return filename ? (
     <Box sx={{ mb: 2, bgcolor: "primary.light", color: "primary.contrastText", p: 2, borderRadius: '16px', boxShadow: 1 }}>
@@ -35,7 +39,7 @@ const FileInfo = () => {
         {translate('file.fields.metadata.status')}: {status}
       </Typography>
       <Typography variant="body2">
-        {translate('file.fields.metadata.unique')}: {unique}
+        {translate('file.fields.metadata.unique')}: {uniqueStr}
       </Typography>
     </Box>
   ) : null

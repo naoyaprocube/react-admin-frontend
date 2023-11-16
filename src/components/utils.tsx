@@ -113,6 +113,7 @@ export const statusToColor = (work: any) => {
   if (work.isAfter) return "#ef9a9a" //red
   else return "#fff59d" //yellow
 };
+
 export const statusStringToColor = (status: string) => {
   if (status === "now") return "#80deea" //cyan
   if (status === "before") return "#c5e1a5" //lightGreen

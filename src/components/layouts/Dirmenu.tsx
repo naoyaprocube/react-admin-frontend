@@ -33,7 +33,8 @@ interface Props {
   children: ReactNode;
 }
 interface MenuProps {
-  workId: string
+  workId: string,
+  idmId: string,
 }
 const initialState = [{}]
 const reducerFunc = (openState: Array<any>, obj: any) => {
@@ -57,7 +58,7 @@ type FFireContext = {
 export const FireContext = React.createContext({} as FFireContext);
 
 const DirMenu = (props: MenuProps) => {
-  const { workId } = props
+  const { workId, idmId } = props
   const [state, setState] = React.useState([]);
   const [openState, dispatch] = React.useReducer(reducerFunc, initialState)
   const [activeDir, setActiveDir] = React.useState("")
@@ -69,7 +70,7 @@ const DirMenu = (props: MenuProps) => {
   const [getdirFire, setGetdirFire] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    dataProvider.getdirs("files/" + workId).then((result: any) => {
+    dataProvider.getdirs("files/" + idmId).then((result: any) => {
       const list = String(result.body)
         .split('"_id":\"')
         .map((str: String) => {
@@ -88,7 +89,7 @@ const DirMenu = (props: MenuProps) => {
     }).catch((response: any) => {
       notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
-  }, [getdirFire, workId])
+  }, [getdirFire, idmId])
 
   const DirMenuItem = React.useCallback((props: Props) => {
     const { handleToggle, isOpen, name, id, isParent, children, dense } = props;
@@ -181,18 +182,20 @@ const DirMenu = (props: MenuProps) => {
   }, [fire, activeDir, workId])
   return (
     <FireContext.Provider value={{ fire: getdirFire, setFire: setGetdirFire }}>
-      <Card sx={{ order: -1, mt: 1, mr: 2, minWidth: 300, height: '100%' }}>
-        <CardContent>
-          <Box sx={{ ml: 2, display: "flex" }}>
-            <FolderSharedIcon />
-            <Typography variant="body2" sx={{ ml: 1, }}>
-              {translate('dir.dirs')}
-            </Typography>
-          </Box>
+      <Box sx={{ order: -1, mt: 1, mr: 2, minWidth: 300, maxWidth: 300, maxHeight: 600, overflow: "auto" }}>
+        <Card sx={{ minWidth: 300 }}>
+          <CardContent>
+            <Box sx={{ ml: 2, display: "flex" }}>
+              <FolderSharedIcon />
+              <Typography variant="body2" sx={{ ml: 1, }}>
+                {translate('dir.dirs')}
+              </Typography>
+            </Box>
+            {dirMenuItems(state)}
+          </CardContent>
+        </Card>
+      </Box>
 
-          {dirMenuItems(state)}
-        </CardContent>
-      </Card>
     </FireContext.Provider>
   )
 }

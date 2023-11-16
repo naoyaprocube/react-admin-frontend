@@ -31,12 +31,11 @@ export const AGAppbar = () => {
   const [work, setWork]: any = React.useState({})
   React.useEffect(() => {
     if (workId === "public" || workId === "all") setWork({})
-    else if (workId) dataProvider.getListAll("works").then((result: any) => {
-      const filtered = result.data.filter((v: any) => v.idmIdentifier === workId)
-      if (filtered.length > 0) setWork(filtered[0])
+    else if (workId) dataProvider.getWork("works", { id: workId }).then((result: any) => {
+      setWork(result)
     })
     else setWork({})
-  }, [pathname])
+  }, [workId])
   const WorkField = (props: any) => {
     if (Object.keys(work).length === 0) return null
     const color = statusToColor(work)

@@ -60,6 +60,7 @@ const english = {
   dir: {
     dirname: 'Directory Name',
     dirs: 'Directories',
+    selectManager: 'Select Manager',
     mkdir: {
       title: 'Create Directory',
       content: 'Can make directory under the %{name}. Input directory name.',
@@ -91,7 +92,8 @@ const english = {
     fileUpload: 'File Upload',
     fileInfo: 'File Info',
     connectionHistory: 'Connection History',
-    allConnectionHistory: 'All Connection History'
+    allConnectionHistory: 'All Connection History',
+    SFTPClient: 'SFTP Connection'
   },
   guacamole: {
     announcement: 'Announcement',
@@ -114,14 +116,15 @@ const english = {
     notAdminInfo: 'This page cannot be accessed in Worker Mode.',
     play: 'Play',
     textlog: 'Text',
+    none: 'None',
     field: {
       id: 'ID',
-      usename: 'Username',
+      username: 'Username',
       connectId: 'Connection ID',
       connectionIdentifier: 'Connection ID',
-      connectName: 'Connection Name',
+      remark: 'Remark',
       protocol: 'Protocol',
-      parent: 'Connection Group',
+      hostname: 'Host Name',
       lastActive: 'Last Active Date',
       remoteHost: 'Remote Host',
       startDate: 'Start Date',
@@ -137,7 +140,7 @@ const english = {
         ssh: 'SSH',
       },
       parent: {
-        name: 'Connection Group',
+        name: 'Hosts',
       },
       duration: {
         name: 'Duration',
@@ -160,6 +163,16 @@ const english = {
         after: 'Finished',
       },
     }
+  },
+  sftp: {
+    transfer: 'Transfer files',
+    delete: 'Delete',
+    fields: {
+      mtime: 'Modify Time',
+      atime: 'Access Time',
+      uid: 'uid',
+      gid: 'gid',
+    },
   }
 }
 
@@ -221,6 +234,7 @@ const japanese = {
   dir: {
     dirname: 'ディレクトリ名',
     dirs: 'ディレクトリ',
+    selectManager: '領域選択',
     mkdir: {
       title: 'ディレクトリを作成',
       content: '%{name}の配下にディレクトリを作成します。ディレクトリ名を入力してください。',
@@ -252,7 +266,8 @@ const japanese = {
     fileUpload: 'アップロード',
     fileInfo: 'ファイル詳細',
     connectionHistory: '接続履歴',
-    allConnectionHistory: '全体接続履歴'
+    allConnectionHistory: '全体接続履歴',
+    SFTPClient: 'SFTP接続'
   },
   guacamole: {
     announcement: 'お知らせ',
@@ -275,14 +290,15 @@ const japanese = {
     notAdminInfo: '作業者モードでアクセスできないページです。',
     play: '再生',
     textlog: 'テキスト',
+    none: 'なし',
     field: {
       id: 'ID',
-      usename: 'ユーザー',
+      username: 'ユーザー',
       connectId: '接続先ID',
       connectionIdentifier: '接続先ID',
-      connectName: '接続先名',
+      remark: '補足',
       protocol: 'プロトコル',
-      parent: '機器種別',
+      hostname: 'ホスト名',
       lastActive: '最終アクティブ日時',
       remoteHost: '接続元IP',
       startDate: '開始日時',
@@ -298,7 +314,7 @@ const japanese = {
         ssh: 'SSH',
       },
       parent: {
-        name: '機器種別',
+        name: 'ホスト',
       },
       duration: {
         name: '接続時間',
@@ -321,6 +337,16 @@ const japanese = {
         after: '終了済',
       },
     }
+  },
+  sftp: {
+    transfer: 'ファイルを転送',
+    delete: '削除',
+    fields: {
+      mtime: '最終更新日時',
+      atime: '最終アクセス日時',
+      uid: 'uid',
+      gid: 'gid',
+    },
   }
 }
 

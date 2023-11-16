@@ -2,7 +2,8 @@ import * as React from 'react';
 import {
   useDataProvider,
   useTranslate,
-  useNotify
+  useNotify,
+  useRefresh,
 } from 'react-admin';
 import {
   Button,
@@ -13,17 +14,17 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
-  MenuItem,
   Typography,
 } from '@mui/material';
 import { useWatch } from 'react-hook-form';
 import { Controller, useForm } from 'react-hook-form';
 import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
-import { FireContext } from '../layouts/Dirmenu'
 
 interface MKDProps {
-  dirId: String;
-  dirName: String;
+  socket: any;
+  parent_path?: string;
+  dirId?: string;
+  resource: string;
 }
 
 const NameInputField = ({ control }: any) => {
@@ -50,20 +51,24 @@ const NameInputField = ({ control }: any) => {
   );
 };
 
-export const MKDirButton = (props: MKDProps) => {
-  const { dirId, dirName } = props;
+export const SFTPMKDirButton = (props: MKDProps) => {
+  const { parent_path, socket, resource, dirId } = props;
   const { control, handleSubmit } = useForm({
     mode: "onChange"
   });
   const [open, setOpen] = React.useState(false);
-  const { setFire } = React.useContext(FireContext);
-  const notify = useNotify()
-  const dataProvider = useDataProvider()
   const translate = useTranslate()
+  const dataProvider = useDataProvider()
+  const notify = useNotify()
+  const refresh = useRefresh()
   const name = useWatch({ name: "NameInputField", control: control });
   const isSet = name ? true : false
   const onSubmit = (data: any) => {
-    dataProvider.mkdir("files/" + dirId, { dirname: data.NameInputField }).then((response: Response) => {
+    if (resource === "sftp") socket.send(JSON.stringify({
+      type: "mkdir",
+      path: parent_path + "/" + data.NameInputField,
+    }))
+    else if (resource === "mongo" && dirId) dataProvider.mkdir("files/" + dirId, { dirname: data.NameInputField }).then((response: Response) => {
       if (response.status < 200 || response.status >= 300) {
         if (response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
         else notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: "Error" } })
@@ -71,16 +76,19 @@ export const MKDirButton = (props: MKDProps) => {
       if (response.status === 200) {
         notify('file.statusCodeError', { type: 'warning', messageArgs: { code: response.status, text: response.body } })
       }
-      setFire(fire => !fire)
-      setOpen(false)
+      refresh()
     })
       .catch((response: any) => {
         notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
       })
   }
   return React.useMemo(() => (
-    <MenuItem disabled={open} onClick={() => { if (!open) setOpen(true) }}>
-      <CreateNewFolderIcon color="primary" fontSize="small" />
+    <Button
+      disabled={open}
+      onClick={() => { if (!open) setOpen(true) }}
+      sx={{ flex: "none" }}
+    >
+      <CreateNewFolderIcon fontSize="small" />
       <Typography variant="body2" fontSize={15} sx={{ ml: 1 }}>
         {translate('dir.mkdir.create')}
       </Typography>
@@ -102,7 +110,7 @@ export const MKDirButton = (props: MKDProps) => {
           </DialogTitle>
           <DialogContent>
             <DialogContentText>
-              {translate('dir.mkdir.content', { name: dirName })}
+              {translate('dir.mkdir.content', { name: parent_path })}
             </DialogContentText>
             <NameInputField control={control} />
           </DialogContent>
@@ -124,6 +132,6 @@ export const MKDirButton = (props: MKDProps) => {
           </DialogActions>
         </form>
       </Dialog>
-    </MenuItem>
+    </Button>
   ), [open, isSet])
 }

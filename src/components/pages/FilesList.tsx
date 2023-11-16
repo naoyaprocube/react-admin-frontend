@@ -35,6 +35,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DirMenu from '../layouts/Dirmenu';
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
 import { useNavigate } from "react-router-dom";
+import LinearProgress from '@mui/material/LinearProgress';
 
 const FilesList = (props: any) => {
   const { workId, dirId } = useParams()
@@ -44,9 +45,21 @@ const FilesList = (props: any) => {
   const navigate = useNavigate()
   const notify = useNotify()
   const [dir, setDir] = React.useState({});
+  const [work, setWork]: any = React.useState({})
   React.useEffect(() => {
-    if (!dirId) {
-      dataProvider.getdir("files", { id: "workDir-" + workId }).then((result: any) => {
+    if (workId === "public") setWork({
+      identifier: "public",
+      idmIdentifier: "public"
+    })
+    else if (workId) dataProvider.getWork("works", { id: workId }).then((result: any) => {
+      setWork(result)
+    })
+    else setWork({})
+  }, [workId])
+
+  React.useEffect(() => {
+    if (!dirId && work.idmIdentifier) {
+      dataProvider.getdir("files", { id: "workDir-" + work.idmIdentifier }).then((result: any) => {
         if (result === null) {
           notify('file.statusCodeError', { type: 'error', messageArgs: { code: 500, text: result.message } })
         }
@@ -59,14 +72,14 @@ const FilesList = (props: any) => {
         notify('file.statusCodeError', { type: 'error', messageArgs: { code: 500, text: "There is no work directory" } })
       })
     }
-    else dataProvider.getdir("files", { id: dirId }).then((result: any) => {
+    else if (dirId) dataProvider.getdir("files", { id: dirId }).then((result: any) => {
       const json = JSON.parse(result.body)
       setDir(json)
       setId(json._id)
     }).catch((response: any) => {
       notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
-  }, [workId, dirId])
+  }, [work.idmIdentifier, dirId])
 
   const DeleteButton = () => {
     const record = useRecordContext()
@@ -99,7 +112,7 @@ const FilesList = (props: any) => {
     )
   }
   const Empty = () => (
-    <Box sx={{ width: 1, display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', width: 1 }}>
       <Box sx={{
         display: 'flex',
         justifyContent: 'center',
@@ -154,11 +167,11 @@ const FilesList = (props: any) => {
         </Typography>
       }
     </Breadcrumbs>
-    {id ?
+    {work.identifier && id ?
       <List
         {...props}
         title={workId === "public" ? translate('pages.publicFileManager') : translate('pages.fileManager')}
-        aside={<DirMenu workId={workId} />}
+        aside={<DirMenu workId={work.identifier} idmId={work.idmIdentifier} />}
         empty={<Empty />}
         resource={"files"}
         queryOptions={{ meta: { includeDir: false, dirId: id } }}
@@ -187,7 +200,9 @@ const FilesList = (props: any) => {
           <FileActionButtons width="0%" />
         </CustomDatagrid>
       </List>
-      : null}
+      : <Box sx={{ width: '100%', p: 1 }}>
+        <LinearProgress />
+      </Box>}
   </Box>)
 };
 

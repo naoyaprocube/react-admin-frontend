@@ -17,7 +17,6 @@ import {
 import { ConnectButton } from '../buttons/ConnectButton'
 import { SFTPConnectButton } from '../buttons/SFTPConnectButton'
 import { AppContext, workerTheme } from '../../App'
-import { ActiveConnectionPanel } from '../layouts/ActiveConnectionPanel'
 import { useParams } from "react-router-dom";
 import PersonOffIcon from '@mui/icons-material/PersonOff';
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
@@ -88,16 +87,23 @@ const ConnectionsList = (props: any) => {
     >
       <CustomDatagrid bulkActionButtons={false} >
         <TextField label="guacamole.field.id" source="identifier" width="0%" />
-        <TextField label="guacamole.field.connectName" source="name" width="50%" />
+        <TextField label="guacamole.field.hostname" source="hostname" />
         <FunctionField label="guacamole.field.protocol" sortBy="protocol" render={(record: any) => {
           if (record.protocol === "ssh") return translate('guacamole.filter.protocol.ssh')
           else if (record.protocol === "rdp") return translate('guacamole.filter.protocol.rdp')
           else if (record.protocol === "telnet") return translate('guacamole.filter.protocol.telnet')
           else if (record.protocol === "vnc") return translate('guacamole.filter.protocol.vnc')
         }} />
-        <TextField label="guacamole.field.parent" source="parentIdentifier" />
+
+        <FunctionField label="guacamole.field.remark" source="remark" width="40%" render={(record: any) => {
+          return (<Box sx={{ maxHeight: 100 }}>
+            <Typography variant="body2" >
+              {record.remark}
+            </Typography>
+          </Box>)
+        }} />
         <DateField label="guacamole.field.lastActive" source="lastActive" showTime />
-        <Box width="0%" sx={{display:"inline-flex"}}>
+        <Box width="0%" sx={{ display: "inline-flex" }}>
           <ConnectButton
             type="c"
             workId={workId}

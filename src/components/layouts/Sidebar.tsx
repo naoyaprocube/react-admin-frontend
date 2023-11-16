@@ -50,7 +50,7 @@ export const GuacMenu = () => {
   const [fire, setFire] = React.useState<boolean>(false);
   const [page, setPage] = React.useState<number>(1)
   const [perpage, setPerpage] = React.useState<number>(15)
-  const [filter, setFilter] = React.useState(null)
+  const [filter, setFilter] = React.useState("now")
   const [hasNextPage, setHasNextPage] = React.useState<boolean>(true)
   const dataProvider = useDataProvider()
   const translate = useTranslate()
@@ -125,10 +125,13 @@ export const GuacMenu = () => {
             },
           }}
         >
-          <MenuItem onClick={() => {
-            setFilter(null)
-            handleClose()
-          }}>
+          <MenuItem
+            onClick={() => {
+              setFilter(null)
+              handleClose()
+            }}
+            key="none"
+          >
             {translate('guacamole.filter.work.none')}
           </MenuItem>
           <MenuItem
@@ -140,7 +143,9 @@ export const GuacMenu = () => {
             onClick={() => {
               setFilter("before")
               handleClose()
-            }}>
+            }}
+            key="before"
+          >
             {translate('guacamole.filter.work.before')}
           </MenuItem>
           <MenuItem
@@ -152,7 +157,9 @@ export const GuacMenu = () => {
             onClick={() => {
               setFilter("now")
               handleClose()
-            }}>
+            }}
+            key="now"
+          >
             {translate('guacamole.filter.work.now')}
           </MenuItem>
           <MenuItem
@@ -164,7 +171,9 @@ export const GuacMenu = () => {
             onClick={() => {
               setFilter("out")
               handleClose()
-            }}>
+            }}
+            key="out"
+          >
             {translate('guacamole.filter.work.out')}
           </MenuItem>
           <MenuItem
@@ -176,7 +185,9 @@ export const GuacMenu = () => {
             onClick={() => {
               setFilter("after")
               handleClose()
-            }}>
+            }}
+            key="after"
+          >
             {translate('guacamole.filter.work.after')}
           </MenuItem>
         </MuiMenu>
@@ -221,6 +232,7 @@ export const GuacMenu = () => {
         }}
         onClick={handleToggle}
         disableRipple
+        key="header"
       >
         <ItemIcon />
         <Typography sx={{ ml: 1, color: "text.secondary" }} >
@@ -266,7 +278,7 @@ export const GuacMenu = () => {
           children={<Box>
             {localStorage.getItem('theme') === "worker" ?
               <Menu.Item
-                to={"/connections/" + menuItemData.idmIdentifier}
+                to={"/connections/" + menuItemData.identifier}
                 primaryText={
                   <Typography variant="body2">
                     {translate('pages.connectionSelect')}
@@ -280,7 +292,7 @@ export const GuacMenu = () => {
             }
 
             <Menu.Item
-              to={"/history/" + menuItemData.idmIdentifier}
+              to={"/history/" + menuItemData.identifier}
               primaryText={
                 <Typography variant="body2">
                   {translate('pages.connectionHistory')}
@@ -291,7 +303,7 @@ export const GuacMenu = () => {
               key={menuItemData.idmIdentifier + "-history"}
             />
             <Menu.Item
-              to={"/files/" + menuItemData.idmIdentifier}
+              to={"/files/" + menuItemData.identifier}
               primaryText={
                 <Typography variant="body2">
                   {translate('pages.fileManager')}

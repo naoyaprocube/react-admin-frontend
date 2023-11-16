@@ -49,7 +49,7 @@ export const DirmenuActions = (props: DMAProps) => {
           },
         }}
       >
-        <MKDirButton dirId={mongoid} sidebarIsOpen={false} dirName={dirName} />
+        <MKDirButton dirId={mongoid} dirName={dirName} />
         <RNDirButton dirId={mongoid} isRoot={isRoot} dirName={dirName} />
         <RMDirButton mongoid={mongoid} isRoot={isRoot} dirName={dirName} />
       </Menu>

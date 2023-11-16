@@ -75,7 +75,10 @@ const Dashboard = (props: any) => {
   const ConnectionField = (props: any) => {
     const record = useRecordContext();
     const [open, setOpen] = React.useState(false);
-    const [parentList, setParentList] = React.useState([]);
+    const parents: Array<any> = []
+    record.connections.map((connection: any) => {
+      if (parents.indexOf(connection.hostname) === -1) parents.push(connection.hostname)
+    })
     return (
       <Card sx={{ width: 1 }}>
         <Box sx={{ width: 1, display: 'inline-flex', flexDirection: 'row', borderBottom: 0.6, p: 0.5 }}>
@@ -84,27 +87,35 @@ const Dashboard = (props: any) => {
             {translate('guacamole.deviceConnection')}
           </Typography>
         </Box>
-        <Collapse in={open} collapsedSize={0} >
-          {parentList.map((parent: any, index: number) => {
-            return (
-              <Box sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
-                <Typography variant="body2">
-                  {parent}
-                </Typography>
-              </Box>)
-          })}
-        </Collapse>
+        {parents.length > 0 ? (<>
+          <Box sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
+            <Typography variant="body2">
+              {parents[0]}
+            </Typography>
+          </Box>
+          <Collapse in={open} collapsedSize={0} >
+            {parents.map((parent: any, index: number) => {
+              return (index === 0 ? null :
+                <Box sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
+                  <Typography variant="body2">
+                    {parent}
+                  </Typography>
+                </Box>)
+            })}
+          </Collapse>
+        </>)
+          : <Typography variant="body2" style={{ color: "#757575" }} align="center">
+            {translate('guacamole.none')}
+          </Typography>
+        }
         <Box sx={{ display: 'flex', width: 1, justifyContent: 'center' }}>
-          <IconButton onClick={() => {
-            if (!open) dataProvider.getParentList("connections/" + record.idmIdentifier).then((response: any) => {
-              setParentList(response)
-            }).then(() => setOpen(open => !open))
-            else setOpen(open => !open)
-          }}>
-            {!open ? <MoreVertIcon fontSize="small" />
-              : <ExpandLessIcon fontSize="small" />
-            }
-          </IconButton>
+          {parents.length <= 1 ? null :
+            <IconButton onClick={() => setOpen(open => !open)}>
+              {!open ? <MoreVertIcon fontSize="small" />
+                : <ExpandLessIcon fontSize="small" />
+              }
+            </IconButton>
+          }
         </Box>
       </Card>
     );
@@ -121,29 +132,34 @@ const Dashboard = (props: any) => {
             {translate('guacamole.period')}
           </Typography>
         </Box>
-        <Box sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
-          <Typography variant="body2" component="pre">
-            {record.periods[0].validFrom} ~ {record.periods[0].validUntil}
-          </Typography>
-          <Typography variant="body2" component="pre" sx={{ ml: 1 }}>
-            {record.periods[0].startTime} - {record.periods[0].endTime}
-          </Typography>
-        </Box>
-        <Collapse in={open} collapsedSize={0} >
-          {record.periods.map((period: any, index: number) => {
-            return (index === 0 ? null :
-              <Box sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
-                <Typography variant="body2" component="pre">
-                  {period.validFrom} ~ {period.validUntil}
-                </Typography>
-                <Typography variant="body2" component="pre" sx={{ ml: 1 }}>
-                  {period.startTime} - {period.endTime}
-                </Typography>
-              </Box>)
-          })}
-        </Collapse>
+        {record.periods.length > 0 ? (<>
+          <Box sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
+            <Typography variant="body2" component="pre">
+              {record.periods[0].validFrom} ~ {record.periods[0].validUntil}
+            </Typography>
+            <Typography variant="body2" component="pre" sx={{ ml: 1 }}>
+              {record.periods[0].startTime} - {record.periods[0].endTime}
+            </Typography>
+          </Box>
+          <Collapse in={open} collapsedSize={0} >
+            {record.periods.map((period: any, index: number) => {
+              return (index === 0 ? null :
+                <Box sx={{ pl: 1, pr: 1, display: 'flex', flexWrap: 'wrap', borderBottom: 0.2 }}>
+                  <Typography variant="body2" component="pre">
+                    {period.validFrom} ~ {period.validUntil}
+                  </Typography>
+                  <Typography variant="body2" component="pre" sx={{ ml: 1 }}>
+                    {period.startTime} - {period.endTime}
+                  </Typography>
+                </Box>)
+            })}
+          </Collapse>
+        </>) : <Typography variant="body2" style={{ color: "#757575" }} align="center">
+          {translate('guacamole.none')}
+        </Typography>
+        }
         <Box sx={{ display: 'flex', width: 1, justifyContent: 'center' }}>
-          {record.periods.length === 1 ? null :
+          {record.periods.length <= 1 ? null :
             <IconButton onClick={() => setOpen(open => !open)}>
               {!open ? <MoreVertIcon fontSize="small" />
                 : <ExpandLessIcon fontSize="small" />
@@ -241,7 +257,7 @@ const Dashboard = (props: any) => {
           '& .RaDatagrid-headerRow': { display: 'none' }
         }}
       >
-        <NameField width="30%" />
+        <NameField />
         <ConnectionField className="ConnectionField" />
         <DurationField className="DurationField" />
         <WorkLinkButtons width="0%" />
