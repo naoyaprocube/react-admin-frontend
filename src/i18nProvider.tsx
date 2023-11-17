@@ -167,6 +167,8 @@ const english = {
   sftp: {
     transfer: 'Transfer files',
     delete: 'Delete',
+    success: 'Success',
+    move: 'Move to File Manager',
     fields: {
       mtime: 'Modify Time',
       atime: 'Access Time',
@@ -341,6 +343,8 @@ const japanese = {
   sftp: {
     transfer: 'ファイルを転送',
     delete: '削除',
+    success: '処理が完了しました。',
+    move: 'ファイルマネージャーへ移動',
     fields: {
       mtime: '最終更新日時',
       atime: '最終アクセス日時',

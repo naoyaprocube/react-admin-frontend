@@ -9,7 +9,6 @@ import {
   useTranslate,
   useDataProvider,
   useUnselectAll,
-  useRecordContext,
   useNotify,
 } from 'react-admin';
 import {
@@ -18,23 +17,32 @@ import {
   Breadcrumbs,
   Link,
   Button,
-  IconButton,
   ButtonGroup,
   InputLabel,
   MenuItem,
   FormControl,
   Select,
   SelectChangeEvent,
+  IconButton,
+  Tooltip,
 } from '@mui/material';
-
+import {
+  DndContext,
+  useSensor,
+  useSensors,
+  MouseSensor,
+  DragEndEvent,
+  DragStartEvent,
+} from '@dnd-kit/core';
 import { humanFileSize, resolvePath } from '../utils'
 import { DirRoute } from '../layouts/DirRoute'
 import { useParams } from "react-router-dom";
 import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
 import CircularProgress from '@mui/material/CircularProgress';
+import MoveToInboxIcon from '@mui/icons-material/MoveToInbox';
 import CheckIcon from '@mui/icons-material/Check';
 import FolderIcon from '@mui/icons-material/Folder';
-import { CustomDatagrid } from '../layouts/CustomDatagrid'
+import { SFTPDatagrid } from '../layouts/SFTPDatagrid'
 import { SFTPMKDirButton } from '../buttons/SFTPMKDirButton'
 import { SFTPOpenStatsButton } from '../buttons/SFTPOpenStatsButton'
 import { SFTPDeleteButton } from '../buttons/SFTPDeleteButton'
@@ -54,11 +62,15 @@ const SFTPClient = (props: any) => {
   const [length, setLength] = React.useState<number>(0)
   const [checkDir, setCheckDir] = React.useState<string>(null)
   const [dir, setDir] = React.useState<any>({});
+  const [activeId, setActiveId] = React.useState<string>(null);
   const [work, setWork]: any = React.useState({})
   const [wsUrl, setWsUrl] = React.useState(null);
   const socketRef = React.useRef<ReconnectingWebSocket>()
   const dataProvider = useDataProvider()
   const SFTPEmitter = new EventEmitter()
+  const sensors = useSensors(
+    useSensor(MouseSensor, { activationConstraint: { distance: 5 } })
+  );
   const translate = useTranslate()
   const navigate = useNavigate()
   const notify = useNotify()
@@ -73,6 +85,7 @@ const SFTPClient = (props: any) => {
 
   SFTPEmitter.on("reset", () => {
     setCount(-2)
+    notify('sftp.success', { type: "success" })
     setTimeout(() => setCount(-1), 2000)
   })
 
@@ -271,8 +284,17 @@ const SFTPClient = (props: any) => {
     return (
       <TopToolbar sx={{ width: 1 }}>
         {Object.keys(dir).length !== 0 ? <DirRoute dir={dir} isMongo={true} /> : null}
-        <SFTPMKDirButton socket={socketRef.current} dirId={dirId} parent_path={unique} resource="mongo" />
         <DirSelect />
+        <Tooltip title={translate('sftp.move')}>
+          <IconButton
+            children={<MoveToInboxIcon />}
+            onClick={() => {
+              if (workIdState === "public") navigate("/files/public")
+              else navigate("/files/" + workIdState)
+            }}
+          />
+        </Tooltip>
+
       </TopToolbar>
     )
   }
@@ -290,7 +312,38 @@ const SFTPClient = (props: any) => {
       </TopToolbar>
     )
   }
-
+  const handleDragStart = (event: DragStartEvent) => {
+    const { active } = event;
+    setActiveId(String(active.id));
+  };
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+    if (over && over.id === "droppable-sftp-datagrid" && !String(active.id).startsWith("/")) {
+      setLength(1)
+      setCount(0)
+      const uuid = v4()
+      socketRef.current.send(JSON.stringify({
+        type: "transfer",
+        uuid: uuid,
+        id: active.id,
+        cwd: cwd,
+        dirId: dirId,
+      }))
+    }
+    if (over && over.id === "droppable-fileserver-datagrid" && String(active.id).startsWith("/")) {
+      setLength(1)
+      setCount(0)
+      const uuid = v4()
+      socketRef.current.send(JSON.stringify({
+        type: "transfer",
+        uuid: uuid,
+        id: active.id,
+        cwd: cwd,
+        dirId: dirId,
+      }))
+    }
+    setActiveId(null);
+  };
   return (<>
     <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
       <Link
@@ -314,120 +367,131 @@ const SFTPClient = (props: any) => {
       </Typography>
     </Breadcrumbs>
     <Box sx={{ display: "inline-flex", width: 1 }}>
-      {!!dirId ?
-        <InfiniteList
-          {...props}
-          title={translate('pages.SFTPClient')}
-          resource={"files"}
-          queryOptions={{ meta: { includeDir: true, dirId: dirId } }}
-          exporter={false}
-          disableSyncWithLocation
-          actions={<FilesListActions />}
-          sx={{ width: "50%", p: 1 }}
-        >
-          <CustomDatagrid
-            bulkActionButtons={<SFTPBulkActionButtons resource={"files"} />}
-            isRowSelectable={(record: any) => record.dirname !== ".."}
+      <DndContext
+        sensors={sensors}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        autoScroll={false}
+      >
+        {!!dirId ?
+          <InfiniteList
+            {...props}
+            title={translate('pages.SFTPClient')}
+            resource={"files"}
+            queryOptions={{ meta: { includeDir: true, dirId: dirId } }}
+            exporter={false}
+            disableSyncWithLocation
+            actions={<FilesListActions />}
+            sx={{ width: "50%", p: 1 }}
+            style={{ zIndex: (activeId && !activeId.startsWith("/")) ? 2000 : 0 }}
           >
-            <FunctionField width="30%" source="filename" label="file.fields.name" render={(record: any) => {
-              if (record.dirname) return (
-                <Box sx={{ display: "inline-flex" }}>
-                  <Link
-                    underline="hover"
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => setDirId(record._id)}
-                    sx={{ display: "inline-flex" }}
-                  >
-                    <FolderIcon fontSize="small" sx={{ mr: 0.5 }} />
-                    <Typography variant="body2">
-                      {record.dirname}
-                    </Typography>
-                  </Link>
-                </Box>
-              )
-              else if (record.filename) return (
-                <Box sx={{ display: "inline-flex" }}>
-                  <InsertDriveFileOutlinedIcon fontSize="small" sx={{ mr: 0.5 }} />
-                  <Typography variant="body2">
-                    {record.filename}
-                  </Typography>
-                </Box>
-              )
-            }} />
-            <FunctionField width="20%" source="length" label="file.fields.length" sortBy="length" render={(record: any) => {
-              if (record.dirname) return "-"
-              else return humanFileSize(record.length, false)
-            }
-            } />
-            <DateField width="20%" source="uploadDate" label="file.fields.uploadDate" showTime locales="jp-JP" />
-
-          </CustomDatagrid>
-        </InfiniteList>
-        : <Box sx={{ width: '50%', p: 1 }}>
-          <LinearProgress />
-        </Box>}
-      {!!cwd ?
-        <InfiniteList
-          {...props}
-          title={" "}
-          resource={"sftp"}
-          queryOptions={{
-            meta: {
-              json: json,
-              path: cwd,
-              connectionId: connectionId,
-              token: localStorage.getItem('token')
-            }
-          }}
-          exporter={false}
-          disableSyncWithLocation
-          actions={<SFTPActions />}
-          sx={{ width: "50%", p: 1 }}
-        >
-          <CustomDatagrid
-            bulkActionButtons={<SFTPBulkActionButtons resource={"sftp"} />}
-            isRowSelectable={(record: any) => record.filename !== ".."}
-          >
-            <FunctionField width="30%" source="filename" label="file.fields.name" render={(record: any) => {
-              if (record.longname[0] === "d") return (
-                <Box sx={{ display: "inline-flex" }}>
-                  <Link
-                    underline="hover"
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => {
-                      setCwd(resolvePath(cwd + "/" + record.filename))
-                    }}
-                    sx={{ display: "inline-flex" }}
-                  >
-                    <FolderIcon fontSize="small" sx={{ mr: 0.5 }} />
+            <SFTPDatagrid
+              bulkActionButtons={<SFTPBulkActionButtons resource={"files"} />}
+              isRowSelectable={(record: any) => record.dirname !== ".."}
+              className="fileserver-datagrid"
+            >
+              <FunctionField width="30%" source="filename" label="file.fields.name" render={(record: any) => {
+                if (record.dirname) return (
+                  <Box sx={{ display: "inline-flex" }}>
+                    <Link
+                      underline="hover"
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => setDirId(record._id)}
+                      sx={{ display: "inline-flex" }}
+                    >
+                      <FolderIcon fontSize="small" sx={{ mr: 0.5 }} />
+                      <Typography variant="body2">
+                        {record.dirname}
+                      </Typography>
+                    </Link>
+                  </Box>
+                )
+                else if (record.filename) return (
+                  <Box sx={{ display: "inline-flex" }}>
+                    <InsertDriveFileOutlinedIcon fontSize="small" sx={{ mr: 0.5 }} />
                     <Typography variant="body2">
                       {record.filename}
                     </Typography>
-                  </Link>
-                </Box>
-              )
-              else return (
-                <Box sx={{ display: "inline-flex" }}>
-                  <InsertDriveFileOutlinedIcon fontSize="small" sx={{ mr: 0.5 }} />
-                  <Typography variant="body2">
-                    {record.filename}
-                  </Typography>
-                </Box>
-              )
-            }} />
-            <FunctionField width="20%" source="attrs.size" label="file.fields.length" sortBy="sortSize" render={(record: any) => humanFileSize(record.attrs.size, false)} />
-            <DateField width="20%" sortBy="sortMtime" source="attrs.mmtime" label="file.fields.uploadDate" showTime locales="jp-JP" />
-            <FunctionField width="0%" render={(record: any) => {
-              return (<ButtonGroup>
-                <SFTPOpenStatsButton />
-                <SFTPDeleteButton socket={socketRef.current} />
-              </ButtonGroup>)
-            }} />
-          </CustomDatagrid>
-        </InfiniteList>
-        : <Box sx={{ width: '50%', p: 1 }}>
-          <LinearProgress />
-        </Box>}
+                  </Box>
+                )
+              }} />
+              <FunctionField width="20%" source="length" label="file.fields.length" sortBy="length" render={(record: any) => {
+                if (record.dirname) return "-"
+                else return humanFileSize(record.length, false)
+              }
+              } />
+              <DateField width="20%" source="uploadDate" label="file.fields.uploadDate" showTime locales="jp-JP" />
+
+            </SFTPDatagrid>
+          </InfiniteList>
+          : <Box sx={{ width: '50%', p: 1 }}>
+            <LinearProgress />
+          </Box>}
+        {!!cwd ?
+          <InfiniteList
+            {...props}
+            title={" "}
+            resource={"sftp"}
+            queryOptions={{
+              meta: {
+                json: json,
+                path: cwd,
+                connectionId: connectionId,
+                token: localStorage.getItem('token')
+              }
+            }}
+            exporter={false}
+            disableSyncWithLocation
+            actions={<SFTPActions />}
+            sx={{ width: "50%", p: 1 }}
+            style={{ zIndex: (activeId && activeId.startsWith("/")) ? 2000 : 0 }}
+          >
+            <SFTPDatagrid
+              bulkActionButtons={<SFTPBulkActionButtons resource={"sftp"} />}
+              isRowSelectable={(record: any) => record.filename !== ".."}
+              className="sftp-datagrid"
+            >
+              <FunctionField width="30%" source="filename" label="file.fields.name" render={(record: any) => {
+                if (record.longname[0] === "d") return (
+                  <Box sx={{ display: "inline-flex" }}>
+                    <Link
+                      underline="hover"
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => {
+                        setCwd(resolvePath(cwd + "/" + record.filename))
+                      }}
+                      sx={{ display: "inline-flex" }}
+                    >
+                      <FolderIcon fontSize="small" sx={{ mr: 0.5 }} />
+                      <Typography variant="body2">
+                        {record.filename}
+                      </Typography>
+                    </Link>
+                  </Box>
+                )
+                else return (
+                  <Box sx={{ display: "inline-flex" }}>
+                    <InsertDriveFileOutlinedIcon fontSize="small" sx={{ mr: 0.5 }} />
+                    <Typography variant="body2">
+                      {record.filename}
+                    </Typography>
+                  </Box>
+                )
+              }} />
+              <FunctionField width="20%" source="attrs.size" label="file.fields.length" sortBy="sortSize" render={(record: any) => humanFileSize(record.attrs.size, false)} />
+              <DateField width="20%" sortBy="sortMtime" source="attrs.mmtime" label="file.fields.uploadDate" showTime locales="jp-JP" />
+              <FunctionField width="0%" render={(record: any) => {
+                return (<ButtonGroup>
+                  <SFTPOpenStatsButton />
+                  <SFTPDeleteButton socket={socketRef.current} />
+                </ButtonGroup>)
+              }} />
+            </SFTPDatagrid>
+          </InfiniteList>
+          : <Box sx={{ width: '50%', p: 1 }}>
+            <LinearProgress />
+          </Box>}
+      </DndContext>
     </Box>
   </>)
 };

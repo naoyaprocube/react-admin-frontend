@@ -27,7 +27,7 @@ export const dummyWorks: Object = {
       "periods": [
           {
               "startTime": "06:00:00",
-              "endTime": "18:00:00",
+              "endTime": "20:00:00",
               "validFrom": "2023-11-06",
               "validUntil": "2024-11-05"
           }

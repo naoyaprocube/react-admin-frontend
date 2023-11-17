@@ -532,7 +532,8 @@ export const SFTPProvider = {
         "size": 0,
         "atime": "-",
         "mtime": "-"
-      }
+      },
+      cdup:true,
     }].concat(list)
     if (field) list = list.sort((a: any, b: any) => {
       if (a[field] < b[field]) {
@@ -554,13 +555,5 @@ export const SFTPProvider = {
       })),
       total: total
     }
-  },
-  childdirs: (resource: any, params: any) => {
-    const query = {
-      path: params.path
-    }
-    return httpClient(`${apiUrl}/sftp/childdirs?${stringify(query)}`, {
-      method: "GET"
-    })
   },
 }
