@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import { useAccessToken } from '../../tokenProvider'
 import {
   List,
   TextField,
@@ -42,11 +43,12 @@ const HistoryList = (props: any) => {
   const translate = useTranslate()
   const navigate = useNavigate()
   const dataProvider = useDataProvider()
+  const [accessToken] = useAccessToken()
   const [actives, setActives]: any = React.useState([])
   const [activeFire, setActiveFire] = React.useState(false)
   const { theme, setTheme } = React.useContext(AppContext);
   React.useEffect(() => {
-    dataProvider.getActives("connections").then((result: any) => {
+    dataProvider.getActives("connections", { token: accessToken, workId: workId }).then((result: any) => {
       const ids = result.map((v: any) => {
         return v.identifier
       })
@@ -104,7 +106,13 @@ const HistoryList = (props: any) => {
         </Typography>
       }
     </Breadcrumbs>
-    <List {...props} title={translate('pages.connectionHistory')} aside={<HistoryFilterMenu />} resource={"history/" + workId}>
+    <List
+      {...props}
+      title={translate('pages.connectionHistory')}
+      aside={<HistoryFilterMenu />}
+      resource={"history"}
+      queryOptions={{ meta: { token: accessToken, workId: workId } }}
+    >
       <CustomDatagrid bulkActionButtons={false}>
         <DateField label="guacamole.field.startDate" source="startDate" showTime locales="jp-JP" />
         <TextField label="guacamole.field.username" source="username" />
@@ -124,12 +132,10 @@ const HistoryList = (props: any) => {
         }} />
         <Box sx={{ display: 'inline-flex' }}>
           <RecordPlayButton />
-          <RecordTextDownloadButton />
+          <RecordTextDownloadButton token={accessToken} />
           <RMConnectionButton actives={actives} />
         </Box>
-
       </CustomDatagrid>
-
     </List>
   </FireContext.Provider>
 

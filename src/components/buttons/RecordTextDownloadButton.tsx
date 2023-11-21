@@ -10,6 +10,7 @@ import { download, decodeUTF8 } from '../utils'
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 
 export const RecordTextDownloadButton = (props: any) => {
+  const { token } = props
   const notify = useNotify()
   const record = useRecordContext();
   const translate = useTranslate()
@@ -25,9 +26,9 @@ export const RecordTextDownloadButton = (props: any) => {
     <Button
       variant="contained"
       sx={{ height: 20, ml: 0.3 }}
-      startIcon={<TextFieldsIcon/>}
+      startIcon={<TextFieldsIcon />}
       onClick={() => {
-        dataProvider.download("history", { id: String(record.identifier), key: key }).then((response: Response) => {
+        dataProvider.download("history", { id: String(record.identifier), key: key, token: token }).then((response: Response) => {
           const filename = "record_" + String(record.identifier) + "_" + String(key) + ".log"
           if (response.status < 200 || response.status >= 300) {
             if (response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })

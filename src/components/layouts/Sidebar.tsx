@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useAccessToken } from '../../tokenProvider'
 import {
   Menu,
   useDataProvider,
@@ -47,6 +48,7 @@ export const GuacMenu = () => {
   const [works, setWorks]: any = React.useState([]);
   const [openState, dispatch] = React.useReducer(reducerFunc, initialState)
   const [activeItem, setActiveItem] = React.useState("")
+  const [accessToken] = useAccessToken()
   const [fire, setFire] = React.useState<boolean>(false);
   const [page, setPage] = React.useState<number>(1)
   const [perpage, setPerpage] = React.useState<number>(15)
@@ -76,6 +78,7 @@ export const GuacMenu = () => {
     pagination: { page: page, perPage: perpage },
     sort: { field: "id", order: 'ASC' },
     filter: { workStatus: filter },
+    meta: { token: accessToken }
   }
   React.useEffect(() => {
     dataProvider.getList("works/" + localStorage.getItem('theme'), params).then((result: any) => {

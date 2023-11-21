@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import { useAccessToken } from '../../tokenProvider'
 import {
   List,
   TextField,
@@ -39,6 +40,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 
 const FilesList = (props: any) => {
   const { workId, dirId } = useParams()
+  const [accessToken] = useAccessToken()
   const [id, setId] = React.useState(dirId ? dirId : null);
   const dataProvider = useDataProvider()
   const translate = useTranslate()
@@ -51,7 +53,7 @@ const FilesList = (props: any) => {
       identifier: "public",
       idmIdentifier: "public"
     })
-    else if (workId) dataProvider.getWork("works", { id: workId }).then((result: any) => {
+    else if (workId) dataProvider.getWork("works", { id: workId, token:accessToken }).then((result: any) => {
       setWork(result)
     })
     else setWork({})

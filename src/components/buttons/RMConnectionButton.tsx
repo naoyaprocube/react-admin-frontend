@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useAccessToken } from '../../tokenProvider'
 import {
   useTranslate,
   useDataProvider,
@@ -10,19 +11,20 @@ import TvOffIcon from '@mui/icons-material/TvOff';
 
 export const RMConnectionButton = (props: any) => {
   const { id, actives } = props
+  const [accessToken] = useAccessToken()
   const { fire, setFire } = React.useContext(FireContext);
   const record = useRecordContext();
   const dataProvider = useDataProvider()
   const translate = useTranslate()
-  if(actives.indexOf(record.uuid) === -1) return null
+  if (actives.indexOf(record.uuid) === -1) return null
   return (
     <Button
       variant="contained"
       sx={{ height: 20, ml: 0.3 }}
       color="error"
-      startIcon={<TvOffIcon/>}
+      startIcon={<TvOffIcon />}
       onClick={() => {
-        dataProvider.removeActive("connections", { id: record.uuid }).then(setFire(!fire))
+        dataProvider.removeActive("connections", { id: record.uuid, token: accessToken }).then(setFire(!fire))
       }}
     >
       <Typography component="pre" variant="body2">

@@ -122,7 +122,7 @@ export const testHistory: any = [
     "logs": {},
     "connectionIdentifier": "1",
     "sharingProfileIdentifier": null,
-    "workId": "",
+    "workId": "23",
     "sharingProfileName": null
   },
   {
@@ -147,7 +147,7 @@ export const testHistory: any = [
     "hostname": "192.168.202.12",
     "protocol": "ssh",
     "sharingProfileIdentifier": null,
-    "workId": "082A0",
+    "workId": "23",
     "sharingProfileName": null
   },
   {
@@ -234,7 +234,7 @@ export const testHistory: any = [
     "connectionIdentifier": "1",
     "connectionName": "linux",
     "sharingProfileIdentifier": null,
-    "workId": "082A0",
+    "workId": "23",
     "sharingProfileName": null
   },
   {

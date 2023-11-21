@@ -1,15 +1,16 @@
 import { fetchUtils, HttpError } from 'react-admin';
 import { stringify } from 'query-string';
+import { useAccessToken } from './tokenProvider'
 import { convertPeriod } from './components/utils'
 import { dummyWorks, dummyAnnounces, testHistory } from './dummy/dummyObjects'
 const apiUrl = '/api';
 const guacUrl = '/guacamole'
 // const httpClient = fetchUtils.fetchJson;
-const httpClient = (url: string, options: any = {}) => {
+const httpClient = (url: string, options: any = {}, token?: string) => {
   if (!options.headers) {
     options.headers = new Headers({
       Accept: 'application/json',
-      "Guacamole-Token": url.startsWith(guacUrl) ? localStorage.getItem('token') : null
+      "Guacamole-Token": token ? token : null
     });
   }
   options.credentials = 'include';
@@ -138,9 +139,6 @@ export const FileProvider = {
     return fetch(new Request(`${apiUrl}/${resource}/${params.id}/download`, {
       method: "GET",
       credentials: 'include',
-      headers: new Headers({
-        "Guacamole-Token": localStorage.getItem('token')
-      })
     }))
   },
 
@@ -224,14 +222,13 @@ export const WorkProvider = {
   getList: async (resource: any, params: any) => {
     const { page, perPage } = params.pagination;
     const { q, workStatus } = params.filter
-
+    const { token, theme } = params.meta
     const url = `${guacUrl}/api/session/data/postgresql/works`;
-    // const json = await httpClient(url).then(({ json }) => json)
+    // const json = await httpClient(url, {}, token).then(({ json }) => json)
     const json = dummyWorks
     let works = Object.entries(json).map((array) => array[1])
 
     const now = new Date
-    const theme = resource.split("/")[1];
     if (theme === "worker") works = works.filter((v: any) => v.isWorker)
     if (theme === "admin") works = works.filter((v: any) => v.isAdmin)
     works.map((w: any) => {
@@ -274,8 +271,9 @@ export const WorkProvider = {
   },
 
   getWork: async (resource: any, params: any) => {
-    const url = `${guacUrl}/api/session/data/postgresql/works/${params.id}`;
-    // const json = await httpClient(url).then(({ json }) => json)
+    const { id, token } = params
+    const url = `${guacUrl}/api/session/data/postgresql/works/${id}`;
+    // const json = await httpClient(url, {}, token).then(({ json }) => json)
     const json = Object.entries(dummyWorks).map((array) => array[1]).filter((v: any) => {
       return v.identifier === params.id
     })[0]
@@ -314,9 +312,9 @@ export const ConnectProvider = {
     const { page, perPage } = params.pagination
     const { field, order } = params.sort
     const { q, protocol, parent } = params.filter
-    const workId = resource.split("/")[1]
+    const { workId, token } = params.meta
     const workUrl = `${guacUrl}/api/session/data/postgresql/works/${workId}`
-    // const json = await httpClient(workUrl).then(({ json }) => json)
+    // const json = await httpClient(workUrl, {}, token).then(({ json }) => json)
     const json = Object
       .entries(dummyWorks)
       .map((array) => array[1])
@@ -359,13 +357,14 @@ export const ConnectProvider = {
   },
 
   getActives: async (resource: any, params: any) => {
+    const { workId, token } = params
     const url = `${guacUrl}/api/session/data/postgresql/activeConnections`;
-    const json = await httpClient(url).then(({ json }) => json)
+    const json = await httpClient(url, {}, token).then(({ json }) => json)
     return Object.keys(json).map(function (key) { return json[key] })
   },
 
   removeActive: (resource: any, params: any) => {
-    const { id } = params
+    const { id, token } = params
     const operation = [{
       "op": "remove",
       "path": "/" + id
@@ -373,13 +372,13 @@ export const ConnectProvider = {
     return httpClient(`${guacUrl}/api/session/data/postgresql/activeConnections`, {
       method: 'PATCH',
       body: JSON.stringify(operation)
-    })
+    }, token)
   },
 
   getParentList: async (resource: any, params: any) => {
-    const workId = resource.split("/")[1];
+    const { workId, token } = params
     const workUrl = `${guacUrl}/api/session/data/postgresql/works/${workId}`
-    // const json = await httpClient(workUrl).then(({ json }) => json)
+    // const json = await httpClient(workUrl,{}, token).then(({ json }) => json)
     const json = Object
       .entries(dummyWorks)
       .map((array) => array[1])
@@ -403,32 +402,32 @@ export const HistoryProvider = {
     const { page, perPage } = params.pagination;
     const { field, order } = params.sort
     const { q, duration, startTime } = params.filter
-    const workId = resource.split("/")[1];
+    const { workId, token } = params.meta
     const historyUrl = `${guacUrl}/api/session/data/postgresql/history/connections`;
     const workListUrl = `${guacUrl}/api/session/data/postgresql/works`
     const workUrl = `${guacUrl}/api/session/data/postgresql/works/${workId}`
-    // const historyJson = await httpClient(historyUrl).then(({ json }) => json)
+    // const historyJson = await httpClient(historyUrl, {}, token).then(({ json }) => json)
     const historyJson = testHistory
     let history = historyJson
     if (workId !== "all") {
-      // const workJson = await httpClient(workUrl).then(({ json }) => json)
+      // const workJson = await httpClient(workUrl, {}, token).then(({ json }) => json)
       const workJson = Object
         .entries(dummyWorks)
         .map((array) => array[1])
         .filter((v: any) => {
           return v.identifier === workId
         })[0]
-      history = history.filter((v: any) => v.workId === workJson.idmIdentifier)
+      history = history.filter((v: any) => v.workId === workJson.identifier)
     }
     else {
-      // const worksJson = await httpClient(workListUrl).then(({ json }) => json)
+      // const worksJson = await httpClient(workListUrl, {}, token).then(({ json }) => json)
       const worksJson = dummyWorks
       const works: any = Object
         .entries(worksJson)
         .map((array) => array[1])
       const adminWorks = works.filter((v: any) => {
         return v.isAdmin
-      }).map((work: any) => String(work.idmIdentifier))
+      }).map((work: any) => String(work.identifier))
       history = history.filter((v: any) => adminWorks.indexOf(String(v.workId)) !== -1)
     }
     if (q) history = history.filter((v: any) => (
@@ -467,7 +466,7 @@ export const HistoryProvider = {
       method: "GET",
       credentials: 'include',
       headers: new Headers({
-        "Guacamole-Token": localStorage.getItem('token')
+        "Guacamole-Token": params.token
       })
     }))
   },
@@ -479,8 +478,9 @@ export const AnnounceProvider = {
 
   getList: async (resource: any, params: any) => {
     const { page, perPage } = params.pagination;
+    const { token } = params.meta
     const url = `${guacUrl}/api/session/data/postgresql/notifications`;
-    // const json = await httpClient(url).then(({ json }) => json)
+    // const json = await httpClient(url, {}, token).then(({ json }) => json)
     const json = dummyAnnounces
     let announce = Object
       .entries(json)
@@ -533,7 +533,7 @@ export const SFTPProvider = {
         "atime": "-",
         "mtime": "-"
       },
-      cdup:true,
+      cdup: true,
     }].concat(list)
     if (field) list = list.sort((a: any, b: any) => {
       if (a[field] < b[field]) {

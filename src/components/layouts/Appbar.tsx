@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useAccessToken } from '../../tokenProvider'
 import {
   AppBar,
   TitlePortal,
@@ -24,6 +25,7 @@ import { statusToColor } from "../utils"
 export const AGAppbar = () => {
 
   const { setTheme } = React.useContext(AppContext);
+  const [accessToken] = useAccessToken()
   const translate = useTranslate()
   const pathname = useLocation().pathname
   const workId = pathname.split("/")[2]
@@ -31,7 +33,7 @@ export const AGAppbar = () => {
   const [work, setWork]: any = React.useState({})
   React.useEffect(() => {
     if (workId === "public" || workId === "all") setWork({})
-    else if (workId) dataProvider.getWork("works", { id: workId }).then((result: any) => {
+    else if (workId) dataProvider.getWork("works", { id: workId, token: accessToken }).then((result: any) => {
       setWork(result)
     })
     else setWork({})

@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import { useAccessToken } from '../../tokenProvider'
 import ReconnectingWebSocket from 'reconnecting-websocket'
 import {
   InfiniteList,
@@ -68,6 +69,7 @@ const SFTPClient = (props: any) => {
   const [activeId, setActiveId] = React.useState<string>(null);
   const [work, setWork]: any = React.useState({})
   const [wsUrl, setWsUrl] = React.useState(null);
+  const [accessToken] = useAccessToken()
   const socketRef = React.useRef<ReconnectingWebSocket>()
   const dataProvider = useDataProvider()
   const SFTPEmitter = new EventEmitter()
@@ -94,7 +96,7 @@ const SFTPClient = (props: any) => {
 
   React.useEffect(() => {
     if (wsUrl) {
-      const websocket = new ReconnectingWebSocket(`${wsUrl}/api/sftp/websocket?id=${connectionId}&token=${localStorage.getItem('token')}`)
+      const websocket = new ReconnectingWebSocket(`${wsUrl}/api/sftp/websocket?id=${connectionId}&token=${accessToken}`)
       socketRef.current = websocket
 
       const onMessage = (event: MessageEvent<string>) => {
@@ -162,7 +164,7 @@ const SFTPClient = (props: any) => {
       identifier: "public",
       idmIdentifier: "public"
     })
-    else if (workIdState) dataProvider.getWork("works", { id: workIdState }).then((result: any) => {
+    else if (workIdState) dataProvider.getWork("works", { id: workIdState, token: accessToken }).then((result: any) => {
       setWork(result)
     })
     else setWork({})
@@ -421,11 +423,11 @@ const SFTPClient = (props: any) => {
       >
         {!!dirId ?
           <Box sx={{ width: "50%", p: 1 }} style={{ zIndex: (activeId && !activeId.startsWith("/")) ? 2000 : 0 }}>
-            <List
+            <InfiniteList
               {...props}
               title={translate('pages.SFTPClient')}
               resource={"files"}
-              queryOptions={{ meta: { includeDir: true, dirId: dirId } }}
+              queryOptions={{ meta: { includeDir: true, dirId: dirId, token: accessToken } }}
               exporter={false}
               empty={<DroppableFileserverArea />}
               disableSyncWithLocation
@@ -469,7 +471,7 @@ const SFTPClient = (props: any) => {
                 <DateField width="20%" source="uploadDate" label="file.fields.uploadDate" showTime locales="jp-JP" />
 
               </SFTPDatagrid>
-            </List>
+            </InfiniteList>
           </Box>
           : <Box sx={{ width: '50%', p: 1 }}>
             <LinearProgress />
@@ -485,7 +487,7 @@ const SFTPClient = (props: any) => {
                   json: json,
                   path: cwd,
                   connectionId: connectionId,
-                  token: localStorage.getItem('token')
+                  token: accessToken
                 }
               }}
               exporter={false}

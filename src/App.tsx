@@ -27,8 +27,9 @@ import Dashboard from './components/pages/Dashboard';
 import { i18nProvider } from './i18nProvider';
 import { GuacMenu } from './components/layouts/Sidebar';
 import { AGAppbar } from './components/layouts/Appbar';
+import { useAccessToken } from './tokenProvider'
 
-export const LogoBox =() => (
+export const LogoBox = () => (
   <Box
     component="img"
     sx={{
@@ -48,8 +49,6 @@ export const LogoBox =() => (
 type AppContext = {
   theme: any,
   setTheme: React.Dispatch<React.SetStateAction<any>>
-  token: string,
-  setToken: React.Dispatch<React.SetStateAction<string>>
 }
 export const AppContext = React.createContext({} as AppContext);
 
@@ -80,7 +79,28 @@ const App = () => {
   if (!localStorage.getItem('theme')) localStorage.setItem('theme', "worker")
   const initialTheme = localStorage.getItem('theme') === "admin" ? adminTheme : workerTheme
   const [theme, setTheme] = React.useState(initialTheme)
-  const [token, setToken] = React.useState("")
+  const [accessToken, setAccessToken] = useAccessToken()
+  React.useEffect(() => {
+    const username = "guacadmin"
+    const password = "guacadmin"
+    const tokenRequest = new Request('/guacamole/api/tokens', {
+      method: 'POST',
+      body: "username=" + username + "&password=" + password,
+      headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }),
+    })
+    fetch(tokenRequest)
+      .then(response => {
+        if (response.status < 200 || response.status >= 300) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then((json) => {
+        const { authToken, username } = json
+        setAccessToken(authToken)
+        localStorage.setItem('user', username);
+      })
+  }, [])
   const layout = (props: any) => {
     return (<>
       <Layout {...props}
@@ -99,11 +119,12 @@ const App = () => {
     else if (resource.startsWith("sftp")) return SFTPProvider;
     else return null
   });
-  return (
-    <AppContext.Provider value={{ theme: theme, setTheme: setTheme, token: token, setToken: setToken }}>
+  if(!accessToken) return null
+  else return (
+    <AppContext.Provider value={{ theme: theme, setTheme: setTheme }}>
       <Admin
         dataProvider={dataProviders}
-        authProvider={authProvider}
+        // authProvider={authProvider}
         i18nProvider={i18nProvider}
         layout={layout}
         theme={theme}

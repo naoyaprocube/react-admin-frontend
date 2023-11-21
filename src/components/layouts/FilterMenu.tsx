@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useAccessToken } from '../../tokenProvider'
 import {
   SavedQueriesList,
   FilterLiveSearch,
@@ -18,10 +19,11 @@ import DevicesOtherIcon from '@mui/icons-material/DevicesOther';
 
 export const ConnectionFilterMenu = (params: any) => {
   const { workId } = params
+  const [accessToken] = useAccessToken()
   const [parentList, setParentList] = React.useState([])
   const dataProvider = useDataProvider()
   React.useEffect(() => {
-    dataProvider.getParentList("connections/" + workId).then((response: any) => {
+    dataProvider.getParentList("connections", {workId: workId, token: accessToken}).then((response: any) => {
       setParentList(response)
     })
   }, [])

@@ -15,6 +15,7 @@ import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
 
 const AnnounceBoard = (props: any) => {
+  const { token } = props
   const translate = useTranslate()
   const Empty = () => (
     <Box sx={{ mt: 1, width: 1 }}>
@@ -63,6 +64,7 @@ const AnnounceBoard = (props: any) => {
       title={" "}
       empty={<Empty />}
       disableSyncWithLocation
+      queryOptions={{ meta: { token: token } }}
       sx={{
         '& .MuiToolbar-root': { display: "none" },
         '& .MuiTableCell-root': {

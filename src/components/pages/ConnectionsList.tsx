@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import { useAccessToken } from '../../tokenProvider'
 import {
   InfiniteList,
   TextField,
@@ -30,6 +31,7 @@ export const FireContext = React.createContext({} as FFireContext);
 const ConnectionsList = (props: any) => {
   const { workId } = useParams()
   const { setTheme } = React.useContext(AppContext);
+  const [accessToken] = useAccessToken()
   const [activeFire, setActiveFire] = React.useState(false)
   const translate = useTranslate()
   const navigate = useNavigate()
@@ -82,7 +84,8 @@ const ConnectionsList = (props: any) => {
       title={translate('pages.connectionSelect')}
       // actions={<ActiveConnectionPanel />}
       aside={<ConnectionFilterMenu workId={workId} />}
-      resource={"connections/" + workId}
+      resource={"connections"}
+      queryOptions={{ meta: { workId: workId, token: accessToken } }}
       exporter={false}
     >
       <CustomDatagrid bulkActionButtons={false} >
@@ -110,7 +113,6 @@ const ConnectionsList = (props: any) => {
           />
           <SFTPConnectButton />
         </Box>
-
       </CustomDatagrid>
     </InfiniteList>
   </FireContext.Provider>

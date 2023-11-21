@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import { useAccessToken } from '../../tokenProvider'
 import {
   InfiniteList,
   Confirm,
@@ -36,6 +37,7 @@ const Dashboard = (props: any) => {
   const dataProvider = useDataProvider()
   const translate = useTranslate()
   const navigate = useNavigate()
+  const [accessToken] = useAccessToken()
   const [open, setOpen] = React.useState(false);
   const handleClick = () => setOpen(true);
   const handleDialogClose = () => setOpen(false);
@@ -232,7 +234,7 @@ const Dashboard = (props: any) => {
         <Typography variant="h6" sx={{ ml: 2 }} color="text.primary">
           {translate('guacamole.announcement')}
         </Typography>
-        <AnnounceBoard />
+        <AnnounceBoard token={accessToken} />
       </Box>
     </Box>
     <Box sx={{ borderBottom: 1, width: 280, ml: 2 }}>
@@ -243,7 +245,8 @@ const Dashboard = (props: any) => {
     <InfiniteList {...props}
       title={translate('pages.homepage')}
       aside={<WorkFilterMenu />}
-      resource={"works/" + localStorage.getItem('theme')}
+      resource={"works"}
+      queryOptions={{ meta: { token: accessToken, theme: localStorage.getItem('theme') } }}
       exporter={false}
       filterDefaultValues={{ theme: localStorage.getItem('theme') }}
       sx={{
