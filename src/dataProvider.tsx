@@ -548,6 +548,7 @@ export const SFTPProvider = {
     })
     const total = list.length
     if (page && perPage) list = list.slice((page - 1) * perPage, page * perPage)
+    console.log(list)
     return {
       data: list.map((file: any) => ({
         ...file,

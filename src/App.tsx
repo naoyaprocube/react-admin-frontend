@@ -32,10 +32,11 @@ export const LogoBox =() => (
   <Box
     component="img"
     sx={{
-      height: 30,
+      height: 35,
       width: 75,
       p: 0.5,
       m: 0.5,
+      mr: 3,
       border: 1,
       borderRadius: 1,
       bgcolor: "#ffffff"

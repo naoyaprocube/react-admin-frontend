@@ -142,11 +142,11 @@ const FilesList = (props: any) => {
     </Box>
   );
   const FileActionButtons = (props: any) => (
-    <ButtonGroup variant="text" className="ActionButtons" sx={{ display: 'inline-flex' }}>
+    <Box sx={{ display: 'inline-flex' }}>
       <DownloadButton />
       <FileShowButton />
       <DeleteButton />
-    </ButtonGroup>
+    </Box>
   )
   return (<Box>
     <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>

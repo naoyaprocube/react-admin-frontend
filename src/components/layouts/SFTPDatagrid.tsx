@@ -32,11 +32,12 @@ const MyDatagridRow = ({
     transform: `translate3d(${transform.x}px, ${transform.y}px, 1000px)`,
     borderLeft: "1pt solid black",
   } : undefined
+  // if(active) console.log(active.id)
   const isTransfer = () => {
     if (over && active) {
       if (String(active.id) === id) {
-        if (over.id === "droppable-sftp-datagrid" && !String(active.id).startsWith("/")) return true
-        else if (over.id === "droppable-fileserver-datagrid" && String(active.id).startsWith("/")) return true
+        if (over.id === "droppable-sftp-list" && !String(active.id).startsWith("/")) return true
+        else if (over.id === "droppable-fileserver-list" && String(active.id).startsWith("/")) return true
       }
     }
     return false

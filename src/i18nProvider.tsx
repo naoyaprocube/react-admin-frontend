@@ -169,6 +169,7 @@ const english = {
     delete: 'Delete',
     success: 'Success',
     move: 'Move to File Manager',
+    draghere: 'Drag and drop file here.',
     fields: {
       mtime: 'Modify Time',
       atime: 'Access Time',
@@ -345,6 +346,7 @@ const japanese = {
     delete: '削除',
     success: '処理が完了しました。',
     move: 'ファイルマネージャーへ移動',
+    draghere: '接続先のファイルをここへドラッグ&ドロップしてください',
     fields: {
       mtime: '最終更新日時',
       atime: '最終アクセス日時',
