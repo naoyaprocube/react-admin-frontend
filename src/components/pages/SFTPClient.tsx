@@ -11,7 +11,6 @@ import {
   useDataProvider,
   useUnselectAll,
   useNotify,
-  List
 } from 'react-admin';
 import {
   Box,
@@ -81,17 +80,27 @@ const SFTPClient = (props: any) => {
   const notify = useNotify()
   const refresh = useRefresh();
   const sftpUnselectAll = useUnselectAll('sftp');
+  const fileserverUnselectAll = useUnselectAll('files');
   const increment = () => {
     setCount((prevCount) => {
       return prevCount + 1
     })
   }
-
+  const incrementLength = () => {
+    setLength((prevLength) => {
+      return prevLength + 1
+    })
+  }
 
   SFTPEmitter.on("reset", () => {
     setCount(-2)
     notify('sftp.success', { type: "success" })
-    setTimeout(() => setCount(-1), 2000)
+    setTimeout(() => {
+      setCount(-1)
+      sftpUnselectAll()
+      fileserverUnselectAll()
+      setLength(0)
+    }, 2000)
   })
 
   React.useEffect(() => {
@@ -101,6 +110,7 @@ const SFTPClient = (props: any) => {
 
       const onMessage = (event: MessageEvent<string>) => {
         const res = JSON.parse(event.data)
+        const parent = String(res.path).split("/").slice(1, -1).join("/")
         switch (res.type) {
           case "serverReady":
             websocket.send(JSON.stringify({ type: "gethome" }))
@@ -117,13 +127,13 @@ const SFTPClient = (props: any) => {
             socketRef.current.send(JSON.stringify(json))
             break
           case "unlinkRes":
-            setCheckDir(String(res.path))
+            setCheckDir("/" + parent)
             break
           case "mkdirRes":
-            setCheckDir(String(res.path))
+            setCheckDir("/" + parent)
             break
           case "rmdirRes":
-            setCheckDir(String(res.path))
+            setCheckDir("/" + parent)
             break
           case "transferRes":
             increment()
@@ -232,6 +242,7 @@ const SFTPClient = (props: any) => {
           sx={{ height: 20, ml: 0.5, textTransform: 'none' }}
           variant="text"
           onClick={() => {
+            notify('sftp.transferring', { type: "info" })
             setLength(selectedIds.length)
             setCount(0)
             const uuid = v4()
@@ -252,6 +263,7 @@ const SFTPClient = (props: any) => {
           variant="text"
           color="error"
           onClick={() => {
+            notify('sftp.deleting', { type: "info" })
             setLength(selectedIds.length)
             setCount(0)
             selectedIds.map((id: string) => {
@@ -261,7 +273,6 @@ const SFTPClient = (props: any) => {
                 cwd: cwd,
               }))
             })
-            sftpUnselectAll();
           }}
         /> : null}
 
@@ -301,8 +312,8 @@ const SFTPClient = (props: any) => {
           <IconButton
             children={<MoveToInboxIcon />}
             onClick={() => {
-              if (workIdState === "public") navigate("/files/public")
-              else navigate("/files/" + workIdState)
+              if (workIdState === "public") navigate("/files/public/" + dirId)
+              else navigate("/files/" + workIdState + "/" + dirId)
             }}
           />
         </Tooltip>
@@ -335,7 +346,8 @@ const SFTPClient = (props: any) => {
         || over.id === "droppable-fileserver-list" && String(active.id).startsWith("/")
       )
     ) {
-      setLength(1)
+      notify('sftp.transferring', { type: "info" })
+      incrementLength()
       setCount(0)
       const uuid = v4()
       socketRef.current.send(JSON.stringify({
@@ -414,6 +426,11 @@ const SFTPClient = (props: any) => {
         {translate('pages.SFTPClient')}
       </Typography>
     </Breadcrumbs>
+    {count >= 0 ? (
+      <Box sx={{ width: 1, p: 1 }}>
+        <LinearProgress />
+      </Box>
+    ) : null}
     <Box sx={{ display: "inline-flex", width: 1 }}>
       <DndContext
         sensors={sensors}

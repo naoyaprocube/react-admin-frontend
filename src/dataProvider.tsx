@@ -28,7 +28,6 @@ export const dataProvider = {
     const url = `${apiUrl}/${resource}/${dirId}?${stringify(query)}`;
     return httpClient(url).then(({ headers, json }: any) => {
       let list = json
-      if (page && perPage) list = list.slice((page - 1) * perPage, page * perPage)
       if (field) list = list.sort((a: any, b: any) => {
         if (includeDir && field === "filename") {
           a[field] = a.filename ? a.filename : a.dirname
@@ -44,6 +43,7 @@ export const dataProvider = {
         }
         return 0;
       })
+      if (page && perPage) list = list.slice((page - 1) * perPage, page * perPage)
       return { headers, list }
     }).then(({ headers, list }: any) => ({
       data: list.map((file: any) => ({ ...file, id: file._id })),
@@ -470,7 +470,26 @@ export const HistoryProvider = {
       })
     }))
   },
-
+  gettm: (resource: any, params: any) => {
+    const url = `/api/gettm`
+    return fetch(new Request(url, {
+      method: "GET",
+      credentials: 'include',
+      headers: new Headers({
+        "Guacamole-Token": params.token
+      })
+    }))
+  },
+  getlog: (resource: any, params: any) => {
+    const url = `/api/getlog`
+    return fetch(new Request(url, {
+      method: "GET",
+      credentials: 'include',
+      headers: new Headers({
+        "Guacamole-Token": params.token
+      })
+    }))
+  },
 }
 
 export const AnnounceProvider = {
@@ -548,7 +567,6 @@ export const SFTPProvider = {
     })
     const total = list.length
     if (page && perPage) list = list.slice((page - 1) * perPage, page * perPage)
-    console.log(list)
     return {
       data: list.map((file: any) => ({
         ...file,

@@ -9,9 +9,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <AccessTokenProvider children={<App />} />
-  </React.StrictMode>
+  // <React.StrictMode>
+    <AccessTokenProvider>
+      <App />
+    </AccessTokenProvider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

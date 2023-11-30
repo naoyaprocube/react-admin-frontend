@@ -17,8 +17,10 @@ import {
   Tooltip,
   Breadcrumbs,
   Link,
+
 } from '@mui/material';
 import { AppContext, adminTheme } from '../../App'
+import { ReactTerm } from '../layouts/ReactTerm'
 import { useParams } from "react-router-dom";
 import PersonOffIcon from '@mui/icons-material/PersonOff';
 import { HistoryFilterMenu } from '../layouts/FilterMenu'
@@ -46,6 +48,8 @@ const HistoryList = (props: any) => {
   const [accessToken] = useAccessToken()
   const [actives, setActives]: any = React.useState([])
   const [activeFire, setActiveFire] = React.useState(false)
+
+
   const { theme, setTheme } = React.useContext(AppContext);
   React.useEffect(() => {
     dataProvider.getActives("connections", { token: accessToken, workId: workId }).then((result: any) => {
@@ -134,6 +138,7 @@ const HistoryList = (props: any) => {
           <RecordPlayButton />
           <RecordTextDownloadButton token={accessToken} />
           <RMConnectionButton actives={actives} />
+          <ReactTerm />
         </Box>
       </CustomDatagrid>
     </List>

@@ -105,7 +105,7 @@ const FilesCreate = (props: any) => {
           underline="hover"
           color="inherit"
           style={{ cursor: 'pointer' }}
-          onClick={() => navigate('/files/public' + "/" + dirId)}
+          onClick={() => navigate('/files/public/' + dirId)}
         >
           {translate('pages.publicFileManager')}
         </Link>

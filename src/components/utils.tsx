@@ -1,4 +1,4 @@
-import * as nodePath from 'path-browserify'; 
+import * as nodePath from 'path-browserify';
 
 export function download(blob: Blob, filename: string) {
   const url = window.URL.createObjectURL(blob);
@@ -32,6 +32,18 @@ export const humanFileSize = (bytes: any, si = false, dp = 1) => {
     ++u;
   } while (Math.round(Math.abs(bytes) * r) / r >= thresh && u < units.length - 1);
   return bytes.toFixed(dp) + ' ' + units[u];
+}
+export const toHHMMSS = (sec: number) => {
+  const conv = String(sec)
+  var sec_num = parseInt(conv, 10); // don't forget the second param
+  var hours: number | string = Math.floor(sec_num / 3600);
+  var minutes: number | string = Math.floor((sec_num - (hours * 3600)) / 60);
+  var seconds: number | string = sec_num - (hours * 3600) - (minutes * 60);
+
+  if (hours < 10) { hours = "0" + String(hours); }
+  if (minutes < 10) { minutes = "0" + String(minutes); }
+  if (seconds < 10) { seconds = "0" + String(seconds); }
+  return String(hours) + ':' + String(minutes) + ':' + String(seconds);
 }
 
 export const estimatedUploadTime = (bytes: number, limit: number = 1024 * 1024 * 1024 * 1024, speed: number = 32 * 1024 * 1024) => {
@@ -139,7 +151,7 @@ export const getClientIdentifier = (id: number, type: string, workId: string) =>
   ].join('\0'))
 };
 
-export const resolvePath = (path:string) => {
+export const resolvePath = (path: string) => {
   const UNIX_SEP_REGEX = /\//g;
   const WIN_SEP_REGEX = /\\/g;
   // Unix separators normalize nicer on both unix and win platforms

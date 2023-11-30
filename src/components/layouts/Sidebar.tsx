@@ -78,10 +78,10 @@ export const GuacMenu = () => {
     pagination: { page: page, perPage: perpage },
     sort: { field: "id", order: 'ASC' },
     filter: { workStatus: filter },
-    meta: { token: accessToken }
+    meta: { token: accessToken, theme: localStorage.getItem('theme') }
   }
   React.useEffect(() => {
-    dataProvider.getList("works/" + localStorage.getItem('theme'), params).then((result: any) => {
+    dataProvider.getList("works", params).then((result: any) => {
       setWorks(result.data)
       setHasNextPage(result.pageInfo.hasNextPage)
     }).catch((response: any) => {

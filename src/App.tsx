@@ -16,7 +16,6 @@ import {
   AnnounceProvider,
   SFTPProvider,
 } from './dataProvider';
-import authProvider from './authProvider';
 import FilesList from './components/pages/FilesList';
 import FileShow from './components/pages/FileShow';
 import FilesCreate from './components/pages/FilesCreate';
@@ -46,11 +45,11 @@ export const LogoBox = () => (
   />
 )
 
-type AppContext = {
+type AppContextType = {
   theme: any,
   setTheme: React.Dispatch<React.SetStateAction<any>>
 }
-export const AppContext = React.createContext({} as AppContext);
+export const AppContext = React.createContext({} as AppContextType);
 
 export const adminTheme = {
   ...defaultTheme,
@@ -124,7 +123,6 @@ const App = () => {
     <AppContext.Provider value={{ theme: theme, setTheme: setTheme }}>
       <Admin
         dataProvider={dataProviders}
-        // authProvider={authProvider}
         i18nProvider={i18nProvider}
         layout={layout}
         theme={theme}

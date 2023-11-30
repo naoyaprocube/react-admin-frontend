@@ -68,7 +68,7 @@ const FileShow = (props: any) => {
           underline="hover"
           color="inherit"
           style={{ cursor: 'pointer' }}
-          onClick={() => navigate('/files/public')}
+          onClick={() => navigate('/files/public/' + dirId)}
         >
           {translate('pages.publicFileManager')}
         </Link>
@@ -76,7 +76,7 @@ const FileShow = (props: any) => {
           underline="hover"
           color="inherit"
           style={{ cursor: 'pointer' }}
-          onClick={() => navigate('/files/' + workId)}
+          onClick={() => navigate('/files/' + workId + "/" + dirId)}
         >
           {translate('pages.fileManager')}
         </Link>

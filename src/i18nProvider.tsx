@@ -166,6 +166,8 @@ const english = {
   },
   sftp: {
     transfer: 'Transfer files',
+    transferring: 'Transferring files...',
+    deleting: 'Deleting files...',
     delete: 'Delete',
     success: 'Success',
     move: 'Move to File Manager',
@@ -343,6 +345,8 @@ const japanese = {
   },
   sftp: {
     transfer: 'ファイルを転送',
+    transferring: 'ファイルを転送中...',
+    deleting: 'ファイルを削除中...',
     delete: '削除',
     success: '処理が完了しました。',
     move: 'ファイルマネージャーへ移動',

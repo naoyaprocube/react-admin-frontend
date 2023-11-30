@@ -32,7 +32,6 @@ const MyDatagridRow = ({
     transform: `translate3d(${transform.x}px, ${transform.y}px, 1000px)`,
     borderLeft: "1pt solid black",
   } : undefined
-  // if(active) console.log(active.id)
   const isTransfer = () => {
     if (over && active) {
       if (String(active.id) === id) {
