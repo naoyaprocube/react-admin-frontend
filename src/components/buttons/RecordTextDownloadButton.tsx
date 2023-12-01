@@ -12,7 +12,7 @@ import TextFieldsIcon from '@mui/icons-material/TextFields';
 export const RecordTextDownloadButton = (props: any) => {
   const { token } = props
   const notify = useNotify()
-  const record = useRecordContext();
+  const { record } = props
   const translate = useTranslate()
   const dataProvider = useDataProvider()
   // const array = JSON.parse(record.logs)
@@ -24,8 +24,8 @@ export const RecordTextDownloadButton = (props: any) => {
   if (!key) return null
   return (
     <Button
-      variant="contained"
-      sx={{ height: 20, ml: 0.3 }}
+      autoFocus 
+      color="inherit"
       startIcon={<TextFieldsIcon />}
       onClick={() => {
         dataProvider.download("history", { id: String(record.identifier), key: key, token: token }).then((response: Response) => {

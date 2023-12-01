@@ -472,6 +472,7 @@ export const HistoryProvider = {
   },
   gettm: (resource: any, params: any) => {
     const url = `/api/gettm`
+    // const url = `${guacUrl}/api/session/data/postgresql/history/connections/${params.id}/logs/${params.key}`
     return fetch(new Request(url, {
       method: "GET",
       credentials: 'include',
@@ -482,6 +483,7 @@ export const HistoryProvider = {
   },
   getlog: (resource: any, params: any) => {
     const url = `/api/getlog`
+    // const url = `${guacUrl}/api/session/data/postgresql/history/connections/${params.id}/logs/${params.key}`
     return fetch(new Request(url, {
       method: "GET",
       credentials: 'include',

@@ -15,7 +15,7 @@ const english = {
       name: 'Name',
       length: 'Size',
       uploadDate: 'Upload Date',
-      metadata:{
+      metadata: {
         status: 'Status',
         accessHistory: 'Access History',
         unique: "Fullpath"
@@ -47,7 +47,7 @@ const english = {
       title: 'This file already exists.',
       content: 'A file with the same filename already exists. Do you want to overwrite?'
     },
-    
+
     info: 'Upload File Info',
     infoIcon: 'Info',
     info_sizeover: 'Upload size limit over',
@@ -115,7 +115,9 @@ const english = {
     changeAdmin: 'Change Admin Mode',
     notAdminInfo: 'This page cannot be accessed in Worker Mode.',
     play: 'Play',
-    textlog: 'Text',
+    playSSHRecord: 'Play',
+    playSSHRecordTitle: 'Play SSH Record',
+    textlog: 'Download Text Log',
     none: 'None',
     field: {
       id: 'ID',
@@ -194,7 +196,7 @@ const japanese = {
       name: '名前',
       length: 'サイズ',
       uploadDate: '最終更新日時',
-      metadata:{
+      metadata: {
         status: '状態',
         accessHistory: 'アクセス履歴',
         unique: "フルパス"
@@ -226,7 +228,7 @@ const japanese = {
       title: 'このファイルはすでに存在しています。',
       content: '同じファイル名のファイルがすでに存在します。上書きしますか？'
     },
-    
+
     info: '選択したファイルの詳細',
     infoIcon: '詳細',
     info_sizeover: 'アップロードサイズ制限超過',
@@ -294,7 +296,9 @@ const japanese = {
     changeAdmin: '管理者モードに切り替える',
     notAdminInfo: '作業者モードでアクセスできないページです。',
     play: '再生',
-    textlog: 'テキスト',
+    playSSHRecord: '再生',
+    playSSHRecordTitle: 'SSHレコードの再生',
+    textlog: 'テキストログをダウンロード',
     none: 'なし',
     field: {
       id: 'ID',

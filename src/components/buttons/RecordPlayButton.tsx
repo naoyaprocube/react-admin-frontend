@@ -5,9 +5,10 @@ import {
   useDataProvider,
 } from 'react-admin'
 import { Button, Typography, Modal, Box } from '@mui/material';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 
 export const RecordPlayButton = (props: any) => {
+  
   const [open, setOpen] = React.useState(false);
   const record = useRecordContext();
   const translate = useTranslate()
@@ -23,7 +24,7 @@ export const RecordPlayButton = (props: any) => {
     <Button
       variant="contained"
       sx={{ height: 20, ml: 0.3 }}
-      startIcon={<PlayArrowIcon/>}
+      startIcon={<PlayCircleOutlineIcon />}
       onClick={() => {
         dataProvider.getenv("files", {}).then(({ json }: any) => {
           setOpen(!open)

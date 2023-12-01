@@ -136,9 +136,8 @@ const HistoryList = (props: any) => {
         }} />
         <Box sx={{ display: 'inline-flex' }}>
           <RecordPlayButton />
-          <RecordTextDownloadButton token={accessToken} />
-          <RMConnectionButton actives={actives} />
           <ReactTerm />
+          <RMConnectionButton actives={actives} />
         </Box>
       </CustomDatagrid>
     </List>

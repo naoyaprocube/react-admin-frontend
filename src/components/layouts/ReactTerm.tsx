@@ -2,17 +2,14 @@ import * as React from 'react'
 import { useAccessToken } from '../../tokenProvider'
 import { FitAddon } from 'xterm-addon-fit';
 import {
-  Menu,
   useDataProvider,
-  useNotify,
+  useRecordContext,
   useTranslate,
-  Confirm,
 } from 'react-admin';
 import {
   Box,
   Dialog,
   DialogContent,
-  DialogTitle,
   DialogActions,
   Button,
   Slider,
@@ -22,14 +19,18 @@ import {
   Toolbar,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
 import { toHHMMSS } from '../utils'
-import { Terminal, ITerminalOptions, ITerminalAddon } from 'xterm'
+import { RecordTextDownloadButton } from '../buttons/RecordTextDownloadButton'
+import { Terminal } from 'xterm'
 const sx = {
   width: "100%",
   height: "100%",
   bgcolor: "#000000",
   "& .xterm": {
-    cursor: "text",
     position: "relative",
     userSelect: "none",
     msUserSelect: "none",
@@ -98,15 +99,6 @@ const sx = {
     left: "-9999em",
     lineHeight: " normal",
   },
-  "& .xterm.enable-mouse-events": {
-    cursor: "default"
-  },
-  "& .xterm-cursor-pointer": {
-    cursor: "pointer"
-  },
-  "& .xterm.column-select.focus": {
-    cursor: "crosshair",
-  },
   "& .xterm-accessibility": {
     position: "absolute",
     left: 0,
@@ -172,11 +164,32 @@ const sx = {
     position: "relative",
   }
 }
+
+const Term = (props: any) => {
+  const { termRef, term } = props
+  const fitAddon = new FitAddon
+  React.useEffect(() => {
+    term.current.loadAddon(fitAddon)
+    term.current.open(termRef.current)
+    fitAddon.fit()
+  }, [])
+  return (
+    <Box
+      sx={sx}
+      className={"xterm"}
+      ref={termRef}
+    />)
+}
+
 export const ReactTerm = (props: any) => {
   const [open, setOpen] = React.useState(false);
+  const [play, setPlay] = React.useState(false);
+  const interval = React.useRef(null)
   const term = React.useRef(new Terminal())
   const termRef = React.useRef()
   const dataProvider = useDataProvider()
+  const record = useRecordContext();
+  const translate = useTranslate()
   const [token] = useAccessToken()
   const timing = React.useRef<Array<Array<string>>>(null)
   const timingInc = React.useRef<Array<number>>(null)
@@ -185,18 +198,73 @@ export const ReactTerm = (props: any) => {
   const offset = React.useRef<number>(0)
   const index = React.useRef<number>(0)
   const [value, setValue] = React.useState<number>(0);
-  const incrementFrame = () => {
+  const logs = Object.keys(record.logs).length !== 0 ?
+    Object.entries(record.logs).map(([key, value]) => ({ key, value }))
+    : null
+  const filteredTS = logs ? logs.filter((v: any) => v.value.type === "TYPESCRIPT") : null
+  const filteredTM = logs ? logs.filter((v: any) => v.value.type === "TYPESCRIPT_TIMING") : null
+  const keyTS = (
+    !!filteredTS
+    && filteredTS.length > 0
+  ) ? filteredTS[0].key : null
+  const keyTM = (
+    !!filteredTM
+    && filteredTM.length > 0
+  ) ? filteredTM[0].key : null
+  React.useEffect(() => {
+    if (play) {
+      interval.current = setInterval(() => {
+        setValue(value => value + 0.1)
+      }, 100)
+    }
+    else {
+      clearInterval(interval.current)
+    }
+  }, [play])
+  React.useEffect(() => {
+    if (play) {
+      if (value >= timingInc.current[index.current]) {
+        advanceFrame(false)
+      }
+      if (value > totalDur) {
+        setPlay(false)
+      }
+    }
+  }, [value])
+  const advanceFrame = (skip: boolean) => {
     if (timing.current[index.current]) {
+      if (skip) {
+        setValue(value => timingInc.current[index.current])
+        setPlay(false)
+      }
       const bytes = Number(timing.current[index.current][1])
       const buffer = log.current.slice(offset.current, offset.current + bytes)
       const ln = new Uint8Array(buffer)
-      setValue(value => value + Number(timing.current[index.current][0]))
+
       offset.current += bytes
       index.current += 1
       term.current.write(ln)
     }
   }
+  const backFrame = () => {
+    if (!!timingInc.current[index.current - 1]) {
+      if (index.current === 1) {
+        setValue(value => 0)
+        term.current.reset()
+        setPlay(false)
+        offset.current = 0
+        index.current = 0
+      }
+      else {
+        setValue(value => timingInc.current[index.current - 1])
+        handleChangeCommitted(null, timingInc.current[index.current - 1])
+      }
+    }
+  }
   const reset = () => {
+    setValue(0)
+    setOpen(true);
+    setPlay(false)
     term.current.reset()
     timing.current = null
     log.current = null
@@ -204,56 +272,47 @@ export const ReactTerm = (props: any) => {
     offset.current = 0
     index.current = 0
   }
-  const fitAddon = new FitAddon
   const handleOpen = () => {
-    setValue(0)
-    setOpen(true);
     reset()
-    dataProvider.gettm("history", { token: token }).then((res: Response) => {
+    dataProvider.gettm("history", { id: String(record.identifier), key: keyTM, token: token }).then((res: Response) => {
       return res.text()
     }).then((text: any) => {
       const array = String(text).split("\n")
       let total_dur = 0
-      timing.current = array.map((str: string) => {
-        const splitted = str.split(" ")
-        total_dur += Number(splitted[0])
-        return splitted
-      })
       timingInc.current = array.map((str: string) => {
         const splitted = str.split(" ")
         total_dur += Number(splitted[0])
         return total_dur
       })
+      timing.current = array.map((str: string) => {
+        const splitted = str.split(" ")
+        return splitted
+      })
       setTotalDur(total_dur)
     })
-    dataProvider.getlog("history", { token: token }).then((res: Response) => {
+    dataProvider.getlog("history", { id: String(record.identifier), key: keyTS, token: token }).then((res: Response) => {
       return res.arrayBuffer()
     }).then((blob: any) => {
       log.current = blob.slice(19, -18)
     })
-    setTimeout(() => {
-      term.current.loadAddon(fitAddon)
-      term.current.open(termRef.current)
-      fitAddon.fit()
-      console.log(term)
-    }, 500)
-    console.log(term)
   };
   const handleClose = () => {
     setOpen(false);
+    setPlay(false)
   };
   const handleChange = (event: any, newValue: number | number[]) => {
     setValue(newValue as number);
   };
   const handleChangeCommitted = (event: any, newValue: number | number[]) => {
     term.current.reset()
+    setPlay(false)
     offset.current = 0
     index.current = 0
     let dur = newValue as number
     let i = 0
     let len = 0
     if (totalDur <= dur) dur = totalDur
-    while (dur > Number(timing.current[i][0])) {
+    while (Math.floor(dur * 100000) / 100000 > Number(timing.current[i][0])) {
       dur -= Number(timing.current[i][0])
       len += Number(timing.current[i][1])
       i++
@@ -262,13 +321,15 @@ export const ReactTerm = (props: any) => {
     const buffer = log.current.slice(0, bytes)
     const ln = new Uint8Array(buffer)
     offset.current = bytes
-    console.log(offset.current)
     index.current = i
     term.current.write(ln)
   };
+  if (!(keyTS && keyTM)) return null
   return (<>
-    <Button variant="outlined" onClick={handleOpen}>
-      Open
+    <Button sx={{ height: 20, ml: 0.3 }} variant="contained" onClick={handleOpen} startIcon={<PlayArrowIcon />}>
+      <Typography component="pre" variant="body2">
+        {translate('guacamole.playSSHRecord')}
+      </Typography>
     </Button>
     <Dialog
       fullScreen
@@ -287,26 +348,36 @@ export const ReactTerm = (props: any) => {
           >
             <CloseIcon />
           </IconButton>
-          <Typography>
-            Record
+          <Typography variant="h6" component="div" sx={{ width: 1 }}>
+            {translate('guacamole.playSSHRecordTitle')}
           </Typography>
+          <RecordTextDownloadButton record={record} token={token} />
         </Toolbar>
       </AppBar>
       <DialogContent>
-        <Box
-          sx={sx}
-          className={"xterm"}
-          ref={termRef}
-        />
+        <Term term={term} termRef={termRef} />
       </DialogContent>
-      <DialogActions>
+      <DialogActions sx={{ ml: 1, mr: 1 }}>
         <IconButton
           edge="start"
           color="inherit"
-          onClick={incrementFrame}
-          aria-label="close"
+          onClick={() => setPlay(!play)}
         >
-          <CloseIcon />
+          {play ? <PauseIcon /> : <PlayArrowIcon />}
+        </IconButton>
+        <IconButton
+          edge="start"
+          color="inherit"
+          onClick={() => backFrame()}
+        >
+          <SkipPreviousIcon />
+        </IconButton>
+        <IconButton
+          edge="start"
+          color="inherit"
+          onClick={() => advanceFrame(true)}
+        >
+          <SkipNextIcon />
         </IconButton>
         <Slider
           max={Math.ceil(totalDur)}
@@ -316,10 +387,10 @@ export const ReactTerm = (props: any) => {
           onChange={handleChange}
           onChangeCommitted={handleChangeCommitted}
           valueLabelDisplay="auto"
-          valueLabelFormat={(v: number) => toHHMMSS(Math.floor(v))}
+          valueLabelFormat={(v: number) => toHHMMSS(Math.ceil(v))}
         />
-        <Typography >
-          {toHHMMSS(Math.ceil(totalDur))}
+        <Typography component="pre" sx={{ pl: 2 }}>
+          {toHHMMSS(Math.ceil(value))}/{toHHMMSS(Math.ceil(totalDur))}
         </Typography>
       </DialogActions>
     </Dialog>

@@ -18,7 +18,6 @@ import {
   Button,
   IconButton,
 } from '@mui/material';
-import { ReactTerm } from '../layouts/ReactTerm'
 import { CustomDatagrid } from '../layouts/CustomDatagrid'
 import { WorkFilterMenu } from '../layouts/FilterMenu'
 import AnnounceBoard from '../layouts/AnnounceBoard'
@@ -267,7 +266,6 @@ const Dashboard = (props: any) => {
         <WorkLinkButtons width="0%" />
       </CustomDatagrid>
     </InfiniteList>
-    <ReactTerm />
   </Box >
   );
 };
