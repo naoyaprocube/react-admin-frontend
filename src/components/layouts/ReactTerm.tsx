@@ -380,7 +380,7 @@ export const ReactTerm = (props: any) => {
           <SkipNextIcon />
         </IconButton>
         <Slider
-          max={Math.ceil(totalDur)}
+          max={totalDur}
           aria-label="Seekbar"
           value={value}
           step={0.1}

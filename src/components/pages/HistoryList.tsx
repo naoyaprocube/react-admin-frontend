@@ -25,7 +25,6 @@ import { useParams } from "react-router-dom";
 import PersonOffIcon from '@mui/icons-material/PersonOff';
 import { HistoryFilterMenu } from '../layouts/FilterMenu'
 import { RecordPlayButton } from '../buttons/RecordPlayButton'
-import { RecordTextDownloadButton } from '../buttons/RecordTextDownloadButton'
 import { RMConnectionButton } from '../buttons/RMConnectionButton'
 import dayjs, { extend } from 'dayjs';
 import duration from 'dayjs/plugin/duration';

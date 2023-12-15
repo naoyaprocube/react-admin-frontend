@@ -150,7 +150,8 @@ const SFTPClient = (props: any) => {
             else refresh()
             break
           case "error":
-            if (res.info) notify(res.info, { type: "error" })
+            if (res.error === "Permission denied") notify("Permission denied", { type: "error" })
+            else if (res.info) notify(res.info, { type: "error" })
             else notify(res.error, { type: "error" })
 
             if (res.inc) increment()

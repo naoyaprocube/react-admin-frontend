@@ -33,6 +33,7 @@ export const humanFileSize = (bytes: any, si = false, dp = 1) => {
   } while (Math.round(Math.abs(bytes) * r) / r >= thresh && u < units.length - 1);
   return bytes.toFixed(dp) + ' ' + units[u];
 }
+
 export const toHHMMSS = (sec: number) => {
   const conv = String(sec)
   var sec_num = parseInt(conv, 10); // don't forget the second param
