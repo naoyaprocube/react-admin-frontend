@@ -54,7 +54,7 @@ const FileShow = (props: any) => {
   const { workId, dirId, fileId } = useParams()
   const navigate = useNavigate()
   return (<>
-  <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
+    <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 2 }}>
       <Link
         underline="hover"
         color="inherit"
@@ -85,7 +85,7 @@ const FileShow = (props: any) => {
         {translate('pages.fileInfo')}
       </Typography>
     </Breadcrumbs>
-    <Edit resource={"files/" + dirId} id={fileId} redirect={"/files/" + dirId} title={<EditTitle />}>
+    <Edit resource={"files"} id={fileId} queryOptions={{ meta: { dirId: dirId } }} redirect={"/files/" + workId + "/" + dirId} title={<EditTitle />}>
       <SimpleForm toolbar={false}>
         <Box sx={{ width: 1, mb: 1 }}>
           <TextInput source="filename" label="file.fields.filename" variant="standard" sx={{ mb: -1, width: 0.5, }} style={{ maxWidth: 600 }} />
@@ -113,7 +113,7 @@ const FileShow = (props: any) => {
       </SimpleForm>
     </Edit>
   </>
-    
+
   )
 }
 export default FileShow;

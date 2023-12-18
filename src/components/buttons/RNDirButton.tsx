@@ -27,7 +27,7 @@ interface RNDProps {
   dirName: String;
 }
 
-const NameInputField = ({ control, val}:any) => {
+const NameInputField = ({ control, val }: any) => {
   return (
     <div>
       <Controller
@@ -63,11 +63,11 @@ export const RNDirButton = (props: RNDProps) => {
   const translate = useTranslate()
   const name = useWatch({ name: "NameInputField", control: control });
   const isSet = (name && name !== dirName) ? true : false
-  
+
   const onSubmit = (data: any) => {
-    dataProvider.rndir("files/" + dirId, { dirname: data.NameInputField }).then((response: Response) => {
+    dataProvider.rndir("files", { dirId: dirId, dirname: data.NameInputField }).then((response: Response) => {
       if (response.status < 200 || response.status >= 300) {
-        if(response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
+        if (response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
         else notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: "Error" } })
       }
       else if (response.status === 200) {
@@ -79,7 +79,7 @@ export const RNDirButton = (props: RNDProps) => {
       notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
     })
   }
-  if(!isRoot) return null
+  if (!isRoot) return null
   return (
     <MenuItem disabled={open} onClick={() => { if (!open) setOpen(true) }}>
       <DriveFileRenameOutlineIcon color="primary" fontSize="small" />
@@ -96,8 +96,8 @@ export const RNDirButton = (props: RNDProps) => {
         maxWidth={"xs"}
       >
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
-          <DialogTitle sx={{display: "flex"}}>
-            <DriveFileRenameOutlineIcon color="primary" fontSize="large" sx={{ mr: 1}} />
+          <DialogTitle sx={{ display: "flex" }}>
+            <DriveFileRenameOutlineIcon color="primary" fontSize="large" sx={{ mr: 1 }} />
             <Box>
               {translate('dir.rndir.title', { dirName: dirName })}
             </Box>
@@ -106,7 +106,7 @@ export const RNDirButton = (props: RNDProps) => {
             <DialogContentText>
               {translate('dir.rndir.content', { name: dirName })}
             </DialogContentText>
-            <NameInputField control={control} val={dirName}/>
+            <NameInputField control={control} val={dirName} />
           </DialogContent>
           <DialogActions>
             <Button

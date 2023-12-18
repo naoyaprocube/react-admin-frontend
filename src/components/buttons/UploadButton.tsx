@@ -22,6 +22,7 @@ import { useNavigate } from "react-router-dom";
 import { humanFileSize } from '../utils'
 import Paper, { PaperProps } from '@mui/material/Paper';
 import Draggable from 'react-draggable';
+import { v4 } from 'uuid'
 
 function PaperComponent(props: PaperProps) {
   return (
@@ -45,7 +46,7 @@ export const UploadButton = (props: UploadButtonProps) => {
   const [isUploading, setUploading] = React.useState(false);
   const [timestamp, setTimestamp] = React.useState('');
   const [elapsedTime, setElapsedTime] = React.useState('');
-
+  const uuid = React.useRef("");
   const notify = useNotify();
   const file = useWatch({ name: 'file' });
   const dataProvider = useDataProvider();
@@ -96,7 +97,7 @@ export const UploadButton = (props: UploadButtonProps) => {
     if (!file) {
       return
     }
-    dataProvider.check("files/" + dirId, file).then((response: any) => {
+    dataProvider.check("files", {dirId:dirId,file: file}).then((response: any) => {
       const { json } = response
       if (response.status < 200 || response.status >= 300) {
         if (response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
@@ -126,8 +127,11 @@ export const UploadButton = (props: UploadButtonProps) => {
     setButton(true)
     setUploading(true)
     increment()
+    uuid.current = v4()
     if (isOverwrite) setOpen(false)
-    dataProvider.upload("files/" + dirId, { "id": id, "data": { "file": file } }).then((response: any) => {
+    dataProvider.upload("files", {
+      "dirId": dirId, "id": id, "uuid": uuid.current, "data": { "file": file }
+    }).then((response: any) => {
       if (response.status < 200 || response.status >= 300) {
         notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
       }
@@ -197,7 +201,7 @@ export const UploadButton = (props: UploadButtonProps) => {
         <DialogActions>
           <Button
             onClick={() => {
-              dataProvider.cancel("files/" + dirId, { filename: file ? file.title : null }).then((response: any) => {
+              dataProvider.cancel("files", { dirId: dirId, uuid: uuid.current, filename: file ? file.title : null }).then((response: any) => {
                 if (response.status < 200 || response.status >= 300) {
                   notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.message } })
                 }

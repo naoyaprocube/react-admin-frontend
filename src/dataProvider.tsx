@@ -1,10 +1,9 @@
 import { fetchUtils, HttpError } from 'react-admin';
 import { stringify } from 'query-string';
-import { useAccessToken } from './tokenProvider'
 import { convertPeriod } from './components/utils'
 import { dummyWorks, dummyAnnounces, testHistory } from './dummy/dummyObjects'
 const apiUrl = '/api';
-const guacUrl = '/guacamole'
+const guacUrl = '/guac-api'
 // const httpClient = fetchUtils.fetchJson;
 const httpClient = (url: string, options: any = {}, token?: string) => {
   if (!options.headers) {
@@ -52,7 +51,8 @@ export const dataProvider = {
   },
 
   getOne: (resource: any, params: any) => {
-    return httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }: any) => ({
+    const { dirId } = params.meta
+    return httpClient(`${apiUrl}/${resource}${dirId ? "/" + dirId : ""}/${params.id}`).then(({ json }: any) => ({
       data: { ...json, id: json._id }, //!
     }))
   },
@@ -86,11 +86,12 @@ export const dataProvider = {
     }));
   },
 
-  update: (resource: any, params: any) =>
-    httpClient(`${apiUrl}/${resource}/${params.id}`, {
+  update: (resource: any, params: any) => {
+    return httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: 'PUT',
       body: JSON.stringify(params.data),
-    }).then(({ json }: any) => ({ data: { ...json.data, id: json.data._id } })),
+    }).then(({ json }: any) => ({ data: { ...json.data, id: json.data._id } }))
+  },
 
   updateMany: (resource: any, params: any) => {
     const query = {
@@ -143,13 +144,15 @@ export const FileProvider = {
   },
 
   check: (resource: any, params: any) => {
-    return httpClient(`${apiUrl}/${resource}/check`, {
+    const { dirId, file } = params
+    return httpClient(`${apiUrl}/${resource}/${dirId}/check`, {
       method: "POST",
-      body: JSON.stringify({ "filename": params.title })
+      body: JSON.stringify({ "filename": file.title })
     })
   },
 
   upload: (resource: any, params: any) => {
+    const { dirId, id, uuid } = params
     let formData = new FormData();
     formData.append('file', params.data.file.rawFile);
     function encodeUTF8(str: any) {
@@ -157,25 +160,28 @@ export const FileProvider = {
       return encoder.encode(str);
     }
     const filename = encodeUTF8(params.data.file.title).toString()
-    return httpClient(`${apiUrl}/${resource}/${params.id}`, {
+    return httpClient(`${apiUrl}/${resource}/${dirId}/${id}`, {
       method: 'POST',
       headers: new Headers({
         'content-length': params.data.file.size,
-        'content-filename': filename
+        'content-filename': filename,
+        'uuid': uuid
       }),
       body: formData,
     })
   },
 
   cancel: (resource: any, params: any) => {
-    return httpClient(`${apiUrl}/${resource}/cancel`, {
+    const { dirId } = params
+    return httpClient(`${apiUrl}/${resource}/${dirId}/cancel`, {
       method: 'POST',
       body: JSON.stringify(params)
     })
   },
 
   mkdir: (resource: any, params: any) => {
-    return httpClient(`${apiUrl}/${resource}/mkdir`, {
+    const { dirId } = params
+    return httpClient(`${apiUrl}/${resource}/${dirId}/mkdir`, {
       method: 'POST',
       body: JSON.stringify(params)
     }).catch((error) => {
@@ -184,14 +190,16 @@ export const FileProvider = {
   },
 
   rndir: (resource: any, params: any) => {
-    return httpClient(`${apiUrl}/${resource}/rndir`, {
+    const { dirId } = params
+    return httpClient(`${apiUrl}/${resource}/${dirId}/rndir`, {
       method: 'PUT',
       body: JSON.stringify(params)
     });
   },
 
-  getdirs: (resource: any) => {
-    return httpClient(`${apiUrl}/${resource}/getdirs`, {
+  getdirs: (resource: any, params: any) => {
+    const { idmId } = params
+    return httpClient(`${apiUrl}/${resource}/${idmId}/getdirs`, {
       method: 'GET'
     })
   },

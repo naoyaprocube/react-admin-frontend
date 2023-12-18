@@ -68,7 +68,7 @@ export const SFTPMKDirButton = (props: MKDProps) => {
       type: "mkdir",
       path: parent_path + "/" + data.NameInputField,
     }))
-    else if (resource === "mongo" && dirId) dataProvider.mkdir("files/" + dirId, { dirname: data.NameInputField }).then((response: Response) => {
+    else if (resource === "mongo" && dirId) dataProvider.mkdir("files", { dirId: dirId, dirname: data.NameInputField }).then((response: Response) => {
       if (response.status < 200 || response.status >= 300) {
         if (response.statusText) notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: response.statusText } })
         else notify('file.statusCodeError', { type: 'error', messageArgs: { code: response.status, text: "Error" } })

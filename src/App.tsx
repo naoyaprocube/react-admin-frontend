@@ -82,7 +82,7 @@ const App = () => {
   React.useEffect(() => {
     const username = "guacadmin"
     const password = "guacadmin"
-    const tokenRequest = new Request('/guacamole/api/tokens', {
+    const tokenRequest = new Request('/guac-api/api/tokens', {
       method: 'POST',
       body: "username=" + username + "&password=" + password,
       headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }),
@@ -110,15 +110,24 @@ const App = () => {
   }
 
   const dataProviders = combineDataProviders((resource: string) => {
-    if (resource.startsWith("files")) return FileProvider;
-    else if (resource.startsWith("connections")) return ConnectProvider;
-    else if (resource.startsWith("history")) return HistoryProvider;
-    else if (resource.startsWith("works")) return WorkProvider;
-    else if (resource.startsWith("announce")) return AnnounceProvider;
-    else if (resource.startsWith("sftp")) return SFTPProvider;
-    else return null
+    switch (resource) {
+      case 'files':
+        return FileProvider
+      case 'connections':
+        return ConnectProvider
+      case 'history':
+        return HistoryProvider
+      case 'works':
+        return WorkProvider
+      case 'announce':
+        return AnnounceProvider
+      case 'sftp':
+        return SFTPProvider
+      default:
+        return null
+    }
   });
-  if(!accessToken) return null
+  if (!accessToken) return null
   else return (
     <AppContext.Provider value={{ theme: theme, setTheme: setTheme }}>
       <Admin

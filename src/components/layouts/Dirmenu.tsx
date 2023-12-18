@@ -70,7 +70,7 @@ const DirMenu = (props: MenuProps) => {
   const [getdirFire, setGetdirFire] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    dataProvider.getdirs("files/" + idmId).then((result: any) => {
+    dataProvider.getdirs("files", { idmId: idmId }).then((result: any) => {
       const list = String(result.body)
         .split('"_id":\"')
         .map((str: String) => {
